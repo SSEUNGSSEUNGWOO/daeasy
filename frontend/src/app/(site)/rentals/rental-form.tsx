@@ -9,9 +9,6 @@ const TIME_SLOTS = [
   "기타",
 ];
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
-
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export function RentalForm() {
@@ -28,7 +25,7 @@ export function RentalForm() {
     const usageDate = (data.get("usage_date") as string) || null;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/v1/rentals/inquiries`, {
+      const res = await fetch(`/api/rentals/inquiries`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

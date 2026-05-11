@@ -2,9 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
-
 type FloatingHeart = {
   id: number;
   x: number;
@@ -21,9 +18,7 @@ export function LikeButton({ slug }: { slug: string }) {
   const sessionKey = `liked_insight_${slug}`;
 
   useEffect(() => {
-    fetch(
-      `${API_BASE}/api/v1/insights/${encodeURIComponent(slug)}/likes`,
-    )
+    fetch(`/api/insights/${encodeURIComponent(slug)}/likes`)
       .then((r) => r.json())
       .then((d) => setCount(d.count ?? 0))
       .catch(() => {});
@@ -55,7 +50,7 @@ export function LikeButton({ slug }: { slug: string }) {
 
     try {
       const res = await fetch(
-        `${API_BASE}/api/v1/insights/${encodeURIComponent(slug)}/likes`,
+        `/api/insights/${encodeURIComponent(slug)}/likes`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

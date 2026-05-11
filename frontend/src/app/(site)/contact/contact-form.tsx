@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
-
 type CourseOption = { slug: string; title: string };
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -21,7 +18,7 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
     const data = new FormData(form);
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/v1/contact/inquiries`, {
+      const res = await fetch(`/api/contact/inquiries`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

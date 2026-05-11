@@ -2,16 +2,12 @@
 
 import { useEffect } from "react";
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
-
 export function ViewTracker({ slug }: { slug: string }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    fetch(
-      `${API_BASE}/api/v1/insights/${encodeURIComponent(slug)}/views`,
-      { method: "POST" },
-    ).catch(() => {});
+    fetch(`/api/insights/${encodeURIComponent(slug)}/views`, {
+      method: "POST",
+    }).catch(() => {});
   }, [slug]);
   return null;
 }

@@ -7,13 +7,21 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1280px] px-6 py-14 lg:px-10">
         <div className="grid grid-cols-12 gap-x-8 gap-y-10">
           <div className="col-span-12 md:col-span-4">
-            <Link href="/" className="flex items-center" aria-label="daeasy 홈">
+            <Link href="/" className="flex items-center gap-2.5" aria-label="daeasy 홈">
               <Image
-                src="/logo/daeasy-wordmark-yellow-classic.svg"
+                src="/logo/daeasy-symbol-mark.png"
+                alt=""
+                width={56}
+                height={56}
+                className="h-7 w-7"
+                unoptimized
+              />
+              <Image
+                src="/logo/daeasy-text-yellow-classic.svg"
                 alt="daeasy"
-                width={140}
-                height={36}
-                className="h-8 w-auto"
+                width={180}
+                height={66}
+                className="h-7 w-auto"
                 unoptimized
               />
             </Link>

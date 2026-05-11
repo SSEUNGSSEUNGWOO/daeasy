@@ -121,6 +121,8 @@ def run(topic: str) -> None:
     print(f"\n[3/3] 파이프라인 시작")
     feedback = ""
     guide = None
+    final_passed = False
+    final_feedback = ""
 
     for attempt in range(1, max_retries + 1):
         print(f"\n  [Writer] 초안 작성 중... (시도 {attempt}/{max_retries})")
@@ -135,13 +137,15 @@ def run(topic: str) -> None:
             print(f"  [Evaluator] 평가 실패 ({e}) → 통과 처리")
             score, passed, feedback = 0.0, True, ""
 
+        final_passed = passed
+        final_feedback = feedback
         if passed:
             break
         if attempt < max_retries:
             print(f"  [Evaluator] 피드백: {feedback}")
             print(f"  → 재작성 요청")
         else:
-            print(f"  [Evaluator] 최대 재시도 도달, 현재 버전으로 진행")
+            print(f"  [Evaluator] 최대 재시도 도달 — draft 로 저장. 검토 후 수동 publish 필요.")
 
     # ── 3. Editor ────────────────────────────────
     print(f"\n  [Editor] 템플릿 정리 + 오탈자 교정 중...")
@@ -149,6 +153,10 @@ def run(topic: str) -> None:
     print(f"  [Editor] 완료")
 
     guide["evaluation_score"] = round(score, 2)
+    # 평가 통과 못 하면 draft 로 — 사용자가 supabase Studio 에서 검토 후 published 로 전환
+    guide["status"] = "published" if final_passed else "draft"
+    if not final_passed:
+        guide["_eval_feedback"] = final_feedback
 
     # ── 4. 이미지 프롬프트 출력 + url 미리 세팅 ──
     images = guide.get("images", [])
@@ -168,9 +176,14 @@ def run(topic: str) -> None:
 
     save(guide)
 
-    print(f"\n✅ 저장 완료: [{guide['category']}] {guide['title']} (평가 {score:.2f}점)")
+    status_label = "✅ 발행 완료 (published)" if final_passed else "⚠️  검토 필요 (draft 저장)"
+    print(f"\n{status_label}: [{guide['category']}] {guide['title']} (평가 {score:.2f}점)")
     print(f"   참고 아티클 {len(articles_ok)}개 / YouTube 추천 {len(guide['videos'])}개 포함")
     print(f"   위 프롬프트를 ChatGPT에 붙여넣어 이미지 생성 후 해당 경로에 저장하세요")
+    if not final_passed:
+        print(f"\n   📝 평가 피드백:\n   {final_feedback}\n")
+        print(f"   👉 Supabase Studio → guides → slug='{guide['slug']}' 검토 후")
+        print(f"      status 를 'published' 로 바꿔야 사이트에 노출됩니다.")
 
 
 if __name__ == "__main__":

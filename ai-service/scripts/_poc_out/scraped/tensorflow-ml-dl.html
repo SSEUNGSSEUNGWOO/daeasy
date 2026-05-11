@@ -1,0 +1,20 @@
+<h3>TensorFlow로 구현하는 머신러닝·딥러닝 데이터분석</h3>
+<ul><li>데이터 분석 관점에서 머신러닝/딥러닝 모델을 이해하고, TensorFlow(Keras)로 직접 구현·학습·평가까지 수행하는 실습 중심 과정입니다.</li><li>베이스라인 머신러닝 모델을 구성한 뒤, 신경망(MLP)을 TensorFlow로 구현하고 성능 개선/해석/추론 파이프라인까지 완성합니다.</li></ul>
+<h4 class="mt-8">학습 목표</h4>
+<ul><li>머신러닝 분석 파이프라인(전처리→학습→평가→해석)을 구성하고, 대표 모델을 적용할 수 있다.</li><li>TensorFlow(Keras)로 신경망(MLP)을 직접 구현하고, 학습/평가/저장/추론까지 end-to-end로 수행할 수 있다.</li><li>과적합 방지 및 성능 개선(정규화, Dropout, Callback, LR 스케줄 등)을 적용해 모델을 고도화할 수 있다.</li><li>실험 결과를 지표/시각화/오류분석으로 정리해 의사결정에 활용 가능한 리포트 형태로 전달할 수 있다.</li></ul>
+<h4 class="mt-8">핵심 내용</h4>
+<ul><li>데이터 전처리/검증: train/valid/test, 데이터 누수 방지, 스케일링/인코딩, 평가 지표 설계</li><li>ML 베이스라인: 회귀/분류 모델 비교 및 오류 분석(Confusion Matrix 등)</li><li>TensorFlow(Keras) 구현: 모델 정의(Functional/Sequential), compile/fit, Callback, tf.data 파이프라인</li><li>성능 개선: 정규화(L2), Dropout, EarlyStopping, ModelCheckpoint, LR 스케줄</li><li>운영 관점: 모델 저장/로드(SavedModel), 추론(inference) 함수, 입력 데이터 스키마/검증</li><li>교육 성과</li><li>[교육 결과] 베이스라인 ML + TensorFlow 딥러닝 모델(MLP) 구현 코드, 성능 비교표, 오류 분석 리포트(요약본)</li><li>[업무 활용] 재사용 가능한 템플릿: 전처리 체크리스트, 평가 지표 표준, 실험 로그(전/후 비교), 모델 저장/추론 예제</li></ul>
+<h4 class="mt-8">학습 대상</h4>
+<ul><li>딥러닝 모델을 “이해”에서 끝내지 않고 TensorFlow로 직접 구현해보고 싶은 실무자/입문자</li><li>데이터 분석 결과를 모델 성능/일반화/오류분석까지 포함해 설명해야 하는 담당자</li><li>코드 기반 모델링을 시작하거나, Keras 기반 딥러닝 워크플로우를 빠르게 익히고 싶은 학습자</li><li>필요 역량</li><li>파이썬 기초 문법(함수/조건/반복, 리스트/딕셔너리) 이해</li><li>pandas로 데이터 로딩/기본 전처리 경험이 있으면 학습 효과가 더 높음</li></ul>
+<h4 class="mt-8">교육 시간</h4>
+<ul><li>2일 - 16H</li><li>Day 1 Day 2</li></ul>
+<h5 class="mt-6">09:00 ~ 11:00 <span class="text-zinc-500">· 데이터 분석 파이프라인 &amp; ML 베이스라인</span></h5>
+<ul><li><strong>목표:</strong> 재현 가능한 분석 흐름(전처리→학습→평가)을 고정하고 베이스라인을 만든다.</li><li>문제 유형 정리: 회귀/분류, 데이터 분할(train/valid/test), 데이터 누수(leakage) 방지</li><li>전처리 기본: 결측/이상치, 인코딩/스케일링, 파이프라인 구성 개요</li><li>베이스라인 모델: 선형/로지스틱, 트리 계열(개요) 적용 및 비교</li><li><strong>산출물:</strong> 베이스라인 성능표(지표 포함) + 개선 가설</li></ul>
+<h5 class="mt-6">11:00 ~ 12:00 <span class="text-zinc-500">· 평가지표 &amp; 오류 분석(해석 중심)</span></h5>
+<ul><li><strong>목표:</strong> 성능 숫자뿐 아니라 “왜 틀리는지”를 분석하고 개선 방향을 도출한다.</li><li>회귀/분류 지표(RMSE/MAE/F1/AUC 등) 선택 기준</li><li>Confusion Matrix/오분류 케이스 분석, 데이터 품질 이슈 점검</li><li><strong>산출물:</strong> 오류 유형 3개 + 개선 액션 2개</li></ul>
+<h5 class="mt-6">12:00 ~ 13:00 <span class="text-zinc-500">· 점심 시간 휴식</span></h5>
+<h5 class="mt-6">13:00 ~ 15:00 <span class="text-zinc-500">· 딥러닝 핵심 개념(필수 이론) &amp; TensorFlow/Keras 워크플로우</span></h5>
+<ul><li><strong>목표:</strong> 신경망 학습의 핵심 개념을 이해하고, TensorFlow로 구현 가능한 형태로 연결한다.</li><li>MLP 구조, 활성화(ReLU/Sigmoid), 손실(MSE/CE), 옵티마이저(Adam), 과적합/일반화</li><li>Keras 기본: 모델 구성(Sequential/Functional), compile/fit/evaluate, metrics</li><li>데이터 입력: numpy/pandas → tf.data로 연결(개요) 및 입력 스키마 정리</li><li><strong>산출물:</strong> 딥러닝 설계 메모(입력/출력/손실/지표 선택 근거)</li></ul>
+<h5 class="mt-6">15:00 ~ 18:00 <span class="text-zinc-500">· TensorFlow로 MLP 직접 구현 &amp; 학습/평가 루프 완성</span></h5>
+<ul><li><strong>목표:</strong> TensorFlow(Keras)로 모델을 직접 구현하고 학습/평가를 end-to-end로 수행한다.</li><li>모델 정의(레이어 설계), 학습 설정(손실/옵티마이저/지표)</li><li>Callback 기초: EarlyStopping/ModelCheckpoint(개요 및 적용)</li><li>[실습] 탭уляр 데이터(분류/회귀 중 택1)로 MLP 학습→평가→결과 기록</li><li><strong>산출물:</strong> TensorFlow MLP 베이스라인 코드 + 성능 결과(지표/차트)</li></ul>
+<p class="text-[14px] text-zinc-500">※ 실습 데이터셋과 난이도는 참가자 수준에 맞춰 조정될 수 있습니다.</p>

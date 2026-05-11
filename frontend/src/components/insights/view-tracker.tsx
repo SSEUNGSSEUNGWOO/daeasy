@@ -8,10 +8,6 @@ const API_BASE =
 export function ViewTracker({ slug }: { slug: string }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const key = `viewed_insight_${slug}`;
-    const today = new Date().toISOString().slice(0, 10);
-    if (localStorage.getItem(key) === today) return;
-    localStorage.setItem(key, today);
     fetch(
       `${API_BASE}/api/v1/insights/${encodeURIComponent(slug)}/views`,
       { method: "POST" },

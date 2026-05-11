@@ -9,7 +9,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-daisy: #ffd43b;
+  --color-accent: #2563eb;
+  --color-accent-warm: #f97316;
   --color-ink: #17150f;
   --color-paper: #f5f1e8;
   --font-sans: Pretendard, var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;

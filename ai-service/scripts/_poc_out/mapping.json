@@ -1,0 +1,165 @@
+{
+  "review": [
+    {
+      "slug": "financial-ai-leadership",
+      "title": "[금융 특화] 금융 AI 리더십 및 전략 과정",
+      "source_url": "https://dataeasy.kr/financial_leadership"
+    },
+    {
+      "slug": "retail-leadership-restructure",
+      "title": "[유통 특화] 유통 리더십 및 구조혁신 과정",
+      "source_url": "https://dataeasy.kr/retail_leadership"
+    },
+    {
+      "slug": "ai-literacy",
+      "title": "[표준 과정] AI 리터러시",
+      "source_url": "https://dataeasy.kr/ai-literacy-1d"
+    },
+    {
+      "slug": "data-literacy",
+      "title": "[표준 과정] 데이터 리터러시",
+      "source_url": "https://dataeasy.kr/data-literacy-1d"
+    },
+    {
+      "slug": "manager-ai-leadership",
+      "title": "[표준 과정] 관리자 AI 리더십",
+      "source_url": "https://dataeasy.kr/AI-leader-1d"
+    },
+    {
+      "slug": "genai-productivity",
+      "title": "[표준 과정] 생성형 AI 활용 업무 효율화",
+      "source_url": "https://dataeasy.kr/gen-ai-work-1d"
+    },
+    {
+      "slug": "data-basics-1day",
+      "title": "초보자를 위한 데이터분석 기초 원데이 특강",
+      "source_url": "https://dataeasy.kr/biginner_oneday"
+    },
+    {
+      "slug": "data-decision-1day",
+      "title": "리더들을 위한 데이터 의사 결정 원데이 교육",
+      "source_url": "https://dataeasy.kr/manager_data"
+    },
+    {
+      "slug": "excel-data-3days",
+      "title": "엑셀로 배우는 데이터 분석 기초 3일 마스터",
+      "source_url": "https://dataeasy.kr/biginner_data"
+    },
+    {
+      "slug": "data-viz-eda-3days",
+      "title": "데이터시각화 EDA 3일 코스",
+      "source_url": "https://dataeasy.kr/biginner_visual"
+    },
+    {
+      "slug": "sql-basics",
+      "title": "초보자를 위한 데이터관리 SQL 실무 과정",
+      "source_url": "https://dataeasy.kr/biginner_sql"
+    },
+    {
+      "slug": "ai-banking",
+      "title": "[금융 특화] AI 뱅킹 실무 과정",
+      "source_url": "https://dataeasy.kr/AI_banking"
+    },
+    {
+      "slug": "ai-scm-logistics",
+      "title": "[유통 특화] AI SCM 및 물류 혁신 과정",
+      "source_url": "https://dataeasy.kr/AI_SCM"
+    },
+    {
+      "slug": "ai-nocode-decision",
+      "title": "[표준 과정] AI 노코드 데이터 의사결정",
+      "source_url": "https://dataeasy.kr/nocode-data-1d"
+    },
+    {
+      "slug": "ai-service-planning",
+      "title": "[표준 과정] AI 서비스 융합 기획",
+      "source_url": "https://dataeasy.kr/AI-service-design"
+    },
+    {
+      "slug": "data-analysis-cases",
+      "title": "[표준 과정] 융합 데이터 분석 사례 교육",
+      "source_url": "https://dataeasy.kr/data-analysis-example"
+    },
+    {
+      "slug": "nocoding-data-analysis",
+      "title": "노코딩 데이터 분석 Excel/Orange",
+      "source_url": "https://dataeasy.kr/intermediate_nocoding"
+    },
+    {
+      "slug": "python-data-analysis",
+      "title": "파이썬을 활용한 데이터 분석",
+      "source_url": "https://dataeasy.kr/intermediate_python"
+    },
+    {
+      "slug": "ml-data-analysis",
+      "title": "머신러닝 입문자들을 위한 인공지능 데이터 분석 과정",
+      "source_url": "https://dataeasy.kr/intermediate_ai"
+    },
+    {
+      "slug": "sql-advanced",
+      "title": "SQL을 활용한 데이터 분석 실무 심화 과정",
+      "source_url": "https://dataeasy.kr/intermediate_sql"
+    },
+    {
+      "slug": "bigdata-analysis",
+      "title": "빅데이터 활용을 위한 데이터 분석 과정",
+      "source_url": "https://dataeasy.kr/intermediate_bigdata"
+    },
+    {
+      "slug": "chatgpt-productivity",
+      "title": "ChatGPT를 활용한 생산성 향상 실무 과정",
+      "source_url": "https://dataeasy.kr/intermediate_chatgpt"
+    },
+    {
+      "slug": "ai-investment-insurance",
+      "title": "[금융 특화] AI 투자 및 보험 과정",
+      "source_url": "https://dataeasy.kr/AI_investment_insurance"
+    },
+    {
+      "slug": "ai-foodtech-livestock",
+      "title": "[유통 특화] AI 푸드테크 및 축산 과정",
+      "source_url": "https://dataeasy.kr/AI_FoodTech"
+    },
+    {
+      "slug": "nocode-ai-service",
+      "title": "[표준 과정] 노코드 AI 서비스 구현",
+      "source_url": "https://dataeasy.kr/no-code-ai-service-build"
+    },
+    {
+      "slug": "tensorflow-ml-dl",
+      "title": "[표준 과정] Tensorflow로 구현하는 머신러닝·딥러닝 데이터분석",
+      "source_url": "https://dataeasy.kr/tensorflow-ml-dl"
+    },
+    {
+      "slug": "ai-data-development",
+      "title": "[표준 과정] AI 융합 데이터 분석·개발 활용",
+      "source_url": "https://dataeasy.kr/ai-data-develop"
+    },
+    {
+      "slug": "llm-prompt-hackathon",
+      "title": "[표준 과정] LLM 프롬프트 해커톤",
+      "source_url": "https://dataeasy.kr/LLM-prompt-hackerton"
+    },
+    {
+      "slug": "llm-mvp-project",
+      "title": "[표준 과정] LLM 서비스 개발 미니 프로젝트",
+      "source_url": "https://dataeasy.kr/LLM-service-develop-mini-project"
+    },
+    {
+      "slug": "chatgpt-advanced-analysis",
+      "title": "ChatGPT를 활용한 고급 데이터 분석 및 자동화 과정",
+      "source_url": "https://dataeasy.kr/advance_chatgpt"
+    },
+    {
+      "slug": "transformer-deep-learning",
+      "title": "Transformer 기반 딥러닝 마스터 과정",
+      "source_url": "https://dataeasy.kr/advance_deeplearning"
+    },
+    {
+      "slug": "latest-data-llm",
+      "title": "최신 기술로 배우는 데이터 분석과 LLM 활용 과정",
+      "source_url": "https://dataeasy.kr/advance_llm"
+    }
+  ],
+  "unmatched": []
+}

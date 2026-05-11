@@ -35,7 +35,7 @@ export function HeroRotatingWord({ words, intervalMs = 2600 }: Props) {
         <span className="relative z-[1]">{words[index]}</span>
         <span
           aria-hidden
-          className="absolute inset-x-[-2px] bottom-[6px] -z-0 h-[14px] bg-daisy/85"
+          className="absolute inset-x-[-2px] bottom-[6px] -z-0 h-[14px] bg-accent/30"
         />
       </span>
     </span>

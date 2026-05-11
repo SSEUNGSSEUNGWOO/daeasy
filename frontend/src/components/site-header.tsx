@@ -14,14 +14,14 @@ const NAV_ITEMS = [
 export function SiteHeader() {
   return (
     <>
-      <div className="bg-daisy text-[#17150F]">
+      <div className="bg-accent text-white">
         <div className="mx-auto flex h-10 max-w-[1280px] items-center justify-center px-6 text-[12.5px]">
-          <span className="font-medium">2026 상반기 공개 워크숍 — </span>
+          <span className="font-medium">조직에 맞는 AI 도입, 어디부터 시작할지 모르겠다면 —</span>
           <Link
-            href="/courses"
+            href="/contact"
             className="ml-1.5 font-bold underline-offset-4 hover:underline"
           >
-            일정 보기 →
+            무료 상담 신청 →
           </Link>
         </div>
       </div>
@@ -29,23 +29,14 @@ export function SiteHeader() {
       <header className="sticky top-0 z-30 border-b border-zinc-200/70 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
         <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-6 lg:px-10">
           <div className="flex items-center gap-10">
-            <Link href="/" className="flex items-center gap-1" aria-label="daeasy 홈">
+            <Link href="/" className="flex items-center gap-2.5" aria-label="daeasy 홈">
               <Image
-                src="/logo/daeasy-symbol-yellow-classic.svg"
+                src="/logo/daeasy-symbol-mark.png"
                 alt=""
                 width={56}
                 height={56}
                 priority
-                className="block h-12 w-12 dark:hidden"
-                unoptimized
-              />
-              <Image
-                src="/logo/daeasy-symbol-onDark.svg"
-                alt=""
-                width={56}
-                height={56}
-                priority
-                className="hidden h-12 w-12 dark:block"
+                className="h-7 w-7"
                 unoptimized
               />
               <Image
@@ -81,7 +72,7 @@ export function SiteHeader() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 rounded-md bg-daisy px-4 py-2.5 text-[14px] font-bold text-[#17150F] transition hover:bg-daisy/90"
+            className="inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2.5 text-[14px] font-bold text-white transition hover:bg-accent/90"
           >
             교육 문의
           </Link>

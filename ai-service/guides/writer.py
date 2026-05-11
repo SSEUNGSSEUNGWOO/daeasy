@@ -232,10 +232,59 @@ def write(topic: str, articles: list[dict], texts: list[str], youtube: list[dict
 
 
 def save(guide: dict) -> None:
+    # 1) JSON 백업 — ai-service 내 캐시/롤백 용도
     guides = []
     if GUIDES_PATH.exists():
         guides = json.loads(GUIDES_PATH.read_text(encoding="utf-8"))
-
     guides = [g for g in guides if g.get("slug") != guide["slug"]]
     guides.insert(0, guide)
+    GUIDES_PATH.parent.mkdir(parents=True, exist_ok=True)
     GUIDES_PATH.write_text(json.dumps(guides, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # 2) Supabase upsert — backend/frontend 가 즉시 노출 가능하도록
+    _upsert_to_supabase(guide)
+
+
+def _upsert_to_supabase(guide: dict) -> None:
+    import os
+    from datetime import datetime, timezone
+
+    url = os.environ.get("SUPABASE_URL")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not url or not key:
+        print("  [DB] SUPABASE_URL / SERVICE_ROLE_KEY 없음. JSON만 저장.")
+        return
+
+    try:
+        from supabase import create_client
+    except ImportError:
+        print("  [DB] supabase-py 미설치. JSON만 저장.")
+        return
+
+    sb = create_client(url, key)
+
+    # 평가 통과 여부에 따라 published / draft 로 적재
+    status = guide.get("status", "published")
+
+    # guides 테이블 컬럼에 맞춰 매핑
+    payload = {
+        "slug": guide["slug"],
+        "title": guide.get("title", ""),
+        "summary": guide.get("summary", ""),
+        "body": guide.get("body", ""),
+        "cover_url": guide.get("cover_url"),
+        "category": guide.get("category", ""),
+        "difficulty": guide.get("difficulty", ""),
+        "tldr": guide.get("tldr", []),
+        "tags": guide.get("tags", []),
+        "videos": guide.get("videos", []),
+        "images": guide.get("images", []),
+        "evaluation_score": guide.get("evaluation_score"),
+        "author_name": guide.get("author_name"),
+        "status": status,
+        # published 일 때만 published_at 채움 (draft 는 null)
+        "published_at": datetime.now(timezone.utc).isoformat() if status == "published" else None,
+    }
+    res = sb.table("guides").upsert(payload, on_conflict="slug").execute()
+    rows = res.data or []
+    print(f"  [DB] guides upsert ({status}): {len(rows)} row")

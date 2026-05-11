@@ -18,6 +18,8 @@ dependencies = [
     "yt-dlp>=2024.1.0",
     "youtube-transcript-api>=0.6.0",
     "tzdata>=2026.2",
+    "playwright>=1.59.0",
+    "supabase>=2.30.0",
 ]
 
 [dependency-groups]

@@ -1,0 +1,258 @@
+[
+  {
+    "slug": "financial-ai-leadership",
+    "url": "https://dataeasy.kr/financial_leadership",
+    "text_len": 2561,
+    "html_len": 2815,
+    "modules": 4,
+    "elapsed": 5.89
+  },
+  {
+    "slug": "retail-leadership-restructure",
+    "url": "https://dataeasy.kr/retail_leadership",
+    "text_len": 2633,
+    "html_len": 2877,
+    "modules": 4,
+    "elapsed": 5.96
+  },
+  {
+    "slug": "ai-literacy",
+    "url": "https://dataeasy.kr/ai-literacy-1d",
+    "text_len": 1358,
+    "html_len": 1510,
+    "modules": 0,
+    "elapsed": 2.8
+  },
+  {
+    "slug": "data-literacy",
+    "url": "https://dataeasy.kr/data-literacy-1d",
+    "text_len": 1364,
+    "html_len": 1530,
+    "modules": 0,
+    "elapsed": 2.78
+  },
+  {
+    "slug": "manager-ai-leadership",
+    "url": "https://dataeasy.kr/AI-leader-1d",
+    "text_len": 2476,
+    "html_len": 2722,
+    "modules": 0,
+    "elapsed": 2.74
+  },
+  {
+    "slug": "genai-productivity",
+    "url": "https://dataeasy.kr/gen-ai-work-1d",
+    "text_len": 2045,
+    "html_len": 2233,
+    "modules": 0,
+    "elapsed": 2.85
+  },
+  {
+    "slug": "data-basics-1day",
+    "url": "https://dataeasy.kr/biginner_oneday",
+    "text_len": 1479,
+    "html_len": 1634,
+    "modules": 0,
+    "elapsed": 2.67
+  },
+  {
+    "slug": "data-decision-1day",
+    "url": "https://dataeasy.kr/manager_data",
+    "text_len": 1232,
+    "html_len": 1376,
+    "modules": 0,
+    "elapsed": 2.85
+  },
+  {
+    "slug": "excel-data-3days",
+    "url": "https://dataeasy.kr/biginner_data",
+    "text_len": 974,
+    "html_len": 1088,
+    "modules": 0,
+    "elapsed": 2.83
+  },
+  {
+    "slug": "data-viz-eda-3days",
+    "url": "https://dataeasy.kr/biginner_visual",
+    "text_len": 1338,
+    "html_len": 1481,
+    "modules": 0,
+    "elapsed": 2.72
+  },
+  {
+    "slug": "sql-basics",
+    "url": "https://dataeasy.kr/biginner_sql",
+    "text_len": 1066,
+    "html_len": 1185,
+    "modules": 0,
+    "elapsed": 2.75
+  },
+  {
+    "slug": "ai-banking",
+    "url": "https://dataeasy.kr/AI_banking",
+    "text_len": 2598,
+    "html_len": 2826,
+    "modules": 3,
+    "elapsed": 5.01
+  },
+  {
+    "slug": "ai-scm-logistics",
+    "url": "https://dataeasy.kr/AI_SCM",
+    "text_len": 1850,
+    "html_len": 2025,
+    "modules": 2,
+    "elapsed": 4.39
+  },
+  {
+    "slug": "ai-nocode-decision",
+    "url": "https://dataeasy.kr/nocode-data-1d",
+    "text_len": 2446,
+    "html_len": 2648,
+    "modules": 0,
+    "elapsed": 2.81
+  },
+  {
+    "slug": "ai-service-planning",
+    "url": "https://dataeasy.kr/AI-service-design",
+    "text_len": 2181,
+    "html_len": 2368,
+    "modules": 0,
+    "elapsed": 2.86
+  },
+  {
+    "slug": "data-analysis-cases",
+    "url": "https://dataeasy.kr/data-analysis-example",
+    "text_len": 1773,
+    "html_len": 1927,
+    "modules": 0,
+    "elapsed": 2.85
+  },
+  {
+    "slug": "nocoding-data-analysis",
+    "url": "https://dataeasy.kr/intermediate_nocoding",
+    "text_len": 1152,
+    "html_len": 1278,
+    "modules": 0,
+    "elapsed": 3.08
+  },
+  {
+    "slug": "python-data-analysis",
+    "url": "https://dataeasy.kr/intermediate_python",
+    "text_len": 1509,
+    "html_len": 1652,
+    "modules": 0,
+    "elapsed": 2.74
+  },
+  {
+    "slug": "ml-data-analysis",
+    "url": "https://dataeasy.kr/intermediate_ai",
+    "text_len": 1038,
+    "html_len": 1169,
+    "modules": 0,
+    "elapsed": 2.77
+  },
+  {
+    "slug": "sql-advanced",
+    "url": "https://dataeasy.kr/intermediate_sql",
+    "text_len": 1164,
+    "html_len": 1287,
+    "modules": 0,
+    "elapsed": 2.7
+  },
+  {
+    "slug": "bigdata-analysis",
+    "url": "https://dataeasy.kr/intermediate_bigdata",
+    "text_len": 1313,
+    "html_len": 1454,
+    "modules": 0,
+    "elapsed": 2.68
+  },
+  {
+    "slug": "chatgpt-productivity",
+    "url": "https://dataeasy.kr/intermediate_chatgpt",
+    "text_len": 1303,
+    "html_len": 1429,
+    "modules": 0,
+    "elapsed": 2.83
+  },
+  {
+    "slug": "ai-investment-insurance",
+    "url": "https://dataeasy.kr/AI_investment_insurance",
+    "text_len": 2589,
+    "html_len": 2831,
+    "modules": 3,
+    "elapsed": 4.93
+  },
+  {
+    "slug": "ai-foodtech-livestock",
+    "url": "https://dataeasy.kr/AI_FoodTech",
+    "text_len": 1794,
+    "html_len": 1956,
+    "modules": 2,
+    "elapsed": 4.18
+  },
+  {
+    "slug": "nocode-ai-service",
+    "url": "https://dataeasy.kr/no-code-ai-service-build",
+    "text_len": 1945,
+    "html_len": 2123,
+    "modules": 0,
+    "elapsed": 3.46
+  },
+  {
+    "slug": "tensorflow-ml-dl",
+    "url": "https://dataeasy.kr/tensorflow-ml-dl",
+    "text_len": 2317,
+    "html_len": 2491,
+    "modules": 0,
+    "elapsed": 2.67
+  },
+  {
+    "slug": "ai-data-development",
+    "url": "https://dataeasy.kr/ai-data-develop",
+    "text_len": 1956,
+    "html_len": 2138,
+    "modules": 0,
+    "elapsed": 2.67
+  },
+  {
+    "slug": "llm-prompt-hackathon",
+    "url": "https://dataeasy.kr/LLM-prompt-hackerton",
+    "text_len": 1992,
+    "html_len": 2165,
+    "modules": 0,
+    "elapsed": 2.86
+  },
+  {
+    "slug": "llm-mvp-project",
+    "url": "https://dataeasy.kr/LLM-service-develop-mini-project",
+    "text_len": 1513,
+    "html_len": 1641,
+    "modules": 0,
+    "elapsed": 2.7
+  },
+  {
+    "slug": "chatgpt-advanced-analysis",
+    "url": "https://dataeasy.kr/advance_chatgpt",
+    "text_len": 1889,
+    "html_len": 2025,
+    "modules": 0,
+    "elapsed": 2.81
+  },
+  {
+    "slug": "transformer-deep-learning",
+    "url": "https://dataeasy.kr/advance_deeplearning",
+    "text_len": 1617,
+    "html_len": 1755,
+    "modules": 0,
+    "elapsed": 2.67
+  },
+  {
+    "slug": "latest-data-llm",
+    "url": "https://dataeasy.kr/advance_llm",
+    "text_len": 1317,
+    "html_len": 1445,
+    "modules": 0,
+    "elapsed": 2.71
+  }
+]

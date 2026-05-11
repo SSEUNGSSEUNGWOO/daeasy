@@ -146,7 +146,7 @@ export default function AboutPage() {
           <div className="rounded-3xl bg-[#17150F] p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-12 gap-x-8 gap-y-8">
               <div className="col-span-12 lg:col-span-8">
-                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-daisy">Get in touch</p>
+                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
                   교육 도입을 고민 중이라면,<br />이야기부터 시작합시다.
                 </h2>
@@ -154,7 +154,7 @@ export default function AboutPage() {
               <div className="col-span-12 flex self-end lg:col-span-4 lg:justify-end">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-daisy px-7 py-4 text-[15px] font-bold text-[#0F0F0F] transition hover:bg-daisy/90"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-7 py-4 text-[15px] font-bold text-white transition hover:bg-accent/90"
                 >
                   교육 문의하기
                 </Link>

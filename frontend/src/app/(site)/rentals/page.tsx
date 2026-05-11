@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { RentalForm } from "./rental-form";
+
 export const metadata = {
   title: "강의실 대관",
   description:
@@ -57,13 +59,6 @@ const refundPolicy = [
   { period: "이용 5일 전", rate: "총 금액의 50% 환불" },
   { period: "이용 2일 전", rate: "총 금액의 30% 환불" },
   { period: "이용 1일 전", rate: "환불 불가" },
-];
-
-const timeSlots = [
-  "전일 (09:00 ~ 18:00)",
-  "오전 반일 (09:00 ~ 12:00)",
-  "오후 반일 (13:00 ~ 18:00)",
-  "기타",
 ];
 
 const gallery = [
@@ -279,7 +274,8 @@ export default function RentalsPage() {
                 대관 신청.
               </h2>
               <p className="mt-7 text-[16px] leading-[1.85] text-zinc-700">
-                온라인 신청 폼은 곧 오픈됩니다. 그 전까지는 아래 연락처로 문의해주세요.
+                폼을 제출하시면 담당자가 영업일 기준 1일 이내로 연락드립니다.
+                급하신 경우 아래 연락처로 직접 문의해주세요.
               </p>
               <div className="mt-8 space-y-3">
                 <a
@@ -302,62 +298,7 @@ export default function RentalsPage() {
                 </a>
               </div>
             </div>
-            <form className="lg:col-span-7 rounded-3xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100 sm:p-10">
-              <fieldset disabled className="space-y-6">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="text-[13px] font-bold text-[#0F0F0F]">이름</span>
-                    <input
-                      type="text"
-                      placeholder="홍길동"
-                      className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 disabled:bg-zinc-100"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-[13px] font-bold text-[#0F0F0F]">연락처</span>
-                    <input
-                      type="tel"
-                      placeholder="010-0000-0000"
-                      className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 disabled:bg-zinc-100"
-                    />
-                  </label>
-                </div>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <label className="block">
-                    <span className="text-[13px] font-bold text-[#0F0F0F]">이용 날짜</span>
-                    <input
-                      type="date"
-                      className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 disabled:bg-zinc-100"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-[13px] font-bold text-[#0F0F0F]">이용 시간</span>
-                    <select className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 disabled:bg-zinc-100">
-                      {timeSlots.map((t) => (
-                        <option key={t}>{t}</option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-                <label className="block">
-                  <span className="text-[13px] font-bold text-[#0F0F0F]">내용</span>
-                  <textarea
-                    rows={5}
-                    placeholder="행사 목적, 인원, 필요 장비 등을 알려주세요."
-                    className="mt-2 w-full resize-none rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 disabled:bg-zinc-100"
-                  />
-                </label>
-                <button
-                  type="button"
-                  className="w-full rounded-md bg-zinc-300 px-6 py-4 text-[15px] font-bold text-zinc-500"
-                >
-                  신청하기 (준비 중)
-                </button>
-                <p className="text-[12.5px] leading-[1.7] text-zinc-500">
-                  ※ 온라인 신청은 백엔드 연동 후 활성화됩니다. 그 전까지는 위 연락처로 문의해주세요.
-                </p>
-              </fieldset>
-            </form>
+            <RentalForm />
           </div>
         </div>
       </section>
@@ -410,7 +351,7 @@ export default function RentalsPage() {
           <div className="rounded-3xl bg-[#17150F] p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-12 gap-x-8 gap-y-8">
               <div className="col-span-12 lg:col-span-8">
-                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-daisy">
+                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
                   Reserve
                 </p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
@@ -420,7 +361,7 @@ export default function RentalsPage() {
               <div className="col-span-12 flex self-end lg:col-span-4 lg:justify-end">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-daisy px-7 py-4 text-[15px] font-bold text-[#0F0F0F] transition hover:bg-daisy/90"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-7 py-4 text-[15px] font-bold text-white transition hover:bg-accent/90"
                 >
                   문의하기
                 </Link>

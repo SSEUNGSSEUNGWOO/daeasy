@@ -1,5 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from pydantic import BaseModel, EmailStr
+
+from app.core.limiter import limiter
 
 router = APIRouter(prefix="/newsletter", tags=["newsletter"])
 
@@ -9,5 +11,6 @@ class SubscribeRequest(BaseModel):
 
 
 @router.post("/subscribe")
-async def subscribe(_payload: SubscribeRequest) -> dict:
+@limiter.limit("5/minute")
+async def subscribe(request: Request, _payload: SubscribeRequest) -> dict:
     return {"status": "pending"}

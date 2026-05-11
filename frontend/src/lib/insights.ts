@@ -14,6 +14,7 @@ export type InsightSummary = {
   published_at: string;
   tags: string[];
   view_count: number;
+  like_count: number;
 };
 
 export type InsightDetail = InsightSummary & {

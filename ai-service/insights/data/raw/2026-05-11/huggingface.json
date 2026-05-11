@@ -1,0 +1,16 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/Qwen3.6-35B-A3B-GGUF",
+    "url": "https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF",
+    "content": "",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 986
+    },
+    "item_hash": "98551910bae43fa9"
+  }
+]

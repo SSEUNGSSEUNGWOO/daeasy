@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { supabase } from "@/lib/supabase";
 
 export const runtime = "nodejs";
@@ -30,6 +31,12 @@ export async function POST(
 ) {
   const { slug } = await params;
   const safe = decodeURIComponent(slug);
+
+  const rl = await rateLimit("likes", getClientIp(req), 30, "1 m");
+  if (!rl.success) {
+    return NextResponse.json({ detail: "rate limited" }, { status: 429 });
+  }
+
   let body: LikePayload | null = null;
   try {
     body = (await req.json()) as LikePayload;

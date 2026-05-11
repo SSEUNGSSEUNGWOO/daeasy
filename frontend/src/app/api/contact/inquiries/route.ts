@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const runtime = "nodejs";
@@ -16,6 +17,14 @@ type Payload = {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
+  const rl = await rateLimit("contact", getClientIp(req), 5, "1 m");
+  if (!rl.success) {
+    return NextResponse.json(
+      { detail: "잠시 후 다시 시도해주세요." },
+      { status: 429 },
+    );
+  }
+
   let payload: Payload;
   try {
     payload = (await req.json()) as Payload;

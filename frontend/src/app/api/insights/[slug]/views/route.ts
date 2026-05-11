@@ -1,15 +1,21 @@
 import { NextResponse } from "next/server";
 
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
 export async function POST(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
   const safe = decodeURIComponent(slug);
+
+  const rl = await rateLimit("views", getClientIp(req), 60, "1 m");
+  if (!rl.success) {
+    return NextResponse.json({ detail: "rate limited" }, { status: 429 });
+  }
 
   const sb = getSupabaseAdmin();
   const { data, error } = await sb.rpc("increment_insight_view", {

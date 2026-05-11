@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { RevealList } from "@/components/reveal";
 import type { CourseSummary } from "@/lib/courses";
 
 const TABS: { key: "beginner" | "intermediate" | "advanced"; label: string }[] = [
@@ -60,7 +61,7 @@ export function CoursesTabs({ courses }: { courses: CourseSummary[] }) {
         })}
       </div>
 
-      <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <RevealList key={active} className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((c) => {
           const { track, clean } = splitTrack(c.title);
           return (
@@ -85,7 +86,7 @@ export function CoursesTabs({ courses }: { courses: CourseSummary[] }) {
             </li>
           );
         })}
-      </ul>
+      </RevealList>
     </>
   );
 }

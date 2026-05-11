@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
+import { RevealList } from "@/components/reveal";
 import { fetchGuides } from "@/lib/guides";
 
 export const metadata = {
@@ -25,7 +26,7 @@ export default async function GuidesPage() {
     <>
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24">
+        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Guides
           </p>
@@ -46,7 +47,7 @@ export default async function GuidesPage() {
               곧 첫 가이드가 발행됩니다.
             </p>
           ) : (
-            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <RevealList className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {guides.map((g) => (
                 <li key={g.slug}>
                   <Link
@@ -88,7 +89,7 @@ export default async function GuidesPage() {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </RevealList>
           )}
         </div>
       </section>

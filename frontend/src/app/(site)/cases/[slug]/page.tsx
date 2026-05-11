@@ -28,7 +28,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
   if (!c) notFound();
 
   return (
-    <article className="mx-auto max-w-[820px] px-6 py-16 lg:py-20">
+    <article className="mx-auto max-w-[820px] px-6 py-16 lg:py-20 anim-page-fade-up">
       <Link
         href="/cases"
         className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500 transition hover:text-zinc-900"
@@ -48,7 +48,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
       </header>
 
       {c.thumbnail_url ? (
-        <div className="mt-10 overflow-hidden rounded-2xl bg-zinc-100">
+        <div className="mt-10 overflow-hidden rounded-2xl bg-zinc-100 anim-cover-scale-fade">
           <img src={c.thumbnail_url} alt="" className="aspect-[16/9] w-full object-cover" />
         </div>
       ) : null}

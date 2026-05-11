@@ -17,7 +17,7 @@ export default async function CoursesPage() {
     <>
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24">
+        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Program
           </p>

@@ -43,7 +43,7 @@ export default async function CourseDetailPage(
     <>
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-16 lg:px-10 lg:pb-16 lg:pt-20">
+        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-16 lg:px-10 lg:pb-16 lg:pt-20 anim-page-fade-up">
           <nav aria-label="Breadcrumb" className="text-[13px] text-zinc-500">
             <Link href="/courses" className="hover:text-zinc-800">
               교육과정
@@ -70,7 +70,7 @@ export default async function CourseDetailPage(
 
       {/* 본문 */}
       <section className="border-t border-zinc-100 bg-zinc-50/70">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-8">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
@@ -154,7 +154,7 @@ async function RelatedCourses({
 
   return (
     <section className="border-t border-zinc-100 bg-white">
-      <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+      <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
         <div className="flex items-end justify-between">
           <div>
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
@@ -168,7 +168,7 @@ async function RelatedCourses({
             전체 보기 →
           </Link>
         </div>
-        <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger">
           {related.map((c) => {
             const { track, clean } = splitTrack(c.title);
             return (

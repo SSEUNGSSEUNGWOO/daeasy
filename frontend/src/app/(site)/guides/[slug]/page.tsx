@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { RevealList } from "@/components/reveal";
 import { fetchGuide } from "@/lib/guides";
 
 const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
@@ -38,7 +39,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
   if (!g) notFound();
 
   return (
-    <article className="mx-auto max-w-[820px] px-6 py-16 lg:py-20">
+    <article className="mx-auto max-w-[820px] px-6 py-16 lg:py-20 anim-page-fade-up">
       <Link
         href="/guides"
         className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500 transition hover:text-zinc-900"
@@ -69,7 +70,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
       </header>
 
       {g.cover_url ? (
-        <div className="mt-10 overflow-hidden rounded-2xl bg-zinc-100">
+        <div className="mt-10 overflow-hidden rounded-2xl bg-zinc-100 anim-cover-scale-fade">
           <img src={g.cover_url} alt="" className="aspect-[16/9] w-full object-cover" />
         </div>
       ) : null}
@@ -95,7 +96,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
       {g.videos.length > 0 && (
         <section className="mt-16 border-t border-zinc-200 pt-10">
           <h2 className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">관련 영상</h2>
-          <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <RevealList className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {g.videos.map((v, i) => {
               const id = youtubeId(v.url);
               const thumb = id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
@@ -129,7 +130,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
                 </li>
               );
             })}
-          </ul>
+          </RevealList>
         </section>
       )}
 

@@ -81,7 +81,7 @@ export default async function HomePage() {
       <section className="relative isolate overflow-hidden bg-white">
         {/* 옅은 accent 그라디언트 */}
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-br from-accent/10 via-white to-white" />
-        <div className="relative mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24">
+        <div className="relative mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24 anim-page-fade-up">
           <div className="grid grid-cols-12 gap-x-8 gap-y-12">
             <div className="col-span-12 lg:col-span-7">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
@@ -250,7 +250,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger">
             {featuredCourses.map((c) => {
               const { track, clean } = splitTrack(c.title);
               return (
@@ -289,7 +289,7 @@ export default async function HomePage() {
             </h2>
           </div>
 
-          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 reveal-stagger">
             {moments.map((m) => (
               <li key={m.tag} className="rounded-2xl bg-zinc-50/70 p-7">
                 <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-accent">
@@ -327,7 +327,7 @@ export default async function HomePage() {
               곧 첫 인사이트가 발행됩니다.
             </p>
           ) : (
-            <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 reveal-stagger">
               {latestInsights.map((insight) => (
                 <li key={insight.slug}>
                   <Link

@@ -4,7 +4,7 @@ export const metadata = { title: "교육 추천" };
 
 export default function QuizPage() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-20 lg:py-24">
+    <section className="mx-auto max-w-3xl px-6 py-20 lg:py-24 anim-page-fade-up">
       <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Recommend</p>
       <h1 className="mt-5 text-[40px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[48px]">
         내게 맞는 교육 찾기

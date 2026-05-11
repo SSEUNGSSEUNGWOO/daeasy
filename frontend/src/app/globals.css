@@ -48,3 +48,86 @@ body {
   will-change: opacity, transform;
 }
 
+/* ── Motion tokens ────────────────────────────────────────
+ * 차분한 톤: 짧은 거리 (8~10px), 700ms, gentle ease-out
+ * 한 번만 트리거. prefers-reduced-motion 존중.
+ */
+@keyframes anim-fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes anim-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes anim-scale-fade {
+  from { opacity: 0; transform: scale(0.985); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* 페이지 진입: 첫 mount 시 자동 시작 (JS 불필요) */
+.anim-page-fade-up {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: anim-fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) 60ms forwards;
+}
+.anim-hero-fade {
+  opacity: 0;
+  animation: anim-fade 900ms cubic-bezier(0.16, 1, 0.3, 1) 80ms forwards;
+}
+.anim-cover-scale-fade {
+  opacity: 0;
+  transform: scale(0.985);
+  animation: anim-scale-fade 800ms cubic-bezier(0.16, 1, 0.3, 1) 120ms forwards;
+}
+
+/* Reveal: viewport 진입 시 트리거 (Reveal 컴포넌트가 .is-visible 토글) */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RevealList: 자식 stagger (60ms 간격, 최대 12개까지) */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible > *:nth-child(2)  { transition-delay: 60ms; }
+.reveal-stagger.is-visible > *:nth-child(3)  { transition-delay: 120ms; }
+.reveal-stagger.is-visible > *:nth-child(4)  { transition-delay: 180ms; }
+.reveal-stagger.is-visible > *:nth-child(5)  { transition-delay: 240ms; }
+.reveal-stagger.is-visible > *:nth-child(6)  { transition-delay: 300ms; }
+.reveal-stagger.is-visible > *:nth-child(7)  { transition-delay: 360ms; }
+.reveal-stagger.is-visible > *:nth-child(8)  { transition-delay: 420ms; }
+.reveal-stagger.is-visible > *:nth-child(9)  { transition-delay: 480ms; }
+.reveal-stagger.is-visible > *:nth-child(10) { transition-delay: 540ms; }
+.reveal-stagger.is-visible > *:nth-child(11) { transition-delay: 600ms; }
+.reveal-stagger.is-visible > *:nth-child(12) { transition-delay: 660ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-page-fade-up,
+  .anim-hero-fade,
+  .anim-cover-scale-fade,
+  .reveal,
+  .reveal-stagger > * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+

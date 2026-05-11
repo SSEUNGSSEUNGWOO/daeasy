@@ -35,7 +35,7 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24">
+        <div className="mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">About daeasy</p>
           <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[56px] lg:text-[64px]">
             데이지란?
@@ -52,7 +52,7 @@ export default function AboutPage() {
 
       {/* Why daisy */}
       <section className="border-t border-zinc-100 bg-zinc-50/70">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="flex justify-center lg:col-span-4 lg:justify-start">
               <Image
@@ -83,12 +83,12 @@ export default function AboutPage() {
 
       {/* Numbers */}
       <section className="border-t border-zinc-100 bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24 reveal">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">By the numbers</p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
             지금까지 함께한 사람들.
           </h2>
-          <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-5">
+          <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-5 reveal-stagger">
             {numbers.map((m) => (
               <div key={m.label}>
                 <p className="text-[40px] font-extrabold tracking-[-0.02em] text-[#0F0F0F]">{m.stat}</p>
@@ -101,14 +101,14 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="border-t border-zinc-100 bg-zinc-50/70">
-        <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="max-w-3xl">
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">How we work</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
               우리는 이렇게 합니다.
             </h2>
           </div>
-          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger">
             {values.map((v) => (
               <li key={v.tag} className="rounded-2xl bg-zinc-50/70 p-7">
                 <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-zinc-500">
@@ -124,12 +124,12 @@ export default function AboutPage() {
 
       {/* Company info */}
       <section className="border-t border-zinc-100 bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Company</p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
             회사 정보.
           </h2>
-          <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
+          <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 reveal-stagger">
             {company.map((c) => (
               <div key={c.dt}>
                 <dt className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">{c.dt}</dt>
@@ -142,7 +142,7 @@ export default function AboutPage() {
 
       {/* Final CTA */}
       <section className="border-t border-zinc-100 bg-zinc-50/70">
-        <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-24">
+        <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-24 reveal">
           <div className="rounded-3xl bg-[#17150F] p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-12 gap-x-8 gap-y-8">
               <div className="col-span-12 lg:col-span-8">

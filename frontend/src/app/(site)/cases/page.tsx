@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
+import { RevealList } from "@/components/reveal";
 import { fetchCases } from "@/lib/cases";
 
 export const metadata = {
@@ -25,7 +26,7 @@ export default async function CasesPage() {
     <>
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24">
+        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Reviews
           </p>
@@ -46,7 +47,7 @@ export default async function CasesPage() {
               곧 첫 후기가 등록됩니다.
             </p>
           ) : (
-            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <RevealList className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {cases.map((c) => (
                 <li key={c.slug}>
                   <Link
@@ -76,7 +77,7 @@ export default async function CasesPage() {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </RevealList>
           )}
         </div>
       </section>

@@ -85,7 +85,7 @@ export default async function InsightDetailPage(
   ];
 
   return (
-    <article className="mx-auto max-w-6xl px-6 py-16">
+    <article className="mx-auto max-w-6xl px-6 py-16 anim-page-fade-up">
       <ViewTracker slug={insight.slug} />
 
       <Link

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
+import { RevealList } from "@/components/reveal";
 import { fetchInsights, type InsightSummary } from "@/lib/insights";
 
 export const metadata = { title: "인사이트" };
@@ -19,7 +20,7 @@ export default async function InsightsPage() {
   const insights = await fetchInsights();
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16">
+    <section className="mx-auto max-w-6xl px-6 py-16 anim-page-fade-up">
       <header className="max-w-2xl">
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
           Insights
@@ -35,13 +36,13 @@ export default async function InsightsPage() {
       {insights.length === 0 ? (
         <EmptyState />
       ) : (
-        <ul className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <RevealList className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
           {insights.map((insight) => (
             <li key={insight.slug}>
               <InsightCard insight={insight} />
             </li>
           ))}
-        </ul>
+        </RevealList>
       )}
     </section>
   );

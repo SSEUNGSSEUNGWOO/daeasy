@@ -73,7 +73,7 @@ export default function RentalsPage() {
     <>
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24">
+        <div className="mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Classroom rental
           </p>
@@ -155,7 +155,7 @@ export default function RentalsPage() {
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
             현장 사진.
           </h2>
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 reveal-stagger">
             {gallery.map((g) => (
               <div key={g.src} className="overflow-hidden rounded-2xl">
                 <Image
@@ -183,7 +183,7 @@ export default function RentalsPage() {
               시설 안내.
             </h2>
           </div>
-          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 reveal-stagger">
             {facilities.map((f) => (
               <li key={f.tag} className="rounded-2xl bg-white p-7 ring-1 ring-zinc-100">
                 <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-zinc-500">
@@ -214,7 +214,7 @@ export default function RentalsPage() {
                 예약 전 아래 사항을 확인해주세요.
               </p>
             </div>
-            <ol className="lg:col-span-8 space-y-5">
+            <ol className="lg:col-span-8 space-y-5 reveal-stagger">
               {notices.map((n, i) => (
                 <li key={n} className="flex gap-5 border-b border-zinc-100 pb-5 last:border-b-0">
                   <span className="font-mono text-[13px] font-bold text-zinc-400">
@@ -312,7 +312,7 @@ export default function RentalsPage() {
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
             오시는 길.
           </h2>
-          <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
+          <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 reveal-stagger">
             <div>
               <dt className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                 주소

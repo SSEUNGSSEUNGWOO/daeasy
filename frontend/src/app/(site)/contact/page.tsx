@@ -16,7 +16,7 @@ export default async function ContactPage() {
     <>
       {/* Hero */}
       <section className="bg-white">
-        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24">
+        <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Get in touch
           </p>
@@ -32,7 +32,7 @@ export default async function ContactPage() {
 
       {/* 폼 + 사이드 정보 */}
       <section className="border-t border-zinc-100 bg-zinc-50/70">
-        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">

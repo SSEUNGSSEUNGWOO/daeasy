@@ -1,0 +1,93 @@
+[
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Running Codex safely at OpenAI",
+    "url": "https://openai.com/index/running-codex-safely",
+    "content": "How OpenAI runs Codex securely with sandboxing, approvals, network policies, and agent-native telemetry to support safe and compliant coding agent adoption.",
+    "published_at": "2026-05-08",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "66be1220771465af"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
+    "url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber",
+    "content": "OpenAI expands Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber, helping verified defenders accelerate vulnerability research and protect critical infrastructure.",
+    "published_at": "2026-05-07",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "a505eac8f113b659"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Parloa builds service agents customers want to talk to",
+    "url": "https://openai.com/index/parloa",
+    "content": "Parloa leverages OpenAI models to power scalable, voice-driven AI customer service agents, enabling enterprises to design, simulate, and deploy reliable, real-time interactions.",
+    "published_at": "2026-05-07",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "fa002821b90d7a82"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Advancing voice intelligence with new models in the API",
+    "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+    "content": "Explore new realtime voice models in the OpenAI API that can reason, translate, and transcribe speech, enabling more natural and intelligent voice experiences.",
+    "published_at": "2026-05-07",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "24a3c172de484200"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Testing ads in ChatGPT",
+    "url": "https://openai.com/index/testing-ads-in-chatgpt",
+    "content": "OpenAI begins testing ads in ChatGPT to support free access, with clear labeling, answer independence, strong privacy protections, and user control.",
+    "published_at": "2026-05-07",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "b19ec562c455e753"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Introducing Trusted Contact in ChatGPT",
+    "url": "https://openai.com/index/introducing-trusted-contact-in-chatgpt",
+    "content": "Introducing Trusted Contact in ChatGPT, an optional safety feature that notifies someone you trust if serious self-harm concerns are detected.",
+    "published_at": "2026-05-07",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "a6fcbba288389a6b"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Simplex rethinks software development with Codex",
+    "url": "https://openai.com/index/simplex",
+    "content": "Simplex boosts software development with ChatGPT Enterprise and Codex, reducing design, build, and testing time while scaling AI-driven workflows.",
+    "published_at": "2026-05-07",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "a04d57070e9b202e"
+  }
+]

@@ -1,0 +1,9 @@
+keywords:
+  - "artificial intelligence"
+  - "large language model"
+  - "AI policy"
+  - "public sector AI"
+search_fields: ["ti", "abs"]
+max_results: 30
+lookback_days: 3
+date_offset_days: 0

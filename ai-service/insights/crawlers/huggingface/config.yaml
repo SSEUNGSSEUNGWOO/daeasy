@@ -1,0 +1,8 @@
+categories:
+  - models
+  - datasets
+  - spaces
+limits:
+  models: 20
+  datasets: 10
+  spaces: 10

@@ -1,0 +1,23 @@
+lookback_days: 3
+max_per_source: 5
+sources:
+  - name: "OpenAI Blog"
+    company: "OpenAI"
+    url: "https://openai.com/blog/rss.xml"
+    enabled: true
+  - name: "Google DeepMind Blog"
+    company: "Google DeepMind"
+    url: "https://deepmind.google/blog/rss.xml"
+    enabled: true
+  - name: "Anthropic News"
+    company: "Anthropic"
+    url: "https://www.anthropic.com/news/rss"
+    enabled: true
+  - name: "Meta AI Blog"
+    company: "Meta AI"
+    url: "https://ai.meta.com/blog/rss/"
+    enabled: true
+  - name: "Microsoft AI Blog"
+    company: "Microsoft"
+    url: "https://blogs.microsoft.com/ai/feed/"
+    enabled: true

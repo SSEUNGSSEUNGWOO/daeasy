@@ -1,0 +1,296 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "SulphurAI/Sulphur-2-base",
+    "url": "https://huggingface.co/SulphurAI/Sulphur-2-base",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 507
+    },
+    "item_hash": "8bc651deb1325fe5"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Zyphra/ZAYA1-8B",
+    "url": "https://huggingface.co/Zyphra/ZAYA1-8B",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 350
+    },
+    "item_hash": "eb8437bda6f11b0d"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "deepseek-ai/DeepSeek-V4-Pro",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 3797
+    },
+    "item_hash": "a0d5aaf3b3e59dfb"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "SeeSee21/Z-Anime",
+    "url": "https://huggingface.co/SeeSee21/Z-Anime",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 280
+    },
+    "item_hash": "de3b5462b4949955"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "google/gemma-4-31B-it-assistant",
+    "url": "https://huggingface.co/google/gemma-4-31B-it-assistant",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 179
+    },
+    "item_hash": "f48de1adc6574941"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "openai/privacy-filter",
+    "url": "https://huggingface.co/openai/privacy-filter",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1385
+    },
+    "item_hash": "184194bab7903446"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "TenStrip/LTX2.3-10Eros",
+    "url": "https://huggingface.co/TenStrip/LTX2.3-10Eros",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 193
+    },
+    "item_hash": "991d1f6659441518"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "HiDream-ai/HiDream-O1-Image",
+    "url": "https://huggingface.co/HiDream-ai/HiDream-O1-Image",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 143
+    },
+    "item_hash": "43607fb8f439aae3"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Qwen/Qwen3.6-27B",
+    "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1213
+    },
+    "item_hash": "20e9d0e734a8fb4e"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Qwen/Qwen3.6-35B-A3B",
+    "url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1697
+    },
+    "item_hash": "5cf19ea05a01f822"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "google/gemma-4-26B-A4B-it-assistant",
+    "url": "https://huggingface.co/google/gemma-4-26B-A4B-it-assistant",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 98
+    },
+    "item_hash": "1b7bc81a2c585f96"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "XiaomiMiMo/MiMo-V2.5-Pro",
+    "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 503
+    },
+    "item_hash": "c2b595241e5e11c3"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "deepseek-ai/DeepSeek-V4-Flash",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1015
+    },
+    "item_hash": "912947e504e3337f"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Jackrong/Qwopus3.6-35B-A3B-v1-GGUF",
+    "url": "https://huggingface.co/Jackrong/Qwopus3.6-35B-A3B-v1-GGUF",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 95
+    },
+    "item_hash": "7d108d500a8f0293"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "google/gemma-4-31B-it",
+    "url": "https://huggingface.co/google/gemma-4-31B-it",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 2581
+    },
+    "item_hash": "ded81031faae28f7"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "sensenova/SenseNova-U1-8B-MoT",
+    "url": "https://huggingface.co/sensenova/SenseNova-U1-8B-MoT",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 210
+    },
+    "item_hash": "472605593159c859"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "mistralai/Mistral-Medium-3.5-128B",
+    "url": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 309
+    },
+    "item_hash": "79280a1db5da5e10"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "froggeric/Qwen-Fixed-Chat-Templates",
+    "url": "https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 128
+    },
+    "item_hash": "1dc2322c4361beca"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "AngelSlim/Hy-MT1.5-1.8B-1.25bit",
+    "url": "https://huggingface.co/AngelSlim/Hy-MT1.5-1.8B-1.25bit",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 157
+    },
+    "item_hash": "3e6730d97608b59f"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/Qwen3.6-27B-GGUF",
+    "url": "https://huggingface.co/unsloth/Qwen3.6-27B-GGUF",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 633
+    },
+    "item_hash": "b7fbcece13e0f7cd"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "k2-fsa/OmniVoice",
+    "url": "https://huggingface.co/k2-fsa/OmniVoice",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "category": "spaces",
+      "likes": 810
+    },
+    "item_hash": "e311188bcf2764ca"
+  }
+]

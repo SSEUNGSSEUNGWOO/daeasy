@@ -1,0 +1,31 @@
+lookback_days: 3
+request_delay_seconds: 1
+sources:
+  - id: msit_rss
+    name: "과학기술정보통신부"
+    type: rss
+    url: "https://www.msit.go.kr/bbs/publicNoticeList.do?sCode=user&mId=129&mPid=128&bbsSeqNo=94&rss=Y"
+    region: 국내
+    filter_keywords: ["AI", "인공지능", "디지털"]
+    enabled: true
+  - id: ai_times
+    name: "AI타임스"
+    type: rss
+    url: "https://www.aitimes.com/rss/allArticle.xml"
+    region: 국내
+    filter_keywords: []
+    enabled: true
+  - id: stanford_hai
+    name: "Stanford HAI"
+    type: rss
+    url: "https://hai.stanford.edu/news/rss.xml"
+    region: 글로벌
+    filter_keywords: []
+    enabled: true
+  - id: future_of_life
+    name: "Future of Life Institute"
+    type: rss
+    url: "https://futureoflife.org/feed/"
+    region: 글로벌
+    filter_keywords: ["AI", "policy", "regulation"]
+    enabled: true

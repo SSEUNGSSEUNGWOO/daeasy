@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #17150f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-daisy: #ffd43b;
+  --color-ink: #17150f;
+  --color-paper: #f5f1e8;
+  --font-sans: Pretendard, var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Pretendard, var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-feature-settings: "ss01", "ss02";
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 120s linear infinite !important;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes heroRotateIn {
+  0%   { opacity: 0; transform: translateY(-14px); }
+  18%  { opacity: 1; transform: translateY(0); }
+  82%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
+.hero-rotate-word {
+  animation: heroRotateIn 2.6s ease-in-out forwards;
+  will-change: opacity, transform;
+}
+

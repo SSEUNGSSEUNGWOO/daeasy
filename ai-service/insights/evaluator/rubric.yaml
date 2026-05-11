@@ -1,0 +1,47 @@
+criteria:
+  - name: "factual_accuracy"
+    description: "출처가 명확하고 과장이 없는가"
+    weight: 0.225
+    max_score: 5
+
+  - name: "relevance"
+    description: "AI·데이터를 업무에 도입·활용하려는 사람(일반 기업·공공기관·AI 전환 조직 포함) 맥락에서 실질적으로 유용한가"
+    weight: 0.225
+    max_score: 5
+
+  - name: "insight_quality"
+    description: "단순 요약을 넘어 인과관계/시사점이 있는가"
+    weight: 0.18
+    max_score: 5
+
+  - name: "source_linkage"
+    description: "출처 URL이 수집 데이터에 실제로 존재하는 URL인가. 창작하거나 추측한 URL이 있으면 감점. 각 번호 항목에 출처가 1개 이상 있는가"
+    weight: 0.09
+    max_score: 5
+
+  - name: "seo_quality"
+    description: "제목/소제목에 키워드가 포함되고, 구조가 검색 의도를 충족하는가"
+    weight: 0.09
+    max_score: 5
+
+  - name: "human_voice"
+    description: |
+      AI 상투어 없이 자연스러운 필자의 목소리가 느껴지는가.
+      감점 표현: '살펴보겠습니다', '주목할 만합니다', '중요한 시사점을 제공합니다',
+      '~에 대해 알아보겠습니다', '핵심은 다음과 같습니다', 과도한 나열형 구조
+    weight: 0.09
+    max_score: 5
+
+  - name: "image_relevance"
+    description: |
+      커버 이미지(Unsplash) 검색 키워드가 헤드라인·핵심 주제와 잘 맞는가.
+      본문 항목별 og:image의 출처 도메인이 그 항목 주제와 어울리는가.
+      이미지 자체는 직접 보지 못하므로 메타데이터(URL, 도메인, 검색어)로 판단.
+      - 검색어가 헤드라인의 핵심 도메인을 잡지 못하고 일반어("technology")로만 끝나면 감점
+      - 본문 og:image URL이 인물명·무관 키워드(GettyImages 일반 stock 등) 위주이면 감점
+      - 검색어에 브랜드명이 들어가면 Unsplash에 없을 가능성이 커서 감점
+    weight: 0.10
+    max_score: 5
+
+pass_threshold: 4.0
+max_retries: 3

@@ -1,0 +1,310 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "bytedance/UI-TARS-desktop",
+    "url": "https://github.com/bytedance/UI-TARS-desktop",
+    "content": "The Open-Source Multimodal AI Agent Stack: Connecting Cutting-Edge AI Models and Agent Infra",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 31719,
+      "language": "TypeScript"
+    },
+    "item_hash": "76a435bcb8eeb8bd"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "anthropics/financial-services",
+    "url": "https://github.com/anthropics/financial-services",
+    "content": "",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 18042,
+      "language": "Python"
+    },
+    "item_hash": "eb2c237bde8f9194"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "addyosmani/agent-skills",
+    "url": "https://github.com/addyosmani/agent-skills",
+    "content": "Production-grade engineering skills for AI coding agents.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 37860,
+      "language": "Shell"
+    },
+    "item_hash": "dae9f02535f7c22f"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "CloakHQ/CloakBrowser",
+    "url": "https://github.com/CloakHQ/CloakBrowser",
+    "content": "Stealth Chromium that passes every bot detection test. Drop-in Playwright replacement with source-level fingerprint patches. 30/30 tests passed.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 4136,
+      "language": "Python"
+    },
+    "item_hash": "4bc349e3b7b5b86d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "HKUDS/AI-Trader",
+    "url": "https://github.com/HKUDS/AI-Trader",
+    "content": "\"AI-Trader: 100% Fully-Automated Agent-Native Trading\"",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 15155,
+      "language": "Python"
+    },
+    "item_hash": "6fb00c7ac55ed663"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "jundot/omlx",
+    "url": "https://github.com/jundot/omlx",
+    "content": "LLM inference server with continuous batching & SSD caching for Apple Silicon — managed from the macOS menu bar",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 13072,
+      "language": "Python"
+    },
+    "item_hash": "0bcb55082c56199e"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "datawhalechina/easy-vibe",
+    "url": "https://github.com/datawhalechina/easy-vibe",
+    "content": "💻 vibe coding 2026 | Your first modern programming course for beginners to master step by step.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 8817,
+      "language": "JavaScript"
+    },
+    "item_hash": "e2fffbe23de8e4fa"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "playcanvas/supersplat",
+    "url": "https://github.com/playcanvas/supersplat",
+    "content": "3D Gaussian Splat Editor",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 6532,
+      "language": "TypeScript"
+    },
+    "item_hash": "f7ea866b53ea3110"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "masterking32/MasterDnsVPN",
+    "url": "https://github.com/masterking32/MasterDnsVPN",
+    "content": "Advanced DNS tunneling VPN for censorship bypass, optimized beyond DNSTT and SlipStream with low-overhead ARQ, resolver load balancing, high packet-loss stability and speed.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 2768,
+      "language": "Go"
+    },
+    "item_hash": "1dcf55be260138a1"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "lsdefine/GenericAgent",
+    "url": "https://github.com/lsdefine/GenericAgent",
+    "content": "Self-evolving agent: grows skill tree from 3.3K-line seed, achieving full system control with 6x less token consumption",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 10368,
+      "language": "Python"
+    },
+    "item_hash": "6da89fcedc484a23"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "decolua/9router",
+    "url": "https://github.com/decolua/9router",
+    "content": "Unlimited FREE AI coding. Connect Claude Code, Codex, Cursor, Cline, Copilot, Antigravity to FREE Claude/GPT/Gemini via 40+ providers. Auto-fallback, RTK -40% tokens, never hit limits.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 6886,
+      "language": "JavaScript"
+    },
+    "item_hash": "e89892834986866d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "affaan-m/everything-claude-code",
+    "url": "https://github.com/affaan-m/everything-claude-code",
+    "content": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 177264,
+      "language": "JavaScript"
+    },
+    "item_hash": "257ed09536576a04"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "datawhalechina/hello-agents",
+    "url": "https://github.com/datawhalechina/hello-agents",
+    "content": "📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 46085,
+      "language": "Python"
+    },
+    "item_hash": "ee7e0e584b2626a3"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "NousResearch/hermes-agent",
+    "url": "https://github.com/NousResearch/hermes-agent",
+    "content": "The agent that grows with you",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 141674,
+      "language": "Python"
+    },
+    "item_hash": "ec2b8bd43eefd65f"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ZhuLinsen/daily_stock_analysis",
+    "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+    "content": "LLM驱动的 A/H/美股智能分析：多数据源行情 + 实时新闻 + LLM决策仪表盘 + 多渠道推送，零成本定时运行，纯白嫖. LLM-powered stock analysis system for A/H/US markets.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 34938,
+      "language": "Python"
+    },
+    "item_hash": "8703b76429c37137"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "vllm-project/vllm-ascend",
+    "url": "https://github.com/vllm-project/vllm-ascend",
+    "content": "Community maintained hardware plugin for vLLM on Ascend",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 2053,
+      "language": "Python"
+    },
+    "item_hash": "4f07eea645524bc8"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "MemoriLabs/Memori",
+    "url": "https://github.com/MemoriLabs/Memori",
+    "content": "Memori is agent-native memory infrastructure. A LLM-agnostic layer that turns agent execution and conversation into structured, persistent state for production systems.",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 14240,
+      "language": "Python"
+    },
+    "item_hash": "97e8c8e4668d810b"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "zai-org/GLM-OCR",
+    "url": "https://github.com/zai-org/GLM-OCR",
+    "content": "GLM-OCR: Accurate × Fast × Comprehensive",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 6406,
+      "language": "Python"
+    },
+    "item_hash": "42c77a1f37de15ae"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "anthropics/skills",
+    "url": "https://github.com/anthropics/skills",
+    "content": "Public repository for Agent Skills",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 131366,
+      "language": "Python"
+    },
+    "item_hash": "82a901da1b9bedec"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "open-webui/open-webui",
+    "url": "https://github.com/open-webui/open-webui",
+    "content": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 136398,
+      "language": "Python"
+    },
+    "item_hash": "7c94eb734f17ebfc"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ultralytics/ultralytics",
+    "url": "https://github.com/ultralytics/ultralytics",
+    "content": "Ultralytics YOLO 🚀",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 56942,
+      "language": "Python"
+    },
+    "item_hash": "112ba4283cccf5b1"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "OpenTalker/SadTalker",
+    "url": "https://github.com/OpenTalker/SadTalker",
+    "content": "[CVPR 2023] SadTalker：Learning Realistic 3D Motion Coefficients for Stylized Audio-Driven Single Image Talking Face Animation",
+    "published_at": "2026-05-10",
+    "image_url": null,
+    "extra": {
+      "stars": 13789,
+      "language": "Python"
+    },
+    "item_hash": "b0807a7984d6f710"
+  }
+]

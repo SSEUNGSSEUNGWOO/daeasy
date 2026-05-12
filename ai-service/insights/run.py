@@ -25,7 +25,6 @@ from proofreader.proofreader import run as proofreader_run
 from evaluator.evaluator import run as evaluator_run
 from shared.storage import load_draft_meta, load_raw_items, save_draft, save_insight
 from shared.models import Insight
-from newsletter.sender import send_newsletter
 from shared.db import get_conn
 
 
@@ -227,7 +226,6 @@ if __name__ == "__main__":
     run_proofreader()
     passed, result = run_evaluator()
     if passed:
-        insight = save_to_insights(result)
-        send_newsletter(vars(insight))
+        save_to_insights(result)
     else:
         print("[run] 최종 인사이트 저장 생략")

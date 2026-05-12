@@ -25,7 +25,7 @@ docs/
 - 데이터 페칭: 서버 컴포넌트 우선, 클라이언트 상태 필요한 곳만 `'use client'`
 - 스타일: Tailwind. 임의 색상 남발 금지. 디자인 토큰 정의되면 그것만 사용
 - 데이터 read: server component 에서 `frontend/src/lib/{insights,guides,cases,courses}.ts` 가 `supabase` (anon) 직접 호출. RLS 가 published 만 노출
-- 데이터 write / RPC / Resend: client 가 `/api/*` (Next.js Route Handler) 호출 → Handler 가 `getSupabaseAdmin()` (service_role) 또는 외부 API 호출
+- 데이터 write / RPC: client 가 `/api/*` (Next.js Route Handler) 호출 → Handler 가 `getSupabaseAdmin()` (service_role) 또는 외부 API 호출
 - Rate limiter: `frontend/src/lib/rate-limit.ts` (Upstash Redis 기반). `UPSTASH_REDIS_REST_URL/TOKEN` 없으면 자동 noop (로컬 개발 편의)
 - 정적 이미지: `public/<카테고리>/` 단위(logo / partners / hero / about / reviews). 같은 파일을 덮어쓰면 Next.js Image 캐시가 stale 응답으로 잡혀 dev에서도 안 갱신된다 — **갱신 시 파일명을 바꾸거나** `unoptimized` 추가. querystring(`?v=2`) 우회는 Next.js 16에서 `images.localPatterns` 미등록 시 런타임 에러
 - 이미지 처리(크롭·리사이즈·포맷 변환): Windows 환경에선 **PowerShell + `System.Drawing`** 이 가장 가볍다(Pillow·ImageMagick 의존 없음). 대량 일괄 통일은 `dataeasy/scripts/normalize_partners.py` (uv inline `pillow + svglib + reportlab`) 패턴 참고 — Cairo 시스템 라이브러리 없이 SVG 래스터화까지 가능
@@ -40,12 +40,11 @@ docs/
 - **Evaluator 는 `codex` CLI 별도 사용** — `claude` 외에 codex 도 PATH 에 있어야 발행이 끝까지 통과 (`evaluator.evaluate_with_codex_cli`)
 - 평가 루프: `evaluator/rubric.yaml` 7개 기준 (factual_accuracy / relevance / insight_quality / source_linkage / seo_quality / human_voice / image_relevance), 가중평균 4.0/5.0 미만이면 Writer 최대 3회 재실행. **image_relevance 만 부족하고 텍스트 평균이 통과면 image_agent 만 재실행** (다른 출처 og:image + 다른 Unsplash random)
 - DB 연결: `shared/db.py` 의 `psycopg2` direct connection. `DATABASE_URL` 은 **Supabase Session pooler URL** (`postgresql://postgres.<ref>:<pw>@aws-1-<region>.pooler.supabase.com:5432/postgres`). RLS 우회로 INSERT/SELECT/DELETE 가능 (frontend 의 supabase-js 는 RLS 적용 — 두 경로의 권한 모델이 다름을 항상 의식)
-- 뉴스레터 발송: Resend (`RESEND_API_KEY`). 구독자는 `newsletter_subscribers` 테이블에서 `status='active'` 만 select (이전 JSON 파일 방식 폐기)
 - 이미지: 커버는 Unsplash (검색어를 claude CLI 가 헤드라인에서 추출). 본문 항목별은 출처 페이지의 `og:image` → `twitter:image` → 본문 첫 의미있는 `<img>` fallback. arxiv 등은 `EXCLUDE_DOMAINS` 로 스킵
 
 ### 슬래시 명령어 (`.claude/commands/`)
 
-- `/insight-publish` — 인사이트 1건 발행 (크롤 → 작성 → 이미지 → 평가 → DB → 뉴스레터)
+- `/insight-publish` — 인사이트 1건 발행 (크롤 → 작성 → 이미지 → 평가 → DB)
 - `/guide-publish` — 가이드 1건 발행 (주제 추천 → YouTube/웹 수집 → 작성-평가 루프 → 이미지 → DB)
 
 명령어 추가 시 같은 패턴(frontmatter `description` + 단계별 지시)을 따른다.

@@ -34,7 +34,7 @@ def run(draft: str) -> str:
         input=prompt,
         capture_output=True,
         text=True,
-        timeout=300,
+        timeout=900,
         env=env,
         encoding="utf-8",
         shell=True,

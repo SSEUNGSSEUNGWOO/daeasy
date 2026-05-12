@@ -1,0 +1,93 @@
+[
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "Digg tries again, this time as an AI news aggregator",
+    "url": "https://techcrunch.com/2026/05/11/digg-tries-again-this-time-as-an-ai-news-aggregator/",
+    "content": "In an email to beta testers, the company said the site's goal is to \"track the most influential voices in a space\" and to surface the news that's actually worth \"paying attention to.\"",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "8a0c141c6c6e6e86"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "There aren’t enough rockets for space data centers — Cowboy Space raised $275M to build them",
+    "url": "https://techcrunch.com/2026/05/11/there-arent-enough-rockets-for-space-data-centers-cowboy-space-raised-275-million-to-build-them/",
+    "content": "The apparently insatiable demand for AI compute has data center entrepreneurs looking to the stars. There's a key problem: There aren't enough rockets to put data centers in orbit around Earth, and they're too expensive.",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "a44a3559ed6b215a"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "MIT Technology Review",
+    "title": "Three things in AI to watch, according to a Nobel-winning economist",
+    "url": "https://www.technologyreview.com/2026/05/11/1137090/three-things-in-ai-to-watch-according-to-a-nobel-winning-economist/",
+    "content": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. A few months before he was awarded the Nobel Prize in economics in 2024, Daron Acemoglu published a paper that earned him few fans in Silicon Valley. Contrary to what Big Tech&#8230;",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "feed_name": "MIT Technology Review"
+    },
+    "item_hash": "96add618a168e110"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "MIT Technology Review",
+    "title": "Fostering breakthrough AI innovation through customer-back engineering",
+    "url": "https://www.technologyreview.com/2026/05/11/1136967/fostering-breakthrough-ai-innovation-through-customer-back-engineering/",
+    "content": "Despite years of digitization, organizations capture less than one-third of the value expected from digital investments, according to McKinsey research. That’s because most big companies begin with technological capabilities and bolt applications onto them, rather than starting with customer needs and working backward to technology solutions. Not prioritizing the customer can create fragmented solutions; disjointed&#8230;",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "feed_name": "MIT Technology Review"
+    },
+    "item_hash": "38180b63d0a6ed91"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "MIT Technology Review",
+    "title": "Innovation abounds in device charging",
+    "url": "https://www.technologyreview.com/2026/05/11/1136406/innovation-abounds-in-device-charging/",
+    "content": "The changes may be less perceptible than in smartphones, tablets, or wearables, but chargers have also been quietly reinvented over the last decade. At one time a bulky mix of tangled cables and connectors, slow to perform and prone to overheating, they’re now smaller, safer, and faster, thanks to a slew of technological advances. These&#8230;",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "feed_name": "MIT Technology Review"
+    },
+    "item_hash": "c30753db182ac635"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "MIT Technology Review",
+    "title": "Implementing advanced AI technologies in finance",
+    "url": "https://www.technologyreview.com/2026/05/11/1136786/implementing-advanced-ai-technologies-in-finance/",
+    "content": "In finance departments that have long been defined by precision and control, AI has arrived less as a neatly managed upgrade than as a quiet insurgency. Employees are already using it while leadership races to impose structure, governance, and strategy after the fact. The result is a paradox: one of the most tightly regulated functions&#8230;",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "feed_name": "MIT Technology Review"
+    },
+    "item_hash": "3ed557341723b75d"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "MIT Technology Review",
+    "title": "The Download: the hantavirus outbreak and Musk v. Altman week 2",
+    "url": "https://www.technologyreview.com/2026/05/11/1137031/the-download-hantavirus-outbreak-musk-altman-trial/",
+    "content": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Here’s what you need to know about the cruise ship hantavirus outbreak Last week, eight passengers aboard a Dutch-flagged cruise ship contracted a type of hantavirus transmitted by rats. Three have&#8230;",
+    "published_at": "2026-05-11",
+    "image_url": null,
+    "extra": {
+      "feed_name": "MIT Technology Review"
+    },
+    "item_hash": "196fb8ad78889285"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "openbmb/MiniCPM-V-4.6",
+    "url": "https://huggingface.co/openbmb/MiniCPM-V-4.6",
+    "content": "",
+    "published_at": "2026-05-12",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 186
+    },
+    "item_hash": "7410e6fc30298c61"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Supertone/supertonic-3",
+    "url": "https://huggingface.co/Supertone/supertonic-3",
+    "content": "",
+    "published_at": "2026-05-12",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 94
+    },
+    "item_hash": "6e6084087eea6bff"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "HiDream-ai/HiDream-O1-Image-Dev",
+    "url": "https://huggingface.co/HiDream-ai/HiDream-O1-Image-Dev",
+    "content": "",
+    "published_at": "2026-05-12",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 80
+    },
+    "item_hash": "bf0573087b7dae53"
+  }
+]

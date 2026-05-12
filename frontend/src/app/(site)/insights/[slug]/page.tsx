@@ -57,6 +57,8 @@ function extractToc(body: string): TocItem[] {
   return items;
 }
 
+export const revalidate = 60;
+
 export async function generateMetadata(
   props: PageProps<"/insights/[slug]">,
 ) {

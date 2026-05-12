@@ -5,6 +5,7 @@ import { RevealList } from "@/components/reveal";
 import { fetchInsights, type InsightSummary } from "@/lib/insights";
 
 export const metadata = { title: "인사이트" };
+export const revalidate = 60;
 
 const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
   year: "numeric",

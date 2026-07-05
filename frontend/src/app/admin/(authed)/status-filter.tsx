@@ -1,19 +1,26 @@
 import Link from "next/link";
 
-import { STATUS_LABEL, type InquiryStatus } from "@/lib/admin-inquiries";
+import { STATUS_LABEL as INQUIRY_STATUS_LABEL } from "@/lib/admin-inquiries";
 
-type Props = {
+type Props<T extends string> = {
   basePath: string;
-  current: InquiryStatus | "all";
-  options: readonly InquiryStatus[];
+  current: T | "all";
+  options: readonly T[];
+  labels?: Record<T, string>;
 };
 
-export function StatusFilter({ basePath, current, options }: Props) {
+export function StatusFilter<T extends string>({
+  basePath,
+  current,
+  options,
+  labels,
+}: Props<T>) {
+  const dict = (labels ?? INQUIRY_STATUS_LABEL) as Record<string, string>;
   const items: Array<{ key: string; label: string; href: string }> = [
     { key: "all", label: "전체", href: basePath },
     ...options.map((s) => ({
       key: s,
-      label: STATUS_LABEL[s],
+      label: dict[s] ?? s,
       href: `${basePath}?status=${s}`,
     })),
   ];

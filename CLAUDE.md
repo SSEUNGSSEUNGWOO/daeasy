@@ -36,7 +36,7 @@ docs/
 - 데이터 write / RPC: client 가 `/api/*` (Next.js Route Handler) 호출 → Handler 가 `getSupabaseAdmin()` (service_role) 또는 외부 API 호출
 - 캐싱: 공개 인사이트 목록·상세는 `export const revalidate = 60` (ISR), 어드민 페이지는 전부 `export const dynamic = "force-dynamic"`. 새 페이지 추가 시 같은 쪽을 따른다
 - DB·외부에서 온 HTML 을 `dangerouslySetInnerHTML` 에 넣기 전에는 **반드시** `lib/sanitize.ts` 의 `sanitizeHtml()` 을 거친다 (허용 태그·속성 화이트리스트가 거기 있다)
-- Rate limiter: `frontend/src/lib/rate-limit.ts` (Upstash Redis 기반). `UPSTASH_REDIS_REST_URL/TOKEN` 없으면 자동 noop (로컬 개발 편의)
+- Rate limiter: `frontend/src/lib/rate-limit.ts` (Upstash Redis 기반). `UPSTASH_REDIS_REST_URL/TOKEN` 없으면 자동 noop (로컬 개발 편의). **Redis 호출이 실패해도 통과시킨다(fail-open)** — 부가 기능인 rate limiter 장애로 문의 접수·어드민 로그인이 같이 죽으면 안 되기 때문. 실패는 `console.error` 로 함수 로그에만 남는다
 - 정적 이미지: `public/<카테고리>/` 단위(logo / partners / hero / about / reviews). 같은 파일을 덮어쓰면 Next.js Image 캐시가 stale 응답으로 잡혀 dev에서도 안 갱신된다 — **갱신 시 파일명을 바꾸거나** `unoptimized` 추가. querystring(`?v=2`) 우회는 Next.js 16에서 `images.localPatterns` 미등록 시 런타임 에러
 - 이미지 처리(크롭·리사이즈·포맷 변환): Windows 환경에선 **PowerShell + `System.Drawing`** 이 가장 가볍다(Pillow·ImageMagick 의존 없음). 대량 일괄 통일은 `dataeasy/scripts/normalize_partners.py` (uv inline `pillow + svglib + reportlab`) 패턴 참고 — Cairo 시스템 라이브러리 없이 SVG 래스터화까지 가능
 

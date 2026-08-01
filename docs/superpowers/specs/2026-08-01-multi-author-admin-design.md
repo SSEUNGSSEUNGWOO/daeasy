@@ -144,6 +144,8 @@ create table public.profiles (
 5. `is_active = false` 로 내린 계정으로 로그인 시도 → 거부
 6. 로그아웃 후 `/admin/courses` 접근 → `/admin/login` 리다이렉트
 
-## 열린 항목
+## 결정 사항
 
-- `editor` 가 콘텐츠를 바로 `published` 로 올릴 수 있는지, `draft` 까지만 가능한지. 현재 설계는 **바로 발행 허용** (승인 워크플로 없음). 운영해보고 필요하면 그때 제한한다
+- `editor` 는 콘텐츠를 **바로 `published` 로 올릴 수 있다.** 승인 워크플로를 두지 않는다.
+  사내 인원만 쓰는 구조라 서로 신뢰를 전제한다. 운영해보고 필요해지면 그때 제한한다 —
+  제한하게 되면 폼과 핸들러 양쪽에서 `editor` 의 `status` 를 `draft` 로 고정하는 작업이 추가된다

@@ -14,7 +14,7 @@
   └── 어드민 (/admin, Next.js)
         ├── proxy.ts 가 쿠키 검사 후 미인증이면 /admin/login 리다이렉트
         ├── 목록 · 상세는 서버 컴포넌트에서 service_role 직접 조회 (draft 포함)
-        └─→ /api/admin/* (Route Handler)     : 각 핸들러가 isAdminAuthed() 재검증 후 mutation
+        └─→ /api/admin/* (Route Handler)     : 각 핸들러가 getCurrentUser() 로 역할 재검증 후 mutation
 
 로컬 (배포 없음)
   └── ai-service
@@ -34,15 +34,18 @@
 - `service_role` 키는 서버에서만 사용한다. `getSupabaseAdmin()` 은 `lib/supabase.ts` 안에 있고,
   호출부는 Route Handler 와 어드민 서버 컴포넌트로 제한한다. 클라이언트 번들에 절대 노출 금지
 - 브라우저에 나가는 코드는 `anon` 키만 쓴다. RLS 가 1차 방어선
-- 어드민 보호는 두 겹: `proxy.ts` 의 라우트 가드 + 각 `/api/admin/*` 핸들러의 `isAdminAuthed()`
-  (프록시만 믿지 않는다)
+- 어드민 보호는 두 겹: `proxy.ts` 는 로그인 여부만 (optimistic check), 역할 판정은 페이지의
+  `requireRole()` 과 핸들러의 `getCurrentUser()` 가 한다 (프록시만 믿지 않는다)
 - 공개 쓰기 엔드포인트(문의 · 대여 · 구독 · 업로드)는 `lib/rate-limit.ts` 를 통과해야 한다
 
 ## 인증
 
-- 어드민은 단일 `ADMIN_PASSWORD`. 쿠키 값은 그 비밀번호의 sha256, 비교는 `timingSafeEqual`
-- 세션 개념이 없어 개별 쿠키 폐기는 불가능하다 — 유출 시 `ADMIN_PASSWORD` 를 교체해 전체 무효화한다
-- 운영자가 늘어나면 Supabase Auth + role 컬럼으로 옮기는 것이 다음 단계
+- 어드민은 Supabase Auth 계정. 역할은 `public.profiles.role` (`admin` / `editor`)
+- `admin` 은 전체, `editor` 는 교육과정(`courses`)·교육후기(`cases`) 만. 글 단위 소유권은 두지 않는다
+- 계정 발급은 `/admin/members` 에서 `admin` 이 이메일·초기 비밀번호를 직접 만들어 전달한다
+  (메일 발송 서비스가 없어 초대 메일을 쓸 수 없다)
+- 이탈자는 `profiles.is_active = false` 로 내린다. 계정을 지우지 않는다. 매 요청 확인하므로 기존 세션도 즉시 막힌다
+- Supabase Auth 는 신원·역할 확인에만 쓴다. 데이터 접근은 계속 service_role 경로다 — 기존 RLS 정책은 그대로다
 
 ## 캐싱
 

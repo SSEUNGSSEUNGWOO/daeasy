@@ -13,6 +13,7 @@ seed.sql       로컬 개발용 시드
 
 | 테이블 | 용도 | 쓰는 주체 |
 |--------|------|----------|
+| `profiles` | 어드민 사용자 역할 (`admin` / `editor`) | 어드민 `/admin/members` |
 | `courses` | 교육과정 | 어드민 |
 | `cases` | 교육 사례 | 어드민 |
 | `guides` | 가이드 | 어드민 + ai-service `/guide-publish` |
@@ -45,6 +46,8 @@ supabase db push
 - `insight_likes` — anon 읽기 + insert
 - `newsletter_subscribers` / `contact_inquiries` / `rental_inquiries` — anon insert만 (폼 제출)
 - `raw_items` / `newsletter_issues` — anon 접근 불가 (어드민 / ai-service 전용)
+- `profiles` — RLS 는 켜되 **정책이 하나도 없다** = anon / authenticated 전부 차단, service_role 전용.
+  역할 정보가 브라우저로 새어나가면 안 되기 때문
 
 쓰기는 모두 service_role 을 통해. Next.js Route Handler(서버) 와 ai-service 에서만 service_role 키를 사용한다.
 

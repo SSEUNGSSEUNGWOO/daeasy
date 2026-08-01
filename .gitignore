@@ -10,6 +10,8 @@ Thumbs.db
 .env.local
 .env.*.local
 .env.local.example
+# env 백업본 (리전 이전 등으로 만든 사본 — 비밀값이 그대로 들어있다)
+.env*backup*
 !.env.example
 !**/.env.example
 

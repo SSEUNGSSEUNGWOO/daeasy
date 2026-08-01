@@ -4,6 +4,9 @@ import { fetchCourses } from "@/lib/courses";
 
 import { CoursesTabs } from "./courses-tabs";
 
+// 어드민에서 발행한 과정이 재배포 없이 반영되도록
+export const revalidate = 60;
+
 export const metadata = {
   title: "교육과정",
   description:

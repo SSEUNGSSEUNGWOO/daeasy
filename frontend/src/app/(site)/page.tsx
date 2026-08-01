@@ -7,6 +7,9 @@ import { AWARD_ARTICLE_URL } from "@/lib/award";
 import { fetchCourses } from "@/lib/courses";
 import { fetchInsights } from "@/lib/insights";
 
+// 추천 과정·최신 인사이트가 재배포 없이 갱신되도록 (insights 페이지와 동일 주기)
+export const revalidate = 60;
+
 // ============ Mock data ============
 
 const moments = [

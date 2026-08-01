@@ -119,7 +119,20 @@ export default async function HomePage() {
               </div>
 
               <div className="mt-14 rounded-2xl border border-zinc-200/70 bg-zinc-50 p-7 sm:p-8">
-                <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
+                <div className="flex items-center gap-3.5 border-b border-zinc-200/70 pb-6">
+                  <Image
+                    src="/awards/k-digital-brand-award-2026.png"
+                    alt="2026 K-디지털 브랜드 대상"
+                    width={270}
+                    height={269}
+                    className="h-12 w-12 shrink-0"
+                    unoptimized
+                  />
+                  <p className="text-[14.5px] font-bold leading-[1.45] tracking-[-0.01em] text-ink">
+                    2026 K-디지털 브랜드 대상 수상
+                  </p>
+                </div>
+                <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
                   {[
                     { stat: "7,000+", label: "누적 수강생" },
                     { stat: "9.5", label: "/ 10 만족도" },

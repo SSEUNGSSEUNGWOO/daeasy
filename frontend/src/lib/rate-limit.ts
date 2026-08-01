@@ -10,6 +10,9 @@ import { Redis } from "@upstash/redis";
  * 모든 호출을 통과시키는 no-op 으로 동작 — 로컬 개발에서 Upstash 가입 없이 작업 가능.
  *
  * Vercel 배포 시 위 두 env 추가하면 자동 활성화됩니다.
+ *
+ * **fail-open**: Redis 호출이 실패해도 요청을 통과시킨다. 문의 접수와 어드민
+ * 로그인이 rate limiter 장애로 함께 죽는 것을 막기 위함이다.
  */
 
 type RateLimitResult = {
@@ -68,6 +71,15 @@ export async function rateLimit(
   if (!limiter) {
     return { success: true, remaining: requests, reset: 0 };
   }
-  const { success, remaining, reset } = await limiter.limit(identifier);
-  return { success, remaining, reset };
+  try {
+    const { success, remaining, reset } = await limiter.limit(identifier);
+    return { success, remaining, reset };
+  } catch (err) {
+    // fail-open: Redis 장애 시 통과시킨다.
+    // rate limit 은 부가 기능이고, 이것 때문에 문의 접수·어드민 로그인이
+    // 통째로 멈추는 편이 더 큰 손해다. env 가 없을 때와 같은 동작.
+    // 장애가 조용히 묻히지 않도록 함수 로그에는 남긴다.
+    console.error(`[rate-limit] ${bucket} 버킷 조회 실패 — 통과 처리`, err);
+    return { success: true, remaining: requests, reset: 0 };
+  }
 }

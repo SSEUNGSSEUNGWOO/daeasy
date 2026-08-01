@@ -13,6 +13,8 @@ const inquiryItems: Item[] = [
 const contentItems: Item[] = [
   { href: "/admin/courses", label: "교육과정" },
   { href: "/admin/cases", label: "교육 사례" },
+  { href: "/admin/insights", label: "인사이트" },
+  { href: "/admin/guides", label: "가이드" },
 ];
 
 export function SidebarNav() {

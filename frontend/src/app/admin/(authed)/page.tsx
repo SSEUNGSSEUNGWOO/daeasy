@@ -51,7 +51,7 @@ export default async function AdminHomePage() {
           className="rounded-2xl border border-zinc-200 p-6 transition hover:border-zinc-300 hover:shadow-sm"
         >
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-zinc-500">
-            대여 문의
+            대관 문의
           </p>
           <p className="mt-3 text-3xl font-bold text-ink">
             {counts.rentalNew}

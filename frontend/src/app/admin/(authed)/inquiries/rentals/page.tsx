@@ -6,7 +6,7 @@ import { RentalInquiriesTable, type RentalInquiryRow } from "./inquiries-table";
 import { StatusFilter } from "../../status-filter";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "대여 문의" };
+export const metadata = { title: "대관 문의" };
 
 const PAGE_SIZE = 100;
 
@@ -46,7 +46,7 @@ export default async function RentalInquiriesPage({
     <section>
       <div className="flex items-baseline justify-between">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">대여 문의</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">대관 문의</h1>
           <p className="mt-2 text-sm text-zinc-500">
             /rentals 폼에서 접수된 문의. 최근 {PAGE_SIZE}건.
           </p>

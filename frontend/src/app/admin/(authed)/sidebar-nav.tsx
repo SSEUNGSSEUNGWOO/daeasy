@@ -9,7 +9,7 @@ type Item = { href: string; label: string };
 
 const inquiryItems: Item[] = [
   { href: "/admin/inquiries/contact", label: "교육 문의" },
-  { href: "/admin/inquiries/rentals", label: "대여 문의" },
+  { href: "/admin/inquiries/rentals", label: "대관 문의" },
 ];
 
 /** editor 도 쓰는 메뉴 */

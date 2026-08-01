@@ -41,8 +41,7 @@ supabase db push
 
 ## RLS 정책 요약
 
-- `courses` / `cases` / `guides` — `status = 'published'` 만 anon 읽기
-- `insights` — anon 읽기 모두 허용 (자동 발행 시 published만 저장)
+- `courses` / `cases` / `guides` / `insights` — `status = 'published'` 만 anon 읽기
 - `insight_likes` — anon 읽기 + insert
 - `newsletter_subscribers` / `contact_inquiries` / `rental_inquiries` — anon insert만 (폼 제출)
 - `raw_items` / `newsletter_issues` — anon 접근 불가 (어드민 / ai-service 전용)
@@ -51,4 +50,7 @@ supabase db push
 
 ## 발행 상태 모델
 
-`courses`, `cases`, `guides` 모두 `public.content_status` enum (`draft` / `published`) 공유. 어드민과 ai-service 모두 같은 컬럼을 본다.
+`courses`, `cases`, `guides`, `insights` 모두 `public.content_status` enum (`draft` / `published`) 공유. 어드민과 ai-service 모두 같은 컬럼을 본다.
+
+`insights` 는 ai-service 가 `status` 를 지정하지 않고 INSERT 하므로 default 인 `published` 로 들어가고,
+`ON CONFLICT` 갱신 목록에도 없어 어드민이 draft 로 내린 글은 재발행 시에도 draft 를 유지한다.

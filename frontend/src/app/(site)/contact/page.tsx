@@ -39,7 +39,7 @@ export default async function ContactPage() {
                 Talk to us
               </p>
               <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
-                이야기부터<br />시작합시다.
+                무엇이 필요한지<br />아직 정하지 않으셨어도 됩니다.
               </h2>
               <p className="mt-7 text-[16px] leading-[1.85] text-zinc-700">
                 조직 규모, 산업, 학습 목표를 공유해주시면 가장 잘 맞는 과정을 제안드립니다.

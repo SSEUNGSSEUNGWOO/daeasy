@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { isAdminAuthed } from "@/lib/admin-auth";
+import { forbidden, getCurrentUser, unauthorized } from "@/lib/admin-auth";
 import { isContentStatus } from "@/lib/admin-content";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -54,9 +54,9 @@ export async function PATCH(
   req: Request,
   ctx: { params: Promise<{ slug: string }> },
 ) {
-  if (!(await isAdminAuthed())) {
-    return NextResponse.json({ detail: "unauthorized" }, { status: 401 });
-  }
+  const user = await getCurrentUser();
+  if (!user) return unauthorized();
+  if (user.role !== "admin") return forbidden();
   const { slug } = await ctx.params;
 
   let payload: Payload;
@@ -83,9 +83,9 @@ export async function DELETE(
   _req: Request,
   ctx: { params: Promise<{ slug: string }> },
 ) {
-  if (!(await isAdminAuthed())) {
-    return NextResponse.json({ detail: "unauthorized" }, { status: 401 });
-  }
+  const user = await getCurrentUser();
+  if (!user) return unauthorized();
+  if (user.role !== "admin") return forbidden();
   const { slug } = await ctx.params;
 
   // insight_likes 는 slug FK on delete cascade 라 함께 정리된다

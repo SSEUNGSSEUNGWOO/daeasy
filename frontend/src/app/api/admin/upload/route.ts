@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 
 import { NextResponse } from "next/server";
 
-import { isAdminAuthed } from "@/lib/admin-auth";
+import { getCurrentUser, unauthorized } from "@/lib/admin-auth";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -28,9 +28,7 @@ function extFor(type: string): string {
 }
 
 export async function POST(req: Request) {
-  if (!(await isAdminAuthed())) {
-    return NextResponse.json({ detail: "unauthorized" }, { status: 401 });
-  }
+  if (!(await getCurrentUser())) return unauthorized();
 
   const rl = await rateLimit("admin-upload", getClientIp(req), 60, "1 m");
   if (!rl.success) {

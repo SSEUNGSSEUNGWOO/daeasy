@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { isAdminAuthed } from "@/lib/admin-auth";
+import { forbidden, getCurrentUser, unauthorized } from "@/lib/admin-auth";
 import { isInquiryStatus } from "@/lib/admin-inquiries";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -12,9 +12,9 @@ export async function PATCH(
   req: Request,
   ctx: { params: Promise<{ id: string }> },
 ) {
-  if (!(await isAdminAuthed())) {
-    return NextResponse.json({ detail: "unauthorized" }, { status: 401 });
-  }
+  const user = await getCurrentUser();
+  if (!user) return unauthorized();
+  if (user.role !== "admin") return forbidden();
 
   const { id } = await ctx.params;
 

@@ -1,3 +1,4 @@
+import { requireRole } from "@/lib/admin-auth";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import { INQUIRY_STATUSES, isInquiryStatus, type InquiryStatus } from "@/lib/admin-inquiries";
 
@@ -33,6 +34,7 @@ export default async function RentalInquiriesPage({
 }: {
   searchParams: SearchParams;
 }) {
+  await requireRole("admin");
   const params = await searchParams;
   const status: InquiryStatus | "all" = isInquiryStatus(params.status)
     ? params.status

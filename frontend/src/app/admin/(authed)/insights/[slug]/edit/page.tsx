@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { isContentStatus } from "@/lib/admin-content";
+import { requireRole } from "@/lib/admin-auth";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 import { InsightForm, type InsightFormInitial } from "../../insight-form";
@@ -35,6 +36,7 @@ async function fetchInsight(slug: string): Promise<InsightFormInitial | null> {
 }
 
 export default async function AdminInsightEditPage({ params }: { params: Params }) {
+  await requireRole("admin");
   const { slug } = await params;
   // slug 에 한글이 들어가고 params 의 인코딩 상태가 경로마다 다를 수 있어 정규화한다
   const decoded = decodeURIComponent(slug);

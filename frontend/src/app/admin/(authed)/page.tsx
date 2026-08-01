@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { requireRole } from "@/lib/admin-auth";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
@@ -23,6 +24,7 @@ async function countInquiries() {
 }
 
 export default async function AdminHomePage() {
+  await requireRole("admin");
   const counts = await countInquiries();
 
   return (

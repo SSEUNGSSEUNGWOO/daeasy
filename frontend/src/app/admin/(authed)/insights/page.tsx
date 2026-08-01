@@ -6,6 +6,7 @@ import {
   isContentStatus,
   type ContentStatus,
 } from "@/lib/admin-content";
+import { requireRole } from "@/lib/admin-auth";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 import { StatusFilter } from "../status-filter";
@@ -43,6 +44,7 @@ export default async function AdminInsightsPage({
 }: {
   searchParams: SearchParams;
 }) {
+  await requireRole("admin");
   const params = await searchParams;
   const status: ContentStatus | "all" = isContentStatus(params.status)
     ? params.status

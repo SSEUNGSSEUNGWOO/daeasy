@@ -43,8 +43,11 @@ docs/
 ### 어드민 인증 / 라우트 가드
 
 - **`frontend/src/proxy.ts` 가 Next.js 16 의 `middleware.ts` 다** — 파일명도 export 이름도 `middleware` 가 아니라 `proxy`. 학습 데이터대로 `middleware.ts` 를 새로 만들면 조용히 무시된다. matcher 는 `/admin/:path*`
-- 방어는 두 겹이고 **둘 다 필요하다**: (i) `proxy.ts` 가 쿠키 없으면 `/admin/login` 리다이렉트, (ii) 각 `/api/admin/*` 핸들러가 다시 `isAdminAuthed()` 검사. 새 어드민 API 를 추가할 때 프록시만 믿고 (ii) 를 빼면 인증 우회가 된다
-- 인증 모델: 단일 `ADMIN_PASSWORD`, 쿠키 값은 그 비밀번호의 sha256, 비교는 `timingSafeEqual` (`lib/admin-auth.ts`). 세션 개념이 없어 개별 쿠키 폐기 불가 — 유출 시 `ADMIN_PASSWORD` 교체가 유일한 무효화 수단
+- 인증 모델: **Supabase Auth (이메일 + 비밀번호)**. 역할은 `public.profiles.role` (`admin` / `editor`) 에 있다. `lib/admin-auth.ts` 의 `getCurrentUser()` 가 `auth.getUser()` (Auth 서버 검증) + `profiles` 조회 + `is_active` 확인을 한 번에 한다. `getSession()` 은 쿠키를 그대로 믿으므로 권한 판정에 쓰면 안 된다
+- 권한: `admin` 은 전체. `editor` 는 교육과정(`courses`)·교육후기(`cases`) 만. 글 단위 소유권은 두지 않아 `editor` 끼리 서로 수정 가능
+- 방어는 두 겹이고 **둘 다 필요하다**: (i) `proxy.ts` 는 **로그인 여부만** 본다 (Next.js 문서가 proxy 에서 DB 조회를 금지 — optimistic check), (ii) 역할 판정은 데이터 가까이서 — 페이지는 `requireRole("admin")`, 핸들러는 `getCurrentUser()` + `forbidden()`. 사이드바에서 메뉴를 숨기는 건 접근 제어가 아니다
+- `is_active = false` 로 내리면 **이미 로그인한 세션도 즉시 막힌다** (매 요청 조회하므로). 이탈자는 계정을 지우지 않고 이렇게 처리한다
+- 계정 발급은 `/admin/members` 에서 `admin` 이 이메일·초기 비밀번호를 직접 만들어 전달한다. 메일 발송 서비스가 없어 초대 메일을 쓸 수 없다
 
 ## AI Service (인사이트 / 가이드 파이프라인)
 

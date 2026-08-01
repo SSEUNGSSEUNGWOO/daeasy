@@ -44,7 +44,9 @@ cp ../.env.example .env.local   # frontend 섹션만 채우기
 npm run dev                     # http://localhost:3000
 ```
 
-어드민은 `http://localhost:3000/admin` — `ADMIN_PASSWORD` 로 로그인.
+어드민은 `http://localhost:3000/admin` — Supabase Auth 계정(이메일 + 비밀번호)으로 로그인.
+첫 관리자 계정은 Studio 에서 만들고 `public.profiles` 에 `role='admin'` 행을 넣는다.
+이후 계정은 관리자가 `/admin/members` 에서 발급한다. 역할은 `admin`(전체) / `editor`(교육과정 · 교육후기만).
 
 ### 3. AI 서비스 (인사이트 / 가이드 자동 발행)
 

@@ -1,22 +1,28 @@
 import { NextResponse } from "next/server";
 
 import { forbidden, getCurrentUser, unauthorized } from "@/lib/admin-auth";
-import { isInquiryStatus } from "@/lib/admin-inquiries";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
-type Payload = { status?: string };
+type Payload = { is_active?: boolean };
 
 export async function PATCH(
   req: Request,
-  ctx: { params: Promise<{ id: string }> },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const user = await getCurrentUser();
   if (!user) return unauthorized();
   if (user.role !== "admin") return forbidden();
 
-  const { id } = await ctx.params;
+  const { id } = await params;
+
+  if (id === user.id) {
+    return NextResponse.json(
+      { detail: "본인 계정은 비활성화할 수 없습니다." },
+      { status: 400 },
+    );
+  }
 
   let payload: Payload;
   try {
@@ -25,17 +31,21 @@ export async function PATCH(
     return NextResponse.json({ detail: "invalid json" }, { status: 400 });
   }
 
-  if (!isInquiryStatus(payload.status)) {
-    return NextResponse.json({ detail: "invalid status" }, { status: 400 });
+  if (typeof payload.is_active !== "boolean") {
+    return NextResponse.json(
+      { detail: "is_active 가 필요합니다." },
+      { status: 400 },
+    );
   }
 
   const { error } = await getSupabaseAdmin()
-    .from("contact_inquiries")
-    .update({ status: payload.status })
+    .from("profiles")
+    .update({ is_active: payload.is_active })
     .eq("id", id);
 
   if (error) {
-    return NextResponse.json({ detail: error.message }, { status: 500 });
+    return NextResponse.json({ detail: error.message }, { status: 400 });
   }
+
   return NextResponse.json({ ok: true });
 }

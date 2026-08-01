@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { isAdminAuthed } from "@/lib/admin-auth";
+import { getCurrentUser, unauthorized } from "@/lib/admin-auth";
 import { isContentStatus } from "@/lib/admin-content";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -41,9 +41,7 @@ function normalize(p: Payload): { row?: Record<string, unknown>; detail?: string
 }
 
 export async function POST(req: Request) {
-  if (!(await isAdminAuthed())) {
-    return NextResponse.json({ detail: "unauthorized" }, { status: 401 });
-  }
+  if (!(await getCurrentUser())) return unauthorized();
 
   let payload: Payload;
   try {

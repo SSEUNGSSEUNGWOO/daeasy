@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { isAdminAuthed } from "@/lib/admin-auth";
+import { getCurrentUser, unauthorized } from "@/lib/admin-auth";
 import { isContentStatus, isCourseLevel } from "@/lib/admin-content";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -47,9 +47,7 @@ export async function PATCH(
   req: Request,
   ctx: { params: Promise<{ id: string }> },
 ) {
-  if (!(await isAdminAuthed())) {
-    return NextResponse.json({ detail: "unauthorized" }, { status: 401 });
-  }
+  if (!(await getCurrentUser())) return unauthorized();
   const { id } = await ctx.params;
 
   let payload: Payload;
@@ -77,9 +75,7 @@ export async function DELETE(
   _req: Request,
   ctx: { params: Promise<{ id: string }> },
 ) {
-  if (!(await isAdminAuthed())) {
-    return NextResponse.json({ detail: "unauthorized" }, { status: 401 });
-  }
+  if (!(await getCurrentUser())) return unauthorized();
   const { id } = await ctx.params;
 
   const { error } = await getSupabaseAdmin()

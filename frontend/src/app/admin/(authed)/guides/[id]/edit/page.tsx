@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { isContentStatus } from "@/lib/admin-content";
+import { requireRole } from "@/lib/admin-auth";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
 import { GuideForm, type GuideFormInitial } from "../../guide-form";
@@ -43,6 +44,7 @@ async function fetchGuide(id: string): Promise<GuideFormInitial | null> {
 }
 
 export default async function AdminGuideEditPage({ params }: { params: Params }) {
+  await requireRole("admin");
   const { id } = await params;
   const guide = await fetchGuide(id);
   if (!guide) notFound();

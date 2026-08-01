@@ -30,7 +30,7 @@ export default async function GuidesPage() {
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Guides
           </p>
-          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[56px] lg:text-[64px]">
+          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             가이드.
           </h1>
           <p className="mt-8 max-w-2xl text-[18px] leading-[1.75] text-zinc-700">
@@ -76,7 +76,7 @@ export default async function GuidesPage() {
                           </span>
                         )}
                       </div>
-                      <h3 className="mt-3 line-clamp-2 text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-[#0F0F0F]">
+                      <h3 className="mt-3 line-clamp-2 text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
                         {g.title}
                       </h3>
                       <p className="mt-3 line-clamp-3 text-[14px] leading-[1.65] text-zinc-600">

@@ -89,7 +89,7 @@ function Row({ row }: { row: RentalInquiryRow }) {
     <>
       <tr className={pending ? "opacity-60" : undefined}>
         <td className="px-4 py-3 text-zinc-600">{formatDate(row.created_at)}</td>
-        <td className="px-4 py-3 font-medium text-[#0F0F0F]">{row.name}</td>
+        <td className="px-4 py-3 font-medium text-ink">{row.name}</td>
         <td className="px-4 py-3 text-zinc-600">
           <a href={`tel:${row.phone}`} className="hover:underline">
             {row.phone}
@@ -101,7 +101,7 @@ function Row({ row }: { row: RentalInquiryRow }) {
             value={status}
             onChange={(e) => handleStatusChange(e.target.value as InquiryStatus)}
             disabled={pending}
-            className="rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs font-semibold text-[#0F0F0F] focus:border-[#0F0F0F] focus:outline-none"
+            className="rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs font-semibold text-ink focus:border-ink focus:outline-none"
           >
             {INQUIRY_STATUSES.map((s) => (
               <option key={s} value={s}>
@@ -114,7 +114,7 @@ function Row({ row }: { row: RentalInquiryRow }) {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="text-xs font-semibold text-zinc-500 hover:text-[#0F0F0F]"
+            className="text-xs font-semibold text-zinc-500 hover:text-ink"
           >
             {open ? "접기" : "자세히"}
           </button>

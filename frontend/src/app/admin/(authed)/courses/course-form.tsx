@@ -119,7 +119,7 @@ export function CourseForm({ mode, initial }: Props) {
             onChange={(e) => setSlug(e.target.value)}
             required
             placeholder="ai-fundamentals"
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 font-mono text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 font-mono text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="제목" required>
@@ -128,7 +128,7 @@ export function CourseForm({ mode, initial }: Props) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="요약 (한 줄 설명)">
@@ -136,7 +136,7 @@ export function CourseForm({ mode, initial }: Props) {
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
             rows={2}
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
       </Section>
@@ -151,7 +151,7 @@ export function CourseForm({ mode, initial }: Props) {
             <select
               value={level}
               onChange={(e) => setLevel(e.target.value as CourseLevelValue)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             >
               {COURSE_LEVELS.map((v) => (
                 <option key={v} value={v}>
@@ -166,7 +166,7 @@ export function CourseForm({ mode, initial }: Props) {
               min={0}
               value={durationHours}
               onChange={(e) => setDurationHours(Number(e.target.value) || 0)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
           <Field label="가격 (원)" hint="비워두면 '협의'">
@@ -177,7 +177,7 @@ export function CourseForm({ mode, initial }: Props) {
               value={priceStr}
               onChange={(e) => setPriceStr(e.target.value)}
               placeholder="협의"
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
         </div>
@@ -193,7 +193,7 @@ export function CourseForm({ mode, initial }: Props) {
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value as ContentStatus)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             >
               {CONTENT_STATUSES.map((v) => (
                 <option key={v} value={v}>
@@ -207,7 +207,7 @@ export function CourseForm({ mode, initial }: Props) {
               type="number"
               value={sortOrder}
               onChange={(e) => setSortOrder(Number(e.target.value) || 0)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
         </div>
@@ -219,7 +219,7 @@ export function CourseForm({ mode, initial }: Props) {
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-md bg-[#0F0F0F] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1a1a1a] disabled:cursor-not-allowed disabled:bg-zinc-400"
+          className="rounded-md bg-ink px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
         >
           {submitting ? "저장 중..." : mode.kind === "new" ? "생성" : "저장"}
         </button>
@@ -259,7 +259,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-[13px] font-bold text-[#0F0F0F]">
+      <span className="text-[13px] font-bold text-ink">
         {label}
         {required && <span className="ml-1 text-red-600">*</span>}
       </span>

@@ -11,15 +11,18 @@
   --color-foreground: var(--foreground);
   --color-accent: #2563eb;
   --color-accent-warm: #f97316;
-  --color-ink: #17150f;
+  /* 잉크 3종: 본문·제목(ink) / 다크 섹션 배경(ink-warm) / ink 버튼 hover(ink-hover) */
+  --color-ink: #0f0f0f;
+  --color-ink-warm: #17150f;
+  --color-ink-hover: #1a1a1a;
   --color-paper: #f5f1e8;
-  --font-sans: Pretendard, var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: var(--font-pretendard), var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Pretendard, var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: var(--font-pretendard), var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-feature-settings: "ss01", "ss02";
 }
 

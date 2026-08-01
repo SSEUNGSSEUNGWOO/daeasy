@@ -58,11 +58,11 @@ export default async function AdminCaseEditPage({ params }: { params: Params }) 
   return (
     <section>
       <div className="flex items-baseline gap-3 text-sm text-zinc-500">
-        <Link href="/admin/cases" className="hover:text-[#0F0F0F]">
+        <Link href="/admin/cases" className="hover:text-ink">
           교육 사례
         </Link>
         <span>›</span>
-        <span className="text-[#0F0F0F]">{row.title || row.slug}</span>
+        <span className="text-ink">{row.title || row.slug}</span>
       </div>
       <h1 className="mt-2 text-2xl font-semibold tracking-tight">교육 사례 편집</h1>
 

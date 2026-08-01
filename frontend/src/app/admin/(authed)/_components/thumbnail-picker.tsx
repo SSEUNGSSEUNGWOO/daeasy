@@ -39,10 +39,10 @@ export function ThumbnailPicker({ value, onChange, hint }: Props) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="https://... 또는 아래 버튼으로 업로드"
-        className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+        className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
       />
       <div className="flex items-center gap-3">
-        <label className="cursor-pointer rounded-md border border-zinc-200 px-3 py-1.5 text-xs font-semibold hover:border-zinc-300 hover:text-[#0F0F0F]">
+        <label className="cursor-pointer rounded-md border border-zinc-200 px-3 py-1.5 text-xs font-semibold hover:border-zinc-300 hover:text-ink">
           {uploading ? "업로드 중..." : "이미지 업로드"}
           <input
             type="file"

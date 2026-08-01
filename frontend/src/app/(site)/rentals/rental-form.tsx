@@ -56,7 +56,7 @@ export function RentalForm() {
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-emerald-600">
           Submitted
         </p>
-        <h3 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-[#0F0F0F]">
+        <h3 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-ink">
           신청이 접수되었습니다.
         </h3>
         <p className="mt-4 text-[15px] leading-[1.8] text-zinc-700">
@@ -65,7 +65,7 @@ export function RentalForm() {
         <button
           type="button"
           onClick={() => setState("idle")}
-          className="mt-8 inline-flex items-center justify-center rounded-md bg-[#0F0F0F] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#1a1a1a]"
+          className="mt-8 inline-flex items-center justify-center rounded-md bg-ink px-6 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover"
         >
           새 신청 작성
         </button>
@@ -83,7 +83,7 @@ export function RentalForm() {
       <fieldset disabled={submitting} className="space-y-6">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">
+            <span className="text-[13px] font-bold text-ink">
               이름 <span className="text-red-500">*</span>
             </span>
             <input
@@ -91,11 +91,11 @@ export function RentalForm() {
               name="name"
               type="text"
               placeholder="홍길동"
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
           </label>
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">
+            <span className="text-[13px] font-bold text-ink">
               연락처 <span className="text-red-500">*</span>
             </span>
             <input
@@ -103,25 +103,25 @@ export function RentalForm() {
               name="phone"
               type="tel"
               placeholder="010-0000-0000"
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
           </label>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">이용 날짜</span>
+            <span className="text-[13px] font-bold text-ink">이용 날짜</span>
             <input
               name="usage_date"
               type="date"
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
           </label>
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">이용 시간</span>
+            <span className="text-[13px] font-bold text-ink">이용 시간</span>
             <select
               name="time_slot"
               defaultValue={TIME_SLOTS[0]}
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             >
               {TIME_SLOTS.map((t) => (
                 <option key={t}>{t}</option>
@@ -130,17 +130,17 @@ export function RentalForm() {
           </label>
         </div>
         <label className="block">
-          <span className="text-[13px] font-bold text-[#0F0F0F]">내용</span>
+          <span className="text-[13px] font-bold text-ink">내용</span>
           <textarea
             name="message"
             rows={5}
             placeholder="행사 목적, 인원, 필요 장비 등을 알려주세요."
-            className="mt-2 w-full resize-none rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+            className="mt-2 w-full resize-none rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
           />
         </label>
         <button
           type="submit"
-          className="w-full rounded-md bg-[#0F0F0F] px-6 py-4 text-[15px] font-bold text-white transition hover:bg-[#1a1a1a] disabled:cursor-not-allowed disabled:bg-zinc-400"
+          className="w-full rounded-md bg-ink px-6 py-4 text-[15px] font-bold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
         >
           {submitting ? "신청 중..." : "신청하기"}
         </button>

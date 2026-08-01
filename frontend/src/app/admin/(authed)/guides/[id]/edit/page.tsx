@@ -50,11 +50,11 @@ export default async function AdminGuideEditPage({ params }: { params: Params })
   return (
     <section>
       <div className="flex items-baseline gap-3 text-sm text-zinc-500">
-        <Link href="/admin/guides" className="hover:text-[#0F0F0F]">
+        <Link href="/admin/guides" className="hover:text-ink">
           가이드
         </Link>
         <span>›</span>
-        <span className="text-[#0F0F0F]">{guide.title || guide.slug}</span>
+        <span className="text-ink">{guide.title || guide.slug}</span>
       </div>
       <h1 className="mt-2 text-2xl font-semibold tracking-tight">가이드 편집</h1>
 

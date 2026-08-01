@@ -91,7 +91,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
             required
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 font-mono text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 font-mono text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="제목" required>
@@ -100,7 +100,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="요약 (한 줄 설명)">
@@ -108,7 +108,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
             rows={2}
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="태그" hint="쉼표로 구분">
@@ -116,7 +116,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
             type="text"
             value={tagsStr}
             onChange={(e) => setTagsStr(e.target.value)}
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
       </Section>
@@ -135,7 +135,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value as ContentStatus)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             >
               {CONTENT_STATUSES.map((v) => (
                 <option key={v} value={v}>
@@ -149,7 +149,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
               type="date"
               value={publishedAt}
               onChange={(e) => setPublishedAt(e.target.value)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
           <Field label="카테고리" hint="AI 기초 / 실무 활용 / 기술 심화 등">
@@ -157,7 +157,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
               type="text"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
           <Field label="난이도" hint="입문 / 기초 / 심화">
@@ -165,7 +165,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
               type="text"
               value={difficulty}
               onChange={(e) => setDifficulty(e.target.value)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
         </div>
@@ -180,7 +180,7 @@ export function GuideForm({ initial }: { initial: GuideFormInitial }) {
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-md bg-[#0F0F0F] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1a1a1a] disabled:cursor-not-allowed disabled:bg-zinc-400"
+          className="rounded-md bg-ink px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
         >
           {submitting ? "저장 중..." : "저장"}
         </button>
@@ -220,7 +220,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-[13px] font-bold text-[#0F0F0F]">
+      <span className="text-[13px] font-bold text-ink">
         {label}
         {required && <span className="ml-1 text-red-600">*</span>}
       </span>

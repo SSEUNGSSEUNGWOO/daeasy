@@ -77,11 +77,11 @@ export default function RentalsPage() {
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Classroom rental
           </p>
-          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[56px] lg:text-[64px]">
+          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             DMC타워 교육장
           </h1>
           <p className="mt-8 max-w-2xl text-[18px] leading-[1.75] text-zinc-700">
-            <strong className="text-[#0F0F0F]">공항철도 DMC역 지하통로</strong>로 바로 연결되는 단독 대관 교육장.
+            <strong className="text-ink">공항철도 DMC역 지하통로</strong>로 바로 연결되는 단독 대관 교육장.
           </p>
           <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-zinc-600">
             세미나·워크샵·강연·간담회 등 다양한 목적에 맞게 이용하실 수 있습니다.
@@ -108,13 +108,13 @@ export default function RentalsPage() {
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 Space
               </p>
-              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 공간 소개.
               </h2>
               <ul className="mt-8 space-y-4 text-[16px] leading-[1.75] text-zinc-700">
                 {spaceFeatures.map((f) => (
                   <li key={f} className="flex gap-3">
-                    <span aria-hidden className="mt-[10px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F0F0F]" />
+                    <span aria-hidden className="mt-[10px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-ink" />
                     <span>{f}</span>
                   </li>
                 ))}
@@ -152,7 +152,7 @@ export default function RentalsPage() {
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Gallery
           </p>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             현장 사진.
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 reveal-stagger">
@@ -179,7 +179,7 @@ export default function RentalsPage() {
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
               Facilities
             </p>
-            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               시설 안내.
             </h2>
           </div>
@@ -189,7 +189,7 @@ export default function RentalsPage() {
                 <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-zinc-500">
                   {f.tag} / Facility
                 </p>
-                <h3 className="mt-5 text-[19px] font-bold tracking-[-0.01em] text-[#0F0F0F]">
+                <h3 className="mt-5 text-[19px] font-bold tracking-[-0.01em] text-ink">
                   {f.title}
                 </h3>
                 <p className="mt-2 text-[14px] leading-[1.7] text-zinc-600">{f.body}</p>
@@ -207,7 +207,7 @@ export default function RentalsPage() {
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 Notices
               </p>
-              <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+              <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[36px]">
                 유의사항.
               </h2>
               <p className="mt-6 text-[15px] leading-[1.8] text-zinc-600">
@@ -234,11 +234,11 @@ export default function RentalsPage() {
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Refund policy
           </p>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             환불 정책.
           </h2>
           <p className="mt-6 max-w-2xl text-[15px] leading-[1.8] text-zinc-700">
-            <strong className="text-[#0F0F0F]">결제 후 2시간 이내에는 100% 환불 가능합니다.</strong>{" "}
+            <strong className="text-ink">결제 후 2시간 이내에는 100% 환불 가능합니다.</strong>{" "}
             (단, 이용시간 전까지만 가능)
           </p>
           <div className="mt-10 overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-100">
@@ -270,7 +270,7 @@ export default function RentalsPage() {
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 Inquiry
               </p>
-              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 대관 신청.
               </h2>
               <p className="mt-7 text-[16px] leading-[1.85] text-zinc-700">
@@ -280,7 +280,7 @@ export default function RentalsPage() {
               <div className="mt-8 space-y-3">
                 <a
                   href="tel:070-5066-0995"
-                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-[#0F0F0F]"
+                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                     Tel
@@ -289,7 +289,7 @@ export default function RentalsPage() {
                 </a>
                 <a
                   href="mailto:data-edu@kbrainc.com"
-                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-[#0F0F0F]"
+                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                     Mail
@@ -309,7 +309,7 @@ export default function RentalsPage() {
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Location
           </p>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             오시는 길.
           </h2>
           <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 reveal-stagger">
@@ -348,7 +348,7 @@ export default function RentalsPage() {
       {/* Final CTA */}
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-24">
-          <div className="rounded-3xl bg-[#17150F] p-10 text-white sm:p-16 lg:p-20">
+          <div className="rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-12 gap-x-8 gap-y-8">
               <div className="col-span-12 lg:col-span-8">
                 <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">

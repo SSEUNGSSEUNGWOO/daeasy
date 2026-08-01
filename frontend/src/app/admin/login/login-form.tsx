@@ -44,21 +44,21 @@ export function LoginForm() {
       className="mt-8 w-full max-w-sm space-y-4"
     >
       <label className="block">
-        <span className="text-[13px] font-bold text-[#0F0F0F]">비밀번호</span>
+        <span className="text-[13px] font-bold text-ink">비밀번호</span>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoFocus
           autoComplete="current-password"
-          className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+          className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
           disabled={submitting}
         />
       </label>
       <button
         type="submit"
         disabled={submitting || !password}
-        className="w-full rounded-md bg-[#0F0F0F] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#1a1a1a] disabled:cursor-not-allowed disabled:bg-zinc-400"
+        className="w-full rounded-md bg-ink px-6 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
       >
         {submitting ? "확인 중..." : "로그인"}
       </button>

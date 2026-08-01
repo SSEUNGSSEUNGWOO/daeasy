@@ -87,7 +87,7 @@ export default async function HomePage() {
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 AI · Data Education for Teams
               </p>
-              <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[56px] lg:text-[64px]">
+              <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
                 우리 조직 모든 직원이<br />
                 AI · 데이터를{" "}
                 <HeroRotatingWord
@@ -201,7 +201,7 @@ export default async function HomePage() {
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
               Together with
             </p>
-            <h2 className="mt-3 text-[24px] font-extrabold leading-[1.2] tracking-[-0.015em] text-[#0F0F0F] sm:text-[28px]">
+            <h2 className="mt-3 text-[24px] font-extrabold leading-[1.2] tracking-[-0.015em] text-ink sm:text-[28px]">
               지금까지 함께한 50+ 조직 중 일부.
             </h2>
           </div>
@@ -237,7 +237,7 @@ export default async function HomePage() {
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Programs</p>
-              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
                 추천 교육과정.
               </h2>
               <p className="mt-3 max-w-xl text-[15.5px] text-zinc-600">
@@ -262,7 +262,7 @@ export default async function HomePage() {
                     <span className="self-start rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
                       {track}
                     </span>
-                    <h3 className="mt-4 text-[18px] font-bold leading-[1.35] tracking-[-0.01em] text-[#0F0F0F]">
+                    <h3 className="mt-4 text-[18px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
                       {clean}
                     </h3>
                     <p className="mt-3 line-clamp-3 text-[14px] leading-[1.65] text-zinc-600">
@@ -284,7 +284,7 @@ export default async function HomePage() {
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
           <div className="max-w-3xl">
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">How we work</p>
-            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               인터뷰부터 사후 코칭까지<br />네 단계로 진행합니다.
             </h2>
           </div>
@@ -295,7 +295,7 @@ export default async function HomePage() {
                 <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-accent">
                   Step {m.tag}
                 </p>
-                <h3 className="mt-5 text-[19px] font-bold tracking-[-0.01em] text-[#0F0F0F]">{m.title}</h3>
+                <h3 className="mt-5 text-[19px] font-bold tracking-[-0.01em] text-ink">{m.title}</h3>
                 <p className="mt-2 text-[14px] leading-[1.7] text-zinc-600">{m.body}</p>
               </li>
             ))}
@@ -309,7 +309,7 @@ export default async function HomePage() {
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Insights</p>
-              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
                 최신 인사이트.
               </h2>
               <p className="mt-3 max-w-xl text-[15.5px] text-zinc-600">
@@ -354,7 +354,7 @@ export default async function HomePage() {
                           </span>
                         ))}
                       </div>
-                      <h3 className="mt-3 line-clamp-2 text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-[#0F0F0F]">
+                      <h3 className="mt-3 line-clamp-2 text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
                         {insight.title}
                       </h3>
                       <p className="mt-3 text-[12.5px] font-semibold text-zinc-500">
@@ -386,7 +386,7 @@ export default async function HomePage() {
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
                 Classroom rental
               </p>
-              <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+              <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[36px]">
                 강의실 대관도<br />가능합니다.
               </h2>
               <p className="mt-5 text-[15px] leading-[1.8] text-zinc-700">
@@ -394,7 +394,7 @@ export default async function HomePage() {
               </p>
               <Link
                 href="/rentals"
-                className="mt-7 inline-flex w-fit items-center gap-2 rounded-md bg-[#0F0F0F] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#1a1a1a]"
+                className="mt-7 inline-flex w-fit items-center gap-2 rounded-md bg-ink px-6 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover"
               >
                 강의실 자세히 보기
                 <span aria-hidden>→</span>
@@ -407,7 +407,7 @@ export default async function HomePage() {
       {/* ============ Final CTA ============ */}
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
-          <div className="rounded-3xl bg-[#17150F] p-10 text-white sm:p-16 lg:p-20">
+          <div className="rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-12 gap-x-8 gap-y-8">
               <div className="col-span-12 lg:col-span-8">
                 <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">

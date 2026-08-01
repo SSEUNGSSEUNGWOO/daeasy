@@ -63,7 +63,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
             {formatDate(g.published_at)}
           </time>
         </div>
-        <h1 className="mt-5 text-[36px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[44px]">
+        <h1 className="mt-5 text-[36px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[44px]">
           {g.title}
         </h1>
         <p className="mt-5 text-[17px] leading-[1.7] text-zinc-700">{g.summary}</p>
@@ -89,7 +89,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
         </section>
       )}
 
-      <div className="prose prose-zinc mt-12 max-w-none text-[16px] leading-[1.85] prose-headings:tracking-[-0.015em] prose-headings:text-[#0F0F0F] prose-a:text-accent prose-a:underline-offset-4">
+      <div className="prose prose-zinc mt-12 max-w-none text-[16px] leading-[1.85] prose-headings:tracking-[-0.015em] prose-headings:text-ink prose-a:text-accent prose-a:underline-offset-4">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{g.body}</ReactMarkdown>
       </div>
 
@@ -146,7 +146,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
 
       <div className="mt-16 rounded-2xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100">
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>
-        <h2 className="mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-[#0F0F0F]">
+        <h2 className="mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-ink">
           이 주제로 교육이 필요하신가요?
         </h2>
         <p className="mt-3 text-[15px] leading-[1.8] text-zinc-700">
@@ -154,7 +154,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
         </p>
         <Link
           href="/contact"
-          className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#0F0F0F] px-5 py-3 text-[14px] font-bold text-white transition hover:bg-[#1a1a1a]"
+          className="mt-6 inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover"
         >
           교육 문의하기 →
         </Link>

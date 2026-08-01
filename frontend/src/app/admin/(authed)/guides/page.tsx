@@ -95,7 +95,7 @@ export default async function AdminGuidesPage({
                     <td className="px-4 py-3 whitespace-nowrap text-zinc-500">
                       {r.published_at ? r.published_at.slice(0, 10) : "-"}
                     </td>
-                    <td className="px-4 py-3 font-medium text-[#0F0F0F]">
+                    <td className="px-4 py-3 font-medium text-ink">
                       <Link href={`/admin/guides/${r.id}/edit`} className="hover:underline">
                         {r.title}
                       </Link>
@@ -112,7 +112,7 @@ export default async function AdminGuidesPage({
                     <td className="px-4 py-3 text-right">
                       <Link
                         href={`/admin/guides/${r.id}/edit`}
-                        className="text-xs font-semibold text-zinc-500 hover:text-[#0F0F0F]"
+                        className="text-xs font-semibold text-zinc-500 hover:text-ink"
                       >
                         편집
                       </Link>

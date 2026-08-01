@@ -28,8 +28,8 @@ export function SidebarNav() {
         href={item.href}
         className={
           active
-            ? "font-semibold text-[#0F0F0F]"
-            : "hover:text-[#0F0F0F]"
+            ? "font-semibold text-ink"
+            : "hover:text-ink"
         }
       >
         {item.label}

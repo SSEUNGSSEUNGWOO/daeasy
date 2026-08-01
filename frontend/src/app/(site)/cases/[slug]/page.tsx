@@ -42,7 +42,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
           {c.client_name ? <span className="ml-2 text-zinc-400">·</span> : null}
           {c.client_name ? <span className="ml-2 text-zinc-700">{c.client_name}</span> : null}
         </p>
-        <h1 className="mt-4 text-[32px] font-extrabold leading-[1.18] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+        <h1 className="mt-4 text-[32px] font-extrabold leading-[1.18] tracking-[-0.02em] text-ink sm:text-[40px]">
           {c.title}
         </h1>
       </header>
@@ -62,7 +62,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
           Get in touch
         </p>
-        <h2 className="mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-[#0F0F0F]">
+        <h2 className="mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-ink">
           비슷한 교육이 필요하신가요?
         </h2>
         <p className="mt-3 text-[15px] leading-[1.8] text-zinc-700">
@@ -70,7 +70,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
         </p>
         <Link
           href="/contact"
-          className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#0F0F0F] px-5 py-3 text-[14px] font-bold text-white transition hover:bg-[#1a1a1a]"
+          className="mt-6 inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover"
         >
           교육 문의하기 →
         </Link>

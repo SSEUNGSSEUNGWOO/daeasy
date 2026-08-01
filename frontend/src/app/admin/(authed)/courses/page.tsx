@@ -65,7 +65,7 @@ export default async function AdminCoursesPage({
         </div>
         <Link
           href="/admin/courses/new"
-          className="rounded-md bg-[#0F0F0F] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#1a1a1a]"
+          className="rounded-md bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-ink-hover"
         >
           + 신규
         </Link>
@@ -104,7 +104,7 @@ export default async function AdminCoursesPage({
                 {rows.map((r) => (
                   <tr key={r.id}>
                     <td className="px-4 py-3 text-zinc-500">{r.sort_order}</td>
-                    <td className="px-4 py-3 font-medium text-[#0F0F0F]">
+                    <td className="px-4 py-3 font-medium text-ink">
                       <Link href={`/admin/courses/${r.id}/edit`} className="hover:underline">
                         {r.title}
                       </Link>
@@ -123,7 +123,7 @@ export default async function AdminCoursesPage({
                     <td className="px-4 py-3 text-right">
                       <Link
                         href={`/admin/courses/${r.id}/edit`}
-                        className="text-xs font-semibold text-zinc-500 hover:text-[#0F0F0F]"
+                        className="text-xs font-semibold text-zinc-500 hover:text-ink"
                       >
                         편집
                       </Link>

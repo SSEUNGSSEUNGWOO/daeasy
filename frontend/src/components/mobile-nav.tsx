@@ -75,7 +75,7 @@ export function MobileNav({ items }: { items: Item[] }) {
                   onClick={() => setOpen(false)}
                   className={`border-b border-zinc-100 py-3.5 text-[15px] transition last:border-b-0 ${
                     active
-                      ? "font-bold text-[#0F0F0F]"
+                      ? "font-bold text-ink"
                       : "font-medium text-zinc-700 hover:text-zinc-900"
                   }`}
                 >

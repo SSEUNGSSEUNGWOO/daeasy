@@ -42,7 +42,7 @@ export function CoursesTabs({ courses }: { courses: CourseSummary[] }) {
               onClick={() => setActive(t.key)}
               className={`relative px-5 py-3 text-[15px] font-bold transition ${
                 isActive
-                  ? "text-[#0F0F0F]"
+                  ? "text-ink"
                   : "text-zinc-500 hover:text-zinc-800"
               }`}
             >
@@ -53,7 +53,7 @@ export function CoursesTabs({ courses }: { courses: CourseSummary[] }) {
               {isActive && (
                 <span
                   aria-hidden
-                  className="absolute inset-x-3 -bottom-px h-[2px] bg-[#0F0F0F]"
+                  className="absolute inset-x-3 -bottom-px h-[2px] bg-ink"
                 />
               )}
             </button>
@@ -73,7 +73,7 @@ export function CoursesTabs({ courses }: { courses: CourseSummary[] }) {
                 <span className="self-start rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
                   {track}
                 </span>
-                <h3 className="mt-4 text-[18px] font-bold leading-[1.35] tracking-[-0.01em] text-[#0F0F0F]">
+                <h3 className="mt-4 text-[18px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
                   {clean}
                 </h3>
                 <p className="mt-3 line-clamp-4 text-[14px] leading-[1.65] text-zinc-600">

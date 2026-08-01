@@ -128,12 +128,12 @@ export default function SupportPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Support</p>
-          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[56px] lg:text-[64px]">
+          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             고객센터
           </h1>
           <p className="mt-6 max-w-2xl text-[17px] leading-[1.75] text-zinc-700">
             공지사항과 자주 묻는 질문(FAQ). 더 자세한 문의는{" "}
-            <Link href="/contact" className="font-bold text-[#0F0F0F] underline-offset-4 hover:underline">
+            <Link href="/contact" className="font-bold text-ink underline-offset-4 hover:underline">
               교육 문의
             </Link>
             로 보내주세요.
@@ -145,7 +145,7 @@ export default function SupportPage() {
       <section className="border-t border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Notice</p>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             공지사항.
           </h2>
           <p className="mt-6 text-[15px] leading-[1.7] text-zinc-600">
@@ -158,7 +158,7 @@ export default function SupportPage() {
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">FAQ</p>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             자주 묻는 질문.
           </h2>
           <FaqAccordion items={faqs} />

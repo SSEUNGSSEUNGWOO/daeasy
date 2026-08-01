@@ -93,7 +93,7 @@ export function InsightForm({ initial }: { initial: InsightFormInitial }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="태그" hint="쉼표로 구분">
@@ -102,7 +102,7 @@ export function InsightForm({ initial }: { initial: InsightFormInitial }) {
             value={tagsStr}
             onChange={(e) => setTagsStr(e.target.value)}
             placeholder="LLM, 엔터프라이즈, 규제"
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
       </Section>
@@ -121,7 +121,7 @@ export function InsightForm({ initial }: { initial: InsightFormInitial }) {
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value as ContentStatus)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             >
               {CONTENT_STATUSES.map((v) => (
                 <option key={v} value={v}>
@@ -136,7 +136,7 @@ export function InsightForm({ initial }: { initial: InsightFormInitial }) {
               value={publishedAt}
               onChange={(e) => setPublishedAt(e.target.value)}
               required
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
           <Field label="카테고리">
@@ -145,7 +145,7 @@ export function InsightForm({ initial }: { initial: InsightFormInitial }) {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               placeholder="daily_report"
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
         </div>
@@ -157,7 +157,7 @@ export function InsightForm({ initial }: { initial: InsightFormInitial }) {
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-md bg-[#0F0F0F] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1a1a1a] disabled:cursor-not-allowed disabled:bg-zinc-400"
+          className="rounded-md bg-ink px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
         >
           {submitting ? "저장 중..." : "저장"}
         </button>
@@ -197,7 +197,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-[13px] font-bold text-[#0F0F0F]">
+      <span className="text-[13px] font-bold text-ink">
         {label}
         {required && <span className="ml-1 text-red-600">*</span>}
       </span>

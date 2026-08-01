@@ -59,7 +59,7 @@ export default async function CourseDetailPage(
               {level}
             </span>
           </div>
-          <h1 className="mt-6 text-[36px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[48px] lg:text-[56px]">
+          <h1 className="mt-6 text-[36px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[48px] lg:text-[56px]">
             {clean}
           </h1>
           <p className="mt-7 max-w-3xl text-[18px] leading-[1.75] text-zinc-700">
@@ -76,7 +76,7 @@ export default async function CourseDetailPage(
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 Curriculum
               </p>
-              <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[32px]">
+              <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[32px]">
                 커리큘럼.
               </h2>
               {course.description ? (
@@ -91,7 +91,7 @@ export default async function CourseDetailPage(
                   </p>
                   <Link
                     href="/contact"
-                    className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#0F0F0F] px-5 py-3 text-[14px] font-bold text-white transition hover:bg-[#1a1a1a]"
+                    className="mt-6 inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover"
                   >
                     커리큘럼 제안서 요청 →
                   </Link>
@@ -106,11 +106,11 @@ export default async function CourseDetailPage(
                 <dl className="mt-5 space-y-5">
                   <div>
                     <dt className="text-[12px] font-bold text-zinc-500">난이도</dt>
-                    <dd className="mt-1 text-[15px] font-medium text-[#0F0F0F]">{level}</dd>
+                    <dd className="mt-1 text-[15px] font-medium text-ink">{level}</dd>
                   </div>
                   <div>
                     <dt className="text-[12px] font-bold text-zinc-500">분류</dt>
-                    <dd className="mt-1 text-[15px] font-medium text-[#0F0F0F]">{track}</dd>
+                    <dd className="mt-1 text-[15px] font-medium text-ink">{track}</dd>
                   </div>
                   <div>
                     <dt className="text-[12px] font-bold text-zinc-500">기간 · 인원</dt>
@@ -160,11 +160,11 @@ async function RelatedCourses({
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
               See also
             </p>
-            <h2 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-[#0F0F0F] sm:text-[28px]">
+            <h2 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-ink sm:text-[28px]">
               같은 난이도의 다른 과정.
             </h2>
           </div>
-          <Link href="/courses" className="text-[14px] font-bold text-zinc-600 hover:text-[#0F0F0F]">
+          <Link href="/courses" className="text-[14px] font-bold text-zinc-600 hover:text-ink">
             전체 보기 →
           </Link>
         </div>
@@ -180,7 +180,7 @@ async function RelatedCourses({
                   <span className="self-start rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
                     {track}
                   </span>
-                  <h3 className="mt-4 text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-[#0F0F0F]">
+                  <h3 className="mt-4 text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
                     {clean}
                   </h3>
                   <p className="mt-3 line-clamp-3 text-[14px] leading-[1.65] text-zinc-600">

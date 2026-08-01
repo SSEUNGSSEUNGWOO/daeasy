@@ -48,7 +48,7 @@ export function MarkdownEditor({ value, onChange, height = 480, onImagePicked }:
         preview="live"
       />
       <div className="flex items-center gap-3 text-xs text-zinc-500">
-        <label className="cursor-pointer rounded-md border border-zinc-200 px-3 py-1.5 font-semibold hover:border-zinc-300 hover:text-[#0F0F0F]">
+        <label className="cursor-pointer rounded-md border border-zinc-200 px-3 py-1.5 font-semibold hover:border-zinc-300 hover:text-ink">
           {uploading ? "업로드 중..." : "이미지 추가"}
           <input
             type="file"

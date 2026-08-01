@@ -50,7 +50,7 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-emerald-600">
           Submitted
         </p>
-        <h3 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-[#0F0F0F]">
+        <h3 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-ink">
           문의가 접수되었습니다.
         </h3>
         <p className="mt-4 text-[15px] leading-[1.8] text-zinc-700">
@@ -59,7 +59,7 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
         <button
           type="button"
           onClick={() => setState("idle")}
-          className="mt-8 inline-flex items-center justify-center rounded-md bg-[#0F0F0F] px-6 py-3 text-[14px] font-bold text-white transition hover:bg-[#1a1a1a]"
+          className="mt-8 inline-flex items-center justify-center rounded-md bg-ink px-6 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover"
         >
           새 문의 작성
         </button>
@@ -77,7 +77,7 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
       <fieldset disabled={submitting} className="space-y-6">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">
+            <span className="text-[13px] font-bold text-ink">
               이름 <span className="text-red-500">*</span>
             </span>
             <input
@@ -85,11 +85,11 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
               name="name"
               type="text"
               placeholder="홍길동"
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
           </label>
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">
+            <span className="text-[13px] font-bold text-ink">
               이메일 <span className="text-red-500">*</span>
             </span>
             <input
@@ -97,36 +97,36 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
               name="email"
               type="email"
               placeholder="name@company.com"
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
           </label>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">연락처</span>
+            <span className="text-[13px] font-bold text-ink">연락처</span>
             <input
               name="phone"
               type="tel"
               placeholder="010-0000-0000"
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
           </label>
           <label className="block">
-            <span className="text-[13px] font-bold text-[#0F0F0F]">조직 / 부서</span>
+            <span className="text-[13px] font-bold text-ink">조직 / 부서</span>
             <input
               name="company"
               type="text"
               placeholder="회사명 또는 소속"
-              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+              className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
           </label>
         </div>
         <label className="block">
-          <span className="text-[13px] font-bold text-[#0F0F0F]">관심 과정</span>
+          <span className="text-[13px] font-bold text-ink">관심 과정</span>
           <select
             name="course_slug"
             defaultValue=""
-            className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+            className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
           >
             <option value="">전체 과정 / 미정</option>
             {courses.map((c) => (
@@ -137,17 +137,17 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
           </select>
         </label>
         <label className="block">
-          <span className="text-[13px] font-bold text-[#0F0F0F]">문의 내용</span>
+          <span className="text-[13px] font-bold text-ink">문의 내용</span>
           <textarea
             name="message"
             rows={6}
             placeholder="조직 규모, 도입 시기, 학습 목표, 궁금한 점 등을 자유롭게 적어주세요."
-            className="mt-2 w-full resize-none rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-[#0F0F0F] focus:outline-none disabled:bg-zinc-100"
+            className="mt-2 w-full resize-none rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
           />
         </label>
         <button
           type="submit"
-          className="w-full rounded-md bg-[#0F0F0F] px-6 py-4 text-[15px] font-bold text-white transition hover:bg-[#1a1a1a] disabled:cursor-not-allowed disabled:bg-zinc-400"
+          className="w-full rounded-md bg-ink px-6 py-4 text-[15px] font-bold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
         >
           {submitting ? "전송 중..." : "문의 보내기"}
         </button>

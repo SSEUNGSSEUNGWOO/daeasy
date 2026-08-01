@@ -95,7 +95,7 @@ export default async function AdminInsightsPage({
                       <td className="px-4 py-3 whitespace-nowrap text-zinc-500">
                         {r.published_at}
                       </td>
-                      <td className="px-4 py-3 font-medium text-[#0F0F0F]">
+                      <td className="px-4 py-3 font-medium text-ink">
                         <Link href={href} className="hover:underline">
                           {r.title}
                         </Link>
@@ -113,7 +113,7 @@ export default async function AdminInsightsPage({
                       <td className="px-4 py-3 text-right">
                         <Link
                           href={href}
-                          className="text-xs font-semibold text-zinc-500 hover:text-[#0F0F0F]"
+                          className="text-xs font-semibold text-zinc-500 hover:text-ink"
                         >
                           편집
                         </Link>

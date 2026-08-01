@@ -37,9 +37,9 @@ function splitModules(html: string): { intro: string; modules: Module[] } {
 }
 
 const PROSE = "prose prose-zinc max-w-none text-[16px] leading-[1.85] " +
-  "prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-[18px] prose-h4:font-bold prose-h4:text-[#0F0F0F] " +
-  "prose-h5:mt-5 prose-h5:mb-2 prose-h5:text-[15px] prose-h5:font-bold prose-h5:text-[#0F0F0F] " +
-  "prose-ul:my-3 prose-li:my-1 prose-p:my-3 prose-strong:text-[#0F0F0F]";
+  "prose-h4:mt-8 prose-h4:mb-4 prose-h4:text-[18px] prose-h4:font-bold prose-h4:text-ink " +
+  "prose-h5:mt-5 prose-h5:mb-2 prose-h5:text-[15px] prose-h5:font-bold prose-h5:text-ink " +
+  "prose-ul:my-3 prose-li:my-1 prose-p:my-3 prose-strong:text-ink";
 
 export function CourseDescription({ html }: { html: string }) {
   const safe = useMemo(() => sanitizeHtml(html), [html]);
@@ -67,7 +67,7 @@ export function CourseDescription({ html }: { html: string }) {
                 aria-selected={isActive}
                 onClick={() => setActive(i)}
                 className={`relative px-4 py-3 text-[14px] font-bold transition ${
-                  isActive ? "text-[#0F0F0F]" : "text-zinc-500 hover:text-zinc-800"
+                  isActive ? "text-ink" : "text-zinc-500 hover:text-zinc-800"
                 }`}
               >
                 {m.label}
@@ -83,7 +83,7 @@ export function CourseDescription({ html }: { html: string }) {
           <p className="text-[12px] font-bold uppercase tracking-[0.16em] text-accent">
             {cur.label}
           </p>
-          <h4 className="mt-2 text-[22px] font-extrabold leading-[1.25] tracking-[-0.01em] text-[#0F0F0F]">
+          <h4 className="mt-2 text-[22px] font-extrabold leading-[1.25] tracking-[-0.01em] text-ink">
             {cur.title}
           </h4>
           <div

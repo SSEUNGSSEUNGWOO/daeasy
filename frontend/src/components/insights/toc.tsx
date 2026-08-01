@@ -63,8 +63,8 @@ export function TableOfContents({
             item.level === 3 ? "pl-6 text-[12px]" : "pl-3 text-[13px]"
           } ${
             active === item.id
-              ? "border-[#0F0F0F] font-semibold text-[#0F0F0F]"
-              : "border-transparent text-zinc-500 hover:text-[#0F0F0F]"
+              ? "border-ink font-semibold text-ink"
+              : "border-transparent text-zinc-500 hover:text-ink"
           }`}
         >
           {item.level === 3 && item.index !== undefined

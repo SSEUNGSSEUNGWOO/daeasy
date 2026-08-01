@@ -50,11 +50,11 @@ export default async function AdminCourseEditPage({ params }: { params: Params }
   return (
     <section>
       <div className="flex items-baseline gap-3 text-sm text-zinc-500">
-        <Link href="/admin/courses" className="hover:text-[#0F0F0F]">
+        <Link href="/admin/courses" className="hover:text-ink">
           교육과정
         </Link>
         <span>›</span>
-        <span className="text-[#0F0F0F]">{course.title || course.slug}</span>
+        <span className="text-ink">{course.title || course.slug}</span>
       </div>
       <h1 className="mt-2 text-2xl font-semibold tracking-tight">교육과정 편집</h1>
 

@@ -44,11 +44,11 @@ export default async function AdminInsightEditPage({ params }: { params: Params 
   return (
     <section>
       <div className="flex items-baseline gap-3 text-sm text-zinc-500">
-        <Link href="/admin/insights" className="hover:text-[#0F0F0F]">
+        <Link href="/admin/insights" className="hover:text-ink">
           인사이트
         </Link>
         <span>›</span>
-        <span className="text-[#0F0F0F]">{insight.title || insight.slug}</span>
+        <span className="text-ink">{insight.title || insight.slug}</span>
       </div>
       <h1 className="mt-2 text-2xl font-semibold tracking-tight">인사이트 편집</h1>
 

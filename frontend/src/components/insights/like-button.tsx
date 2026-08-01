@@ -97,7 +97,7 @@ export function LikeButton({ slug }: { slug: string }) {
           className={`flex items-center gap-2 rounded-xl border px-4 py-2 transition-colors ${
             liked
               ? "border-red-300 bg-red-50 hover:bg-red-100"
-              : "border-zinc-200 bg-[#F5F1E8] hover:border-red-300 hover:bg-red-50"
+              : "border-zinc-200 bg-paper hover:border-red-300 hover:bg-red-50"
           }`}
         >
           <svg

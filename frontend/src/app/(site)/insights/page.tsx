@@ -26,7 +26,7 @@ export default async function InsightsPage() {
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
           Insights
         </p>
-        <h1 className="mt-3 text-[40px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[48px]">
+        <h1 className="mt-3 text-[40px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[48px]">
           인사이트
         </h1>
         <p className="mt-4 text-[16px] leading-[1.7] text-zinc-600">
@@ -55,7 +55,7 @@ function InsightCard({ insight }: { insight: InsightSummary }) {
       href={`/insights/${insight.slug}`}
       className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:border-zinc-900"
     >
-      <div className="aspect-[16/9] w-full overflow-hidden bg-[#F5F1E8]">
+      <div className="aspect-[16/9] w-full overflow-hidden bg-paper">
         {insight.image_url ? (
           <img
             src={insight.image_url}
@@ -69,13 +69,13 @@ function InsightCard({ insight }: { insight: InsightSummary }) {
           {insight.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center rounded-full bg-[#F5F1E8] px-2.5 py-1 text-[11px] font-semibold tracking-[0.04em] text-zinc-700"
+              className="inline-flex items-center rounded-full bg-paper px-2.5 py-1 text-[11px] font-semibold tracking-[0.04em] text-zinc-700"
             >
               {tag}
             </span>
           ))}
         </div>
-        <h2 className="mt-3 text-[20px] font-bold leading-[1.3] tracking-[-0.015em] text-[#0F0F0F]">
+        <h2 className="mt-3 text-[20px] font-bold leading-[1.3] tracking-[-0.015em] text-ink">
           {insight.title}
         </h2>
         <div className="mt-4 flex items-center gap-3 text-[12.5px] text-zinc-500">
@@ -104,11 +104,11 @@ function InsightCard({ insight }: { insight: InsightSummary }) {
 
 function EmptyState() {
   return (
-    <div className="mt-16 rounded-2xl border border-dashed border-zinc-300 bg-[#F5F1E8] px-8 py-16 text-center">
+    <div className="mt-16 rounded-2xl border border-dashed border-zinc-300 bg-paper px-8 py-16 text-center">
       <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
         Coming soon
       </p>
-      <p className="mt-3 text-[20px] font-bold tracking-[-0.015em] text-[#0F0F0F]">
+      <p className="mt-3 text-[20px] font-bold tracking-[-0.015em] text-ink">
         곧 첫 번째 인사이트가 발행됩니다
       </p>
       <p className="mt-2 text-[14px] leading-[1.7] text-zinc-600">

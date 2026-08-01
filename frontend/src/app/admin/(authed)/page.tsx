@@ -39,7 +39,7 @@ export default async function AdminHomePage() {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-zinc-500">
             교육 문의
           </p>
-          <p className="mt-3 text-3xl font-bold text-[#0F0F0F]">
+          <p className="mt-3 text-3xl font-bold text-ink">
             {counts.contactNew}
             <span className="ml-1 text-sm font-normal text-zinc-500">new</span>
           </p>
@@ -51,7 +51,7 @@ export default async function AdminHomePage() {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-zinc-500">
             대여 문의
           </p>
-          <p className="mt-3 text-3xl font-bold text-[#0F0F0F]">
+          <p className="mt-3 text-3xl font-bold text-ink">
             {counts.rentalNew}
             <span className="ml-1 text-sm font-normal text-zinc-500">new</span>
           </p>

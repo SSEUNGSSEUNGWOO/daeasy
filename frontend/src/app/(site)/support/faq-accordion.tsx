@@ -23,7 +23,7 @@ export function FaqAccordion({ items }: { items: Item[] }) {
                 <span className="inline-flex w-fit items-center rounded-full bg-zinc-100 px-2.5 py-0.5 text-[11.5px] font-semibold tracking-[0.04em] text-zinc-700">
                   {f.category}
                 </span>
-                <span className="text-[16px] font-semibold tracking-[-0.01em] text-[#0F0F0F]">
+                <span className="text-[16px] font-semibold tracking-[-0.01em] text-ink">
                   {f.q}
                 </span>
               </div>

@@ -113,7 +113,7 @@ export function CaseForm({ mode, initial, courses }: Props) {
             onChange={(e) => setSlug(e.target.value)}
             required
             placeholder="samsung-ai-workshop-2026"
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 font-mono text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 font-mono text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="제목" required>
@@ -122,7 +122,7 @@ export function CaseForm({ mode, initial, courses }: Props) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
         <Field label="요약">
@@ -130,7 +130,7 @@ export function CaseForm({ mode, initial, courses }: Props) {
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
             rows={2}
-            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           />
         </Field>
       </Section>
@@ -147,7 +147,7 @@ export function CaseForm({ mode, initial, courses }: Props) {
               value={clientName}
               onChange={(e) => setClientName(e.target.value)}
               placeholder="예: 삼성전자"
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
           <Field label="실시일">
@@ -155,14 +155,14 @@ export function CaseForm({ mode, initial, courses }: Props) {
               type="date"
               value={conductedAt}
               onChange={(e) => setConductedAt(e.target.value)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             />
           </Field>
           <Field label="관련 교육과정">
             <select
               value={courseId}
               onChange={(e) => setCourseId(e.target.value)}
-              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+              className="w-full rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
             >
               <option value="">(연결 없음)</option>
               {courses.map((c) => (
@@ -184,7 +184,7 @@ export function CaseForm({ mode, initial, courses }: Props) {
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value as ContentStatus)}
-            className="w-64 rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-[#0F0F0F] focus:outline-none"
+            className="w-64 rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 focus:border-ink focus:outline-none"
           >
             {CONTENT_STATUSES.map((v) => (
               <option key={v} value={v}>
@@ -201,7 +201,7 @@ export function CaseForm({ mode, initial, courses }: Props) {
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-md bg-[#0F0F0F] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1a1a1a] disabled:cursor-not-allowed disabled:bg-zinc-400"
+          className="rounded-md bg-ink px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
         >
           {submitting ? "저장 중..." : mode.kind === "new" ? "생성" : "저장"}
         </button>
@@ -241,7 +241,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-[13px] font-bold text-[#0F0F0F]">
+      <span className="text-[13px] font-bold text-ink">
         {label}
         {required && <span className="ml-1 text-red-600">*</span>}
       </span>

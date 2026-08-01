@@ -104,7 +104,7 @@ export default async function InsightDetailPage(
               {insight.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center rounded-full bg-[#F5F1E8] px-2.5 py-1 text-[11px] font-semibold tracking-[0.04em] text-zinc-700"
+                  className="inline-flex items-center rounded-full bg-paper px-2.5 py-1 text-[11px] font-semibold tracking-[0.04em] text-zinc-700"
                 >
                   {tag}
                 </span>
@@ -116,7 +116,7 @@ export default async function InsightDetailPage(
                 {formatDate(insight.published_at)}
               </time>
             </div>
-            <h1 className="mt-4 text-[36px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[44px]">
+            <h1 className="mt-4 text-[36px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[44px]">
               {insight.title}
             </h1>
             <p className="mt-3 text-[12px] text-zinc-500">
@@ -125,7 +125,7 @@ export default async function InsightDetailPage(
           </header>
 
           {insight.image_url ? (
-            <div className="mt-10 overflow-hidden rounded-2xl bg-[#F5F1E8]">
+            <div className="mt-10 overflow-hidden rounded-2xl bg-paper">
               <img
                 src={insight.image_url}
                 alt=""
@@ -134,7 +134,7 @@ export default async function InsightDetailPage(
             </div>
           ) : null}
 
-          <div className="prose prose-zinc mt-12 max-w-none prose-headings:tracking-[-0.015em] prose-headings:text-[#0F0F0F] prose-a:text-zinc-900 prose-a:underline-offset-4">
+          <div className="prose prose-zinc mt-12 max-w-none prose-headings:tracking-[-0.015em] prose-headings:text-ink prose-a:text-zinc-900 prose-a:underline-offset-4">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{

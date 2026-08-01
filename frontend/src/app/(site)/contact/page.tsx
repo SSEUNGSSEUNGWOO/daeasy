@@ -20,11 +20,11 @@ export default async function ContactPage() {
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
             Get in touch
           </p>
-          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[56px] lg:text-[64px]">
+          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             교육 문의.
           </h1>
           <p className="mt-8 max-w-2xl text-[18px] leading-[1.75] text-zinc-700">
-            <strong className="text-[#0F0F0F]">상담은 무료입니다.</strong>{" "}
+            <strong className="text-ink">상담은 무료입니다.</strong>{" "}
             사전 인터뷰 후 맞춤 커리큘럼 제안서를 일주일 내 보내드립니다.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default async function ContactPage() {
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
                 Talk to us
               </p>
-              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 이야기부터<br />시작합시다.
               </h2>
               <p className="mt-7 text-[16px] leading-[1.85] text-zinc-700">
@@ -48,7 +48,7 @@ export default async function ContactPage() {
               <div className="mt-8 space-y-3">
                 <a
                   href="tel:070-5066-0995"
-                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-[#0F0F0F]"
+                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                     Tel
@@ -57,7 +57,7 @@ export default async function ContactPage() {
                 </a>
                 <a
                   href="mailto:data-edu@kbrainc.com"
-                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-[#0F0F0F]"
+                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                     Mail

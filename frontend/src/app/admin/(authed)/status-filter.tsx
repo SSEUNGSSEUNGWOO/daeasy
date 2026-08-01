@@ -35,8 +35,8 @@ export function StatusFilter<T extends string>({
             href={item.href}
             className={
               active
-                ? "rounded-full bg-[#0F0F0F] px-3 py-1.5 text-xs font-semibold text-white"
-                : "rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-600 transition hover:border-zinc-300 hover:text-[#0F0F0F]"
+                ? "rounded-full bg-ink px-3 py-1.5 text-xs font-semibold text-white"
+                : "rounded-full border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-600 transition hover:border-zinc-300 hover:text-ink"
             }
           >
             {item.label}

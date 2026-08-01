@@ -37,11 +37,11 @@ export default function AboutPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">About daeasy</p>
-          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-[#0F0F0F] sm:text-[56px] lg:text-[64px]">
+          <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             데이지란?
           </h1>
           <p className="mt-8 max-w-2xl text-[18px] leading-[1.75] text-zinc-700">
-            <strong className="text-[#0F0F0F]">데이터(DATA)를 쉽고 재미있게(EASY)</strong> 배울 수 있는 맞춤형 교육 플랫폼.
+            <strong className="text-ink">데이터(DATA)를 쉽고 재미있게(EASY)</strong> 배울 수 있는 맞춤형 교육 플랫폼.
             케이브레인컴퍼니의 데이터교육 브랜드입니다.
           </p>
           <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-zinc-600">
@@ -67,11 +67,11 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-8">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Why daisy</p>
-              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+              <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 낮의 눈, day&apos;s eye.
               </h2>
               <p className="mt-7 text-[17px] leading-[1.85] text-zinc-700">
-                영어로 데이지(daisy)는 <strong className="text-[#0F0F0F]">day&apos;s eye</strong> — 해가 뜨면 꽃잎을 열고, 해가 지면 다시 닫는다는 데서 붙은 이름입니다.
+                영어로 데이지(daisy)는 <strong className="text-ink">day&apos;s eye</strong> — 해가 뜨면 꽃잎을 열고, 해가 지면 다시 닫는다는 데서 붙은 이름입니다.
               </p>
               <p className="mt-5 text-[16px] leading-[1.85] text-zinc-600">
                 데이터와 AI는 매일 새로워집니다. 새 인사이트가 들어올 때마다 다시 펼쳐 들여다보고, 일터로 가져갈 형태로 닫아낸다 — 우리가 전하고 싶은 학습의 리듬입니다.
@@ -85,13 +85,13 @@ export default function AboutPage() {
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24 reveal">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">By the numbers</p>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             지금까지 함께한 사람들.
           </h2>
           <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-5 reveal-stagger">
             {numbers.map((m) => (
               <div key={m.label}>
-                <p className="text-[40px] font-extrabold tracking-[-0.02em] text-[#0F0F0F]">{m.stat}</p>
+                <p className="text-[40px] font-extrabold tracking-[-0.02em] text-ink">{m.stat}</p>
                 <p className="mt-2 text-[13px] font-medium text-zinc-500">{m.label}</p>
               </div>
             ))}
@@ -104,7 +104,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="max-w-3xl">
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">How we work</p>
-            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[40px]">
+            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               우리는 이렇게 합니다.
             </h2>
           </div>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                 <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-zinc-500">
                   {v.tag} / Value
                 </p>
-                <h3 className="mt-5 text-[19px] font-bold tracking-[-0.01em] text-[#0F0F0F]">{v.title}</h3>
+                <h3 className="mt-5 text-[19px] font-bold tracking-[-0.01em] text-ink">{v.title}</h3>
                 <p className="mt-2 text-[14px] leading-[1.7] text-zinc-600">{v.body}</p>
               </li>
             ))}
@@ -126,7 +126,7 @@ export default function AboutPage() {
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Company</p>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0F0F0F] sm:text-[36px]">
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             회사 정보.
           </h2>
           <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 reveal-stagger">
@@ -143,7 +143,7 @@ export default function AboutPage() {
       {/* Final CTA */}
       <section className="border-t border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-24 reveal">
-          <div className="rounded-3xl bg-[#17150F] p-10 text-white sm:p-16 lg:p-20">
+          <div className="rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-12 gap-x-8 gap-y-8">
               <div className="col-span-12 lg:col-span-8">
                 <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>

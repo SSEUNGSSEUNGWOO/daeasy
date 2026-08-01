@@ -8,6 +8,7 @@ export function LoginForm() {
   const searchParams = useSearchParams();
   const from = searchParams.get("from") || "/admin";
 
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +22,7 @@ export function LoginForm() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (!res.ok) {
@@ -44,12 +45,23 @@ export function LoginForm() {
       className="mt-8 w-full max-w-sm space-y-4"
     >
       <label className="block">
+        <span className="text-[13px] font-bold text-ink">이메일</span>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          autoFocus
+          autoComplete="username"
+          className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
+          disabled={submitting}
+        />
+      </label>
+      <label className="block">
         <span className="text-[13px] font-bold text-ink">비밀번호</span>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          autoFocus
           autoComplete="current-password"
           className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
           disabled={submitting}
@@ -57,7 +69,7 @@ export function LoginForm() {
       </label>
       <button
         type="submit"
-        disabled={submitting || !password}
+        disabled={submitting || !email || !password}
         className="w-full rounded-md bg-ink px-6 py-3 text-[14px] font-bold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
       >
         {submitting ? "확인 중..." : "로그인"}

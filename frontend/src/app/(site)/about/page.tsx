@@ -6,7 +6,7 @@ import { AWARD_ARTICLE_URL } from "@/lib/award";
 export const metadata = { title: "데이지란?" };
 
 const numbers = [
-  { stat: "7,000+", label: "누적 수강생" },
+  { stat: "10만+", label: "누적 수강생" },
   { stat: "9.5", label: "/ 10 만족도" },
   { stat: "50+", label: "주요 고객사" },
   { stat: "100+", label: "강사 파트너" },

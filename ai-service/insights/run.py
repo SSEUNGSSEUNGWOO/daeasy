@@ -19,6 +19,7 @@ from crawlers.github_trending import crawler as github
 from crawlers.ai_news import crawler as ai_news
 from crawlers.ai_blogs import crawler as ai_blogs
 from crawlers.huggingface import crawler as huggingface
+from crawlers.kr_ai_policy import crawler as kr_ai_policy
 from writer.writer import run as writer_run
 from image_agent.image_agent import run as image_agent_run
 from proofreader.proofreader import run as proofreader_run
@@ -28,11 +29,11 @@ from shared.models import Insight
 from shared.db import get_conn
 
 
-CRAWLERS = [arxiv, github, ai_news, ai_blogs, huggingface]
+CRAWLERS = [arxiv, github, ai_news, ai_blogs, huggingface, kr_ai_policy]
 
 
 def run_crawlers():
-    print("\n=== [1/3] 크롤러 실행 ===")
+    print("\n=== [1/5] 크롤러 실행 ===")
     total = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
         futures = {executor.submit(crawler.run): crawler.__name__ for crawler in CRAWLERS}

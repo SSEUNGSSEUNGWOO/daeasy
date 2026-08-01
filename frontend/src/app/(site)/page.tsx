@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { HeroRotatingWord } from "@/components/home/hero-rotating-word";
+import { AWARD_ARTICLE_URL } from "@/lib/award";
 import { fetchCourses } from "@/lib/courses";
 import { fetchInsights } from "@/lib/insights";
 
@@ -101,7 +102,7 @@ export default async function HomePage() {
                 />
               </h1>
               <p className="mt-7 max-w-[580px] text-[17px] leading-[1.7] text-zinc-600">
-                비전공자 직원이 자기 일에 AI · 데이터를 쓸 수 있을 때까지. 누적 7,000명 이상이 수강한 맞춤형 교육 — 50+ 조직, 100+ 강사 파트너와 함께 만들어왔습니다.
+                비전공자 직원이 자기 일에 AI · 데이터를 쓸 수 있을 때까지. 누적 10만 명 이상이 수강한 맞춤형 교육 — 50+ 조직, 100+ 강사 파트너와 함께 만들어왔습니다.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
                 <Link
@@ -119,7 +120,12 @@ export default async function HomePage() {
               </div>
 
               <div className="mt-14 rounded-2xl border border-zinc-200/70 bg-zinc-50 p-7 sm:p-8">
-                <div className="flex items-center gap-3.5 border-b border-zinc-200/70 pb-6">
+                <a
+                  href={AWARD_ARTICLE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3.5 border-b border-zinc-200/70 pb-6"
+                >
                   <Image
                     src="/awards/k-digital-brand-award-2026.png"
                     alt="2026 K-디지털 브랜드 대상"
@@ -128,13 +134,18 @@ export default async function HomePage() {
                     className="h-12 w-12 shrink-0"
                     unoptimized
                   />
-                  <p className="text-[14.5px] font-bold leading-[1.45] tracking-[-0.01em] text-ink">
-                    2026 K-디지털 브랜드 대상 수상
-                  </p>
-                </div>
+                  <div>
+                    <p className="text-[14.5px] font-bold leading-[1.45] tracking-[-0.01em] text-ink group-hover:underline">
+                      2026 K-디지털 브랜드 대상 수상
+                    </p>
+                    <p className="mt-0.5 text-[12.5px] text-zinc-600">
+                      AI · 데이터 교육 부문
+                    </p>
+                  </div>
+                </a>
                 <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
                   {[
-                    { stat: "7,000+", label: "누적 수강생" },
+                    { stat: "10만+", label: "누적 수강생" },
                     { stat: "9.5", label: "/ 10 만족도" },
                     { stat: "50+", label: "주요 고객사" },
                     { stat: "100+", label: "강사 파트너" },

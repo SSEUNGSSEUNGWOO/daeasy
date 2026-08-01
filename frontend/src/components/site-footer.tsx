@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { AWARD_ARTICLE_URL } from "@/lib/award";
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-zinc-200/70 bg-white">
@@ -31,7 +33,12 @@ export function SiteFooter() {
             <p className="mt-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
               Est. 2024 · Seoul, Korea
             </p>
-            <div className="mt-7 flex items-center gap-3">
+            <a
+              href={AWARD_ARTICLE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-7 flex items-center gap-3"
+            >
               <Image
                 src="/awards/k-digital-brand-award-2026.png"
                 alt="2026 K-디지털 브랜드 대상"
@@ -40,12 +47,14 @@ export function SiteFooter() {
                 className="h-14 w-14 shrink-0"
                 unoptimized
               />
-              <p className="text-[12.5px] font-semibold leading-[1.55] text-zinc-700">
-                2026 K-디지털
+              <span className="text-[12.5px] leading-[1.55] text-zinc-700">
+                <span className="font-semibold group-hover:underline">
+                  2026 K-디지털 브랜드 대상
+                </span>
                 <br />
-                브랜드 대상 수상
-              </p>
-            </div>
+                <span className="text-zinc-500">AI · 데이터 교육 부문</span>
+              </span>
+            </a>
           </div>
 
           <div className="col-span-6 md:col-span-2">

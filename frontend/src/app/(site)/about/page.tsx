@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { AWARD_ARTICLE_URL } from "@/lib/award";
+
 export const metadata = { title: "데이지란?" };
 
 const numbers = [
-  { stat: "7,000+", label: "누적 수강생" },
+  { stat: "10만+", label: "누적 수강생" },
   { stat: "9.5", label: "/ 10 만족도" },
   { stat: "50+", label: "주요 고객사" },
   { stat: "100+", label: "강사 파트너" },
@@ -61,6 +63,15 @@ export default function AboutPage() {
               <p className="mt-2 text-[20px] font-extrabold tracking-[-0.015em] text-ink sm:text-[24px]">
                 2026 K-디지털 브랜드 대상 수상
               </p>
+              <p className="mt-1.5 text-[15px] text-zinc-600">AI · 데이터 교육 부문</p>
+              <a
+                href={AWARD_ARTICLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-[13.5px] font-semibold text-accent hover:underline"
+              >
+                전자신문 보도 보기 →
+              </a>
             </div>
           </div>
         </div>

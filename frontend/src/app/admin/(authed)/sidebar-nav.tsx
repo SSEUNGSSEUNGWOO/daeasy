@@ -28,8 +28,8 @@ export function SidebarNav() {
         href={item.href}
         className={
           active
-            ? "font-semibold text-[#0F0F0F] dark:text-white"
-            : "hover:text-[#0F0F0F] dark:hover:text-white"
+            ? "font-semibold text-[#0F0F0F]"
+            : "hover:text-[#0F0F0F]"
         }
       >
         {item.label}
@@ -38,7 +38,7 @@ export function SidebarNav() {
   };
 
   return (
-    <nav className="mt-8 flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+    <nav className="mt-8 flex flex-col gap-2 text-sm text-zinc-600">
       <span className="text-xs uppercase tracking-wide text-zinc-400">문의</span>
       {inquiryItems.map(renderItem)}
       <span className="mt-4 text-xs uppercase tracking-wide text-zinc-400">콘텐츠</span>

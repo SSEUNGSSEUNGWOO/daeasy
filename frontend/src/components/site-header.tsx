@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { MobileNav } from "./mobile-nav";
+
 const NAV_ITEMS = [
   { href: "/about", label: "데이지란?" },
   { href: "/courses", label: "교육과정" },
@@ -27,7 +29,7 @@ export function SiteHeader() {
       </div>
 
       <header className="sticky top-0 z-30 border-b border-zinc-200/70 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
-        <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-6 lg:px-10">
+        <div className="relative mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-6 lg:px-10">
           <div className="flex items-center gap-10">
             <Link href="/" className="flex items-center gap-2.5" aria-label="daeasy 홈">
               <Image
@@ -45,16 +47,7 @@ export function SiteHeader() {
                 width={180}
                 height={66}
                 priority
-                className="block h-9 w-auto dark:hidden"
-                unoptimized
-              />
-              <Image
-                src="/logo/daeasy-text-onDark.svg"
-                alt="daeasy"
-                width={180}
-                height={66}
-                priority
-                className="hidden h-9 w-auto dark:block"
+                className="h-9 w-auto"
                 unoptimized
               />
             </Link>
@@ -70,12 +63,15 @@ export function SiteHeader() {
               ))}
             </nav>
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2.5 text-[14px] font-bold text-white transition hover:bg-accent/90"
-          >
-            교육 문의
-          </Link>
+          <div className="flex items-center gap-1">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2.5 text-[14px] font-bold text-white transition hover:bg-accent/90"
+            >
+              교육 문의
+            </Link>
+            <MobileNav items={NAV_ITEMS} />
+          </div>
         </div>
       </header>
     </>

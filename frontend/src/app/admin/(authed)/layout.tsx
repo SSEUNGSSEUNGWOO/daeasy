@@ -12,7 +12,7 @@ export default function AdminAuthedLayout({
 }) {
   return (
     <div className="flex min-h-screen flex-1">
-      <aside className="flex w-56 shrink-0 flex-col border-r border-zinc-200 px-4 py-6 dark:border-zinc-800">
+      <aside className="flex w-56 shrink-0 flex-col border-r border-zinc-200 px-4 py-6">
         <Link href="/admin" className="text-lg font-semibold tracking-tight">
           daeasy admin
         </Link>

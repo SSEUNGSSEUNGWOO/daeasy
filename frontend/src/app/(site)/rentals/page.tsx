@@ -2,6 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { RentalForm } from "./rental-form";
+import { BookingCalendar } from "./booking-calendar";
+import { fetchPublicBookings } from "@/lib/rental-bookings";
+
+// 어드민이 등록한 예약 현황이 재배포 없이 반영되도록
+export const revalidate = 60;
 
 export const metadata = {
   title: "강의실 대관",
@@ -68,7 +73,8 @@ const gallery = [
   { src: "/rentals/space-4.jpg", alt: "DMC타워 교육장 책상 배치" },
 ];
 
-export default function RentalsPage() {
+export default async function RentalsPage() {
+  const bookings = await fetchPublicBookings();
   return (
     <>
       {/* Hero */}
@@ -258,6 +264,21 @@ export default function RentalsPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 예약 현황 */}
+      <section className="border-t border-zinc-100 bg-zinc-50/70">
+        <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24">
+          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+            Availability
+          </p>
+          <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
+            예약 현황.
+          </h2>
+          <div className="mt-10 max-w-3xl">
+            <BookingCalendar bookings={bookings} />
           </div>
         </div>
       </section>

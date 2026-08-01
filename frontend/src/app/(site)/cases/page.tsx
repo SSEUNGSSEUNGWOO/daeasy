@@ -4,6 +4,9 @@ import Link from "next/link";
 import { RevealList } from "@/components/reveal";
 import { fetchCases } from "@/lib/cases";
 
+// 어드민에서 발행한 후기가 재배포 없이 반영되도록
+export const revalidate = 60;
+
 export const metadata = {
   title: "교육 후기",
   description: "진행한 교육의 실제 후기와 현장 사례. 공공기관·기업·교육기관의 AI · 데이터 도입 이야기.",

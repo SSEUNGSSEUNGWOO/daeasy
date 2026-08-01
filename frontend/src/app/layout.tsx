@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { SITE_URL } from "@/lib/site";
+
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
@@ -20,12 +22,19 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
+  // 카톡·슬랙 공유 미리보기(OG)가 절대 URL 을 만들 수 있게 한다
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "DAEASY(데이지) — AI · 데이터 교육",
     template: "%s | DAEASY(데이지)",
   },
   description:
     "AI와 데이터를 업무에 쓰려는 모든 조직과 사람을 위한 교육. 교육과정 · 사례 · 가이드 · 뉴스레터.",
+  openGraph: {
+    siteName: "DAEASY(데이지)",
+    locale: "ko_KR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

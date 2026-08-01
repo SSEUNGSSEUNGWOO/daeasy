@@ -4,6 +4,9 @@ import Link from "next/link";
 import { RevealList } from "@/components/reveal";
 import { fetchGuides } from "@/lib/guides";
 
+// /guide-publish 로 발행한 가이드가 재배포 없이 반영되도록
+export const revalidate = 60;
+
 export const metadata = {
   title: "가이드",
   description: "AI · 데이터 실무 가이드. RAG · LLM · 자동화 적용 패턴부터 도구별 활용 노하우까지.",

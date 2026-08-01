@@ -31,6 +31,21 @@ export function SiteFooter() {
             <p className="mt-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
               Est. 2024 · Seoul, Korea
             </p>
+            <div className="mt-7 flex items-center gap-3">
+              <Image
+                src="/awards/k-digital-brand-award-2026.png"
+                alt="2026 K-디지털 브랜드 대상"
+                width={270}
+                height={269}
+                className="h-14 w-14 shrink-0"
+                unoptimized
+              />
+              <p className="text-[12.5px] font-semibold leading-[1.55] text-zinc-700">
+                2026 K-디지털
+                <br />
+                브랜드 대상 수상
+              </p>
+            </div>
           </div>
 
           <div className="col-span-6 md:col-span-2">

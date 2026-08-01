@@ -47,6 +47,22 @@ export default function AboutPage() {
           <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-zinc-600">
             데이터와 AI의 시대에 실무자가 알아야 할 최신 데이터 분석 기법과 실무 적용 가능한 AI 활용 노하우를 제공합니다.
           </p>
+          <div className="mt-12 flex items-center gap-5 border-t border-zinc-100 pt-8">
+            <Image
+              src="/awards/k-digital-brand-award-2026.png"
+              alt="2026 K-디지털 브랜드 대상"
+              width={270}
+              height={269}
+              unoptimized
+              className="h-24 w-24 shrink-0"
+            />
+            <div>
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Award</p>
+              <p className="mt-2 text-[20px] font-extrabold tracking-[-0.015em] text-ink sm:text-[24px]">
+                2026 K-디지털 브랜드 대상 수상
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

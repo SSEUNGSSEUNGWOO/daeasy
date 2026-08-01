@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 export const runtime = "nodejs";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type Payload = { email?: string };
+type Payload = { email?: string; source?: string };
 
 export async function POST(req: Request) {
   const rl = await rateLimit("newsletter", getClientIp(req), 5, "1 m");
@@ -32,6 +33,21 @@ export async function POST(req: Request) {
     );
   }
 
-  // 기존 backend 와 동일 — 실제 newsletter_subscribers 저장 로직은 추후 구현.
-  return NextResponse.json({ status: "pending" });
+  // 재구독(status=unsubscribed 였던 이메일)도 다시 active 로 돌린다.
+  const { error } = await getSupabaseAdmin()
+    .from("newsletter_subscribers")
+    .upsert(
+      {
+        email,
+        status: "active",
+        unsubscribed_at: null,
+        source: payload.source ? payload.source.trim().slice(0, 40) : null,
+      },
+      { onConflict: "email" },
+    );
+
+  if (error) {
+    return NextResponse.json({ detail: error.message }, { status: 500 });
+  }
+  return NextResponse.json({ status: "subscribed" }, { status: 201 });
 }

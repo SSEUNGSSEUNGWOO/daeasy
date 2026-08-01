@@ -438,10 +438,10 @@ export default async function HomePage() {
                   Get in touch
                 </p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[52px]">
-                  조직에 맞춘 교육,<br />이야기부터 시작합시다.
+                  맞춤 커리큘럼 제안서,<br />일주일 안에 드립니다.
                 </h2>
                 <p className="mt-6 max-w-2xl text-[16px] leading-[1.8] text-zinc-300">
-                  상담은 무료입니다. 사전 인터뷰 후 맞춤 커리큘럼 제안서를 일주일 내 보내드립니다.
+                  상담은 무료입니다. 사전 인터뷰로 조직의 업무와 데이터 환경을 파악한 뒤, 실행 가능한 커리큘럼으로 제안드립니다.
                 </p>
               </div>
               <div className="col-span-12 flex flex-col gap-3 self-end sm:flex-row lg:col-span-4 lg:flex-col">

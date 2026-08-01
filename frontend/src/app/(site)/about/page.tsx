@@ -175,7 +175,7 @@ export default function AboutPage() {
               <div className="col-span-12 lg:col-span-8">
                 <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
-                  교육 도입을 고민 중이라면,<br />이야기부터 시작합시다.
+                  누적 10만 명을 교육한 방식으로,<br />조직의 교육을 설계합니다.
                 </h2>
               </div>
               <div className="col-span-12 flex self-end lg:col-span-4 lg:justify-end">

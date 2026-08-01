@@ -355,7 +355,7 @@ export default function RentalsPage() {
                   Reserve
                 </p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
-                  강의실이 필요하신가요?<br />지금 바로 문의해주세요.
+                  강의실 대관,<br />일정 확인부터 도와드립니다.
                 </h2>
               </div>
               <div className="col-span-12 flex self-end lg:col-span-4 lg:justify-end">

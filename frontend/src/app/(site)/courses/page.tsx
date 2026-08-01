@@ -47,7 +47,7 @@ export default async function CoursesPage() {
                   Get in touch
                 </p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
-                  조직에 맞춘 교육,<br />이야기부터 시작합시다.
+                  맞는 과정이 없다면,<br />조직에 맞춰 새로 설계합니다.
                 </h2>
               </div>
               <div className="col-span-12 flex self-end lg:col-span-4 lg:justify-end">

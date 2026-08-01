@@ -24,6 +24,7 @@ seed.sql       로컬 개발용 시드
 | `newsletter_issues` | 뉴스레터 발송호 | 어드민 (발송 경로 미구현) |
 | `contact_inquiries` | 교육 문의 | 사이트 문의 폼 |
 | `rental_inquiries` | 장비 대여 문의 | 사이트 대여 폼 |
+| `rental_bookings` | 대관 확정 예약 (예약 현황 캘린더) | 어드민 `/admin/rental-schedule` |
 
 Storage 버킷 `content-images` — 어드민 이미지 업로드 (`/api/admin/upload`), public read.
 
@@ -48,6 +49,7 @@ supabase db push
 - `raw_items` / `newsletter_issues` — anon 접근 불가 (어드민 / ai-service 전용)
 - `profiles` — RLS 는 켜되 **정책이 하나도 없다** = anon / authenticated 전부 차단, service_role 전용.
   역할 정보가 브라우저로 새어나가면 안 되기 때문
+- `rental_bookings` — `profiles` 와 같은 패턴 (정책 0개, service_role 전용). 공개 캘린더는 서버가 날짜·슬롯만 내려준다
 
 쓰기는 모두 service_role 을 통해. Next.js Route Handler(서버) 와 ai-service 에서만 service_role 키를 사용한다.
 

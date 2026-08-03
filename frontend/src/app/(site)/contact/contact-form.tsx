@@ -24,7 +24,7 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
         body: JSON.stringify({
           name: data.get("name"),
           email: data.get("email"),
-          phone: (data.get("phone") as string) || null,
+          phone: data.get("phone"),
           company: (data.get("company") as string) || null,
           course_slug: (data.get("course_slug") as string) || null,
           message: data.get("message") ?? "",
@@ -103,8 +103,11 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <label className="block">
-            <span className="text-[13px] font-bold text-ink">연락처</span>
+            <span className="text-[13px] font-bold text-ink">
+              연락처 <span className="text-red-500">*</span>
+            </span>
             <input
+              required
               name="phone"
               type="tel"
               placeholder="010-0000-0000"

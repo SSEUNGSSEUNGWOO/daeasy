@@ -40,8 +40,11 @@ export async function POST(req: Request) {
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json({ detail: "이메일 형식이 올바르지 않습니다." }, { status: 400 });
   }
+  const phone = (payload.phone ?? "").trim().slice(0, 40);
+  if (!phone) {
+    return NextResponse.json({ detail: "연락처를 입력해주세요." }, { status: 400 });
+  }
   const message = (payload.message ?? "").slice(0, 4000);
-  const phone = payload.phone ? payload.phone.trim().slice(0, 40) : null;
   const company = payload.company ? payload.company.trim().slice(0, 200) : null;
   const courseSlug = payload.course_slug ? payload.course_slug.slice(0, 120) : null;
 

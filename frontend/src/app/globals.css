@@ -19,6 +19,15 @@
   --font-sans: var(--font-pretendard), var(--font-jakarta), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
+/* Lenis 권장 스타일 — 스무스 스크롤 중 네이티브 smooth-behavior 와 충돌 방지 */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

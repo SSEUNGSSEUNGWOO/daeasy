@@ -41,7 +41,7 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
   );
 
   return (
-    <section ref={scope} className="border-t border-zinc-100 bg-zinc-50/70">
+    <section ref={scope} className="border-t border-zinc-100 bg-white">
       <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>

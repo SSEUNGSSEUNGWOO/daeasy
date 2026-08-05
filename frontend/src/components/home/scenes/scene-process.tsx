@@ -82,7 +82,7 @@ export function SceneProcess() {
   );
 
   return (
-    <section ref={scope} className="border-t border-zinc-100 bg-white">
+    <section ref={scope} className="border-t border-zinc-100 bg-zinc-50/70">
       <div className="mx-auto flex min-h-0 max-w-[1280px] flex-col justify-center px-6 py-20 lg:min-h-screen lg:px-10 lg:py-24">
         <div className="max-w-3xl">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">How we work</p>
@@ -117,7 +117,7 @@ export function SceneProcess() {
         {/* 완화판(그리고 JS·모션 없는 환경의 기본값): 기존 4단계 그리드 */}
         <ul className="process-grid mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {MOMENTS.map((m) => (
-            <li key={m.tag} className="rounded-2xl bg-zinc-50/70 p-7">
+            <li key={m.tag} className="rounded-2xl bg-white p-7 ring-1 ring-zinc-100">
               <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-accent">
                 Step {m.tag}
               </p>

@@ -62,9 +62,9 @@ export default async function HomePage() {
 
       <SceneHero />
       <ScenePartners />
-      <SceneCourses courses={featuredCourses} />
       <SceneProcess />
       <SceneInsights insights={latestInsights} />
+      <SceneCourses courses={featuredCourses} />
       <SceneRentals />
       <SceneCta />
     </>

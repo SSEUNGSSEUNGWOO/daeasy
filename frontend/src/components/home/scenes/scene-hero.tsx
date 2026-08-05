@@ -38,23 +38,20 @@ export function SceneHero() {
     () => {
       const counters = gsap.utils.toArray<HTMLElement>("[data-counter]");
 
-      /** 카운터를 타임라인에 스크럽으로 묶는다 — 되감으면 숫자도 되감긴다 */
-      const addCounters = (tl: gsap.core.Timeline, at: number | string) => {
+      /** 카운터는 스크럽에 묶지 않는다 — 스크롤이 멈춰도 중간값(2.4/10 등)에서
+          얼지 않고, 한 번 발화하면 1.3초 동안 끝까지 치솟는다. */
+      const playCounters = () => {
         counters.forEach((el, i) => {
           const s = STATS[i]!;
           const obj = { v: 0 };
-          tl.to(
-            obj,
-            {
-              v: s.value,
-              duration: 0.5,
-              ease: "none",
-              onUpdate: () => {
-                el.textContent = formatStat(obj.v, s);
-              },
+          gsap.to(obj, {
+            v: s.value,
+            duration: 1.3,
+            ease: "power2.out",
+            onUpdate: () => {
+              el.textContent = formatStat(obj.v, s);
             },
-            at,
-          );
+          });
         });
       };
 
@@ -74,7 +71,9 @@ export function SceneHero() {
           { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.07, delay: 0.15, ease: "power2.out" },
         );
 
-        // 핀 스크럽: 사진 패럴랙스 → 헤드라인 후퇴 → 실적 박스 + 카운트업
+        // 핀 스크럽: 사진 패럴랙스 → 헤드라인 후퇴 → 실적 박스 등장.
+        // 박스가 충분히 드러난 시점(진행 32%)에 카운트업을 1회 발화한다.
+        let counted = false;
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: scope.current,
@@ -82,6 +81,12 @@ export function SceneHero() {
             end: "+=75%",
             pin: true,
             scrub: 0.6,
+            onUpdate: (self) => {
+              if (!counted && self.progress > 0.32) {
+                counted = true;
+                playCounters();
+              }
+            },
           },
         });
         tl.to(".hero-photo", { yPercent: -9, stagger: 0.05, ease: "none" }, 0)
@@ -92,7 +97,6 @@ export function SceneHero() {
             { y: 0, autoAlpha: 1, ease: "none", duration: 0.45 },
             0.15,
           );
-        addCounters(tl, 0.35);
       });
 
       // ── 모바일·태블릿: 핀 없이 1회 등장 + 진입 시 카운트업 ──
@@ -113,8 +117,7 @@ export function SceneHero() {
           ".hero-stats",
           { autoAlpha: 0, y: 24 },
           { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" },
-        );
-        addCounters(tl, 0.1);
+        ).call(playCounters, [], 0.15);
       });
 
       return () => mm.revert();

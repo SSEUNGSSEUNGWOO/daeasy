@@ -149,6 +149,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Operations — 케이브레인컴퍼니 운영 서비스 */}
+      <section className="border-t border-zinc-100 bg-white">
+        <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
+          <div className="max-w-3xl">
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">What we operate</p>
+            <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
+              교육에서 인증까지,<br />직접 운영합니다.
+            </h2>
+            <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-zinc-600">
+              케이브레인컴퍼니는 가르치는 것에서 멈추지 않습니다. 공공부문 AI 역량을 검증하는 인증 시스템까지 직접 만들고 운영합니다.
+            </p>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 reveal-stagger">
+            <div className="rounded-2xl bg-zinc-50/70 p-8 sm:p-10">
+              <p className="font-mono text-[11.5px] font-bold uppercase tracking-[0.18em] text-accent">
+                Education
+              </p>
+              <h3 className="mt-4 text-[22px] font-extrabold tracking-[-0.015em] text-ink">
+                DAEASY — AI · 데이터 교육
+              </h3>
+              <p className="mt-3 text-[14.5px] leading-[1.75] text-zinc-600">
+                지금 보고 계신 이곳. 누적 10만 명 이상이 수강한 맞춤형 AI · 데이터 교육 브랜드입니다.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-ink-warm p-8 text-white sm:p-10">
+              <p className="font-mono text-[11.5px] font-bold uppercase tracking-[0.18em] text-accent">
+                Certification
+              </p>
+              <h3 className="mt-4 text-[22px] font-extrabold tracking-[-0.015em]">
+                AI 챔피언 역량인증 시스템
+              </h3>
+              <p className="mt-3 text-[14.5px] leading-[1.75] text-zinc-300">
+                행정안전부 공공부문 AI 챔피언 CBT 플랫폼 — 시험 응시부터 화상 감독, 채점, 인증까지 전 과정을 개발 · 운영합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Company info */}
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">

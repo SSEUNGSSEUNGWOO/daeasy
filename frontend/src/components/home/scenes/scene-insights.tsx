@@ -24,41 +24,33 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
       const mm = gsap.matchMedia();
 
       mm.add(MM_DESKTOP, () => {
-        gsap.fromTo(
+        // 스크롤 양에 비례해 진행되는 스크럽 — 올려 감으면 되감긴다
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: scope.current,
+            start: "top 85%",
+            end: "top 25%",
+            scrub: 0.6,
+          },
+        });
+        tl.fromTo(
           ".insights-head",
-          { autoAlpha: 0, y: 26 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: { trigger: scope.current, start: "top 78%", once: true },
-          },
-        );
-        gsap.fromTo(
-          ".insight-featured",
-          { autoAlpha: 0, y: 56, scale: 0.97 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: { trigger: scope.current, start: "top 68%", once: true },
-          },
-        );
-        gsap.fromTo(
-          ".insight-side",
-          { autoAlpha: 0, x: 56 },
-          {
-            autoAlpha: 1,
-            x: 0,
-            duration: 0.65,
-            stagger: 0.16,
-            ease: "power3.out",
-            scrollTrigger: { trigger: scope.current, start: "top 62%", once: true },
-          },
-        );
+          { autoAlpha: 0, y: 32 },
+          { autoAlpha: 1, y: 0, duration: 0.35, ease: "none" },
+          0,
+        )
+          .fromTo(
+            ".insight-featured",
+            { autoAlpha: 0, y: 90, scale: 0.95 },
+            { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: "none" },
+            0.12,
+          )
+          .fromTo(
+            ".insight-side",
+            { autoAlpha: 0, x: 90 },
+            { autoAlpha: 1, x: 0, duration: 0.45, stagger: 0.18, ease: "none" },
+            0.3,
+          );
         // 피처드 커버 패럴랙스 (섹션 통과 동안 은은하게)
         gsap.fromTo(
           ".insight-featured-img",

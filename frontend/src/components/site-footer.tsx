@@ -31,7 +31,11 @@ export function SiteFooter() {
               AI · 데이터를 업무에 도입 · 활용하려는 모든 조직과 사람을 위한 교육.
             </p>
             <p className="mt-4 text-[12.5px] leading-[1.7] text-zinc-500">
-              행정안전부 공공부문 <span className="font-semibold text-zinc-700">AI 챔피언 프로그램</span> 운영사
+              행정안전부 공공부문{" "}
+              <Link href="/ai-champion" className="font-semibold text-zinc-700 underline-offset-4 hover:underline">
+                AI 챔피언 프로그램
+              </Link>{" "}
+              운영사
             </p>
             <p className="mt-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
               Est. 2024 · Seoul, Korea
@@ -78,6 +82,7 @@ export function SiteFooter() {
               <li><Link href="/insights" className="hover:text-zinc-900">인사이트</Link></li>
               <li><Link href="/guides" className="hover:text-zinc-900">가이드</Link></li>
               <li><Link href="/about" className="hover:text-zinc-900">데이지란?</Link></li>
+              <li><Link href="/ai-champion" className="hover:text-zinc-900">AI챔피언</Link></li>
             </ul>
           </div>
           <div className="col-span-12 md:col-span-4">

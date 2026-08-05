@@ -8,9 +8,16 @@ export const metadata = {
     "조직에 맞는 AI · 데이터 교육 도입 문의. 사전 인터뷰 후 맞춤 커리큘럼 제안서를 일주일 내 보내드립니다.",
 };
 
-export default async function ContactPage() {
-  const courses = await fetchCourses();
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ course?: string }>;
+}) {
+  const [courses, sp] = await Promise.all([fetchCourses(), searchParams]);
   const courseOptions = courses.map((c) => ({ slug: c.slug, title: c.title }));
+  // /quiz 추천 결과에서 넘어온 경우 해당 과정을 미리 선택
+  const defaultCourseSlug =
+    sp.course && courseOptions.some((c) => c.slug === sp.course) ? sp.course : "";
 
   return (
     <>
@@ -72,7 +79,7 @@ export default async function ContactPage() {
                 </div>
               </div>
             </div>
-            <ContactForm courses={courseOptions} />
+            <ContactForm courses={courseOptions} defaultCourseSlug={defaultCourseSlug} />
           </div>
         </div>
       </section>

@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { href: "/cases", label: "교육후기" },
   { href: "/insights", label: "인사이트" },
   { href: "/guides", label: "가이드" },
+  { href: "/ai-champion", label: "AI챔피언" },
   { href: "/support", label: "고객센터" },
 ];
 

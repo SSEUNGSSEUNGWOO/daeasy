@@ -5,7 +5,13 @@ import { useState } from "react";
 type CourseOption = { slug: string; title: string };
 type FormState = "idle" | "submitting" | "success" | "error";
 
-export function ContactForm({ courses }: { courses: CourseOption[] }) {
+export function ContactForm({
+  courses,
+  defaultCourseSlug = "",
+}: {
+  courses: CourseOption[];
+  defaultCourseSlug?: string;
+}) {
   const [state, setState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -128,7 +134,7 @@ export function ContactForm({ courses }: { courses: CourseOption[] }) {
           <span className="text-[13px] font-bold text-ink">관심 과정</span>
           <select
             name="course_slug"
-            defaultValue=""
+            defaultValue={defaultCourseSlug}
             className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
           >
             <option value="">전체 과정 / 미정</option>

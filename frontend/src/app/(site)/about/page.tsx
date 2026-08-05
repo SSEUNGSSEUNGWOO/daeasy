@@ -158,7 +158,7 @@ export default function AboutPage() {
               교육에서 인증까지,<br />직접 운영합니다.
             </h2>
             <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-zinc-600">
-              케이브레인컴퍼니는 가르치는 것에서 멈추지 않습니다. 공공부문 AI 역량을 검증하는 인증 시스템까지 직접 만들고 운영합니다.
+              케이브레인컴퍼니는 가르치는 것에서 멈추지 않습니다. 행정안전부 공공부문 AI 챔피언 프로그램의 전 과정을 직접 운영합니다.
             </p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 reveal-stagger">
@@ -175,13 +175,13 @@ export default function AboutPage() {
             </div>
             <div className="rounded-2xl bg-ink-warm p-8 text-white sm:p-10">
               <p className="font-mono text-[11.5px] font-bold uppercase tracking-[0.18em] text-accent">
-                Certification
+                Public Program
               </p>
               <h3 className="mt-4 text-[22px] font-extrabold tracking-[-0.015em]">
-                AI 챔피언 역량인증 시스템
+                AI 챔피언 — 공공부문 AI 역량 프로그램
               </h3>
               <p className="mt-3 text-[14.5px] leading-[1.75] text-zinc-300">
-                행정안전부 공공부문 AI 챔피언 CBT 플랫폼 — 시험 응시부터 화상 감독, 채점, 인증까지 전 과정을 개발 · 운영합니다.
+                행정안전부 AI 챔피언 사업의 전체 운영을 맡고 있습니다. 역량 평가(CBT)와 화상 감독, 채점, 인증 시스템까지 직접 개발해 운영합니다.
               </p>
             </div>
           </div>

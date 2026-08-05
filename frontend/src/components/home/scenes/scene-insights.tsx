@@ -64,45 +64,88 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
             곧 첫 인사이트가 발행됩니다.
           </p>
         ) : (
-          <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {insights.map((insight) => (
-              <li key={insight.slug} className="insight-card">
-                <Link
-                  href={`/insights/${insight.slug}`}
-                  className="group block h-full overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
-                >
-                  <div className="aspect-[16/9] w-full overflow-hidden bg-zinc-100">
-                    {insight.image_url ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={insight.image_url}
-                        alt=""
-                        className="h-full w-full object-cover transition group-hover:scale-[1.02]"
-                      />
-                    ) : null}
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {/* 가장 최근 1건 — 크게 */}
+            <div className="insight-card">
+              <Link
+                href={`/insights/${insights[0]!.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl bg-zinc-50/70 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
+              >
+                <div className="aspect-[16/9] w-full overflow-hidden bg-zinc-100">
+                  {insights[0]!.image_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={insights[0]!.image_url}
+                      alt=""
+                      className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                    />
+                  ) : null}
+                </div>
+                <div className="flex flex-1 flex-col p-7 sm:p-8">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.1em] text-accent">
+                      Latest
+                    </span>
+                    {insights[0]!.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center rounded-full bg-zinc-100 px-2 py-0.5 text-[11px] font-semibold text-zinc-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <div className="p-6">
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      {insight.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center rounded-full bg-zinc-100 px-2 py-0.5 text-[11px] font-semibold text-zinc-700"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <h3 className="mt-4 line-clamp-3 text-[22px] font-extrabold leading-[1.3] tracking-[-0.015em] text-ink sm:text-[26px]">
+                    {insights[0]!.title}
+                  </h3>
+                  <p className="mt-auto pt-4 text-[13px] font-semibold text-zinc-500">
+                    {insights[0]!.dateLabel}
+                  </p>
+                </div>
+              </Link>
+            </div>
+
+            {/* 그 다음 2건 — 옆에 작게 */}
+            <div className="flex flex-col gap-6">
+              {insights.slice(1).map((insight) => (
+                <div key={insight.slug} className="insight-card flex-1">
+                  <Link
+                    href={`/insights/${insight.slug}`}
+                    className="group flex h-full overflow-hidden rounded-2xl bg-zinc-50/70 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
+                  >
+                    <div className="w-36 shrink-0 overflow-hidden bg-zinc-100 sm:w-52">
+                      {insight.image_url ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={insight.image_url}
+                          alt=""
+                          className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                        />
+                      ) : null}
                     </div>
-                    <h3 className="mt-3 line-clamp-2 text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
-                      {insight.title}
-                    </h3>
-                    <p className="mt-3 text-[12.5px] font-semibold text-zinc-500">
-                      {insight.dateLabel}
-                    </p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                    <div className="flex flex-1 flex-col justify-center p-5 sm:p-6">
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        {insight.tags.slice(0, 2).map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center rounded-full bg-zinc-100 px-2 py-0.5 text-[11px] font-semibold text-zinc-700"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="mt-2.5 line-clamp-2 text-[16.5px] font-bold leading-[1.4] tracking-[-0.01em] text-ink">
+                        {insight.title}
+                      </h3>
+                      <p className="mt-2.5 text-[12.5px] font-semibold text-zinc-500">
+                        {insight.dateLabel}
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </section>

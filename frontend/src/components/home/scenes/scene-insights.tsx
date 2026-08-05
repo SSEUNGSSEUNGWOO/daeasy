@@ -1,11 +1,12 @@
 "use client";
 
-/* 최신 인사이트 — 스태거 reveal (가벼운 장면). */
+/* 최신 인사이트 — 최신 1건을 크게(2/3 폭), 이전 2건을 옆에 컴팩트로.
+   연출: 헤더 페이드 → 피처드 카드 등장 + 커버 패럴랙스, 사이드 카드는 오른쪽에서 진입. */
 
 import { useRef } from "react";
 import Link from "next/link";
 
-import { gsap, MM_DESKTOP, useGSAP } from "./gsap-setup";
+import { gsap, MM_DESKTOP, MM_SOFT, useGSAP } from "./gsap-setup";
 
 export type InsightCard = {
   slug: string;
@@ -21,20 +22,75 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
+
       mm.add(MM_DESKTOP, () => {
         gsap.fromTo(
-          ".insight-card",
-          { autoAlpha: 0, y: 28 },
+          ".insights-head",
+          { autoAlpha: 0, y: 26 },
           {
             autoAlpha: 1,
             y: 0,
             duration: 0.6,
-            stagger: 0.12,
             ease: "power2.out",
-            scrollTrigger: { trigger: scope.current, start: "top 72%", once: true },
+            scrollTrigger: { trigger: scope.current, start: "top 78%", once: true },
+          },
+        );
+        gsap.fromTo(
+          ".insight-featured",
+          { autoAlpha: 0, y: 56, scale: 0.97 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: { trigger: scope.current, start: "top 68%", once: true },
+          },
+        );
+        gsap.fromTo(
+          ".insight-side",
+          { autoAlpha: 0, x: 56 },
+          {
+            autoAlpha: 1,
+            x: 0,
+            duration: 0.65,
+            stagger: 0.16,
+            ease: "power3.out",
+            scrollTrigger: { trigger: scope.current, start: "top 62%", once: true },
+          },
+        );
+        // 피처드 커버 패럴랙스 (섹션 통과 동안 은은하게)
+        gsap.fromTo(
+          ".insight-featured-img",
+          { yPercent: -6 },
+          {
+            yPercent: 6,
+            ease: "none",
+            scrollTrigger: {
+              trigger: scope.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
           },
         );
       });
+
+      mm.add(MM_SOFT, () => {
+        gsap.fromTo(
+          ".insight-featured, .insight-side",
+          { autoAlpha: 0, y: 18 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: { trigger: scope.current, start: "top 78%", once: true },
+          },
+        );
+      });
+
       return () => mm.revert();
     },
     { scope },
@@ -43,7 +99,7 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
   return (
     <section ref={scope} className="border-t border-zinc-100 bg-white">
       <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div className="insights-head flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Insights</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
@@ -60,28 +116,28 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
         </div>
 
         {insights.length === 0 ? (
-          <p className="mt-12 rounded-2xl bg-white p-10 text-center text-[14px] text-zinc-500 ring-1 ring-zinc-100">
+          <p className="mt-12 rounded-2xl bg-zinc-50/70 p-10 text-center text-[14px] text-zinc-500 ring-1 ring-zinc-100">
             곧 첫 인사이트가 발행됩니다.
           </p>
         ) : (
-          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {/* 가장 최근 1건 — 크게 */}
-            <div className="insight-card">
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {/* 가장 최근 1건 — 2/3 폭으로 크게 */}
+            <div className="insight-featured lg:col-span-2">
               <Link
                 href={`/insights/${insights[0]!.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl bg-zinc-50/70 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
               >
-                <div className="aspect-[16/9] w-full overflow-hidden bg-zinc-100">
+                <div className="aspect-[16/9] w-full overflow-hidden bg-zinc-100 lg:aspect-[16/8]">
                   {insights[0]!.image_url ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={insights[0]!.image_url}
                       alt=""
-                      className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                      className="insight-featured-img h-full w-full scale-[1.12] object-cover transition group-hover:scale-[1.15]"
                     />
                   ) : null}
                 </div>
-                <div className="flex flex-1 flex-col p-7 sm:p-8">
+                <div className="flex flex-1 flex-col p-7 sm:p-9">
                   <div className="flex flex-wrap items-center gap-1.5">
                     <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.1em] text-accent">
                       Latest
@@ -95,35 +151,35 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
                       </span>
                     ))}
                   </div>
-                  <h3 className="mt-4 line-clamp-3 text-[22px] font-extrabold leading-[1.3] tracking-[-0.015em] text-ink sm:text-[26px]">
+                  <h3 className="mt-4 line-clamp-3 text-[24px] font-extrabold leading-[1.28] tracking-[-0.015em] text-ink sm:text-[30px] lg:text-[32px]">
                     {insights[0]!.title}
                   </h3>
-                  <p className="mt-auto pt-4 text-[13px] font-semibold text-zinc-500">
+                  <p className="mt-auto pt-5 text-[13px] font-semibold text-zinc-500">
                     {insights[0]!.dateLabel}
                   </p>
                 </div>
               </Link>
             </div>
 
-            {/* 그 다음 2건 — 옆에 작게 */}
+            {/* 그 다음 2건 — 옆에 컴팩트로 */}
             <div className="flex flex-col gap-6">
               {insights.slice(1).map((insight) => (
-                <div key={insight.slug} className="insight-card flex-1">
+                <div key={insight.slug} className="insight-side flex-1">
                   <Link
                     href={`/insights/${insight.slug}`}
-                    className="group flex h-full overflow-hidden rounded-2xl bg-zinc-50/70 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl bg-zinc-50/70 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
                   >
-                    <div className="w-36 shrink-0 overflow-hidden bg-zinc-100 sm:w-52">
+                    <div className="aspect-[16/7] w-full overflow-hidden bg-zinc-100">
                       {insight.image_url ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={insight.image_url}
                           alt=""
-                          className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                          className="h-full w-full object-cover transition group-hover:scale-[1.03]"
                         />
                       ) : null}
                     </div>
-                    <div className="flex flex-1 flex-col justify-center p-5 sm:p-6">
+                    <div className="flex flex-1 flex-col p-5 sm:p-6">
                       <div className="flex flex-wrap items-center gap-1.5">
                         {insight.tags.slice(0, 2).map((tag) => (
                           <span
@@ -134,10 +190,10 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
                           </span>
                         ))}
                       </div>
-                      <h3 className="mt-2.5 line-clamp-2 text-[16.5px] font-bold leading-[1.4] tracking-[-0.01em] text-ink">
+                      <h3 className="mt-2.5 line-clamp-2 text-[15.5px] font-bold leading-[1.4] tracking-[-0.01em] text-ink">
                         {insight.title}
                       </h3>
-                      <p className="mt-2.5 text-[12.5px] font-semibold text-zinc-500">
+                      <p className="mt-auto pt-3 text-[12px] font-semibold text-zinc-500">
                         {insight.dateLabel}
                       </p>
                     </div>

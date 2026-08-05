@@ -24,33 +24,47 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
       const mm = gsap.matchMedia();
 
       mm.add(MM_DESKTOP, () => {
-        // 스크롤 양에 비례해 진행되는 스크럽 — 올려 감으면 되감긴다
+        // 진입 중에는 헤더가 먼저 차오른다 (빈 화면으로 들어오지 않게)
+        gsap.fromTo(
+          ".insights-head",
+          { autoAlpha: 0, y: 32 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: scope.current,
+              start: "top 80%",
+              end: "top 20%",
+              scrub: 0.6,
+            },
+          },
+        );
+
+        // 핀: 화면을 붙잡은 동안 피처드 → 사이드가 길게 차오른다. 되감기 가능.
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: scope.current,
-            start: "top 85%",
-            end: "top 25%",
+            start: "top top",
+            end: "+=80%",
+            pin: true,
             scrub: 0.6,
           },
         });
         tl.fromTo(
-          ".insights-head",
-          { autoAlpha: 0, y: 32 },
-          { autoAlpha: 1, y: 0, duration: 0.35, ease: "none" },
+          ".insight-featured",
+          { autoAlpha: 0, y: 110, scale: 0.94 },
+          { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "none" },
           0,
         )
           .fromTo(
-            ".insight-featured",
-            { autoAlpha: 0, y: 90, scale: 0.95 },
-            { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, ease: "none" },
-            0.12,
-          )
-          .fromTo(
             ".insight-side",
-            { autoAlpha: 0, x: 90 },
-            { autoAlpha: 1, x: 0, duration: 0.45, stagger: 0.18, ease: "none" },
-            0.3,
-          );
+            { autoAlpha: 0, x: 110 },
+            { autoAlpha: 1, x: 0, duration: 0.4, stagger: 0.22, ease: "none" },
+            0.32,
+          )
+          // 완성된 화면에서 잠깐 머문 뒤 핀 해제
+          .to({}, { duration: 0.25 });
         // 피처드 커버 패럴랙스 (섹션 통과 동안 은은하게)
         gsap.fromTo(
           ".insight-featured-img",

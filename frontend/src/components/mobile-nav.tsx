@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { CustomerNav } from "./customer-nav";
+
 type Item = { href: string; label: string };
 
 export function MobileNav({ items }: { items: Item[] }) {
@@ -83,6 +85,9 @@ export function MobileNav({ items }: { items: Item[] }) {
                 </Link>
               );
             })}
+            <div className="mt-1 border-t border-zinc-200">
+              <CustomerNav mobile onNavigate={() => setOpen(false)} />
+            </div>
           </nav>
         </div>
       )}

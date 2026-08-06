@@ -44,6 +44,22 @@ cp ../.env.example .env.local   # frontend 섹션만 채우기
 npm run dev                     # http://localhost:3000
 ```
 
+일반 고객 회원가입을 사용하려면 다음 보안 설정도 필요하다.
+
+- Cloudflare Turnstile에서 사이트를 만들고 `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` 설정
+- 운영 환경에 Upstash `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` 설정
+- `NEXT_PUBLIC_SITE_URL=https://dataeasy.kr` 설정
+- Supabase Auth → URL Configuration의 Site URL을 `https://dataeasy.kr`로 설정
+- Supabase Auth → Email Templates → Confirm signup 링크를 다음 형태로 설정
+
+```html
+<a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next=/mypage">
+  이메일 인증
+</a>
+```
+
+운영 환경에서는 CAPTCHA나 rate limiter 설정이 없으면 고객 가입·로그인을 차단한다.
+
 어드민은 `http://localhost:3000/admin` — Supabase Auth 계정(이메일 + 비밀번호)으로 로그인.
 첫 관리자 계정은 Studio 에서 만들고 `public.profiles` 에 `role='admin'` 행을 넣는다.
 이후 계정은 관리자가 `/admin/members` 에서 발급한다. 역할은 `admin`(전체) / `editor`(교육과정 · 교육후기만).

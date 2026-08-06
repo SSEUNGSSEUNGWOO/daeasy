@@ -38,12 +38,9 @@ export async function proxy(request: NextRequest) {
   const { data } = await supabase.auth.getUser();
 
   if (pathname === "/admin/login") {
-    if (data.user) {
-      const url = request.nextUrl.clone();
-      url.pathname = "/admin";
-      url.search = "";
-      return NextResponse.redirect(url);
-    }
+    // 일반 고객도 같은 Supabase Auth 세션을 쓴다. 여기서 로그인 여부만 보고
+    // /admin 으로 보내면 고객 세션은 어드민 페이지와 로그인 사이에서 루프한다.
+    // 역할 확인은 로그인 API와 각 어드민 페이지가 담당한다.
     return response;
   }
 

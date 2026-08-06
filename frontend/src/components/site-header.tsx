@@ -1,16 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { CustomerNav } from "./customer-nav";
 import { MobileNav } from "./mobile-nav";
 
 const NAV_ITEMS = [
   { href: "/about", label: "데이지란?" },
+  { href: "/ai-champion", label: "AI챔피언" },
   { href: "/courses", label: "교육과정" },
   { href: "/rentals", label: "강의실 대관" },
   { href: "/cases", label: "교육후기" },
   { href: "/insights", label: "인사이트" },
   { href: "/guides", label: "가이드" },
-  { href: "/ai-champion", label: "AI챔피언" },
   { href: "/support", label: "고객센터" },
 ];
 
@@ -65,6 +66,7 @@ export function SiteHeader() {
             </nav>
           </div>
           <div className="flex items-center gap-1">
+            <CustomerNav />
             <Link
               href="/contact"
               className="inline-flex items-center gap-1.5 rounded-md bg-accent px-4 py-2.5 text-[14px] font-bold text-white transition hover:bg-accent/90"

@@ -83,3 +83,34 @@ export async function rateLimit(
     return { success: true, remaining: requests, reset: 0 };
   }
 }
+
+/**
+ * 인증 엔드포인트용. 운영에서는 limiter 미설정·장애 모두 차단한다.
+ * 로컬 개발에서는 Upstash 없이도 폼을 확인할 수 있도록 통과시킨다.
+ */
+export async function rateLimitAuth(
+  bucket: string,
+  identifier: string,
+  requests: number,
+  window: `${number} ${"s" | "m" | "h"}`,
+): Promise<RateLimitResult> {
+  const limiter = getLimiter(bucket, requests, window);
+  if (!limiter) {
+    return {
+      success: process.env.NODE_ENV !== "production",
+      remaining: process.env.NODE_ENV !== "production" ? requests : 0,
+      reset: 0,
+    };
+  }
+  try {
+    const { success, remaining, reset } = await limiter.limit(identifier);
+    return { success, remaining, reset };
+  } catch (err) {
+    console.error(`[rate-limit] ${bucket} 인증 버킷 조회 실패 — 차단 처리`, err);
+    return {
+      success: process.env.NODE_ENV !== "production",
+      remaining: 0,
+      reset: 0,
+    };
+  }
+}

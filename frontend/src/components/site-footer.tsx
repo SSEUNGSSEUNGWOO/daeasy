@@ -99,7 +99,10 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-zinc-200/70 pt-6 text-[12.5px] text-zinc-500 sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} daeasy. All rights reserved.</span>
-          <span>Made in Seoul</span>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="font-semibold hover:text-zinc-800">개인정보 처리방침</Link>
+            <span>Made in Seoul</span>
+          </div>
         </div>
       </div>
     </footer>

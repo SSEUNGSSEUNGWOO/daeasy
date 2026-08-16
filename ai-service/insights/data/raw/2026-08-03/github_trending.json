@@ -1,0 +1,408 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "microsoft/AI-For-Beginners",
+    "url": "https://github.com/microsoft/AI-For-Beginners",
+    "content": "12 Weeks, 24 Lessons, AI for All!",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 59529,
+      "language": "Jupyter Notebook"
+    },
+    "item_hash": "7fae58d739c94e83"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "usekaneo/kaneo",
+    "url": "https://github.com/usekaneo/kaneo",
+    "content": "🎯 All you need. Nothing you don't. Open source project management that works for you, not against you.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 6311,
+      "language": "TypeScript"
+    },
+    "item_hash": "bdc40871eb538b69"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "lyogavin/airllm",
+    "url": "https://github.com/lyogavin/airllm",
+    "content": "AirLLM 70B inference with single 4GB GPU",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 25879,
+      "language": "Jupyter Notebook"
+    },
+    "item_hash": "759119abe3ffdb8f"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "iv-org/invidious",
+    "url": "https://github.com/iv-org/invidious",
+    "content": "Invidious is an alternative front-end to YouTube",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 22046,
+      "language": "Crystal"
+    },
+    "item_hash": "622b49c5eedebede"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "codecrafters-io/build-your-own-x",
+    "url": "https://github.com/codecrafters-io/build-your-own-x",
+    "content": "Master programming by recreating your favorite technologies from scratch.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 535097,
+      "language": "Markdown"
+    },
+    "item_hash": "bee422cc001e2185"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "zhaoxuya520/reverse-skill",
+    "url": "https://github.com/zhaoxuya520/reverse-skill",
+    "content": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 14053,
+      "language": "PowerShell"
+    },
+    "item_hash": "0396398dad51ec9d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "different-ai/openwork",
+    "url": "https://github.com/different-ai/openwork",
+    "content": "The open-source alternative to Claude Cowork (powered by opencode)",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 20446,
+      "language": "TypeScript"
+    },
+    "item_hash": "fae7e9e22c64821d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "microsoft/generative-ai-for-beginners",
+    "url": "https://github.com/microsoft/generative-ai-for-beginners",
+    "content": "21 Lessons, Get Started Building with Generative AI",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 114953,
+      "language": "Jupyter Notebook"
+    },
+    "item_hash": "62d632eaf0dada2e"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Panniantong/Agent-Reach",
+    "url": "https://github.com/Panniantong/Agent-Reach",
+    "content": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 64940,
+      "language": "Python"
+    },
+    "item_hash": "b6bb9341088f0954"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "TencentCloud/TencentDB-Agent-Memory",
+    "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+    "content": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusable memory assets (Chat Memory, Skill, LLM-Wiki, Code-Graph) that are governed, shared, and equipped across agents and frameworks.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 11316,
+      "language": "TypeScript"
+    },
+    "item_hash": "b599dd2f1ad43e10"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "mvanhorn/last30days-skill",
+    "url": "https://github.com/mvanhorn/last30days-skill",
+    "content": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 56962,
+      "language": "Python"
+    },
+    "item_hash": "b88590c43555a909"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "NomaDamas/k-skill",
+    "url": "https://github.com/NomaDamas/k-skill",
+    "content": "한국인을 위한 스킬 모음집 - 에이전트를 한국인으로",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 6925,
+      "language": "JavaScript"
+    },
+    "item_hash": "658cf3ee8df6583c"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "HarbourMasters/Lighthouse",
+    "url": "https://github.com/HarbourMasters/Lighthouse",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 248,
+      "language": "C"
+    },
+    "item_hash": "e7344a6ef774a277"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "antirez/ds4",
+    "url": "https://github.com/antirez/ds4",
+    "content": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 20086,
+      "language": "C"
+    },
+    "item_hash": "3eacb4655aba2497"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "esengine/DeepSeek-Reasonix",
+    "url": "https://github.com/esengine/DeepSeek-Reasonix",
+    "content": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 29270,
+      "language": "Go"
+    },
+    "item_hash": "b5590ec052a4f771"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "abus-aikorea/voice-pro",
+    "url": "https://github.com/abus-aikorea/voice-pro",
+    "content": "Gradio WebUI for creators and developers, featuring key TTS (Edge-TTS, kokoro) and zero-shot Voice Cloning (E2 & F5-TTS, CosyVoice), with Whisper audio processing, YouTube download, Demucs vocal isolation, and multilingual translation.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 11986,
+      "language": "Python"
+    },
+    "item_hash": "7e01176c9d1442c2"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Huanshere/VideoLingo",
+    "url": "https://github.com/Huanshere/VideoLingo",
+    "content": "Netflix-level subtitle cutting, translation, alignment, and even dubbing - one-click fully automated AI video subtitle team | Netflix级字幕切割、翻译、对齐、甚至加上配音，一键全自动视频搬运AI字幕组",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 18030,
+      "language": "Python"
+    },
+    "item_hash": "64070e7f73e1da79"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "SimplifyJobs/Summer2027-Internships",
+    "url": "https://github.com/SimplifyJobs/Summer2027-Internships",
+    "content": "Summer 2026 software engineering, data science, AI, quant, product management, and hardware internship postings. Updated daily by Simplify and Pitt CSC.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 45729,
+      "language": "Python"
+    },
+    "item_hash": "676f349f8b1b1249"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "bytedance/deer-flow",
+    "url": "https://github.com/bytedance/deer-flow",
+    "content": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 79018,
+      "language": "Python"
+    },
+    "item_hash": "16389f32495280ea"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "sherlock-project/sherlock",
+    "url": "https://github.com/sherlock-project/sherlock",
+    "content": "Hunt down social media accounts by username across social networks",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 88066,
+      "language": "Python"
+    },
+    "item_hash": "3619c42254a93704"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ccxt/ccxt",
+    "url": "https://github.com/ccxt/ccxt",
+    "content": "A unified trading API with more than 100 crypto exchanges and prediction markets in JavaScript / TypeScript / Python / C# / PHP / Go / Java",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 43503,
+      "language": "Python"
+    },
+    "item_hash": "b311af1e723666ba"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Emily2040/seedance-2.0",
+    "url": "https://github.com/Emily2040/seedance-2.0",
+    "content": "Comprehensive production pipeline for quad-modal AI filmmaking with Seedance 2.0",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 5950,
+      "language": "Python"
+    },
+    "item_hash": "1a74e304805983b0"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "yt-dlp/yt-dlp",
+    "url": "https://github.com/yt-dlp/yt-dlp",
+    "content": "A feature-rich command-line audio/video downloader",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 182068,
+      "language": "Python"
+    },
+    "item_hash": "511a5089717fad8a"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Z4nzu/hackingtool",
+    "url": "https://github.com/Z4nzu/hackingtool",
+    "content": "ALL IN ONE Hacking Tool For Hackers",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 78689,
+      "language": "Python"
+    },
+    "item_hash": "154a5e7e876f18c6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Asabeneh/30-Days-Of-Python",
+    "url": "https://github.com/Asabeneh/30-Days-Of-Python",
+    "content": "The 30 Days of Python programming challenge is a step-by-step guide to learn the Python programming language in 30 days. This challenge may take more than 100 days. Follow your own pace. These videos may help too:https://www.youtube.com/channel/UC7PNRuno1rzYPb1xLa4yktw",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 69885,
+      "language": "Python"
+    },
+    "item_hash": "099ec7b2b1ff9b3a"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "PrefectHQ/prefect",
+    "url": "https://github.com/PrefectHQ/prefect",
+    "content": "Prefect is a workflow orchestration framework for building resilient data pipelines in Python.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 23534,
+      "language": "Python"
+    },
+    "item_hash": "92416ba19b30d4dc"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "atilaahmettaner/tradingview-mcp",
+    "url": "https://github.com/atilaahmettaner/tradingview-mcp",
+    "content": "TradingView MCP server — real-time market data, technical analysis, screeners & backtesting for Claude, ChatGPT, Cursor & any MCP client. Stocks, crypto, forex & futures across global exchanges. Hosted or self-host.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 3761,
+      "language": "Python"
+    },
+    "item_hash": "a635aacf9534382e"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "music-assistant/server",
+    "url": "https://github.com/music-assistant/server",
+    "content": "Music Assistant is a free, opensource Media library manager that connects to your streaming services and a wide range of connected speakers. The server is the beating heart, the core of Music Assistant and must run on an always-on device like a Raspberry Pi, a NAS or an Intel NUC or alike.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 2913,
+      "language": "Python"
+    },
+    "item_hash": "13427024d7bb11af"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "harry0703/MoneyPrinterTurbo",
+    "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+    "content": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "stars": 101251,
+      "language": "Python"
+    },
+    "item_hash": "0604d6a7a7d7afd2"
+  }
+]

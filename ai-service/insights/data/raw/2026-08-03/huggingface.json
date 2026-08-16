@@ -1,0 +1,282 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "moonshotai/Kimi-K3",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 9689
+    },
+    "item_hash": "e7129e9021b63e3a"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1818
+    },
+    "item_hash": "a1a747f4e1222f58"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
+    "url": "https://huggingface.co/DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1361
+    },
+    "item_hash": "119fbb733ed272a0"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "baidu/Unlimited-OCR",
+    "url": "https://huggingface.co/baidu/Unlimited-OCR",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 3798
+    },
+    "item_hash": "b7884da985bf42b8"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "MiniMaxAI/MiniMax-H3",
+    "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 438
+    },
+    "item_hash": "1f0e60fded5cff01"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+    "url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 360
+    },
+    "item_hash": "c83ae65a5f0efc60"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/Kimi-K3-GGUF",
+    "url": "https://huggingface.co/unsloth/Kimi-K3-GGUF",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 265
+    },
+    "item_hash": "d21ac5abfc6a4cd5"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "thinkingmachines/Inkling-Small",
+    "url": "https://huggingface.co/thinkingmachines/Inkling-Small",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 246
+    },
+    "item_hash": "5ea09ca60044f495"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "zai-org/GLM-5.2",
+    "url": "https://huggingface.co/zai-org/GLM-5.2",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 4772
+    },
+    "item_hash": "9ec90332da9eec1d"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Kwaipilot/KAT-Coder-V2.5-Dev",
+    "url": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 416
+    },
+    "item_hash": "fc888d2900daa33a"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/Kimi-K3",
+    "url": "https://huggingface.co/unsloth/Kimi-K3",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 238
+    },
+    "item_hash": "552b83f4b15bbef1"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "owensong/Inflect-Micro-v2",
+    "url": "https://huggingface.co/owensong/Inflect-Micro-v2",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 386
+    },
+    "item_hash": "9376267761d9a376"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "microsoft/Mage-VL",
+    "url": "https://huggingface.co/microsoft/Mage-VL",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 206
+    },
+    "item_hash": "4adfece45166eb37"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Audio8/Audio8-TTS-Preview-0.6b",
+    "url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.6b",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 194
+    },
+    "item_hash": "1d982a204d31c15a"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Nanbeige/Nanbeige4.2-3B",
+    "url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 641
+    },
+    "item_hash": "568a9197a9aeb3f1"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "poolside/Laguna-S-2.1",
+    "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 892
+    },
+    "item_hash": "54a99b8d75a837cc"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "XYZAILab/XYZ-Aquila-mini",
+    "url": "https://huggingface.co/XYZAILab/XYZ-Aquila-mini",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 379
+    },
+    "item_hash": "38e7ffcfe967b264"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Comfy-Org/MiniMax-H3",
+    "url": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 154
+    },
+    "item_hash": "9e46d458613f25bf"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "microsoft/Fara1.5-27B",
+    "url": "https://huggingface.co/microsoft/Fara1.5-27B",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 263
+    },
+    "item_hash": "bf087183579355d3"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "lodestones/Kroma",
+    "url": "https://huggingface.co/lodestones/Kroma",
+    "content": "",
+    "published_at": "2026-08-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 143
+    },
+    "item_hash": "54455364abbba657"
+  }
+]

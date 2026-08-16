@@ -44,7 +44,7 @@ export function SiteHeader() {
                 unoptimized
               />
             </Link>
-            <nav className="hidden items-center gap-7 text-[14.5px] font-medium text-zinc-700 md:flex">
+            <nav className="hidden items-center gap-7 text-[14.5px] font-medium text-zinc-700 lg:flex">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}

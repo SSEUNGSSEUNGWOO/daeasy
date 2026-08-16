@@ -34,7 +34,7 @@ export function MobileNav({ items }: { items: Item[] }) {
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
-        className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-zinc-700 transition hover:bg-zinc-100 md:hidden"
+        className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-zinc-700 transition hover:bg-zinc-100 lg:hidden"
       >
         <svg
           width="20"
@@ -64,7 +64,7 @@ export function MobileNav({ items }: { items: Item[] }) {
       {open && (
         <div
           id="mobile-nav-panel"
-          className="absolute left-0 right-0 top-full border-b border-zinc-200/70 bg-white shadow-sm md:hidden"
+          className="absolute left-0 right-0 top-full border-b border-zinc-200/70 bg-white shadow-sm lg:hidden"
         >
           <nav className="mx-auto flex max-w-[1280px] flex-col px-6 py-2">
             {items.map((item) => {

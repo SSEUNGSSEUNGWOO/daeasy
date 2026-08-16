@@ -6,6 +6,8 @@
 import { useRef } from "react";
 import Link from "next/link";
 
+import { InsightCoverFallback } from "@/components/insight-cover-fallback";
+
 import { gsap, useGSAP } from "./gsap-setup";
 
 export type InsightCard = {
@@ -96,7 +98,9 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
                       alt=""
                       className="h-full w-full object-cover transition group-hover:scale-[1.03]"
                     />
-                  ) : null}
+                  ) : (
+                    <InsightCoverFallback tag={insights[0]!.tags[0]} />
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-7 sm:p-9">
                   <div className="flex flex-wrap items-center gap-1.5">
@@ -138,7 +142,9 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
                           alt=""
                           className="h-full w-full object-cover transition group-hover:scale-[1.03]"
                         />
-                      ) : null}
+                      ) : (
+                        <InsightCoverFallback tag={insight.tags[0]} />
+                      )}
                     </div>
                     <div className="flex flex-1 flex-col p-5 sm:p-6">
                       <div className="flex flex-wrap items-center gap-1.5">

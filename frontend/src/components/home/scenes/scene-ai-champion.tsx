@@ -44,8 +44,23 @@ export function SceneAiChampion() {
           </h2>
           <p className="mt-6 max-w-2xl text-[16px] leading-[1.8] text-zinc-700 sm:text-[17px]">
             2025년 역량진단 모델과 평가 지표를 직접 개발하고 종합과정과 인증 평가를 공식 대행했습니다.
-            교육 수료 1,372명, 표준 콘텐츠 12종, AI 챔피언 인증 541명의 경험으로 공공 현장의 AI 활용을 지원합니다.
+            이 경험으로 공공 현장의 AI 활용을 지원합니다.
           </p>
+          <div className="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              { value: "1,372", unit: "명", label: "교육 수료" },
+              { value: "12", unit: "종", label: "표준 콘텐츠" },
+              { value: "541", unit: "명", label: "AI 챔피언 인증" },
+            ].map((stat) => (
+              <div key={stat.label} className="rounded-2xl bg-white p-6 ring-1 ring-zinc-100">
+                <p className="text-[34px] font-extrabold leading-none tracking-[-0.02em] text-ink">
+                  {stat.value}
+                  <span className="ml-0.5 text-[17px] font-bold text-zinc-500">{stat.unit}</span>
+                </p>
+                <p className="mt-2 text-[13px] font-semibold text-zinc-500">{stat.label}</p>
+              </div>
+            ))}
+          </div>
           <Link
             href="/ai-champion"
             className="group mt-8 inline-flex items-center gap-2 text-[15px] font-bold text-zinc-900"

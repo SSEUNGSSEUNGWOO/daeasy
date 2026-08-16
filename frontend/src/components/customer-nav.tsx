@@ -38,7 +38,7 @@ export function CustomerNav({ mobile = false, onNavigate }: Props) {
     router.refresh();
   }
 
-  if (!loaded) return <div className={mobile ? "h-[97px]" : "hidden h-9 w-32 md:block"} />;
+  if (!loaded) return <div className={mobile ? "h-[97px]" : "hidden h-9 w-32 lg:block"} />;
 
   const linkClass = mobile
     ? "border-b border-zinc-100 py-3.5 text-[15px] font-medium text-zinc-700"
@@ -46,7 +46,7 @@ export function CustomerNav({ mobile = false, onNavigate }: Props) {
 
   if (name) {
     return (
-      <div className={mobile ? "flex flex-col" : "hidden items-center md:flex"}>
+      <div className={mobile ? "flex flex-col" : "hidden items-center lg:flex"}>
         <Link href="/mypage" onClick={onNavigate} className={linkClass}>
           {name}님
         </Link>

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
+import { InsightCoverFallback } from "@/components/insight-cover-fallback";
 import { RevealList } from "@/components/reveal";
 import { fetchInsights, type InsightSummary } from "@/lib/insights";
 
@@ -62,7 +63,9 @@ function InsightCard({ insight }: { insight: InsightSummary }) {
             alt=""
             className="h-full w-full object-cover transition group-hover:scale-[1.02]"
           />
-        ) : null}
+        ) : (
+          <InsightCoverFallback tag={insight.tags[0]} />
+        )}
       </div>
       <div className="p-6">
         <div className="flex flex-wrap items-center gap-2">

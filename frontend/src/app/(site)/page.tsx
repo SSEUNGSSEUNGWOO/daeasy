@@ -14,10 +14,10 @@ export const revalidate = 60;
 
 const TRACK_PATTERN = /^\[([^\]]+)\]\s*/;
 
-function splitTrack(title: string): { track: string; clean: string } {
-  const m = title.match(TRACK_PATTERN);
-  if (!m) return { track: "공개 과정", clean: title };
-  return { track: m[1]!, clean: title.slice(m[0].length) };
+const LEVEL_LABELS = { beginner: "초급", intermediate: "중급", advanced: "고급" } as const;
+
+function stripTrack(title: string): string {
+  return title.replace(TRACK_PATTERN, "");
 }
 
 const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
@@ -39,10 +39,13 @@ export default async function HomePage() {
   const featuredCourses: CourseCard[] = allCourses
     .filter((c) => c.title.includes("[표준 과정]"))
     .slice(0, 6)
-    .map((c) => {
-      const { track, clean } = splitTrack(c.title);
-      return { slug: c.slug, track, clean, summary: c.summary };
-    });
+    .map((c) => ({
+      slug: c.slug,
+      clean: stripTrack(c.title),
+      summary: c.summary,
+      levelLabel: LEVEL_LABELS[c.level],
+      hours: c.duration_hours,
+    }));
 
   const latestInsights: InsightCard[] = allInsights.slice(0, 3).map((i) => ({
     slug: i.slug,

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CustomerNav } from "./customer-nav";
+import { HeaderNav } from "./header-nav";
 import { MobileNav } from "./mobile-nav";
 import { TopStrip } from "./top-strip";
 
@@ -44,17 +45,7 @@ export function SiteHeader() {
                 unoptimized
               />
             </Link>
-            <nav className="hidden items-center gap-7 text-[14.5px] font-medium text-zinc-700 lg:flex">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="transition hover:text-zinc-900"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            <HeaderNav items={NAV_ITEMS} />
           </div>
           <div className="flex items-center gap-1">
             <CustomerNav />

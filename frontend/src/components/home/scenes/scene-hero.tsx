@@ -62,16 +62,17 @@ export function SceneHero() {
           <source src="/hero/hero-bg.mp4" type="video/mp4" />
         </video>
         {/* 모바일은 카피가 전폭이라 고르게 덮는다. */}
-        <div className="absolute inset-0 bg-white/65 lg:hidden" />
+        <div className="absolute inset-0 bg-white/70 lg:hidden" />
         {/* 데스크톱은 카피가 놓이는 좌측만 가리고 우측은 영상을 그대로 드러낸다.
             화면 전체를 흰색으로 덮으면 영상이 뿌옇게 죽는다. */}
-        <div className="absolute inset-0 hidden lg:block bg-[linear-gradient(to_right,rgba(255,255,255,0.88)_0%,rgba(255,255,255,0.72)_34%,rgba(255,255,255,0.28)_66%,rgba(255,255,255,0)_100%)]" />
+        <div className="absolute inset-0 hidden lg:block bg-[linear-gradient(to_right,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.8)_34%,rgba(255,255,255,0.28)_66%,rgba(255,255,255,0)_100%)]" />
       </div>
 
       <div className="relative mx-auto flex min-h-[calc(100svh-64px)] max-w-[1280px] flex-col justify-center px-6 py-20 lg:px-10">
         <div className="hero-copy max-w-[900px]">
           <h1 className="text-[46px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[60px] lg:text-[80px]">
-            공공기관의 AI 전환을<br />
+            공공기관의 <span className="whitespace-nowrap">AI 전환을</span>{" "}
+            <br className="hidden sm:inline" />
             교육에서 현업 적용까지.
           </h1>
           <p className="mt-7 max-w-2xl text-[16px] font-medium leading-[1.8] text-zinc-700 sm:text-[18px]">

@@ -74,7 +74,7 @@ export default async function CourseDetailPage(
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-8">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-                Curriculum
+                커리큘럼
               </p>
               <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[32px]">
                 커리큘럼.
@@ -101,7 +101,7 @@ export default async function CourseDetailPage(
             <aside className="lg:col-span-4">
               <div className="rounded-2xl bg-white p-7 ring-1 ring-zinc-100">
                 <p className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                  At a glance
+                  과정 정보
                 </p>
                 <dl className="mt-5 space-y-5">
                   <div>
@@ -158,7 +158,7 @@ async function RelatedCourses({
         <div className="flex items-end justify-between">
           <div>
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-              See also
+              다른 과정
             </p>
             <h2 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-ink sm:text-[28px]">
               같은 난이도의 다른 과정.

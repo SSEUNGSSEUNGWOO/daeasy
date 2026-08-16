@@ -30,7 +30,7 @@ export function SceneCourseOutputs() {
       <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
         <div className="max-w-3xl">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Learning Outcomes
+            교육 산출물
           </p>
           <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
             교육이 끝나면, 업무에 적용할 결과물이 남습니다.

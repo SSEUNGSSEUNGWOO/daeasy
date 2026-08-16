@@ -25,7 +25,7 @@ export default async function ContactPage({
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-20 lg:px-10 lg:pb-16 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Get in touch
+            교육 문의
           </p>
           <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             교육 문의.
@@ -43,7 +43,7 @@ export default async function ContactPage({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-                Talk to us
+                연락처
               </p>
               <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 무엇이 필요한지<br />아직 정하지 않으셨어도 됩니다.
@@ -58,7 +58,7 @@ export default async function ContactPage({
                   className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                    Tel
+                    전화
                   </span>
                   <span className="font-medium">070-5066-0995</span>
                 </a>
@@ -67,7 +67,7 @@ export default async function ContactPage({
                   className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                    Mail
+                    메일
                   </span>
                   <span className="font-medium">data-edu@kbrainc.com</span>
                 </a>

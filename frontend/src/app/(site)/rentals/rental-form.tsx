@@ -55,7 +55,7 @@ export function RentalForm() {
     return (
       <div className="lg:col-span-7 rounded-3xl bg-zinc-50/70 p-10 ring-1 ring-zinc-100 sm:p-12">
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-emerald-600">
-          Submitted
+          접수 완료
         </p>
         <h3 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-ink">
           신청이 접수되었습니다.

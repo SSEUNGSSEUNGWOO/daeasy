@@ -25,7 +25,7 @@ export default async function InsightsPage() {
     <section className="mx-auto max-w-6xl px-6 py-16 anim-page-fade-up">
       <header className="max-w-2xl">
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-          Insights
+          인사이트
         </p>
         <h1 className="mt-3 text-[40px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[48px]">
           인사이트
@@ -109,7 +109,7 @@ function EmptyState() {
   return (
     <div className="mt-16 rounded-2xl border border-dashed border-zinc-300 bg-paper px-8 py-16 text-center">
       <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-        Coming soon
+        준비 중
       </p>
       <p className="mt-3 text-[20px] font-bold tracking-[-0.015em] text-ink">
         곧 첫 번째 인사이트가 발행됩니다

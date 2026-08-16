@@ -70,7 +70,7 @@ export function ScenePartners() {
       <div className="mx-auto max-w-[1280px] px-6 pt-16 lg:px-10 lg:pt-20">
         <div className="partners-head text-center">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Together with
+            함께한 기관
           </p>
           <h2 className="mt-3 text-[24px] font-extrabold leading-[1.2] tracking-[-0.015em] text-ink sm:text-[28px]">
             공공·민간 현장에서 검증된 교육 파트너

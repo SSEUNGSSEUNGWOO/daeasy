@@ -94,7 +94,7 @@ export default async function InsightDetailPage(
         href="/insights"
         className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500 transition hover:text-zinc-900"
       >
-        ← Insights
+        ← 인사이트
       </Link>
 
       <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_200px]">

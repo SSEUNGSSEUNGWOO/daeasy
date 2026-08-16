@@ -65,9 +65,9 @@ export function SiteFooter() {
           </div>
 
           <div className="col-span-1 md:col-span-2">
-            <h4 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-              Programs
-            </h4>
+            <h3 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
+              교육
+            </h3>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-zinc-700">
               <li><Link href="/courses" className="hover:text-zinc-900">교육과정</Link></li>
               <li><Link href="/cases" className="hover:text-zinc-900">교육후기</Link></li>
@@ -75,9 +75,9 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-span-1 md:col-span-2">
-            <h4 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-              Insights
-            </h4>
+            <h3 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
+              콘텐츠 · 소개
+            </h3>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-zinc-700">
               <li><Link href="/insights" className="hover:text-zinc-900">인사이트</Link></li>
               <li><Link href="/guides" className="hover:text-zinc-900">가이드</Link></li>
@@ -86,9 +86,9 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="col-span-2 md:col-span-4">
-            <h4 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-              Contact
-            </h4>
+            <h3 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
+              연락처
+            </h3>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-zinc-700">
               <li>data-edu@kbrainc.com</li>
               <li>070-5066-0995</li>

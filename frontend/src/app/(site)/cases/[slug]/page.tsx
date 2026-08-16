@@ -33,7 +33,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
         href="/cases"
         className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500 transition hover:text-zinc-900"
       >
-        ← Reviews
+        ← 교육후기
       </Link>
 
       <header className="mt-8">
@@ -60,7 +60,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
 
       <div className="mt-16 rounded-2xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100">
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
-          Get in touch
+          교육 문의
         </p>
         <h2 className="mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-ink">
           비슷한 교육이 필요하신가요?

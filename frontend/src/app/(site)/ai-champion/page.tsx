@@ -86,7 +86,7 @@ export default function AiChampionPage() {
       <section className="relative isolate overflow-hidden bg-ink-warm text-white">
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(37,99,235,0.3),transparent_38%)]" />
         <div className="mx-auto max-w-[1280px] px-6 py-24 lg:px-10 lg:py-32 anim-page-fade-up">
-          <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-blue-300">Public AI Talent</p>
+          <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-blue-300">공공 AI 인재</p>
           <h1 className="mt-5 max-w-5xl text-[44px] font-extrabold leading-[1.06] tracking-[-0.03em] sm:text-[60px] lg:text-[72px]">
             공공행정 현장의 AI 전환을 이끄는<br />실무 인재, AI 챔피언
           </h1>
@@ -107,7 +107,7 @@ export default function AiChampionPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="max-w-3xl">
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Three Levels</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">세 개의 등급</p>
             <h2 className="mt-3 text-[34px] font-extrabold leading-[1.12] tracking-[-0.025em] text-ink sm:text-[46px]">
               기획에서 구현으로,<br />구현에서 조직의 확산으로.
             </h2>
@@ -142,7 +142,7 @@ export default function AiChampionPage() {
       <section className="border-y border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="max-w-3xl">
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Learning Journey</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">학습 여정</p>
             <h2 className="mt-3 text-[34px] font-extrabold leading-[1.12] tracking-[-0.025em] text-ink sm:text-[46px]">
               학습하고, 만들고, 역량을 증명합니다.
             </h2>
@@ -169,7 +169,7 @@ export default function AiChampionPage() {
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <div>
-              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Performance Assessment</p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">역량 평가</p>
               <h2 className="mt-3 text-[34px] font-extrabold leading-[1.12] tracking-[-0.025em] text-ink sm:text-[46px]">
                 실제 업무형 과제로<br />세 가지 역량을 평가합니다.
               </h2>
@@ -200,7 +200,7 @@ export default function AiChampionPage() {
       <section className="border-y border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="max-w-3xl">
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Certification Routes</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">인증 경로</p>
             <h2 className="mt-3 text-[34px] font-extrabold leading-[1.12] tracking-[-0.025em] text-ink sm:text-[46px]">역량에 맞는 방식으로 도전합니다.</h2>
           </div>
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -219,7 +219,7 @@ export default function AiChampionPage() {
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">DAEASY Experience</p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">데이지의 운영 경험</p>
               <h2 className="mt-3 text-[34px] font-extrabold leading-[1.12] tracking-[-0.025em] text-ink sm:text-[46px]">
                 체계를 설계하고,<br />교육과 인증을 운영했습니다.
               </h2>
@@ -258,7 +258,7 @@ export default function AiChampionPage() {
         <div className="mx-auto max-w-[1280px] rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20 reveal">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-blue-300">Education × Certification</p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-blue-300">교육 × 인증</p>
               <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.025em] sm:text-[52px]">
                 공공 현장에 필요한 AI 역량,<br />교육부터 적용까지 설계합니다.
               </h2>

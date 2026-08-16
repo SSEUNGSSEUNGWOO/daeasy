@@ -81,7 +81,7 @@ export default async function RentalsPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24 anim-page-fade-up">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Classroom rental
+            강의실 대관
           </p>
           <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             DMC타워 교육장
@@ -112,7 +112,7 @@ export default async function RentalsPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-                Space
+                공간 안내
               </p>
               <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 공간 소개.
@@ -156,7 +156,7 @@ export default async function RentalsPage() {
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Gallery
+            공간 사진
           </p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             현장 사진.
@@ -183,7 +183,7 @@ export default async function RentalsPage() {
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
           <div className="max-w-3xl">
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-              Facilities
+              시설·장비
             </p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               시설 안내.
@@ -211,7 +211,7 @@ export default async function RentalsPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-                Notices
+                이용 안내
               </p>
               <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[36px]">
                 유의사항.
@@ -238,7 +238,7 @@ export default async function RentalsPage() {
       <section className="border-t border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Refund policy
+            환불 규정
           </p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             환불 정책.
@@ -272,7 +272,7 @@ export default async function RentalsPage() {
       <section className="border-t border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Availability
+            예약 현황
           </p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             예약 현황.
@@ -289,7 +289,7 @@ export default async function RentalsPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-                Inquiry
+                대관 문의
               </p>
               <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 대관 신청.
@@ -304,7 +304,7 @@ export default async function RentalsPage() {
                   className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                    Tel
+                    전화
                   </span>
                   <span className="font-medium">070-5066-0995</span>
                 </a>
@@ -313,7 +313,7 @@ export default async function RentalsPage() {
                   className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                    Mail
+                    메일
                   </span>
                   <span className="font-medium">data-edu@kbrainc.com</span>
                 </a>
@@ -328,7 +328,7 @@ export default async function RentalsPage() {
       <section className="border-t border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Location
+            오시는 길
           </p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             오시는 길.
@@ -373,7 +373,7 @@ export default async function RentalsPage() {
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-8">
               <div className="lg:col-span-8">
                 <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent-soft">
-                  Reserve
+                  대관 신청
                 </p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
                   강의실 대관,<br />일정 확인부터 도와드립니다.

@@ -44,7 +44,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
         href="/guides"
         className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500 transition hover:text-zinc-900"
       >
-        ← Guides
+        ← 가이드
       </Link>
 
       <header className="mt-8">
@@ -77,7 +77,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
 
       {g.tldr.length > 0 && (
         <section className="mt-12 rounded-2xl bg-zinc-50/70 p-7 ring-1 ring-zinc-100">
-          <p className="text-[12px] font-bold uppercase tracking-[0.16em] text-accent">TL;DR</p>
+          <p className="text-[12px] font-bold uppercase tracking-[0.16em] text-accent">핵심 요약</p>
           <ul className="mt-4 space-y-2 text-[15px] leading-[1.7] text-zinc-800">
             {g.tldr.map((t, i) => (
               <li key={i} className="flex gap-3">
@@ -145,7 +145,7 @@ export default async function GuideDetailPage(props: PageProps<"/guides/[slug]">
       )}
 
       <div className="mt-16 rounded-2xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100">
-        <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>
+        <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">교육 문의</p>
         <h2 className="mt-3 text-[22px] font-extrabold tracking-[-0.01em] text-ink">
           이 주제로 교육이 필요하신가요?
         </h2>

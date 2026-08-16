@@ -142,7 +142,7 @@ export function QuizFlow({ courses }: { courses: QuizCourse[] }) {
   if (done) {
     return (
       <div className="anim-page-fade-up mt-12">
-        <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Result</p>
+        <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">추천 결과</p>
         <h2 className="mt-3 text-[26px] font-extrabold leading-[1.2] tracking-[-0.015em] text-ink sm:text-[32px]">
           이 과정부터 보시면 됩니다.
         </h2>

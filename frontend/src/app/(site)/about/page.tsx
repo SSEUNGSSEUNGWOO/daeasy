@@ -38,7 +38,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-24 anim-page-fade-up">
-          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">About daeasy</p>
+          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">데이지 소개</p>
           <h1 className="mt-5 text-[44px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[56px] lg:text-[64px]">
             데이지란?
           </h1>
@@ -59,7 +59,7 @@ export default function AboutPage() {
               className="h-24 w-24 shrink-0"
             />
             <div>
-              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Award</p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">수상</p>
               <p className="mt-2 text-[20px] font-extrabold tracking-[-0.015em] text-ink sm:text-[24px]">
                 2026 K-디지털 브랜드 대상 수상
               </p>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               />
             </div>
             <div className="lg:col-span-8">
-              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Why daisy</p>
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">이름의 의미</p>
               <h2 className="mt-3 text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[40px]">
                 낮의 눈, day&apos;s eye.
               </h2>
@@ -111,7 +111,7 @@ export default function AboutPage() {
       {/* Numbers */}
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-24 reveal">
-          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">By the numbers</p>
+          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">숫자로 보는 데이지</p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             지금까지 함께한 사람들.
           </h2>
@@ -130,7 +130,7 @@ export default function AboutPage() {
       <section className="border-t border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="max-w-3xl">
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">How we work</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">일하는 방식</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               우리는 이렇게 합니다.
             </h2>
@@ -139,7 +139,7 @@ export default function AboutPage() {
             {values.map((v) => (
               <li key={v.tag} className="rounded-2xl bg-zinc-50/70 p-7">
                 <p className="font-mono text-[11.5px] font-bold tracking-[0.18em] text-zinc-500">
-                  {v.tag} / Value
+                  {v.tag} / 가치
                 </p>
                 <h3 className="mt-5 text-[19px] font-bold tracking-[-0.01em] text-ink">{v.title}</h3>
                 <p className="mt-2 text-[14px] leading-[1.7] text-zinc-600">{v.body}</p>
@@ -153,7 +153,7 @@ export default function AboutPage() {
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="max-w-3xl">
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">What we operate</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">운영 사업</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               교육에서 인증까지,<br />직접 운영합니다.
             </h2>
@@ -164,7 +164,7 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-2 reveal-stagger">
             <div className="rounded-2xl bg-zinc-50/70 p-8 sm:p-10">
               <p className="font-mono text-[11.5px] font-bold uppercase tracking-[0.18em] text-accent">
-                Education
+                교육 사업
               </p>
               <h3 className="mt-4 text-[22px] font-extrabold tracking-[-0.015em] text-ink">
                 DAEASY — AI · 데이터 교육
@@ -175,7 +175,7 @@ export default function AboutPage() {
             </div>
             <div className="rounded-2xl bg-ink-warm p-8 text-white sm:p-10">
               <p className="font-mono text-[11.5px] font-bold uppercase tracking-[0.18em] text-accent">
-                Public Program
+                공공 프로그램
               </p>
               <h3 className="mt-4 text-[22px] font-extrabold tracking-[-0.015em]">
                 AI 챔피언 — 공공부문 AI 역량 프로그램
@@ -191,7 +191,7 @@ export default function AboutPage() {
       {/* Company info */}
       <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
-          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Company</p>
+          <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">회사 정보</p>
           <h2 className="mt-3 text-[28px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[36px]">
             회사 정보.
           </h2>
@@ -212,7 +212,7 @@ export default function AboutPage() {
           <div className="rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-8">
               <div className="lg:col-span-8">
-                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent-soft">Get in touch</p>
+                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent-soft">교육 문의</p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
                   누적 10만 명을 교육한 방식으로,<br />조직의 교육을 설계합니다.
                 </h2>

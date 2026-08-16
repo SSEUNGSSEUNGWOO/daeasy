@@ -49,7 +49,7 @@ export function SceneCourses({ courses }: { courses: CourseCard[] }) {
       <div className="mx-auto flex max-w-[1280px] flex-col justify-center px-6 py-20 lg:px-10 lg:py-24">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Programs</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">교육과정</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               공공기관 업무에 맞춘 AI·데이터 교육
             </h2>

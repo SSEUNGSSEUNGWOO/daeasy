@@ -64,7 +64,7 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
       <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
         <div className="insights-head flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Insights</p>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">인사이트</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
               AI·데이터 인사이트
             </h2>
@@ -105,7 +105,7 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
                 <div className="flex flex-1 flex-col p-7 sm:p-9">
                   <div className="flex flex-wrap items-center gap-1.5">
                     <span className="inline-flex items-center rounded-full bg-accent/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.1em] text-accent">
-                      Latest
+                      최신
                     </span>
                     {insights[0]!.tags.slice(0, 3).map((tag) => (
                       <span

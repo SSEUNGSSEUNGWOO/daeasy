@@ -47,7 +47,7 @@ export function SceneRentals() {
           </div>
           <div className="flex flex-col justify-center bg-zinc-50/70 p-10 sm:p-14">
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
-              Classroom rental
+              강의실 대관
             </p>
             <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[36px]">
               교육에 필요한 공간도<br />준비되어 있습니다.

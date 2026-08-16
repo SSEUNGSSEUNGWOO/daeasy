@@ -21,7 +21,7 @@ export default async function QuizPage() {
   return (
     <section className="bg-zinc-50/40">
       <div className="mx-auto max-w-3xl px-6 py-20 lg:py-24">
-        <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Recommend</p>
+        <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">교육 추천</p>
         <h1 className="mt-5 text-[40px] font-extrabold leading-[1.06] tracking-[-0.025em] text-ink sm:text-[48px]">
           내게 맞는 교육 찾기
         </h1>

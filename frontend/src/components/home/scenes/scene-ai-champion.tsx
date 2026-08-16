@@ -37,7 +37,7 @@ export function SceneAiChampion() {
       <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
         <div className="ai-champion-content max-w-4xl">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
-            Proven Expertise
+            검증된 실적
           </p>
           <h2 className="mt-3 text-[36px] font-extrabold leading-[1.1] tracking-[-0.025em] text-ink sm:text-[48px] lg:text-[56px]">
             행정안전부 AI 챔피언<br />역량진단부터 인증까지 운영했습니다.

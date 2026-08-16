@@ -15,12 +15,10 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 export function RentalForm() {
   const [state, setState] = useState<FormState>("idle");
-  const [errorMessage, setErrorMessage] = useState<string>("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setState("submitting");
-    setErrorMessage("");
 
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -47,8 +45,9 @@ export function RentalForm() {
       setState("success");
       form.reset();
     } catch (err) {
+      // 서버 응답 원문은 사용자에게 노출하지 않는다 — 화면엔 고정 안내 문구만
+      console.error("대관 신청 실패:", err);
       setState("error");
-      setErrorMessage(err instanceof Error ? err.message : "알 수 없는 오류");
     }
   }
 
@@ -168,7 +167,6 @@ export function RentalForm() {
         {state === "error" && (
           <p className="text-[13px] leading-[1.6] text-red-600">
             신청에 실패했습니다. 잠시 후 다시 시도하거나 070-5066-0995 로 연락해주세요.
-            {errorMessage && <span className="mt-1 block text-zinc-500">({errorMessage})</span>}
           </p>
         )}
       </fieldset>

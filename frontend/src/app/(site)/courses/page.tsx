@@ -10,7 +10,7 @@ export const revalidate = 60;
 export const metadata = {
   title: "교육과정",
   description:
-    "데이터분석에 대한 맞춤형 교육 커리큘럼. 난이도별(초급/중급/고급) 32개 과정 — AI 리터러시부터 LLM 서비스 개발까지.",
+    "생성형 AI 활용부터 데이터 분석·AI 서비스 개발까지 — 난이도별(초급/중급/고급) 32개 과정.",
 };
 
 export default async function CoursesPage() {
@@ -28,7 +28,7 @@ export default async function CoursesPage() {
             교육과정.
           </h1>
           <p className="mt-8 max-w-2xl text-[18px] leading-[1.75] text-zinc-700">
-            데이터분석에 대한 맞춤형 교육 커리큘럼을 통해 데이터 분석을 쉽게 접근하고 배울 수 있도록 설계합니다.
+            생성형 AI 활용부터 데이터 분석·AI 서비스 개발까지, 조직의 직무와 목표에 맞춰 교육 과정을 설계합니다.
           </p>
         </div>
       </section>

@@ -70,9 +70,16 @@ export function CoursesTabs({ courses }: { courses: CourseSummary[] }) {
                 href={`/courses/${c.slug}`}
                 className="group flex h-full flex-col rounded-2xl bg-white p-7 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
               >
-                <span className="self-start rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
-                  {track}
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
+                    {track}
+                  </span>
+                  {c.duration_hours > 0 && (
+                    <span className="text-[12px] font-semibold text-zinc-400">
+                      {c.duration_hours}시간
+                    </span>
+                  )}
+                </div>
                 <h3 className="mt-4 text-[18px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
                   {clean}
                 </h3>

@@ -48,6 +48,10 @@ export default function RootLayout({
       className={`${pretendard.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-ink-warm">
+        {/* JS 미실행 환경에선 reveal 계열의 opacity:0 게이트를 해제해 본문이 보이게 한다 */}
+        <noscript>
+          <style>{`.anim-page-fade-up,.anim-hero-fade,.anim-cover-scale-fade,.reveal,.reveal-stagger>*{opacity:1!important;transform:none!important;animation:none!important;transition:none!important;}`}</style>
+        </noscript>
         {children}
       </body>
     </html>

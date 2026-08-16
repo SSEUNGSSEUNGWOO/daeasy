@@ -53,7 +53,7 @@ export function SceneCta() {
         <div className="cta-card rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-8">
             <div className="cta-content lg:col-span-8">
-              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent-soft">
                 Get in touch
               </p>
               <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[52px]">

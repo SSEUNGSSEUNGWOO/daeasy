@@ -212,7 +212,7 @@ export default function AboutPage() {
           <div className="rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-8">
               <div className="lg:col-span-8">
-                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>
+                <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent-soft">Get in touch</p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
                   누적 10만 명을 교육한 방식으로,<br />조직의 교육을 설계합니다.
                 </h2>

@@ -1,12 +1,26 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 
 import { gsap, useGSAP } from "./gsap-setup";
 
 export function SceneHero() {
   const scope = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoPaused, setVideoPaused] = useState(false);
+
+  function toggleVideo() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      void video.play();
+      setVideoPaused(false);
+    } else {
+      video.pause();
+      setVideoPaused(true);
+    }
+  }
 
   useGSAP(
     () => {
@@ -35,6 +49,7 @@ export function SceneHero() {
         className="absolute inset-0 -z-10 overflow-hidden bg-[url('/hero/hero-bg-poster.jpg')] bg-cover bg-center"
       >
         <video
+          ref={videoRef}
           className="h-full w-full object-cover motion-reduce:hidden"
           autoPlay
           muted
@@ -81,6 +96,24 @@ export function SceneHero() {
           </div>
         </div>
       </div>
+
+      {/* WCAG 2.2.2 — 자동재생 배경 영상의 정지 수단. reduced-motion 에선 영상 자체가 숨어 버튼도 숨긴다. */}
+      <button
+        type="button"
+        onClick={toggleVideo}
+        aria-label={videoPaused ? "배경 영상 재생" : "배경 영상 일시정지"}
+        className="absolute bottom-5 right-5 z-10 grid h-10 w-10 place-items-center rounded-full bg-ink/45 text-white backdrop-blur-sm transition hover:bg-ink/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 motion-reduce:hidden"
+      >
+        {videoPaused ? (
+          <svg aria-hidden viewBox="0 0 16 16" className="h-3.5 w-3.5 fill-current">
+            <path d="M4 2.5v11l9-5.5-9-5.5z" />
+          </svg>
+        ) : (
+          <svg aria-hidden viewBox="0 0 16 16" className="h-3.5 w-3.5 fill-current">
+            <path d="M3.5 2h3v12h-3zM9.5 2h3v12h-3z" />
+          </svg>
+        )}
+      </button>
     </section>
   );
 }

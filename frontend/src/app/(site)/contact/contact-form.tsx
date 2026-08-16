@@ -177,7 +177,7 @@ export function ContactForm({
         </label>
         <button
           type="submit"
-          className="w-full rounded-md bg-ink px-6 py-4 text-[15px] font-bold text-white transition hover:bg-ink-hover disabled:cursor-not-allowed disabled:bg-zinc-400"
+          className="w-full rounded-md bg-accent px-6 py-4 text-[15px] font-bold text-white transition hover:bg-accent/90 disabled:cursor-not-allowed disabled:bg-zinc-400"
         >
           {submitting ? "전송 중..." : "문의 보내기"}
         </button>

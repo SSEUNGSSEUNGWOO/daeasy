@@ -127,7 +127,7 @@ export default function AiChampionPage() {
                 <h3 className="mt-2 text-[21px] font-bold leading-[1.35] tracking-[-0.015em] text-ink">{track.title}</h3>
                 <p className="mt-4 text-[14px] leading-[1.75] text-zinc-600">{track.body}</p>
                 <div className="mt-7 border-t border-zinc-100 pt-5">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-400">대상</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500">대상</p>
                   <p className="mt-1.5 text-[14px] font-semibold text-zinc-700">{track.audience}</p>
                 </div>
               </article>

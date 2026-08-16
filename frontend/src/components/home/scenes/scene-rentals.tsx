@@ -50,10 +50,10 @@ export function SceneRentals() {
               Classroom rental
             </p>
             <h2 className="mt-3 text-[28px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[36px]">
-              강의실 대관도<br />가능합니다.
+              교육에 필요한 공간도<br />준비되어 있습니다.
             </h2>
             <p className="mt-5 text-[15px] leading-[1.8] text-zinc-700">
-              DMC역과 지하통로로 연결된 단독 대관 교육장. 137.82㎡(약 41.69평), 최대 48명, 빔프로젝터·기가 인터넷 완비.
+              DMC역과 지하 통로로 연결된 단독 교육장입니다. 최대 48명이 이용할 수 있으며 빔프로젝터와 기가 인터넷을 갖추고 있습니다.
             </p>
             <Link
               href="/rentals"

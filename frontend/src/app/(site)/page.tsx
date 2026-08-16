@@ -1,9 +1,10 @@
 import { SceneCourses, type CourseCard } from "@/components/home/scenes/scene-courses";
+import { SceneCourseOutputs } from "@/components/home/scenes/scene-course-outputs";
 import { SceneCta } from "@/components/home/scenes/scene-cta";
+import { SceneAiChampion } from "@/components/home/scenes/scene-ai-champion";
 import { SceneHero } from "@/components/home/scenes/scene-hero";
 import { SceneInsights, type InsightCard } from "@/components/home/scenes/scene-insights";
 import { ScenePartners } from "@/components/home/scenes/scene-partners";
-import { SceneProcess } from "@/components/home/scenes/scene-process";
 import { SceneRentals } from "@/components/home/scenes/scene-rentals";
 import { fetchCourses } from "@/lib/courses";
 import { fetchInsights } from "@/lib/insights";
@@ -61,10 +62,11 @@ export default async function HomePage() {
       `}</style>
 
       <SceneHero />
-      <ScenePartners />
-      <SceneProcess />
-      <SceneInsights insights={latestInsights} />
       <SceneCourses courses={featuredCourses} />
+      <SceneCourseOutputs />
+      <ScenePartners />
+      <SceneAiChampion />
+      <SceneInsights insights={latestInsights} />
       <SceneRentals />
       <SceneCta />
     </>

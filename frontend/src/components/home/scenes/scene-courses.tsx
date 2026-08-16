@@ -1,13 +1,11 @@
 "use client";
 
-/* 추천 과정 가로 레일.
-   데스크톱: 핀 + 스크롤 진행에 따라 레일이 가로로 흐름.
-   완화판: 네이티브 가로 스와이프 (기본 마크업 그대로). */
+/* 추천 과정 가로 레일. 모든 화면에서 네이티브 가로 스와이프를 쓴다. */
 
 import { useRef } from "react";
 import Link from "next/link";
 
-import { gsap, MM_DESKTOP, useGSAP } from "./gsap-setup";
+import { gsap, useGSAP } from "./gsap-setup";
 
 export type CourseCard = {
   slug: string;
@@ -23,25 +21,21 @@ export function SceneCourses({ courses }: { courses: CourseCard[] }) {
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add(MM_DESKTOP, () => {
-        const viewport = scope.current?.querySelector<HTMLElement>(".courses-viewport");
-        const track = scope.current?.querySelector<HTMLElement>(".courses-track");
-        if (!viewport || !track) return;
-
-        gsap.set(viewport, { overflowX: "hidden" });
-
-        gsap.to(track, {
-          x: () => -(track.scrollWidth - viewport.clientWidth),
-          ease: "none",
-          scrollTrigger: {
-            trigger: scope.current,
-            start: "top top",
-            end: () => `+=${track.scrollWidth - viewport.clientWidth}`,
-            pin: true,
-            scrub: 0.6,
-            invalidateOnRefresh: true,
+      // 핀 + 가로 스크럽 레일은 걷어냈다. 모든 화면에서 네이티브 가로 스와이프를 쓰고,
+      // 진입 시 카드 스태거 reveal 만 남긴다.
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          ".courses-track > li",
+          { autoAlpha: 0, y: 20 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: { trigger: scope.current, start: "top 78%", once: true },
           },
-        });
+        );
       });
 
       return () => mm.revert();
@@ -51,15 +45,15 @@ export function SceneCourses({ courses }: { courses: CourseCard[] }) {
 
   return (
     <section ref={scope} className="border-t border-zinc-100 bg-zinc-50/70">
-      <div className="mx-auto flex max-w-[1280px] flex-col justify-center px-6 py-20 lg:min-h-screen lg:px-10 lg:py-24">
+      <div className="mx-auto flex max-w-[1280px] flex-col justify-center px-6 py-20 lg:px-10 lg:py-24">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Programs</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
-              추천 교육과정.
+              공공기관 업무에 맞춘 AI·데이터 교육
             </h2>
             <p className="mt-3 max-w-xl text-[15.5px] text-zinc-600">
-              AI 리터러시부터 LLM 서비스 개발까지. 모든 과정은 사전 인터뷰 후 조직 데이터·도구에 맞춰 재설계됩니다.
+              생성형 AI 업무 활용부터 데이터 분석과 AI 서비스 개발까지, 조직의 직무와 목표에 맞춰 설계합니다.
             </p>
           </div>
           <Link href="/courses" className="group inline-flex items-center gap-1.5 self-start text-[14px] font-semibold text-zinc-900">

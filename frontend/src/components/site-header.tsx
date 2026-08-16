@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { CustomerNav } from "./customer-nav";
 import { MobileNav } from "./mobile-nav";
+import { TopStrip } from "./top-strip";
 
 const NAV_ITEMS = [
   { href: "/about", label: "데이지란?" },
@@ -18,17 +19,7 @@ const NAV_ITEMS = [
 export function SiteHeader() {
   return (
     <>
-      <div className="bg-accent text-white">
-        <div className="mx-auto flex h-10 max-w-[1280px] items-center justify-center px-6 text-[12.5px]">
-          <span className="font-medium">조직에 맞는 AI 도입, 어디부터 시작할지 모르겠다면 —</span>
-          <Link
-            href="/contact"
-            className="ml-1.5 font-bold underline-offset-4 hover:underline"
-          >
-            무료 상담 신청 →
-          </Link>
-        </div>
-      </div>
+      <TopStrip />
 
       <header className="sticky top-0 z-30 border-b border-zinc-200/70 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
         <div className="relative mx-auto flex h-[68px] max-w-[1280px] items-center justify-between px-6 lg:px-10">

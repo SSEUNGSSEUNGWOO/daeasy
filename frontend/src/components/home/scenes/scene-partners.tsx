@@ -1,6 +1,7 @@
 "use client";
 
-/* 파트너 마퀴 (기존 유지) + 진입 시 로고 스태거 등장. */
+/* 파트너 마퀴 + 진입 시 로고 등장.
+   실적 수치와 수상 배지는 뺐다 — 수상은 첫 방문 팝업(AwardPopup)이 맡는다. */
 
 import { useRef } from "react";
 
@@ -72,7 +73,7 @@ export function ScenePartners() {
             Together with
           </p>
           <h2 className="mt-3 text-[24px] font-extrabold leading-[1.2] tracking-[-0.015em] text-ink sm:text-[28px]">
-            지금까지 함께한 50+ 조직 중 일부.
+            공공·민간 현장에서 검증된 교육 파트너
           </h2>
         </div>
       </div>

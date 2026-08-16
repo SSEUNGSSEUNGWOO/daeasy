@@ -48,16 +48,30 @@ body {
   animation-play-state: paused;
 }
 
-@keyframes heroRotateIn {
-  0%   { opacity: 0; transform: translateY(-14px); }
-  18%  { opacity: 1; transform: translateY(0); }
-  82%  { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(14px); }
+/* 상단 띠 배경. 좁은 화면에선 검정 전폭, 데스크톱에선 정중앙에서 검정/파랑으로 갈린다.
+   폭을 가진 별도 레이어를 얹으면 Tailwind 유틸(w-*)과 폭이 충돌해 경계가 어긋난다.
+   하드 스톱 그라디언트는 요소 자신의 50% 라 어긋날 여지가 없다. */
+.strip-split-bg {
+  background: var(--color-ink);
+}
+@media (min-width: 1024px) {
+  .strip-split-bg {
+    background: linear-gradient(
+      to right,
+      var(--color-ink) 0 50%,
+      var(--color-accent) 50% 100%
+    );
+  }
 }
 
-.hero-rotate-word {
-  animation: heroRotateIn 2.6s ease-in-out forwards;
-  will-change: opacity, transform;
+/* 히어로 타이핑 커서. 타이핑 자체는 JS 가 글자 수를 늘리고 줄인다. */
+@keyframes heroCaretBlink {
+  0%, 45%   { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+.hero-caret {
+  animation: heroCaretBlink 1.06s steps(1, end) infinite;
 }
 
 /* ── Motion tokens ────────────────────────────────────────

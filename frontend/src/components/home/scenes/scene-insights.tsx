@@ -1,12 +1,12 @@
 "use client";
 
 /* 최신 인사이트 — 최신 1건을 크게(2/3 폭), 이전 2건을 옆에 컴팩트로.
-   연출: 헤더 페이드 → 피처드 카드 등장 + 커버 패럴랙스, 사이드 카드는 오른쪽에서 진입. */
+   연출: 진입 시 헤더 → 카드 순서로 1회 페이드업. */
 
 import { useRef } from "react";
 import Link from "next/link";
 
-import { gsap, MM_DESKTOP, MM_SOFT, useGSAP } from "./gsap-setup";
+import { gsap, useGSAP } from "./gsap-setup";
 
 export type InsightCard = {
   slug: string;
@@ -23,66 +23,20 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add(MM_DESKTOP, () => {
-        // 진입 중에는 헤더가 먼저 차오른다 (빈 화면으로 들어오지 않게)
+      // 핀·스크럽은 걷어냈다. 히어로가 이미 영상이라 스크롤까지 붙잡으면 과하다.
+      // 화면 크기 구분 없이 진입 시 1회 페이드업만 둔다.
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.fromTo(
           ".insights-head",
-          { autoAlpha: 0, y: 32 },
+          { autoAlpha: 0, y: 18 },
           {
             autoAlpha: 1,
             y: 0,
-            ease: "none",
-            scrollTrigger: {
-              trigger: scope.current,
-              start: "top 80%",
-              end: "top 20%",
-              scrub: 0.6,
-            },
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: { trigger: scope.current, start: "top 82%", once: true },
           },
         );
-
-        // 핀: 화면을 붙잡은 동안 피처드 → 사이드가 길게 차오른다. 되감기 가능.
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: scope.current,
-            start: "top top",
-            end: "+=80%",
-            pin: true,
-            scrub: 0.6,
-          },
-        });
-        tl.fromTo(
-          ".insight-featured",
-          { autoAlpha: 0, y: 110, scale: 0.94 },
-          { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "none" },
-          0,
-        )
-          .fromTo(
-            ".insight-side",
-            { autoAlpha: 0, x: 110 },
-            { autoAlpha: 1, x: 0, duration: 0.4, stagger: 0.22, ease: "none" },
-            0.32,
-          )
-          // 완성된 화면에서 잠깐 머문 뒤 핀 해제
-          .to({}, { duration: 0.25 });
-        // 피처드 커버 패럴랙스 (섹션 통과 동안 은은하게)
-        gsap.fromTo(
-          ".insight-featured-img",
-          { yPercent: -6 },
-          {
-            yPercent: 6,
-            ease: "none",
-            scrollTrigger: {
-              trigger: scope.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-            },
-          },
-        );
-      });
-
-      mm.add(MM_SOFT, () => {
         gsap.fromTo(
           ".insight-featured, .insight-side",
           { autoAlpha: 0, y: 18 },
@@ -91,6 +45,7 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
             y: 0,
             duration: 0.55,
             stagger: 0.12,
+            delay: 0.12,
             ease: "power2.out",
             scrollTrigger: { trigger: scope.current, start: "top 78%", once: true },
           },
@@ -109,10 +64,10 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
           <div>
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">Insights</p>
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
-              최신 인사이트.
+              AI·데이터 인사이트
             </h2>
             <p className="mt-3 max-w-xl text-[15.5px] text-zinc-600">
-              AI · 데이터 동향을 일터 언어로 매일 정리해 보내드립니다.
+              빠르게 변하는 AI·데이터 소식을 실무자의 눈높이로 정리합니다.
             </p>
           </div>
           <Link href="/insights" className="group inline-flex items-center gap-1.5 self-start text-[14px] font-semibold text-zinc-900">
@@ -139,7 +94,7 @@ export function SceneInsights({ insights }: { insights: InsightCard[] }) {
                     <img
                       src={insights[0]!.image_url}
                       alt=""
-                      className="insight-featured-img h-full w-full scale-[1.12] object-cover transition group-hover:scale-[1.15]"
+                      className="h-full w-full object-cover transition group-hover:scale-[1.03]"
                     />
                   ) : null}
                 </div>

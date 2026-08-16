@@ -5,7 +5,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 
-import { gsap, MM_DESKTOP, MM_SOFT, useGSAP } from "./gsap-setup";
+import { gsap, useGSAP } from "./gsap-setup";
 
 export function SceneCta() {
   const scope = useRef<HTMLElement>(null);
@@ -14,35 +14,8 @@ export function SceneCta() {
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add(MM_DESKTOP, () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: scope.current,
-            start: "top 65%",
-            end: "top 15%",
-            scrub: 0.6,
-          },
-        });
-        tl.fromTo(
-          ".cta-card",
-          { scale: 0.94, y: 48, autoAlpha: 0.6 },
-          { scale: 1, y: 0, autoAlpha: 1, ease: "none" },
-        );
-        gsap.fromTo(
-          ".cta-content > *",
-          { autoAlpha: 0, y: 22 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.55,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: { trigger: scope.current, start: "top 45%", once: true },
-          },
-        );
-      });
-
-      mm.add(MM_SOFT, () => {
+      // 카드 스케일 스크럽은 걷어냈다. 진입 시 1회 페이드업만 둔다.
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.fromTo(
           ".cta-card",
           { autoAlpha: 0, y: 24 },
@@ -52,6 +25,19 @@ export function SceneCta() {
             duration: 0.6,
             ease: "power2.out",
             scrollTrigger: { trigger: scope.current, start: "top 80%", once: true },
+          },
+        );
+        gsap.fromTo(
+          ".cta-content > *",
+          { autoAlpha: 0, y: 18 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.09,
+            delay: 0.1,
+            ease: "power2.out",
+            scrollTrigger: { trigger: scope.current, start: "top 78%", once: true },
           },
         );
       });
@@ -71,10 +57,10 @@ export function SceneCta() {
                 Get in touch
               </p>
               <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[52px]">
-                맞춤 커리큘럼 제안서,<br />일주일 안에 드립니다.
+                우리 조직에 맞는 교육 과정,<br />일주일 안에 제안해 드립니다.
               </h2>
               <p className="mt-6 max-w-2xl text-[16px] leading-[1.8] text-zinc-300">
-                상담은 무료입니다. 사전 인터뷰로 조직의 업무와 데이터 환경을 파악한 뒤, 실행 가능한 커리큘럼으로 제안드립니다.
+                무료 상담을 통해 조직의 업무와 데이터 환경을 확인하고, 현장에서 바로 활용할 수 있는 교육 과정을 제안해 드립니다.
               </p>
             </div>
             <div className="col-span-12 flex flex-col gap-3 self-end sm:flex-row lg:col-span-4 lg:flex-col">

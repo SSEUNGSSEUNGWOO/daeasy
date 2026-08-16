@@ -51,8 +51,8 @@ export function SceneCta() {
     <section ref={scope} className="bg-white">
       <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
         <div className="cta-card rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
-          <div className="grid grid-cols-12 gap-x-8 gap-y-8">
-            <div className="cta-content col-span-12 lg:col-span-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-8">
+            <div className="cta-content lg:col-span-8">
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
                 Get in touch
               </p>
@@ -63,7 +63,7 @@ export function SceneCta() {
                 무료 상담을 통해 조직의 업무와 데이터 환경을 확인하고, 현장에서 바로 활용할 수 있는 교육 과정을 제안해 드립니다.
               </p>
             </div>
-            <div className="col-span-12 flex flex-col gap-3 self-end sm:flex-row lg:col-span-4 lg:flex-col">
+            <div className="flex flex-col gap-3 self-end sm:flex-row lg:col-span-4 lg:flex-col">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-7 py-4 text-[15px] font-bold text-white transition hover:bg-accent/90"

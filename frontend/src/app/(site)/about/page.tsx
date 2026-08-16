@@ -210,14 +210,14 @@ export default function AboutPage() {
       <section className="border-t border-zinc-100 bg-zinc-50/70">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-24 reveal">
           <div className="rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20">
-            <div className="grid grid-cols-12 gap-x-8 gap-y-8">
-              <div className="col-span-12 lg:col-span-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-8">
+              <div className="lg:col-span-8">
                 <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">Get in touch</p>
                 <h2 className="mt-3 text-[36px] font-extrabold leading-[1.08] tracking-[-0.02em] sm:text-[48px]">
                   누적 10만 명을 교육한 방식으로,<br />조직의 교육을 설계합니다.
                 </h2>
               </div>
-              <div className="col-span-12 flex self-end lg:col-span-4 lg:justify-end">
+              <div className="flex self-end lg:col-span-4 lg:justify-end">
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-7 py-4 text-[15px] font-bold text-white transition hover:bg-accent/90"

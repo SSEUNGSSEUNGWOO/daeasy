@@ -7,8 +7,8 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-zinc-200/70 bg-white">
       <div className="mx-auto max-w-[1280px] px-6 py-14 lg:px-10">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-10">
-          <div className="col-span-12 md:col-span-4">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-12">
+          <div className="col-span-2 md:col-span-4">
             <Link href="/" className="flex items-center gap-2.5" aria-label="daeasy 홈">
               <Image
                 src="/logo/daeasy-symbol-mark.png"
@@ -64,7 +64,7 @@ export function SiteFooter() {
             </a>
           </div>
 
-          <div className="col-span-6 md:col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <h4 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
               Programs
             </h4>
@@ -74,7 +74,7 @@ export function SiteFooter() {
               <li><Link href="/contact" className="hover:text-zinc-900">교육 문의</Link></li>
             </ul>
           </div>
-          <div className="col-span-6 md:col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <h4 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
               Insights
             </h4>
@@ -85,7 +85,7 @@ export function SiteFooter() {
               <li><Link href="/ai-champion" className="hover:text-zinc-900">AI챔피언</Link></li>
             </ul>
           </div>
-          <div className="col-span-12 md:col-span-4">
+          <div className="col-span-2 md:col-span-4">
             <h4 className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
               Contact
             </h4>

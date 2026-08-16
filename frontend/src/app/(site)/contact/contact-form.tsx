@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import Link from "next/link";
+
 type CourseOption = { slug: string; title: string };
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -153,6 +155,25 @@ export function ContactForm({
             placeholder="조직 규모, 도입 시기, 학습 목표, 궁금한 점 등을 자유롭게 적어주세요."
             className="mt-2 w-full resize-none rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
           />
+        </label>
+        <label className="flex items-start gap-2.5">
+          <input
+            required
+            name="privacy_consent"
+            type="checkbox"
+            className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 accent-ink"
+          />
+          <span className="text-[13px] leading-[1.7] text-zinc-600">
+            개인정보 수집·이용에 동의합니다. <span className="text-red-500">*</span>
+            <span className="mt-0.5 block text-zinc-500">
+              수집 항목(이름·이메일·연락처)은 문의 처리 목적으로만 이용하며, 보유 기간 등 자세한
+              내용은{" "}
+              <Link href="/privacy" className="underline underline-offset-2 hover:text-ink">
+                개인정보처리방침
+              </Link>
+              을 따릅니다.
+            </span>
+          </span>
         </label>
         <button
           type="submit"

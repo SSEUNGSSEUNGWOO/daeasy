@@ -3,8 +3,9 @@
 /**
  * 헤더 최상단 띠. 한 줄에 메시지 하나만 싣는다.
  *
- * 수상 알림이 살아 있는 동안에는 수상 단독, 닫으면 상담 문구로 전환.
- * (상담 CTA 는 헤더 버튼과 중복이라 수상과 병치하지 않는다 — 첫 화면 동시 자극 축소.)
+ * 수상 알림이 살아 있는 동안에는 좌(수상) / 우(상담 CTA) 로 나눠 담고,
+ * 닫으면 원래의 가운데 정렬 상담 문구로 돌아간다.
+ * 띠를 두 줄로 쌓으면 첫 화면 상단이 크롬으로만 150px 가까이 차서 히어로가 눌린다.
  */
 
 import { useCallback, useState, useSyncExternalStore, type ReactNode } from "react";
@@ -94,14 +95,16 @@ export function TopStrip() {
 
   return (
     <div
-      className={`relative overflow-hidden text-white ${showAward ? "bg-ink" : "bg-accent"}`}
+      className={`relative overflow-hidden text-white ${showAward ? "strip-split-bg" : "bg-accent"}`}
     >
       {showAward ? (
-        // 수상 문구는 컨테이너(max-w-1280) 기준 — 아래 헤더 로고와 좌측 정렬을 맞춘다. 넘치면 truncate.
-        <div className="relative mx-auto flex h-10 max-w-[1280px] items-center pl-6 pr-11 text-[12.5px]">
+        // 수상 문구는 컨테이너(max-w-1280) 기준 — 아래 헤더 로고와 좌측 정렬을 맞춘다.
+        // 중앙선을 넘지 않도록 폭을 절반으로 묶는다. 넘치면 truncate.
+        <div className="relative mx-auto flex h-10 max-w-[1280px] items-center pl-6 pr-11 text-[12.5px] lg:pr-6">
           <StripLink
             href={AWARD_ARTICLE_URL}
             external
+            className="lg:max-w-[calc(50%-2rem)]"
             style={{ color: GOLD }}
             lead={
               <>
@@ -121,6 +124,19 @@ export function TopStrip() {
           />
         </div>
       )}
+
+      {/* CTA 는 파란 절반의 정중앙. 배경 그라디언트가 화면 끝까지 가므로 기준도
+          컨테이너(max-w-1280)가 아니라 화면이어야 한다 — 그래서 별도 레이어다. */}
+      {showAward ? (
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 right-0 hidden items-center justify-center px-6 text-[12.5px] lg:flex">
+          <StripLink
+            href="/contact"
+            className="pointer-events-auto"
+            lead="커리큘럼 · 일정 · 견적이 궁금하다면 —"
+            action="교육 문의하기 →"
+          />
+        </div>
+      ) : null}
 
       {showAward ? (
         <button

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { getCurrentCustomer } from "@/lib/customer-auth";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -46,6 +47,13 @@ export async function POST(req: Request) {
   const timeSlot = payload.time_slot ? payload.time_slot.slice(0, 40) : null;
   const message = (payload.message ?? "").slice(0, 2000);
 
+  // 로그인 회원이면 신청을 계정에 연결한다. 실패해도 비회원 신청으로 접수된다.
+  // 실패를 조용히 삼키면 Auth 장애를 감지할 수 없으므로 로그는 남긴다.
+  const customer = await getCurrentCustomer().catch((err) => {
+    console.error("[rentals/inquiries] 세션 조회 실패 — 비회원으로 접수:", err);
+    return null;
+  });
+
   const { data, error } = await getSupabaseAdmin()
     .from("rental_inquiries")
     .insert({
@@ -54,6 +62,7 @@ export async function POST(req: Request) {
       usage_date: usageDate,
       time_slot: timeSlot,
       message,
+      user_id: customer?.id ?? null,
     })
     .select("id")
     .limit(1)

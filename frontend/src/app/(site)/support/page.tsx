@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaqAccordion } from "./faq-accordion";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = { title: "고객센터" };
 
@@ -38,8 +39,7 @@ const faqs: Faq[] = [
               교육 문의 페이지
             </Link>
           </li>
-          <li>전화 070-7606-7586</li>
-          <li>이메일 data-edu@kbrainc.com</li>
+          <li>이메일 {CONTACT_EMAIL}</li>
         </ul>
       </>
     ),
@@ -59,8 +59,7 @@ const faqs: Faq[] = [
               교육 문의 페이지
             </Link>
           </li>
-          <li>전화 070-7606-7586</li>
-          <li>이메일 data-edu@kbrainc.com</li>
+          <li>이메일 {CONTACT_EMAIL}</li>
         </ul>
       </>
     ),
@@ -71,7 +70,7 @@ const faqs: Faq[] = [
     a: (
       <>
         <p>
-          DAEASY 홈페이지 가입자는 교육 개설이 확정되면 뉴스레터를 받게 되며, 해당 뉴스레터의 스케줄에 맞춰 공개과정 신청 페이지에서 교육 신청을 진행하면 됩니다.
+          가입 시 뉴스레터 수신에 동의하시면 교육 개설이 확정될 때 안내 메일을 받게 되며, 해당 메일의 스케줄에 맞춰 공개과정 신청 페이지에서 교육 신청을 진행하면 됩니다.
         </p>
         <p className="mt-3">신청 완료 후 일주일 이내에 개/폐강 여부가 결정되고, 폐강 시에는 전액 환불됩니다.</p>
       </>

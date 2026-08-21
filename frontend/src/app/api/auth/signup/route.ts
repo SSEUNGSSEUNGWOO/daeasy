@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getClientIp, rateLimitAuth } from "@/lib/rate-limit";
+import { getSupabaseAdmin } from "@/lib/supabase";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export const runtime = "nodejs";
@@ -13,6 +14,7 @@ type Payload = {
   phone?: string;
   organization?: string;
   privacyAgreed?: boolean;
+  marketingAgreed?: boolean;
   captchaToken?: string;
 };
 
@@ -106,6 +108,52 @@ export async function POST(req: Request) {
 
   if (error) {
     return NextResponse.json({ detail: "회원가입 요청을 처리하지 못했습니다." }, { status: 400 });
+  }
+
+  // 광고성 정보 수신은 개인정보 수집·이용 동의와 별개다. 체크한 사람만 등록한다.
+  //
+  // 동의 시점 기록을 먼저 하고 갱신된 행이 있을 때만 뉴스레터에 넣는다. 이미 가입된
+  // 이메일로 재가입을 시도하면 Supabase 는 계정 존재를 숨기려고 에러 대신 임의 id 를
+  // 가진 가짜 user 를 돌려주는데, 그 id 로는 update 가 0건이 된다. 이 순서가 아니면
+  // 제3자가 기존 회원의 이메일로 가입을 시도해 그 사람의 해지된 구독을 되살릴 수 있다.
+  //
+  // 다만 이 가드는 **계정이 이미 있는 이메일**만 지킨다. 계정은 없고 뉴스레터만
+  // 해지해둔 이메일이면 신규 가입이 성사돼 구독이 되살아난다. 같은 일이
+  // /api/newsletter/subscribe 로 더 쉽게 되므로 실질 위험이 늘지는 않는다 —
+  // 근본 해결은 그쪽에 이메일 확인(double opt-in)을 붙이는 별도 작업이다.
+  //
+  // 여기서 실패해도 가입은 성공으로 응답한다. auth.signUp() 이 이미 통과했으므로
+  // 계정은 만들어진 상태이고, 4xx/5xx 를 돌려주면 사용자가 재시도해 중복 가입
+  // 오류를 만난다. 실패는 함수 로그에만 남긴다.
+  if (payload.marketingAgreed === true && data.user) {
+    // getSupabaseAdmin() 은 SUPABASE_SERVICE_ROLE_KEY 가 없으면 throw 한다.
+    // 여기서 터지면 계정은 이미 만들어졌는데 500 이 나가고, 사용자가 재시도하다
+    // 중복 가입 오류를 만난다 — 바로 위 주석이 막으려던 실패다. 통째로 감싼다.
+    try {
+      const admin = getSupabaseAdmin();
+
+      const { data: consented, error: consentError } = await admin
+        .from("customer_profiles")
+        .update({ marketing_agreed_at: new Date().toISOString() })
+        .eq("id", data.user.id)
+        .select("id");
+
+      if (consentError) {
+        console.error("마케팅 동의 시점 기록 실패:", consentError.message);
+      } else if (consented && consented.length > 0) {
+        const { error: newsletterError } = await admin
+          .from("newsletter_subscribers")
+          .upsert(
+            { email, status: "active", unsubscribed_at: null, source: "signup" },
+            { onConflict: "email" },
+          );
+        if (newsletterError) {
+          console.error("가입 시 뉴스레터 등록 실패:", newsletterError.message);
+        }
+      }
+    } catch (err) {
+      console.error("가입 시 뉴스레터 처리 실패:", err);
+    }
   }
 
   return NextResponse.json({

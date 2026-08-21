@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { AWARD_ARTICLE_URL } from "@/lib/award";
+import { CONTACT_EMAIL, CONTACT_PHONE, OFFICE_ADDRESS } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -90,9 +91,9 @@ export function SiteFooter() {
               연락처
             </h3>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-zinc-700">
-              <li>data-edu@kbrainc.com</li>
-              <li>070-5066-0995</li>
-              <li className="text-zinc-500">서울시 동작구 보라매로5길 51 롯데타워 301~309호</li>
+              <li>{CONTACT_EMAIL}</li>
+              <li>{CONTACT_PHONE}</li>
+              <li className="text-zinc-500">{OFFICE_ADDRESS}</li>
             </ul>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { RentalForm } from "./rental-form";
 import { BookingCalendar } from "./booking-calendar";
 import { fetchPublicBookings } from "@/lib/rental-bookings";
+import { CONTACT_EMAIL, OFFICE_HOURS, VENUE_ADDRESS } from "@/lib/site";
 
 // 어드민이 등록한 예약 현황이 재배포 없이 반영되도록
 export const revalidate = 60;
@@ -51,7 +52,7 @@ const facilities = [
 
 const notices = [
   "이용 날짜 / 시간 / 인원 확인 후 예약해주세요.",
-  "전화 응대 가능 시간은 평일 10시 ~ 18시 입니다.",
+  `문의 응대 시간은 ${OFFICE_HOURS} 입니다.`,
   "입실은 이용시간 30분 전부터 가능합니다. 다음 대관을 위해 반드시 이용시간을 지켜주세요.",
   "강의 전 30분 이상의 준비시간이 필요한 경우 1시간 추가로 요청해주세요.",
   "소음이 크게 발생하는 모임은 이용이 어렵습니다.",
@@ -296,26 +297,16 @@ export default async function RentalsPage() {
               </h2>
               <p className="mt-7 text-[16px] leading-[1.85] text-zinc-700">
                 폼을 제출하시면 담당자가 영업일 기준 1일 이내로 연락드립니다.
-                급하신 경우 아래 연락처로 직접 문의해주세요.
               </p>
-              <div className="mt-8 space-y-3">
+              <div className="mt-8">
                 <a
-                  href="tel:070-5066-0995"
-                  className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
-                >
-                  <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                    전화
-                  </span>
-                  <span className="font-medium">070-5066-0995</span>
-                </a>
-                <a
-                  href="mailto:data-edu@kbrainc.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="flex items-baseline gap-3 text-[15px] text-zinc-800 hover:text-ink"
                 >
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                     메일
                   </span>
-                  <span className="font-medium">data-edu@kbrainc.com</span>
+                  <span className="font-medium">{CONTACT_EMAIL}</span>
                 </a>
               </div>
             </div>
@@ -339,7 +330,7 @@ export default async function RentalsPage() {
                 주소
               </dt>
               <dd className="mt-2 text-[15px] leading-[1.7] text-zinc-800">
-                서울시 마포구 성암로 189<br />중소기업DMC타워 701호
+                {VENUE_ADDRESS}
               </dd>
             </div>
             <div>
@@ -352,15 +343,9 @@ export default async function RentalsPage() {
             </div>
             <div>
               <dt className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                대표번호
-              </dt>
-              <dd className="mt-2 text-[15px] text-zinc-800">070-5066-0995</dd>
-            </div>
-            <div>
-              <dt className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
                 메일
               </dt>
-              <dd className="mt-2 text-[15px] text-zinc-800">data-edu@kbrainc.com</dd>
+              <dd className="mt-2 text-[15px] text-zinc-800">{CONTACT_EMAIL}</dd>
             </div>
           </dl>
         </div>

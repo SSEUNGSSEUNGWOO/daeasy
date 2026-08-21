@@ -38,6 +38,7 @@ export function SignupForm() {
       phone: String(form.get("phone") ?? ""),
       organization: String(form.get("organization") ?? ""),
       privacyAgreed: form.get("privacyAgreed") === "on",
+      marketingAgreed: form.get("marketingAgreed") === "on",
       captchaToken,
     };
 
@@ -76,6 +77,12 @@ export function SignupForm() {
         <input name="privacyAgreed" type="checkbox" required disabled={submitting} className="mt-1 h-4 w-4 accent-black" />
         <span>
           <Link href="/privacy" target="_blank" className="font-bold text-ink underline underline-offset-2">개인정보 수집·이용 안내</Link>를 확인했으며 이에 동의합니다. <span className="text-accent">(필수)</span>
+        </span>
+      </label>
+      <label className="flex items-start gap-3 rounded-md border border-zinc-200 p-4 text-sm leading-6 text-zinc-700">
+        <input name="marketingAgreed" type="checkbox" disabled={submitting} className="mt-1 h-4 w-4 accent-black" />
+        <span>
+          교육 개설 소식과 뉴스레터를 이메일로 받겠습니다. <span className="text-zinc-500">(선택)</span>
         </span>
       </label>
       {captchaSiteKey ? (

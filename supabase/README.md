@@ -20,11 +20,20 @@ seed.sql       로컬 개발용 시드
 | `insights` | 인사이트 (동향 리포트) | ai-service `/insight-publish` |
 | `insight_likes` | 인사이트 좋아요 | 사이트 (anon insert) |
 | `raw_items` | 크롤러 수집 원본 | ai-service insights 파이프라인 |
-| `newsletter_subscribers` | 뉴스레터 구독자 | 사이트 구독 폼 |
+| `newsletter_subscribers` | 뉴스레터 구독자 | 사이트 구독 폼 + 회원가입 선택 동의 |
 | `newsletter_issues` | 뉴스레터 발송호 | 어드민 (발송 경로 미구현) |
+| `customer_profiles` | 일반 고객 계정 정보 (어드민 `profiles` 와 권한 경계 분리) | 회원가입 트리거 |
 | `contact_inquiries` | 교육 문의 | 사이트 문의 폼 |
-| `rental_inquiries` | 장비 대여 문의 | 사이트 대여 폼 |
+| `rental_inquiries` | 강의실 대관 문의 | 사이트 대관 폼 |
 | `rental_bookings` | 대관 확정 예약 (예약 현황 캘린더) | 어드민 `/admin/rental-schedule` |
+
+**문의-회원 연결** — `contact_inquiries` / `rental_inquiries` 의 `user_id` 는 접수 시점에
+로그인 세션이 있을 때만 Route Handler 가 채운다(`on delete set null`). 비회원 문의는 `null` 이며,
+`/mypage` 는 이 컬럼으로 본인 문의만 조회한다. 클라이언트가 보낸 `user_id` 는 받지 않는다.
+
+**광고성 정보 수신 동의** — `customer_profiles.marketing_agreed_at`. 개인정보 수집·이용 동의와
+별개(정보통신망법)라 가입 폼의 선택 체크박스로 받고, 동의한 경우에만
+`newsletter_subscribers` 에 `source = 'signup'` 으로 등록한다.
 
 Storage 버킷 `content-images` — 어드민 이미지 업로드 (`/api/admin/upload`), public read.
 

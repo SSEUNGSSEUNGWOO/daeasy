@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "@/lib/site";
+
 export const metadata = { title: "개인정보 처리방침" };
 
 export default function PrivacyPage() {
@@ -13,7 +15,9 @@ export default function PrivacyPage() {
         <h2>1. 수집하는 개인정보와 목적</h2>
         <ul>
           <li>필수 항목: 이름, 이메일, 연락처, 소속</li>
+          <li>선택 항목: 광고성 정보 수신 동의(뉴스레터·교육 개설 안내) 및 동의 시점</li>
           <li>수집 목적: 회원 식별과 계정 관리, 교육 및 문의 서비스 제공, 고객 응대</li>
+          <li>광고성 정보 수신은 선택이며 동의하지 않아도 회원 가입과 서비스 이용에 제한이 없습니다. 동의 철회는 아래 문의 이메일로 요청할 수 있습니다.</li>
           <li>비밀번호는 Supabase Auth가 암호화된 인증 정보로 관리하며 회사 데이터베이스에 평문으로 저장하지 않습니다.</li>
         </ul>
 
@@ -33,7 +37,7 @@ export default function PrivacyPage() {
         <ul>
           <li>회사: 주식회사 케이브레인컴퍼니</li>
           <li>주소: 서울특별시 동작구 보라매로5길 51 롯데타워 301~309호</li>
-          <li>이메일: data-edu@kbrainc.com</li>
+          <li>이메일: {CONTACT_EMAIL}</li>
         </ul>
       </div>
     </article>

@@ -23,7 +23,7 @@ export function useCurrentCustomer() {
     fetch("/api/auth/me")
       .then((res) => res.json() as Promise<{ customer: CurrentCustomer | null }>)
       .then((body) => {
-        if (active) setCustomer(body.customer);
+        if (active) setCustomer(body.customer ?? null);
       })
       .catch(() => undefined);
     return () => {

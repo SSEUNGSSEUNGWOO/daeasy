@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Link from "next/link";
 
@@ -19,6 +19,17 @@ type FormState = "idle" | "submitting" | "success" | "error";
 export function RentalForm() {
   const [state, setState] = useState<FormState>("idle");
   const customer = useCurrentCustomer();
+
+  // 회원 정보가 도착하면 폼을 remount 해 defaultValue 를 반영한다 (입력이 uncontrolled 라
+  // remount 없이는 안 채워진다). 다만 사용자가 이미 폼을 만지기 시작했다면 remount 하지
+  // 않는다 — 입력값과 포커스가 통째로 날아가고, 모바일에선 키보드까지 내려가기 때문이다.
+  // 그 경우 자동 채움을 포기한다. 어차피 직접 입력하던 중이라 잃는 게 없다.
+  const [prefillKey, setPrefillKey] = useState("anon");
+  const engaged = useRef(false);
+
+  useEffect(() => {
+    if (customer && !engaged.current) setPrefillKey(customer.email);
+  }, [customer]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -82,8 +93,11 @@ export function RentalForm() {
 
   return (
     <form
-      key={customer?.email ?? "anon"}
+      key={prefillKey}
       onSubmit={handleSubmit}
+      onFocusCapture={() => {
+        engaged.current = true;
+      }}
       className="lg:col-span-7 rounded-3xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100 sm:p-10"
     >
       <fieldset disabled={submitting} className="space-y-6">

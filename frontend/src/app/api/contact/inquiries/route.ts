@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
+import { getCurrentCustomer } from "@/lib/customer-auth";
 
 export const runtime = "nodejs";
 
@@ -50,6 +51,10 @@ export async function POST(req: Request) {
 
   const sb = getSupabaseAdmin();
 
+  // 로그인 회원이면 문의를 계정에 연결한다. 세션이 없거나 조회에 실패하면
+  // null 이 되어 비회원 문의로 접수된다 — 문의 접수 자체를 막지 않는다.
+  const customer = await getCurrentCustomer().catch(() => null);
+
   let courseId: string | null = null;
   if (courseSlug) {
     const { data: course } = await sb
@@ -70,6 +75,7 @@ export async function POST(req: Request) {
       company,
       course_id: courseId,
       message,
+      user_id: customer?.id ?? null,
     })
     .select("id")
     .limit(1)

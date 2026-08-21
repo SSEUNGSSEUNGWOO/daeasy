@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
+import { getCurrentCustomer } from "@/lib/customer-auth";
 
 export const runtime = "nodejs";
 
@@ -46,6 +47,9 @@ export async function POST(req: Request) {
   const timeSlot = payload.time_slot ? payload.time_slot.slice(0, 40) : null;
   const message = (payload.message ?? "").slice(0, 2000);
 
+  // 로그인 회원이면 신청을 계정에 연결한다. 실패해도 비회원 신청으로 접수된다.
+  const customer = await getCurrentCustomer().catch(() => null);
+
   const { data, error } = await getSupabaseAdmin()
     .from("rental_inquiries")
     .insert({
@@ -54,6 +58,7 @@ export async function POST(req: Request) {
       usage_date: usageDate,
       time_slot: timeSlot,
       message,
+      user_id: customer?.id ?? null,
     })
     .select("id")
     .limit(1)

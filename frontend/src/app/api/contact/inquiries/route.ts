@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
+import { getCurrentCustomer } from "@/lib/customer-auth";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
-import { getCurrentCustomer } from "@/lib/customer-auth";
 
 export const runtime = "nodejs";
 
@@ -53,7 +53,12 @@ export async function POST(req: Request) {
 
   // 로그인 회원이면 문의를 계정에 연결한다. 세션이 없거나 조회에 실패하면
   // null 이 되어 비회원 문의로 접수된다 — 문의 접수 자체를 막지 않는다.
-  const customer = await getCurrentCustomer().catch(() => null);
+  // 다만 조용히 묻히면 Auth 장애 때 회원 문의가 전부 비회원으로 새는 걸
+  // 아무도 모르므로, 실패는 함수 로그에 남긴다.
+  const customer = await getCurrentCustomer().catch((err) => {
+    console.error("[contact/inquiries] 세션 조회 실패 — 비회원으로 접수:", err);
+    return null;
+  });
 
   let courseId: string | null = null;
   if (courseSlug) {

@@ -80,7 +80,11 @@ async function fetchMyInquiries(userId: string): Promise<MyInquiry[] | null> {
       message: r.message,
     })),
     ...((rental.data ?? []) as unknown as RentalRow[]).map((r) => {
-      const when = [r.usage_date, r.time_slot].filter(Boolean).join(" · ");
+      // usage_date 는 date 컬럼이라 "2026-09-01" 로 온다. 접수일(국문 포맷)과
+      // 나란히 놓이므로 포맷을 맞춘다.
+      const when = [r.usage_date ? formatDate(r.usage_date) : null, r.time_slot]
+        .filter(Boolean)
+        .join(" · ");
       return {
         id: r.id,
         kind: "rental" as const,

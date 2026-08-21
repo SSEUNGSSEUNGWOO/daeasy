@@ -65,7 +65,7 @@ export default async function ContactPage({
                 </a>
                 <div className="flex items-baseline gap-3 text-[15px] text-zinc-700">
                   <span className="text-[12px] font-bold uppercase tracking-[0.16em] text-zinc-500">
-                    시간
+                    문의 응대
                   </span>
                   <span>{OFFICE_HOURS}</span>
                 </div>

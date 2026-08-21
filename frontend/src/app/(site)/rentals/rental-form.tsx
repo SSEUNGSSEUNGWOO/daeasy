@@ -76,7 +76,7 @@ export function RentalForm() {
           신청이 접수되었습니다.
         </h3>
         <p className="mt-4 text-[15px] leading-[1.8] text-zinc-700">
-          담당자가 영업일 기준 1일 이내로 연락드립니다.
+          담당자가 영업일 기준 1일 이내로 입력하신 연락처로 연락드립니다.
         </p>
         <button
           type="button"

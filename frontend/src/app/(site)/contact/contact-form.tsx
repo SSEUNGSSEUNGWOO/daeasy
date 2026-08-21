@@ -76,7 +76,7 @@ export function ContactForm({
           문의가 접수되었습니다.
         </h3>
         <p className="mt-4 text-[15px] leading-[1.8] text-zinc-700">
-          담당자가 영업일 기준 1일 이내로 회신드립니다.
+          담당자가 영업일 기준 1일 이내로 입력하신 이메일 또는 연락처로 회신드립니다.
         </p>
         <button
           type="button"

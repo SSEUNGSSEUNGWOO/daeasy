@@ -194,8 +194,9 @@ export default async function MyPage() {
                   {row.detail && (
                     <span className="mt-1.5 block text-[13px] text-zinc-600">{row.detail}</span>
                   )}
+                  {/* 접힌 상태에서도 보여야 한다 — "언제 연락받나"가 이 화면에 온 이유다 */}
+                  <span className="mt-1.5 block text-[13px] text-zinc-500">{STATUS_HINT[row.status]}</span>
                 </summary>
-                <p className="mt-2 text-[13px] text-zinc-500">{STATUS_HINT[row.status]}</p>
                 <p className="mt-3 whitespace-pre-wrap rounded-md bg-zinc-50 px-4 py-3 text-[13px] leading-[1.8] text-zinc-700">
                   {row.message.trim() || "작성한 내용이 없습니다."}
                 </p>

@@ -43,3 +43,5 @@ supabase/.temp/
 
 # veo-hero 중간 산출물 (프레임 프리뷰 — 최종본만 frontend/public/hero 에 커밋)
 scripts/veo-hero/frames/
+
+.superpowers/

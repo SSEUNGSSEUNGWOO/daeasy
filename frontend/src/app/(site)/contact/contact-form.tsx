@@ -184,7 +184,11 @@ export function ContactForm({
         </button>
         {state === "error" && (
           <p className="text-[13px] leading-[1.6] text-red-600">
-            전송에 실패했습니다. 잠시 후 다시 시도하시거나 {CONTACT_EMAIL} 로 보내주세요.
+            전송에 실패했습니다. 잠시 후 다시 시도하시거나{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold underline underline-offset-2">
+              {CONTACT_EMAIL}
+            </a>{" "}
+            로 보내주세요.
           </p>
         )}
       </fieldset>

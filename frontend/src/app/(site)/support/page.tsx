@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaqAccordion } from "./faq-accordion";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = { title: "고객센터" };
 
@@ -38,8 +39,7 @@ const faqs: Faq[] = [
               교육 문의 페이지
             </Link>
           </li>
-          <li>전화 070-7606-7586</li>
-          <li>이메일 data-edu@kbrainc.com</li>
+          <li>이메일 {CONTACT_EMAIL}</li>
         </ul>
       </>
     ),
@@ -59,8 +59,7 @@ const faqs: Faq[] = [
               교육 문의 페이지
             </Link>
           </li>
-          <li>전화 070-7606-7586</li>
-          <li>이메일 data-edu@kbrainc.com</li>
+          <li>이메일 {CONTACT_EMAIL}</li>
         </ul>
       </>
     ),

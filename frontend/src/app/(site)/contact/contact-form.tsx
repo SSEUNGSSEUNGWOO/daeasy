@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+import { CONTACT_EMAIL } from "@/lib/site";
+
 type CourseOption = { slug: string; title: string };
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -61,7 +63,7 @@ export function ContactForm({
           문의가 접수되었습니다.
         </h3>
         <p className="mt-4 text-[15px] leading-[1.8] text-zinc-700">
-          담당자가 영업일 기준 1일 이내로 회신드립니다. 급하신 경우 070-5066-0995 로 연락해주세요.
+          담당자가 영업일 기준 1일 이내로 회신드립니다.
         </p>
         <button
           type="button"
@@ -182,7 +184,7 @@ export function ContactForm({
         </button>
         {state === "error" && (
           <p className="text-[13px] leading-[1.6] text-red-600">
-            전송에 실패했습니다. 잠시 후 다시 시도하거나 070-5066-0995 로 연락해주세요.
+            전송에 실패했습니다. 잠시 후 다시 시도하시거나 {CONTACT_EMAIL} 로 보내주세요.
           </p>
         )}
       </fieldset>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { CONTACT_EMAIL } from "@/lib/site";
+import { useCurrentCustomer } from "@/lib/use-current-customer";
 
 const TIME_SLOTS = [
   "전일 (09:00 ~ 18:00)",
@@ -17,6 +18,7 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 export function RentalForm() {
   const [state, setState] = useState<FormState>("idle");
+  const customer = useCurrentCustomer();
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -80,10 +82,21 @@ export function RentalForm() {
 
   return (
     <form
+      key={customer?.email ?? "anon"}
       onSubmit={handleSubmit}
       className="lg:col-span-7 rounded-3xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100 sm:p-10"
     >
       <fieldset disabled={submitting} className="space-y-6">
+        {customer && (
+          <p className="rounded-md bg-ink/5 px-4 py-3 text-[13px] leading-[1.7] text-zinc-700">
+            <strong className="font-bold text-ink">{customer.name}님</strong>으로 신청합니다.
+            접수 후{" "}
+            <Link href="/mypage" className="font-bold text-ink underline underline-offset-2">
+              마이페이지
+            </Link>
+            에서 진행 상황을 확인할 수 있습니다.
+          </p>
+        )}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <label className="block">
             <span className="text-[13px] font-bold text-ink">
@@ -93,6 +106,7 @@ export function RentalForm() {
               required
               name="name"
               type="text"
+              defaultValue={customer?.name ?? ""}
               placeholder="홍길동"
               className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
@@ -105,6 +119,7 @@ export function RentalForm() {
               required
               name="phone"
               type="tel"
+              defaultValue={customer?.phone ?? ""}
               placeholder="010-0000-0000"
               className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 placeholder:text-zinc-400 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />

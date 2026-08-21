@@ -121,26 +121,33 @@ export async function POST(req: Request) {
   // 계정은 만들어진 상태이고, 4xx/5xx 를 돌려주면 사용자가 재시도해 중복 가입
   // 오류를 만난다. 실패는 함수 로그에만 남긴다.
   if (payload.marketingAgreed === true && data.user) {
-    const admin = getSupabaseAdmin();
+    // getSupabaseAdmin() 은 SUPABASE_SERVICE_ROLE_KEY 가 없으면 throw 한다.
+    // 여기서 터지면 계정은 이미 만들어졌는데 500 이 나가고, 사용자가 재시도하다
+    // 중복 가입 오류를 만난다 — 바로 위 주석이 막으려던 실패다. 통째로 감싼다.
+    try {
+      const admin = getSupabaseAdmin();
 
-    const { data: consented, error: consentError } = await admin
-      .from("customer_profiles")
-      .update({ marketing_agreed_at: new Date().toISOString() })
-      .eq("id", data.user.id)
-      .select("id");
+      const { data: consented, error: consentError } = await admin
+        .from("customer_profiles")
+        .update({ marketing_agreed_at: new Date().toISOString() })
+        .eq("id", data.user.id)
+        .select("id");
 
-    if (consentError) {
-      console.error("마케팅 동의 시점 기록 실패:", consentError.message);
-    } else if (consented && consented.length > 0) {
-      const { error: newsletterError } = await admin
-        .from("newsletter_subscribers")
-        .upsert(
-          { email, status: "active", unsubscribed_at: null, source: "signup" },
-          { onConflict: "email" },
-        );
-      if (newsletterError) {
-        console.error("가입 시 뉴스레터 등록 실패:", newsletterError.message);
+      if (consentError) {
+        console.error("마케팅 동의 시점 기록 실패:", consentError.message);
+      } else if (consented && consented.length > 0) {
+        const { error: newsletterError } = await admin
+          .from("newsletter_subscribers")
+          .upsert(
+            { email, status: "active", unsubscribed_at: null, source: "signup" },
+            { onConflict: "email" },
+          );
+        if (newsletterError) {
+          console.error("가입 시 뉴스레터 등록 실패:", newsletterError.message);
+        }
       }
+    } catch (err) {
+      console.error("가입 시 뉴스레터 처리 실패:", err);
     }
   }
 

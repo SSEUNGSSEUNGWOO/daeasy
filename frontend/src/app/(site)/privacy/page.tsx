@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "@/lib/site";
+
 export const metadata = { title: "개인정보 처리방침" };
 
 export default function PrivacyPage() {
@@ -33,7 +35,7 @@ export default function PrivacyPage() {
         <ul>
           <li>회사: 주식회사 케이브레인컴퍼니</li>
           <li>주소: 서울특별시 동작구 보라매로5길 51 롯데타워 301~309호</li>
-          <li>이메일: data-edu@kbrainc.com</li>
+          <li>이메일: {CONTACT_EMAIL}</li>
         </ul>
       </div>
     </article>

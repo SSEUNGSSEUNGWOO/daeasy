@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { AWARD_ARTICLE_URL } from "@/lib/award";
+import { CONTACT_EMAIL, CONTACT_PHONE, OFFICE_ADDRESS, VENUE_ADDRESS } from "@/lib/site";
 
 export const metadata = { title: "데이지란?" };
 
@@ -24,10 +25,10 @@ const values = [
 const company = [
   { dt: "법인명", dd: "케이브레인컴퍼니 (DAEASY 데이터교육 브랜드)" },
   { dt: "대표", dd: "민상일" },
-  { dt: "대표번호", dd: "070-5066-0995" },
-  { dt: "이메일", dd: "data-edu@kbrainc.com" },
-  { dt: "본사", dd: "서울시 동작구 보라매로5길 51 롯데타워 301~309호" },
-  { dt: "공개교육장", dd: "서울시 마포구 성암로 189 중소기업DMC타워 701호" },
+  { dt: "대표번호", dd: CONTACT_PHONE },
+  { dt: "이메일", dd: CONTACT_EMAIL },
+  { dt: "본사", dd: OFFICE_ADDRESS },
+  { dt: "공개교육장", dd: VENUE_ADDRESS },
   { dt: "사업자등록번호", dd: "129-86-50144" },
   { dt: "통신판매업신고", dd: "제2026-서울동작-0124호" },
 ];

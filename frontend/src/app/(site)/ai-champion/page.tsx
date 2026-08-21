@@ -221,10 +221,11 @@ export default function AiChampionPage() {
             <div>
               <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">데이지의 운영 경험</p>
               <h2 className="mt-3 text-[34px] font-extrabold leading-[1.12] tracking-[-0.025em] text-ink sm:text-[46px]">
-                체계를 설계하고,<br />교육과 인증을 운영했습니다.
+                체계를 설계하고,<br />교육과 인증을 운영합니다.
               </h2>
               <p className="mt-5 max-w-xl text-[16px] leading-[1.8] text-zinc-600">
-                DAEASY는 2025년 시범사업에서 역량진단 모델과 평가 지표를 개발하고 종합과정과 인증평가 운영을 수행했습니다.
+                DAEASY는 2025년 시범사업에서 역량진단 모델과 평가 지표를 개발했고, 2026년에도
+                종합과정과 인증평가 운영을 이어가고 있습니다.
               </p>
             </div>
             <ul className="grid gap-px overflow-hidden rounded-2xl bg-zinc-200 ring-1 ring-zinc-200 sm:grid-cols-2">
@@ -239,7 +240,7 @@ export default function AiChampionPage() {
           <dl className="mt-12 grid overflow-hidden rounded-2xl bg-blue-50 ring-1 ring-blue-100 sm:grid-cols-3">
             <div className="p-7 text-center sm:border-r sm:border-blue-100">
               <dt className="text-[13px] font-bold text-zinc-600">교육 수료</dt>
-              <dd className="mt-2 text-[36px] font-extrabold tracking-[-0.03em] text-ink">1,372명</dd>
+              <dd className="mt-2 text-[36px] font-extrabold tracking-[-0.03em] text-ink">2,227명</dd>
             </div>
             <div className="border-y border-blue-100 p-7 text-center sm:border-x sm:border-y-0">
               <dt className="text-[13px] font-bold text-zinc-600">표준 콘텐츠 개발</dt>
@@ -247,10 +248,14 @@ export default function AiChampionPage() {
             </div>
             <div className="p-7 text-center sm:border-l sm:border-blue-100">
               <dt className="text-[13px] font-bold text-zinc-600">인증평가 운영</dt>
-              <dd className="mt-2 text-[36px] font-extrabold tracking-[-0.03em] text-ink">541명</dd>
+              <dd className="mt-2 text-[36px] font-extrabold tracking-[-0.03em] text-ink">1,450명</dd>
             </div>
           </dl>
-          <p className="mt-3 text-right text-[12px] text-zinc-500">2025년 시범사업 기준</p>
+          {/* 홈(scene-ai-champion.tsx)과 같은 숫자·같은 기준이다. 한쪽만 고치면
+              두 페이지가 어긋나 실적 자체가 의심받는다. 바꿀 때 함께 바꾼다. */}
+          <p className="mt-3 text-right text-[12px] text-zinc-500">
+            2025 ~ 2026년 8월 누적 · 2026년 연간 2,200명 이상 인증 예정
+          </p>
         </div>
       </section>
 

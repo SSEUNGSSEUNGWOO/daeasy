@@ -70,16 +70,44 @@ export function SceneHero() {
 
       <div className="relative mx-auto flex min-h-[calc(100svh-64px)] max-w-[1280px] flex-col justify-center px-6 py-20 lg:px-10">
         <div className="hero-copy max-w-[900px]">
-          <h1 className="text-[46px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[60px] lg:text-[80px]">
+          {/* 헤드라인보다 먼저 놓는다 — 결재권자에게는 "무엇을 하는 회사인가"보다
+              "국가 인증제도를 맡고 있는 회사인가"가 먼저 읽혀야 한다.
+
+              칩을 어둡게 채운 이유: 좌측 워시가 흰색 92% 라 밝은 색 배지는 묻힌다.
+              파랑으로 채우면 아래 CTA 버튼과 무게가 겹쳐 시선이 갈린다.
+              발주처(행정안전부)와 역할(운영기관)을 세로선으로 나눠 정보 구조를 드러낸다. */}
+          <Link
+            href="/ai-champion"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-ink-warm py-2 pl-2.5 pr-4 text-[12px] tracking-[-0.01em] text-white shadow-[0_10px_30px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-14px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2 sm:text-[13px]"
+          >
+            <span
+              aria-hidden
+              className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-400/20 text-blue-300"
+            >
+              <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 fill-none stroke-current stroke-[2]">
+                <path d="M2.5 6.3 5 8.8 9.5 3.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <span className="font-bold text-blue-300">행정안전부</span>
+            <span aria-hidden className="h-3 w-px shrink-0 bg-white/20" />
+            <span className="font-bold">AI 챔피언 인증 운영기관</span>
+            <span
+              aria-hidden
+              className="text-white/45 transition-transform duration-200 group-hover:translate-x-0.5"
+            >
+              →
+            </span>
+          </Link>
+          <h1 className="mt-6 text-[46px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[60px] lg:text-[80px]">
             공공기관의 <span className="whitespace-nowrap">AI 전환을</span>{" "}
             <br className="hidden sm:inline" />
-            교육에서 현업 적용까지.
+            교육에서 인증까지.
           </h1>
           <p className="mt-7 max-w-2xl text-[16px] font-medium leading-[1.8] text-zinc-700 sm:text-[18px]">
-            DAEASY는 생성형 AI 활용, 데이터 분석, AI 서비스 개발 교육과
-            역량진단·인증 운영을 제공하는 공공부문 AI 교육 전문기업입니다.
+            행정안전부 AI 챔피언 인증을 운영하며, 생성형 AI 활용·데이터 분석·AI 서비스
+            개발을 교육하는 공공부문 전문기업입니다.
           </p>
-          {/* 히어로의 유일한 행동 유도. 헤드라인이 80px 로 커진 만큼 버튼도 키우고,
+          {/* 히어로의 주 행동 유도. 헤드라인이 80px 로 커진 만큼 버튼도 키우고,
               색 면적 대신 그림자와 화살표로 무게를 준다. */}
           <div className="mt-12">
             <Link

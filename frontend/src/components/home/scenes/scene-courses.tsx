@@ -50,11 +50,13 @@ export function SceneCourses({ courses }: { courses: CourseCard[] }) {
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">교육과정</p>
+            {/* 히어로가 이미 "공공기관의 AI 전환"을 말한다.
+                여기서 또 "공공기관 업무에 맞춘"을 반복하면 둘 다 약해진다. */}
             <h2 className="mt-3 text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[40px]">
-              공공기관 업무에 맞춘 AI·데이터 교육
+              생성형 AI부터 AI 서비스 개발까지
             </h2>
             <p className="mt-3 max-w-xl text-[15.5px] text-zinc-600">
-              생성형 AI 업무 활용부터 데이터 분석과 AI 서비스 개발까지, 조직의 직무와 목표에 맞춰 설계합니다.
+              초급·중급·고급 전 단계를 조직의 직무와 목표에 맞춰 설계합니다.
             </p>
           </div>
           <Link href="/courses" className="group inline-flex items-center gap-1.5 self-start text-[14px] font-semibold text-zinc-900">

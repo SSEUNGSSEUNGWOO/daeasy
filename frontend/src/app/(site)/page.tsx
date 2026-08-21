@@ -58,10 +58,12 @@ export default async function HomePage() {
   return (
     <>
       <SceneHero />
+      {/* AI 챔피언이 교육과정보다 앞이다 — 결재 라인은 "무엇을 파는가"보다
+          "믿을 만한가"를 먼저 확인한다. 신뢰 근거를 상품 앞에 둔다. */}
+      <SceneAiChampion />
       <SceneCourses courses={featuredCourses} />
       <SceneCourseOutputs />
       <ScenePartners />
-      <SceneAiChampion />
       <SceneInsights insights={latestInsights} />
       <SceneRentals />
       <SceneCta />

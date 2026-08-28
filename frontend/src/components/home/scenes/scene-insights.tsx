@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import { InsightCoverFallback } from "@/components/insight-cover-fallback";
 
-import { gsap, useGSAP } from "./gsap-setup";
+import { gsap, useGSAP } from "../../gsap-setup";
 
 export type InsightCard = {
   slug: string;

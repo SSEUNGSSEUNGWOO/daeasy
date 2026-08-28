@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 
-import { gsap, useGSAP } from "./gsap-setup";
+import { gsap, useGSAP } from "../../gsap-setup";
 
 export function SceneHero() {
   const scope = useRef<HTMLElement>(null);

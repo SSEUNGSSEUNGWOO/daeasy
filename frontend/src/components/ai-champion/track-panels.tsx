@@ -1,0 +1,113 @@
+"use client";
+
+import { useState } from "react";
+
+/* 등급별 색은 활성/비활성 조합이 서로 달라 세트로 묶는다.
+   Black 은 활성 시 다크 패널로 반전 — 안쪽 텍스트 색까지 함께 바뀐다. */
+const TRACKS = [
+  {
+    name: "Green",
+    level: "초급",
+    role: "실무 기획자",
+    title: "아이디어를 정책과 서비스로 구체화합니다.",
+    body: "생성형 AI와 노코드 도구를 활용해 행정 혁신 아이디어를 기획안과 업무 프로토타입으로 구현합니다.",
+    audience: "비개발 실무자",
+    dot: "bg-emerald-500",
+    shellActive: "bg-emerald-50/60 ring-emerald-200",
+    badgeActive: "bg-emerald-100 text-emerald-800",
+    inverted: false,
+  },
+  {
+    name: "Blue",
+    level: "중급",
+    role: "AI 전환 실행자",
+    title: "PoC부터 구축까지 실행을 주도합니다.",
+    body: "데이터 분석과 모델링, LLM API·RAG·FastAPI를 활용해 기관 맞춤형 AI 서비스를 설계하고 구현합니다.",
+    audience: "IT 담당자·개발 인력",
+    dot: "bg-blue-600",
+    shellActive: "bg-blue-50/60 ring-blue-200",
+    badgeActive: "bg-blue-100 text-blue-800",
+    inverted: false,
+  },
+  {
+    name: "Black",
+    level: "고급 · 2026 신설",
+    role: "AI 거점 리더",
+    title: "기관의 AI 전환과 확산을 이끕니다.",
+    body: "고급 AI 기술과 도구 생태계를 바탕으로 기관 단위 전환을 리딩하고 동료 코칭과 우수사례 확산을 주도합니다.",
+    audience: "AI 챔피언 고급과정 인증자",
+    dot: "bg-zinc-900",
+    shellActive: "bg-ink-warm ring-ink-warm",
+    badgeActive: "bg-white/10 text-white",
+    inverted: true,
+  },
+] as const;
+
+export function TrackPanels() {
+  const [active, setActive] = useState(1);
+
+  return (
+    <div className="mt-12 flex flex-col gap-3 lg:flex-row">
+      {TRACKS.map((track, index) => {
+        const isActive = index === active;
+        const inverted = isActive && track.inverted;
+        return (
+          <article
+            key={track.name}
+            className={`overflow-hidden rounded-2xl ring-1 transition-all duration-500 ease-out motion-reduce:transition-none lg:min-w-0 lg:basis-0 ${
+              isActive ? "lg:grow-[2]" : "lg:grow"
+            } ${
+              isActive ? track.shellActive : "bg-white ring-zinc-200 hover:ring-zinc-300"
+            } ${inverted ? "text-white" : "text-ink"}`}
+            onMouseEnter={() => setActive(index)}
+          >
+            <button
+              type="button"
+              aria-expanded={isActive}
+              onClick={() => setActive(index)}
+              onFocus={() => setActive(index)}
+              className="w-full p-7 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <p className="flex items-center gap-2.5 text-[26px] font-extrabold tracking-[-0.02em]">
+                  <span aria-hidden className={`h-2.5 w-2.5 shrink-0 rounded-full ${track.dot} ${inverted ? "ring-1 ring-white/40" : ""}`} />
+                  {track.name}
+                </p>
+                <span
+                  className={`whitespace-nowrap rounded-full px-3 py-1.5 text-[11px] font-bold transition-colors duration-500 motion-reduce:transition-none ${
+                    isActive ? track.badgeActive : "bg-zinc-100 text-zinc-500"
+                  }`}
+                >
+                  {track.level}
+                </span>
+              </div>
+              <p className={`mt-6 text-[12px] font-bold uppercase tracking-[0.15em] ${inverted ? "text-zinc-400" : "text-zinc-500"}`}>
+                {track.role}
+              </p>
+              <h3 className="mt-2 text-[20px] font-bold leading-[1.35] tracking-[-0.015em]">{track.title}</h3>
+            </button>
+            <div
+              className={`grid transition-[grid-template-rows] duration-500 ease-out motion-reduce:transition-none ${
+                isActive ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
+            >
+              <div className="min-h-0 overflow-hidden">
+                <div
+                  className={`px-7 pb-7 transition-opacity duration-300 motion-reduce:transition-none sm:px-8 sm:pb-8 ${
+                    isActive ? "opacity-100 delay-150" : "opacity-0"
+                  }`}
+                >
+                  <p className={`text-[14.5px] leading-[1.75] ${inverted ? "text-zinc-300" : "text-zinc-600"}`}>{track.body}</p>
+                  <div className={`mt-6 border-t pt-5 ${inverted ? "border-white/15" : "border-zinc-200/70"}`}>
+                    <p className={`text-[11px] font-bold uppercase tracking-[0.12em] ${inverted ? "text-zinc-400" : "text-zinc-500"}`}>대상</p>
+                    <p className={`mt-1.5 text-[14px] font-semibold ${inverted ? "text-zinc-200" : "text-zinc-700"}`}>{track.audience}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}

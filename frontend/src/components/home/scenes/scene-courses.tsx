@@ -5,7 +5,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 
-import { gsap, useGSAP } from "./gsap-setup";
+import { gsap, useGSAP } from "../../gsap-setup";
 
 export type CourseCard = {
   slug: string;

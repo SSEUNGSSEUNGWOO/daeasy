@@ -6,7 +6,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { gsap, MM_DESKTOP, useGSAP } from "./gsap-setup";
+import { gsap, MM_DESKTOP, useGSAP } from "../../gsap-setup";
 
 export function SceneRentals() {
   const scope = useRef<HTMLElement>(null);

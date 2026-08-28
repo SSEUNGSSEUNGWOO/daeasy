@@ -5,7 +5,7 @@
 
 import { useRef } from "react";
 
-import { gsap, MM_DESKTOP, useGSAP } from "./gsap-setup";
+import { gsap, MM_DESKTOP, useGSAP } from "../../gsap-setup";
 
 type Partner = { name: string; logo?: string };
 

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 
-import { gsap, useGSAP } from "./gsap-setup";
+import { gsap, useGSAP } from "../../gsap-setup";
 
 /**
  * 운영 범위 4단계. /ai-champion 의 operationScopes 와 같은 내용이다.

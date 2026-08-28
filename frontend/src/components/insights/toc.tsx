@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { LikeButton } from "./like-button";
+import { LikeButton, type LikeResource } from "./like-button";
 
 export type TocItem = {
   id: string;
@@ -14,9 +14,11 @@ export type TocItem = {
 export function TableOfContents({
   items,
   likeSlug,
+  likeResource,
 }: {
   items: TocItem[];
   likeSlug?: string;
+  likeResource?: LikeResource;
 }) {
   const [active, setActive] = useState<string>("");
 
@@ -51,12 +53,16 @@ export function TableOfContents({
           href={`#${item.id}`}
           onClick={(e) => {
             e.preventDefault();
-            if (item.id === "top") {
-              window.scrollTo({ top: 0, behavior: "smooth" });
+            // Lenis 가 활성일 땐 네이티브 smooth 스크롤이 무시되므로 lenis.scrollTo 를 쓴다
+            const lenis = window.__lenis;
+            const el = document.getElementById(item.id);
+            if (!el) return;
+            if (lenis) {
+              lenis.scrollTo(el, { offset: -96 }); // scroll-mt-24 와 동일한 여백
             } else {
-              document
-                .getElementById(item.id)
-                ?.scrollIntoView({ behavior: "smooth" });
+              // window.scrollTo(smooth) 는 환경에 따라 무시되는 경우가 있어
+              // top 포함 모든 이동을 scrollIntoView 로 통일한다
+              el.scrollIntoView({ behavior: "smooth" });
             }
           }}
           className={`block border-l-2 py-0.5 leading-snug transition-colors ${
@@ -74,7 +80,7 @@ export function TableOfContents({
       ))}
       {likeSlug && (
         <div className="flex justify-center pt-6">
-          <LikeButton slug={likeSlug} />
+          <LikeButton slug={likeSlug} resource={likeResource} />
         </div>
       )}
     </div>

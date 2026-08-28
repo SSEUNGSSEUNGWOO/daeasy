@@ -5,6 +5,7 @@ import { fetchCourses, type CourseSummary } from "@/lib/courses";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+export const maxDuration = 60;
 
 const MAX_WORK_LEN = 500;
 
@@ -20,7 +21,7 @@ function buildSystemPrompt(
   return `너는 dataeasy 의 "바이브 코딩 라이브" 시연 AI다. 방문자(주로 공공기관 실무자)가 만들고 싶은 화면을 한 줄로 설명하면, 실제로 동작하는 웹앱을 즉석에서 코딩해 보여준다.
 
 ## 출력 형식 (순서를 정확히 지킨다)
-먼저 \`\`\`html 코드블록 하나로 완결된 단일 파일 웹앱을 출력한다.
+먼저 \`\`\`html 코드블록 정확히 하나로 완결된 단일 파일 웹앱을 출력한다.
 코드블록이 끝나면 마지막에 정확히 한 번, 아래 형식의 json 코드블록으로 추천 교육과정 1개를 출력한다. slug 는 반드시 아래 과정 목록에 있는 값만 사용한다:
 
 \`\`\`json
@@ -33,6 +34,9 @@ function buildSystemPrompt(
 - localStorage·sessionStorage·쿠키 등 저장 API 를 쓰지 않는다. 동작은 페이지 안의 메모리 상태로만 구현한다
 - 한국어 UI. 150줄 내외의 소품 규모로, 요청의 핵심 기능 1~2개가 실제로 동작하게 만든다 (버튼 클릭, 입력, 목록 추가·삭제 등)
 - 시스템 폰트 기반의 깔끔한 스타일. 상단에 앱 제목을 넣는다
+- <form> 제출(submit)과 alert()/confirm()/prompt() 는 미리보기 환경에서 동작하지 않는다. 입력 확인·완료 안내는 버튼의 click 핸들러와 화면 안 텍스트 영역으로 처리한다
+- 코드 안에 백틱 3개(\`\`\`)가 연속으로 나오지 않게 한다
+- 무한 루프·끝나지 않는 타이머·수천 개 요소를 만드는 반복문, 외부로 나가는 링크(<a href="http...">)를 쓰지 않는다
 
 ## 교육과정 목록
 ${catalog}

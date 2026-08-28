@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -10,7 +10,6 @@ import type { CourseLevel } from "@/lib/courses";
 export type ReportCourse = {
   slug: string;
   title: string;
-  summary: string;
   level: CourseLevel;
 };
 
@@ -30,7 +29,12 @@ const LEVEL_LABEL: Record<CourseLevel, string> = {
   advanced: "심화",
 };
 
-const JSON_FENCE = "```json";
+const FALLBACK_MSG = "리포트 생성에 실패했어요. 잠시 후 다시 시도해주세요.";
+
+class ReportError extends Error {}
+
+/** 스트리밍 중 json 블록을 화면에 노출하지 않기 위해 펜스 앞부분만 남긴다. */
+const visibleText = (s: string) => s.split("```")[0]!.replace(/`{1,2}$/, "");
 
 /** 응답 끝의 ```json {"courses":[...]}``` 블록을 파싱해 추천 카드 데이터로 변환. 실패 시 빈 배열. */
 function extractRecos(full: string, courses: ReportCourse[]): Reco[] {
@@ -47,6 +51,7 @@ function extractRecos(full: string, courses: ReportCourse[]): Reco[] {
       const { slug, reason } = item as { slug?: unknown; reason?: unknown };
       const course = courses.find((c) => c.slug === slug);
       if (course) {
+        if (recos.some((r) => r.course.slug === course.slug)) continue;
         recos.push({ course, reason: typeof reason === "string" ? reason : "" });
       }
     }
@@ -62,6 +67,9 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
   const [report, setReport] = useState("");
   const [recos, setRecos] = useState<Reco[]>([]);
   const [error, setError] = useState("");
+  const abortRef = useRef<AbortController | null>(null);
+
+  useEffect(() => () => abortRef.current?.abort(), []);
 
   async function run() {
     const trimmed = work.trim();
@@ -71,20 +79,23 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
     setRecos([]);
     setError("");
 
+    abortRef.current?.abort();
+    const ac = new AbortController();
+    abortRef.current = ac;
+
     try {
       const res = await fetch("/api/experience/report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ work: trimmed }),
+        signal: ac.signal,
       });
       if (!res.ok || !res.body) {
         const detail = await res
           .json()
           .then((d: { detail?: string }) => d.detail)
           .catch(() => null);
-        throw new Error(
-          detail ?? "리포트 생성에 실패했어요. 잠시 후 다시 시도해주세요.",
-        );
+        throw new ReportError(detail ?? FALLBACK_MSG);
       }
 
       const reader = res.body.getReader();
@@ -94,20 +105,17 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
         const { value, done } = await reader.read();
         if (done) break;
         full += decoder.decode(value, { stream: true });
-        // json 블록은 화면에 노출하지 않는다 (스트리밍 중에도)
-        setReport(full.split(JSON_FENCE)[0]!);
+        setReport(visibleText(full));
       }
       full += decoder.decode();
 
-      setReport(full.split(JSON_FENCE)[0]!.trim());
+      setReport(visibleText(full).trim());
       setRecos(extractRecos(full, courses));
       setPhase("done");
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "리포트 생성에 실패했어요. 잠시 후 다시 시도해주세요.",
-      );
+      if (ac.signal.aborted) return;
+      console.error("리포트 생성 실패:", err);
+      setError(err instanceof ReportError ? err.message : FALLBACK_MSG);
       setPhase("error");
     }
   }
@@ -121,7 +129,7 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
   }
 
   // ── 입력 화면 ──
-  if (phase === "idle" || phase === "error") {
+  if (phase === "idle" || (phase === "error" && report === "")) {
     return (
       <div className="anim-page-fade-up mt-12">
         <textarea
@@ -130,6 +138,7 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
           maxLength={500}
           rows={3}
           placeholder="예) 구청에서 소상공인 보조금 정산을 담당합니다"
+          aria-label="담당 업무 설명"
           className="w-full rounded-2xl bg-white p-5 text-[15.5px] leading-[1.7] text-ink ring-1 ring-zinc-200 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-accent"
         />
         <div className="mt-3 flex flex-wrap gap-2">
@@ -167,14 +176,28 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
   // ── 생성 중 + 결과 화면 ──
   return (
     <div className="anim-page-fade-up mt-12">
-      <div className="rounded-2xl bg-white p-7 ring-1 ring-zinc-100">
-        <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-zinc-400">
-          {phase === "streaming" ? "⚡ AI가 리포트를 쓰는 중..." : "리포트 완성"}
+      <div
+        className="rounded-2xl bg-white p-7 ring-1 ring-zinc-100"
+        aria-busy={phase === "streaming"}
+      >
+        <p
+          role="status"
+          className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-zinc-400"
+        >
+          {phase === "streaming"
+            ? "⚡ AI가 리포트를 쓰는 중..."
+            : phase === "error"
+              ? "리포트 생성이 중단됐어요"
+              : "리포트 완성"}
         </p>
         <div className="prose prose-zinc mt-4 max-w-none text-[15px] leading-[1.75]">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{report}</ReactMarkdown>
         </div>
       </div>
+
+      {phase === "error" && (
+        <p className="mt-4 text-[14px] font-semibold text-red-600">{error}</p>
+      )}
 
       {phase === "done" && (
         <>
@@ -230,15 +253,17 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
               </Link>
             </div>
           )}
-
-          <button
-            type="button"
-            onClick={restart}
-            className="mt-8 text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
-          >
-            다시 해보기
-          </button>
         </>
+      )}
+
+      {(phase === "done" || phase === "error") && (
+        <button
+          type="button"
+          onClick={restart}
+          className="mt-8 text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
+        >
+          다시 해보기
+        </button>
       )}
     </div>
   );

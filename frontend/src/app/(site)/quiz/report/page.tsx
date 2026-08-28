@@ -15,7 +15,6 @@ export default async function ReportStationPage() {
   const courses: ReportCourse[] = (await fetchCourses()).map((c) => ({
     slug: c.slug,
     title: c.title,
-    summary: c.summary,
     level: c.level,
   }));
 

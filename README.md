@@ -104,4 +104,4 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 - [x] Vercel 배포
 - [ ] 뉴스레터 발송 (구독 접수만 구현됨, 발송 경로 · 메일 서비스 미정)
 - [x] `/quiz` → AI 체험관 허브 전환 — 스테이션 ① "내 업무 AI 리포트" 라이브 (Claude Haiku `claude-haiku-4-5` 실시간 스트리밍, `POST /api/experience/report`, 과정 추천 → `/contact?course=` 연결, `ANTHROPIC_API_KEY` 필요)
-- [ ] `/quiz` 스테이션 ⑦ 바이브 코딩 라이브, ⑧ 레드팀 게임 — 오픈 예정 placeholder
+- [ ] `/quiz` 스테이션 02 바이브 코딩 라이브 · 03 레드팀 게임 — 오픈 예정 placeholder

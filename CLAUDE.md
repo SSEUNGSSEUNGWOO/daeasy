@@ -110,3 +110,4 @@ docs/
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY` — Sensitive 체크 (server-only)
 - `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` — 없으면 rate limit 비활성
+- `ANTHROPIC_API_KEY` — Sensitive 체크. AI 체험관 스테이션 ① (`/api/experience/report`) 용. 없으면 해당 체험만 503

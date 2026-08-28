@@ -36,7 +36,7 @@ const STATIONS = [
 export default function ExperienceHubPage() {
   return (
     <section className="bg-zinc-50/40">
-      <div className="mx-auto max-w-3xl px-6 py-20 lg:py-24">
+      <div className="anim-page-fade-up mx-auto max-w-3xl px-6 py-20 lg:py-24">
         <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
           AI 체험관
         </p>
@@ -79,17 +79,17 @@ export default function ExperienceHubPage() {
               ) : (
                 <div className="rounded-2xl bg-white/60 p-7 ring-1 ring-zinc-100">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-400">
+                    <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500">
                       {s.badge}
                     </span>
-                    <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-[11px] font-bold text-zinc-400">
+                    <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-[11px] font-bold text-zinc-500">
                       {s.meta}
                     </span>
                   </div>
-                  <h2 className="mt-3 text-[20px] font-bold leading-[1.35] tracking-[-0.01em] text-zinc-400">
+                  <h2 className="mt-3 text-[20px] font-bold leading-[1.35] tracking-[-0.01em] text-zinc-500">
                     {s.title}
                   </h2>
-                  <p className="mt-2 text-[14px] leading-[1.65] text-zinc-400">
+                  <p className="mt-2 text-[14px] leading-[1.65] text-zinc-500">
                     {s.desc}
                   </p>
                 </div>

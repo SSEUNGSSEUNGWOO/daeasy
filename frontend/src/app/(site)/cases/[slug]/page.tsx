@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 
 import { LikeButton } from "@/components/insights/like-button";
 import { TableOfContents, type TocItem } from "@/components/insights/toc";
-import { fetchCase } from "@/lib/cases";
+import { ViewTracker } from "@/components/insights/view-tracker";
+import { fetchCase, fetchCaseLikeCount } from "@/lib/cases";
 import { sanitizeHtml } from "@/lib/sanitize";
 
 const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
@@ -63,13 +64,19 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
   const { slug } = await props.params;
   const c = await fetchCase(slug);
   if (!c) notFound();
+  const likeCount = await fetchCaseLikeCount(slug);
 
   // 본문은 반드시 sanitizeHtml(DOMPurify) 를 먼저 통과시킨다 (기존 정책 동일)
   const { html: bodyHtml, toc } = injectHeadingIds(sanitizeHtml(c.description));
-  const tocItems: TocItem[] = [{ id: "top", text: "제목", level: 2 }, ...toc];
+  const tocItems: TocItem[] = [
+    { id: "top", text: "제목", level: 2 },
+    ...toc,
+    { id: "contact-cta", text: "교육 문의", level: 2 },
+  ];
 
   return (
     <article className="mx-auto max-w-6xl px-6 py-16 lg:py-20 anim-page-fade-up">
+      <ViewTracker slug={c.slug} resource="cases" />
       <Link
         href="/cases"
         className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500 transition hover:text-zinc-900"
@@ -88,6 +95,14 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
             <h1 className="mt-4 text-[32px] font-extrabold leading-[1.18] tracking-[-0.02em] text-ink sm:text-[40px]">
               {c.title}
             </h1>
+            <p className="mt-3 text-[12px] text-zinc-500">
+              조회 {(c.view_count ?? 0).toLocaleString()}회
+              {likeCount > 0 ? (
+                <span className="ml-2">
+                  · 좋아요 {likeCount.toLocaleString()}
+                </span>
+              ) : null}
+            </p>
           </header>
 
           {c.thumbnail_url ? (
@@ -101,7 +116,10 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
             dangerouslySetInnerHTML={{ __html: bodyHtml }}
           />
 
-          <div className="mt-16 rounded-2xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100">
+          <div
+            id="contact-cta"
+            className="mt-16 scroll-mt-24 rounded-2xl bg-zinc-50/70 p-8 ring-1 ring-zinc-100"
+          >
             <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
               교육 문의
             </p>

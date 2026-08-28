@@ -13,11 +13,12 @@ export type CaseSummary = {
 
 export type CaseDetail = CaseSummary & {
   description: string;
+  view_count: number;
 };
 
 const LIST_COLUMNS =
   "slug,title,summary,client_name,conducted_at,thumbnail_url";
-const DETAIL_COLUMNS = `${LIST_COLUMNS},description`;
+const DETAIL_COLUMNS = `${LIST_COLUMNS},description,view_count`;
 
 export async function fetchCases(): Promise<CaseSummary[]> {
   const { data, error } = await supabase
@@ -60,5 +61,17 @@ export async function fetchCase(slug: string): Promise<CaseDetail | null> {
     conducted_at: (data.conducted_at as string | null) ?? null,
     thumbnail_url: (data.thumbnail_url as string | null) ?? null,
     description: (data.description as string) ?? "",
+    view_count: (data.view_count as number) ?? 0,
   };
+}
+
+/** 교육후기 좋아요 수. 표시용이므로 조회 실패 시 0 으로 조용히 폴백한다. */
+export async function fetchCaseLikeCount(slug: string): Promise<number> {
+  const safe = decodeURIComponent(slug);
+  const { count, error } = await supabase
+    .from("case_likes")
+    .select("*", { count: "exact", head: true })
+    .eq("slug", safe);
+  if (error) return 0;
+  return count ?? 0;
 }

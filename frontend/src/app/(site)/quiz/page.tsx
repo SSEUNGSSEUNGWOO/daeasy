@@ -20,8 +20,8 @@ const STATIONS = [
     badge: "STATION 02",
     title: "바이브 코딩 라이브",
     desc: "말 한마디로 실제 동작하는 웹앱이 눈앞에서 만들어지는 체험.",
-    meta: "오픈 예정",
-    href: null,
+    meta: "약 1분 · 입력 1줄",
+    href: "/quiz/vibe",
   },
   {
     key: "red-team",

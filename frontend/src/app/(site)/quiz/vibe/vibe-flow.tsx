@@ -34,8 +34,8 @@ class VibeError extends Error {}
 const CSP_META =
   '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; img-src data:;">';
 
-const HEAD_RE = /<head(?=[\s>])(?:"[^"]*"|'[^']*'|[^>])*>/i;
-const HTML_RE = /<html(?=[\s>])(?:"[^"]*"|'[^']*'|[^>])*>/i;
+const HEAD_RE = /<head(?=[\s>])(?:[^>"']|"[^"]*"|'[^']*')*>/i;
+const HTML_RE = /<html(?=[\s>])(?:[^>"']|"[^"]*"|'[^']*')*>/i;
 const DOCTYPE_RE = /^\s*<!doctype[^>]*>/i;
 
 /** 생성된 HTML 에 외부 네트워크 차단 CSP 를 주입한다 (프롬프트 규칙과 이중 방어). */
@@ -106,6 +106,7 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
   const [showCode, setShowCode] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const preRef = useRef<HTMLPreElement | null>(null);
+  const stickRef = useRef(true);
 
   // 타자기: 도착한 코드를 버퍼에 두고 일정 속도로 풀어낸다 (코드용 고속).
   // 마지막 json 추천 블록 생성 구간(화면에 보여줄 게 없는 시간)도 버퍼가 덮는다.
@@ -154,11 +155,8 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
   useEffect(() => {
     if (phase !== "streaming") return;
     const el = preRef.current;
-    if (!el) return;
-    // 사용자가 위로 스크롤해 읽는 중이면 끌어내리지 않는다
-    if (el.scrollHeight - el.scrollTop - el.clientHeight < 48) {
-      el.scrollTop = el.scrollHeight;
-    }
+    if (!el || !stickRef.current) return;
+    el.scrollTop = el.scrollHeight;
   }, [code, phase]);
 
   async function run() {
@@ -174,6 +172,7 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     targetRef.current = "";
     displayedLenRef.current = 0;
     streamEndedRef.current = false;
+    stickRef.current = true;
     startTyper();
 
     abortRef.current?.abort();
@@ -209,7 +208,9 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
       targetRef.current = visibleStream(full).trim();
       const html =
         extractHtml(full) ??
-        (/^\s*(<!doctype html|<html)/i.test(full) ? full.trim() : null);
+        (/^\s*(<!doctype html|<html)/i.test(full)
+          ? full.replace(/```[\s\S]*$/, "").trim()
+          : null);
       setSrcDoc(html ? injectCsp(html) : null);
       setRecos(extractRecos(full, courses));
       // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
@@ -231,6 +232,7 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     targetRef.current = "";
     displayedLenRef.current = 0;
     streamEndedRef.current = false;
+    stickRef.current = true;
     setWork("");
     setPhase("idle");
     setCode("");
@@ -305,7 +307,9 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
             ? "코드 생성이 중단됐습니다"
             : srcDoc
               ? "웹앱이 완성됐습니다"
-              : "생성이 완료되지 않았습니다"}
+              : truncated || empty
+                ? "생성이 완료되지 않았습니다"
+                : "AI 응답이 도착했습니다"}
       </p>
       {showPanel && (
         <div
@@ -324,7 +328,13 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
           <pre
             ref={preRef}
             tabIndex={0}
+            role="group"
             aria-label="생성된 코드"
+            onScroll={(e) => {
+              const el = e.currentTarget;
+              stickRef.current =
+                el.scrollHeight - el.scrollTop - el.clientHeight < 48;
+            }}
             className="mt-4 max-h-[420px] overflow-y-auto whitespace-pre-wrap break-words font-mono text-[12.5px] leading-[1.6] text-emerald-300"
           >
             {phase === "streaming" ? `${code}▊` : code}

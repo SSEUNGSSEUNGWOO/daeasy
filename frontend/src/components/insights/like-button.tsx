@@ -10,15 +10,30 @@ type FloatingHeart = {
   delay: number;
 };
 
-export function LikeButton({ slug }: { slug: string }) {
+// 인사이트·교육후기가 같은 버튼을 공유한다 — API 경로와 세션 키만 리소스별로 다르다
+const RESOURCES = {
+  insights: { api: "insights", storagePrefix: "liked_insight_" },
+  cases: { api: "cases", storagePrefix: "liked_case_" },
+} as const;
+
+export type LikeResource = keyof typeof RESOURCES;
+
+export function LikeButton({
+  slug,
+  resource = "insights",
+}: {
+  slug: string;
+  resource?: LikeResource;
+}) {
   const [count, setCount] = useState(0);
   const [liked, setLiked] = useState(false);
   const [hearts, setHearts] = useState<FloatingHeart[]>([]);
   const counter = useRef(0);
-  const sessionKey = `liked_insight_${slug}`;
+  const { api, storagePrefix } = RESOURCES[resource];
+  const sessionKey = `${storagePrefix}${slug}`;
 
   useEffect(() => {
-    fetch(`/api/insights/${encodeURIComponent(slug)}/likes`)
+    fetch(`/api/${api}/${encodeURIComponent(slug)}/likes`)
       .then((r) => r.json())
       .then((d) => setCount(d.count ?? 0))
       .catch(() => {});
@@ -27,7 +42,7 @@ export function LikeButton({ slug }: { slug: string }) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLiked(!!sessionStorage.getItem(sessionKey));
     }
-  }, [slug, sessionKey]);
+  }, [slug, api, sessionKey]);
 
   async function press() {
     setCount((c) => c + 1);
@@ -50,7 +65,7 @@ export function LikeButton({ slug }: { slug: string }) {
 
     try {
       const res = await fetch(
-        `/api/insights/${encodeURIComponent(slug)}/likes`,
+        `/api/${api}/${encodeURIComponent(slug)}/likes`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -11,7 +11,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
  * - prefers-reduced-motion 이면 Lenis 를 만들지 않는다 (네이티브 스크롤 유지)
  * - ScrollTrigger 와 동기화: lenis 스크롤 → ScrollTrigger.update,
  *   구동은 gsap.ticker 하나로 통일 (rAF 이중 구동 방지)
+ * - Lenis 가 네이티브 smooth 스크롤(scrollIntoView 등)을 가로채므로,
+ *   프로그래매틱 스크롤이 필요한 곳(목차 등)을 위해 인스턴스를 window 에 노출한다
  */
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+  }
+}
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -25,6 +32,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
+    window.__lenis = lenis;
     lenis.on("scroll", ScrollTrigger.update);
 
     const tick = (time: number) => {
@@ -36,6 +44,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return () => {
       gsap.ticker.remove(tick);
       lenis.destroy();
+      delete window.__lenis;
     };
   }, []);
 

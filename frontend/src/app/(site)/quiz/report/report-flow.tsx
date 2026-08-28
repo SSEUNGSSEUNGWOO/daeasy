@@ -69,7 +69,51 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
   const [error, setError] = useState("");
   const abortRef = useRef<AbortController | null>(null);
 
-  useEffect(() => () => abortRef.current?.abort(), []);
+  // 타자기 연출: 네트워크로 도착한 전체 텍스트(target)를 버퍼에 두고
+  // 일정한 속도로 풀어낸다. 덩어리 도착이 부드러운 타이핑으로 보이고,
+  // 마지막 json 블록 생성 구간(화면에 보여줄 게 없는 시간)도 버퍼가 덮는다.
+  const targetRef = useRef("");
+  const displayedLenRef = useRef(0);
+  const streamEndedRef = useRef(false);
+  const typerRef = useRef<number | null>(null);
+
+  function stopTyper() {
+    if (typerRef.current !== null) {
+      window.clearInterval(typerRef.current);
+      typerRef.current = null;
+    }
+  }
+
+  function startTyper() {
+    if (typerRef.current !== null) return;
+    typerRef.current = window.setInterval(() => {
+      const target = targetRef.current;
+      const cur = displayedLenRef.current;
+      if (cur >= target.length) {
+        if (streamEndedRef.current) {
+          stopTyper();
+          setPhase("done");
+        }
+        return;
+      }
+      // 밀린 분량이 많을수록 빨리 따라잡아 스트림 종료 후 오래 끌지 않는다
+      const backlog = target.length - cur;
+      const next = Math.min(
+        target.length,
+        cur + (backlog > 150 ? 8 : backlog > 60 ? 4 : 2),
+      );
+      displayedLenRef.current = next;
+      setReport(target.slice(0, next));
+    }, 30);
+  }
+
+  useEffect(
+    () => () => {
+      abortRef.current?.abort();
+      stopTyper();
+    },
+    [],
+  );
 
   async function run() {
     const trimmed = work.trim();
@@ -78,6 +122,11 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
     setReport("");
     setRecos([]);
     setError("");
+    stopTyper();
+    targetRef.current = "";
+    displayedLenRef.current = 0;
+    streamEndedRef.current = false;
+    startTyper();
 
     abortRef.current?.abort();
     const ac = new AbortController();
@@ -105,15 +154,21 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
         const { value, done } = await reader.read();
         if (done) break;
         full += decoder.decode(value, { stream: true });
-        setReport(visibleText(full));
+        targetRef.current = visibleText(full);
       }
       full += decoder.decode();
 
-      setReport(visibleText(full).trim());
+      targetRef.current = visibleText(full).trim();
       setRecos(extractRecos(full, courses));
-      setPhase("done");
+      // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
+      streamEndedRef.current = true;
     } catch (err) {
       if (ac.signal.aborted) return;
+      stopTyper();
+      // 받다 만 텍스트는 즉시 전부 보여주고 에러를 안내한다
+      const target = targetRef.current;
+      displayedLenRef.current = target.length;
+      setReport(target);
       console.error("리포트 생성 실패:", err);
       setError(err instanceof ReportError ? err.message : FALLBACK_MSG);
       setPhase("error");
@@ -121,6 +176,10 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
   }
 
   function restart() {
+    stopTyper();
+    targetRef.current = "";
+    displayedLenRef.current = 0;
+    streamEndedRef.current = false;
     setWork("");
     setPhase("idle");
     setReport("");
@@ -191,7 +250,9 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
               : "리포트 완성"}
         </p>
         <div className="prose prose-zinc mt-4 max-w-none text-[15px] leading-[1.75]">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{report}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {phase === "streaming" ? `${report}▊` : report}
+          </ReactMarkdown>
         </div>
       </div>
 

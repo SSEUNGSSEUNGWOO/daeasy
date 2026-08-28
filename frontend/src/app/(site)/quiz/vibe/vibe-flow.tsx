@@ -34,13 +34,20 @@ class VibeError extends Error {}
 const CSP_META =
   '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; img-src data:;">';
 
+const HEAD_RE = /<head(?=[\s>])(?:"[^"]*"|'[^']*'|[^>])*>/i;
+const HTML_RE = /<html(?=[\s>])(?:"[^"]*"|'[^']*'|[^>])*>/i;
+const DOCTYPE_RE = /^\s*<!doctype[^>]*>/i;
+
 /** 생성된 HTML 에 외부 네트워크 차단 CSP 를 주입한다 (프롬프트 규칙과 이중 방어). */
 function injectCsp(html: string): string {
-  if (/<head[^>]*>/i.test(html)) {
-    return html.replace(/<head[^>]*>/i, (m) => `${m}\n${CSP_META}`);
+  if (HEAD_RE.test(html)) {
+    return html.replace(HEAD_RE, (m) => `${m}\n${CSP_META}`);
   }
-  if (/<html[^>]*>/i.test(html)) {
-    return html.replace(/<html[^>]*>/i, (m) => `${m}\n<head>${CSP_META}</head>`);
+  if (HTML_RE.test(html)) {
+    return html.replace(HTML_RE, (m) => `${m}\n<head>${CSP_META}</head>`);
+  }
+  if (DOCTYPE_RE.test(html)) {
+    return html.replace(DOCTYPE_RE, (m) => `${m}\n<head>${CSP_META}</head>`);
   }
   return `${CSP_META}\n${html}`;
 }
@@ -144,10 +151,13 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     [],
   );
 
-  // 코드가 흘러내리는 동안 패널을 바닥에 붙인다
   useEffect(() => {
-    if (phase === "streaming" && preRef.current) {
-      preRef.current.scrollTop = preRef.current.scrollHeight;
+    if (phase !== "streaming") return;
+    const el = preRef.current;
+    if (!el) return;
+    // 사용자가 위로 스크롤해 읽는 중이면 끌어내리지 않는다
+    if (el.scrollHeight - el.scrollTop - el.clientHeight < 48) {
+      el.scrollTop = el.scrollHeight;
     }
   }, [code, phase]);
 
@@ -197,7 +207,9 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
       full += decoder.decode();
 
       targetRef.current = visibleStream(full).trim();
-      const html = extractHtml(full);
+      const html =
+        extractHtml(full) ??
+        (/^\s*(<!doctype html|<html)/i.test(full) ? full.trim() : null);
       setSrcDoc(html ? injectCsp(html) : null);
       setRecos(extractRecos(full, courses));
       // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
@@ -273,23 +285,34 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     );
   }
 
+  const empty =
+    phase === "done" && srcDoc === null && code.trim() === "";
   const truncated =
-    phase === "done" && srcDoc === null && (code.includes("<") || code.length > 300);
+    phase === "done" &&
+    srcDoc === null &&
+    !empty &&
+    (code.includes("<") || code.length > 300);
 
   const showPanel = phase === "streaming" || phase === "error" || showCode || truncated;
 
   // ── 코드 극장 + 완성 화면 ──
   return (
     <div className="anim-page-fade-up mt-12">
+      <p role="status" className="sr-only">
+        {phase === "streaming"
+          ? "AI가 코드를 쓰는 중입니다"
+          : phase === "error"
+            ? "코드 생성이 중단됐습니다"
+            : srcDoc
+              ? "웹앱이 완성됐습니다"
+              : "생성이 완료되지 않았습니다"}
+      </p>
       {showPanel && (
         <div
           className="rounded-2xl bg-zinc-900 p-6 ring-1 ring-zinc-800"
           aria-busy={phase === "streaming"}
         >
-          <p
-            role="status"
-            className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-zinc-500"
-          >
+          <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-zinc-500">
             {phase === "streaming"
               ? "⚡ AI가 코드를 쓰는 중..."
               : phase === "error"
@@ -300,6 +323,8 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
           </p>
           <pre
             ref={preRef}
+            tabIndex={0}
+            aria-label="생성된 코드"
             className="mt-4 max-h-[420px] overflow-y-auto whitespace-pre-wrap break-words font-mono text-[12.5px] leading-[1.6] text-emerald-300"
           >
             {phase === "streaming" ? `${code}▊` : code}
@@ -315,10 +340,7 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
         <>
           {srcDoc ? (
             <div className={showPanel ? "mt-6" : ""}>
-              <p
-                role="status"
-                className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-accent"
-              >
+              <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-accent">
                 🎉 완성 — 실제로 동작하는 화면입니다
               </p>
               <iframe
@@ -335,13 +357,16 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
                 {showCode ? "코드 접기" : "코드 다시 보기"}
               </button>
             </div>
-          ) : truncated ? (
+          ) : truncated || empty ? (
             <p className="mt-4 text-[14px] font-semibold text-red-600">
-              앱 생성이 중간에 끊겼어요. 다시 만들기를 눌러주세요.
+              앱을 완성하지 못했어요. 다시 만들기를 눌러 한 번 더 시도해주세요.
             </p>
           ) : (
             <div className="rounded-2xl bg-white p-7 ring-1 ring-zinc-100">
-              <p className="text-[15px] leading-[1.75] text-zinc-700">{code}</p>
+              <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-zinc-400">
+                AI 응답
+              </p>
+              <p className="mt-3 text-[15px] leading-[1.75] text-zinc-700">{code}</p>
             </div>
           )}
 

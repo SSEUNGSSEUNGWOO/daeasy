@@ -31,7 +31,7 @@ function stripTags(html: string) {
 }
 
 /**
- * sanitizeHtml(DOMPurify) 를 통과한 본문의 h2 에 목차용 id 를 주입한다.
+ * sanitizeHtml() 을 통과한 본문의 h2 에 목차용 id 를 주입한다.
  * sanitize 정책은 id 속성을 허용하지 않으므로, 신뢰할 수 있는 값(slugify 결과)을
  * sanitize 이후에 우리 코드가 붙이는 방식으로 정책을 건드리지 않는다.
  */
@@ -66,7 +66,7 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
   if (!c) notFound();
   const likeCount = await fetchCaseLikeCount(slug);
 
-  // 본문은 반드시 sanitizeHtml(DOMPurify) 를 먼저 통과시킨다 (기존 정책 동일)
+  // 본문은 반드시 sanitizeHtml() 을 먼저 통과시킨다 (기존 정책 동일)
   const { html: bodyHtml, toc } = injectHeadingIds(sanitizeHtml(c.description));
   const tocItems: TocItem[] = [
     { id: "top", text: "제목", level: 2 },

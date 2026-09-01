@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { fetchCourse, fetchCourses } from "@/lib/courses";
+import { sanitizeHtml } from "@/lib/sanitize";
 
 import { CourseDescription } from "./course-description";
 
@@ -81,7 +82,7 @@ export default async function CourseDetailPage(
               </h2>
               {course.description ? (
                 <div className="mt-8">
-                  <CourseDescription html={course.description} />
+                  <CourseDescription html={sanitizeHtml(course.description)} />
                 </div>
               ) : (
                 <div className="mt-8 rounded-2xl bg-white p-8 ring-1 ring-zinc-100">

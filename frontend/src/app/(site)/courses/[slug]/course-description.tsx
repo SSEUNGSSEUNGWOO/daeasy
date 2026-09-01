@@ -2,8 +2,6 @@
 
 import { useMemo, useState } from "react";
 
-import { sanitizeHtml } from "@/lib/sanitize";
-
 type Module = { label: string; title: string; html: string };
 
 const MODULE_HEADING_RE = /<h4[^>]*data-module="\d+"[^>]*>([^<]+)<\/h4>/g;
@@ -41,13 +39,13 @@ const PROSE = "prose prose-zinc max-w-none text-[16px] leading-[1.85] " +
   "prose-h5:mt-5 prose-h5:mb-2 prose-h5:text-[15px] prose-h5:font-bold prose-h5:text-ink " +
   "prose-ul:my-3 prose-li:my-1 prose-p:my-3 prose-strong:text-ink";
 
+/** html 은 서버 컴포넌트에서 sanitizeHtml() 을 통과한 것만 넘어온다 */
 export function CourseDescription({ html }: { html: string }) {
-  const safe = useMemo(() => sanitizeHtml(html), [html]);
-  const { intro, modules } = useMemo(() => splitModules(safe), [safe]);
+  const { intro, modules } = useMemo(() => splitModules(html), [html]);
   const [active, setActive] = useState(0);
 
   if (modules.length === 0) {
-    return <div className={PROSE} dangerouslySetInnerHTML={{ __html: safe }} />;
+    return <div className={PROSE} dangerouslySetInnerHTML={{ __html: html }} />;
   }
 
   const cur = modules[active];

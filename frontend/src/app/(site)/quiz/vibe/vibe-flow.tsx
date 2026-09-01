@@ -31,6 +31,26 @@ const FALLBACK_MSG = "코드 생성에 실패했어요. 잠시 후 다시 시도
 
 class VibeError extends Error {}
 
+/**
+ * 예시 칩은 고정 문자열이라 매번 모델을 부를 이유가 없다.
+ * 미리 생성해둔 응답 원문을 그대로 재생하면 타자기·미리보기 연출은 동일하고
+ * API 비용과 IP당 rate limit 을 쓰지 않는다.
+ * 갱신: `node scripts/gen-canned.mjs` (프롬프트·과정 목록이 바뀌면 다시 생성)
+ */
+let cannedCache: Record<string, string> | null = null;
+async function loadCanned(key: string): Promise<string | null> {
+  if (!CHIPS.includes(key)) return null;
+  try {
+    cannedCache ??= await fetch("/experience/vibe-canned.json").then((r) =>
+      r.ok ? (r.json() as Promise<Record<string, string>>) : null,
+    );
+  } catch {
+    // 정적 파일을 못 받으면 그냥 모델을 부른다 (fail-open)
+    return null;
+  }
+  return cannedCache?.[key] ?? null;
+}
+
 const CSP_META =
   '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; img-src data:;">';
 
@@ -176,6 +196,27 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     startTyper();
 
     abortRef.current?.abort();
+
+    // 응답 원문 하나를 화면 상태로 푼다 (스트림 완료분·미리 생성한 칩 응답 공통)
+    const applyFull = (full: string) => {
+      targetRef.current = visibleStream(full).trim();
+      const html =
+        extractHtml(full) ??
+        (/^\s*(<!doctype html|<html)/i.test(full)
+          ? full.replace(/```[\s\S]*$/, "").trim()
+          : null);
+      setSrcDoc(html ? injectCsp(html) : null);
+      setRecos(extractRecos(full, courses));
+      // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
+      streamEndedRef.current = true;
+    };
+
+    const canned = await loadCanned(trimmed);
+    if (canned) {
+      applyFull(canned);
+      return;
+    }
+
     const ac = new AbortController();
     abortRef.current = ac;
 
@@ -205,16 +246,7 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
       }
       full += decoder.decode();
 
-      targetRef.current = visibleStream(full).trim();
-      const html =
-        extractHtml(full) ??
-        (/^\s*(<!doctype html|<html)/i.test(full)
-          ? full.replace(/```[\s\S]*$/, "").trim()
-          : null);
-      setSrcDoc(html ? injectCsp(html) : null);
-      setRecos(extractRecos(full, courses));
-      // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
-      streamEndedRef.current = true;
+      applyFull(full);
     } catch (err) {
       if (ac.signal.aborted) return;
       stopTyper();

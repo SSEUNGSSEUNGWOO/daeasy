@@ -1,8 +1,8 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
 
 import { fetchCourses } from "@/lib/courses";
 import type { CourseSummary } from "@/lib/courses";
+import { isExperienceConfigured, streamExperience } from "@/lib/experience-llm";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
@@ -14,8 +14,10 @@ type Payload = { work?: string };
 function buildSystemPrompt(
   courses: Pick<CourseSummary, "slug" | "title" | "summary" | "level">[],
 ): string {
+  // 요약은 40자로 자른다 — 과정 수만큼 곱해져 시스템 프롬프트 입력 토큰을 지배한다.
+  // 추천 판단에는 제목·레벨과 요약 앞부분이면 충분하다.
   const catalog = courses
-    .map((c) => `- ${c.slug} | ${c.title} (${c.level}) — ${c.summary}`)
+    .map((c) => `- ${c.slug} | ${c.title} (${c.level}) — ${c.summary.slice(0, 40)}`)
     .join("\n");
 
   return `너는 dataeasy 의 "내 업무 AI 리포트" 작성 AI다. 방문자(주로 공공기관 실무자)가 업무를 한 줄 설명하면, 그 업무 기준의 맞춤 리포트를 한국어로 작성한다.
@@ -48,7 +50,7 @@ ${catalog}
 }
 
 export async function POST(req: Request) {
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!isExperienceConfigured()) {
     return NextResponse.json(
       { detail: "체험이 아직 준비 중입니다. 잠시 후 다시 찾아주세요." },
       { status: 503 },
@@ -89,49 +91,12 @@ export async function POST(req: Request) {
     );
   }
 
-  const client = new Anthropic();
-  const stream = client.messages.stream(
-    {
-      model: "claude-haiku-4-5",
-      max_tokens: 1500,
-      system: buildSystemPrompt(courses),
-      messages: [{ role: "user", content: work }],
-    },
-    { signal: req.signal },
-  );
-
-  const encoder = new TextEncoder();
-  const body = new ReadableStream<Uint8Array>({
-    async start(controller) {
-      try {
-        for await (const event of stream) {
-          if (
-            event.type === "content_block_delta" &&
-            event.delta.type === "text_delta"
-          ) {
-            controller.enqueue(encoder.encode(event.delta.text));
-          }
-        }
-        const final = await stream.finalMessage();
-        if (final.stop_reason === "max_tokens") {
-          console.warn("[experience/report] 응답이 max_tokens 로 잘렸습니다");
-        }
-        controller.close();
-      } catch (err) {
-        // 스트림 도중 실패 — 클라이언트 reader 가 에러로 받는다.
-        if (!req.signal.aborted) {
-          console.error("[experience/report] 스트림 실패:", err);
-        }
-        try {
-          controller.error(err);
-        } catch {
-          /* 이미 취소된 스트림 */
-        }
-      }
-    },
-    cancel() {
-      stream.abort();
-    },
+  const body = await streamExperience({
+    system: buildSystemPrompt(courses),
+    user: work,
+    maxTokens: 1500,
+    label: "experience/report",
+    signal: req.signal,
   });
 
   return new Response(body, {

@@ -33,6 +33,26 @@ const FALLBACK_MSG = "리포트 생성에 실패했어요. 잠시 후 다시 시
 
 class ReportError extends Error {}
 
+/**
+ * 예시 칩은 고정 문자열이라 매번 모델을 부를 이유가 없다.
+ * 미리 생성해둔 응답 원문을 그대로 재생하면 타자기 연출은 동일하고
+ * API 비용과 IP당 rate limit 을 쓰지 않는다.
+ * 갱신: `node scripts/gen-canned.mjs` (프롬프트·과정 목록이 바뀌면 다시 생성)
+ */
+let cannedCache: Record<string, string> | null = null;
+async function loadCanned(key: string): Promise<string | null> {
+  if (!CHIPS.includes(key)) return null;
+  try {
+    cannedCache ??= await fetch("/experience/report-canned.json").then((r) =>
+      r.ok ? (r.json() as Promise<Record<string, string>>) : null,
+    );
+  } catch {
+    // 정적 파일을 못 받으면 그냥 모델을 부른다 (fail-open)
+    return null;
+  }
+  return cannedCache?.[key] ?? null;
+}
+
 /** 스트리밍 중 json 블록을 화면에 노출하지 않기 위해 펜스 앞부분만 남긴다. */
 const visibleText = (s: string) => s.split("```")[0]!.replace(/`{1,2}$/, "");
 
@@ -129,6 +149,15 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
     startTyper();
 
     abortRef.current?.abort();
+
+    const canned = await loadCanned(trimmed);
+    if (canned) {
+      targetRef.current = visibleText(canned).trim();
+      setRecos(extractRecos(canned, courses));
+      streamEndedRef.current = true;
+      return;
+    }
+
     const ac = new AbortController();
     abortRef.current = ac;
 

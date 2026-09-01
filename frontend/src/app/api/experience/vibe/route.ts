@@ -1,7 +1,7 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
 
 import { fetchCourses, type CourseSummary } from "@/lib/courses";
+import { isExperienceConfigured, streamExperience } from "@/lib/experience-llm";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
@@ -14,8 +14,9 @@ type Payload = { work?: string };
 function buildSystemPrompt(
   courses: Pick<CourseSummary, "slug" | "title" | "summary" | "level">[],
 ): string {
+  // 요약은 40자로 자른다 — 과정 수만큼 곱해져 시스템 프롬프트 입력 토큰을 지배한다.
   const catalog = courses
-    .map((c) => `- ${c.slug} | ${c.title} (${c.level}) — ${c.summary}`)
+    .map((c) => `- ${c.slug} | ${c.title} (${c.level}) — ${c.summary.slice(0, 40)}`)
     .join("\n");
 
   return `너는 dataeasy 의 "바이브 코딩 라이브" 시연 AI다. 방문자(주로 공공기관 실무자)가 만들고 싶은 화면을 한 줄로 설명하면, 실제로 동작하는 웹앱을 즉석에서 코딩해 보여준다.
@@ -32,7 +33,11 @@ function buildSystemPrompt(
 - <!DOCTYPE html> 부터 </html> 까지 완결된 단일 HTML 파일. CSS 는 <style>, JS 는 <script> 로 인라인 작성한다
 - 외부 리소스 절대 금지: CDN·웹폰트·이미지 URL·fetch/XHR·iframe 을 쓰지 않는다. 그림이 필요하면 이모지나 CSS 로 대신한다
 - localStorage·sessionStorage·쿠키 등 저장 API 를 쓰지 않는다. 동작은 페이지 안의 메모리 상태로만 구현한다
-- 한국어 UI. 150줄 내외의 소품 규모로, 요청의 핵심 기능 1~2개가 실제로 동작하게 만든다 (버튼 클릭, 입력, 목록 추가·삭제 등)
+- 한국어 UI. 요청의 핵심 기능 1~2개가 실제로 동작하게 만든다 (버튼 클릭, 입력, 목록 추가·삭제 등)
+- **120~180줄 규모로 만든다.** 이 범위를 넘기지 않는다
+- 첫인상이 중요한 시연용이다. 여백·색상·카드 레이아웃을 갖춘 보기 좋은 화면으로 만든다
+- **빈 화면으로 시작하지 않는다.** 그럴듯한 예시 항목 2~3개를 미리 채워 둔다 (빈 목록은 고장난 것처럼 보인다)
+- alert()/confirm()/prompt() 를 절대 쓰지 않는다. 입력 확인·완료 안내는 화면 안 텍스트 영역에 표시한다
 - 시스템 폰트 기반의 깔끔한 스타일. 상단에 앱 제목을 넣는다
 - <form> 제출(submit)과 alert()/confirm()/prompt() 는 미리보기 환경에서 동작하지 않는다. 입력 확인·완료 안내는 버튼의 click 핸들러와 화면 안 텍스트 영역으로 처리한다
 - 코드 안에 백틱 3개(\`\`\`)가 연속으로 나오지 않게 한다
@@ -47,7 +52,7 @@ ${catalog}
 }
 
 export async function POST(req: Request) {
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!isExperienceConfigured()) {
     return NextResponse.json(
       { detail: "체험이 아직 준비 중입니다. 잠시 후 다시 찾아주세요." },
       { status: 503 },
@@ -88,48 +93,15 @@ export async function POST(req: Request) {
     );
   }
 
-  const client = new Anthropic();
-  const stream = client.messages.stream(
-    {
-      model: "claude-haiku-4-5",
-      max_tokens: 4500,
-      system: buildSystemPrompt(courses),
-      messages: [{ role: "user", content: work }],
-    },
-    { signal: req.signal },
-  );
-
-  const encoder = new TextEncoder();
-  const body = new ReadableStream<Uint8Array>({
-    async start(controller) {
-      try {
-        for await (const event of stream) {
-          if (
-            event.type === "content_block_delta" &&
-            event.delta.type === "text_delta"
-          ) {
-            controller.enqueue(encoder.encode(event.delta.text));
-          }
-        }
-        const final = await stream.finalMessage();
-        if (final.stop_reason === "max_tokens") {
-          console.warn("[experience/vibe] 응답이 max_tokens 로 잘렸습니다");
-        }
-        controller.close();
-      } catch (err) {
-        if (!req.signal.aborted) {
-          console.error("[experience/vibe] 스트림 실패:", err);
-        }
-        try {
-          controller.error(err);
-        } catch {
-          /* 이미 취소된 스트림 */
-        }
-      }
-    },
-    cancel() {
-      stream.abort();
-    },
+  const body = await streamExperience({
+    system: buildSystemPrompt(courses),
+    user: work,
+    // 길이는 프롬프트("100줄 이내")로 잡는다. 여기는 폭주 방지용 상한이라
+    // 정상 응답이 잘리지 않을 만큼은 남겨둔다 — 잘리면 추천 json 블록이 날아가
+    // 요청 한 건이 통째로 버려진다.
+    maxTokens: 3200,
+    label: "experience/vibe",
+    signal: req.signal,
   });
 
   return new Response(body, {

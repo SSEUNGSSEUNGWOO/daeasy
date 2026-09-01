@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 
 import { fetchCases } from "@/lib/cases";
 import { fetchCourses } from "@/lib/courses";
-import { fetchGuides } from "@/lib/guides";
 import { fetchInsights } from "@/lib/insights";
 import { SITE_URL } from "@/lib/site";
 
@@ -16,7 +15,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/ai-champion",
     "/courses",
     "/cases",
-    "/guides",
     "/insights",
     "/contact",
     "/rentals",
@@ -24,10 +22,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ].map((path) => ({ url: `${SITE_URL}${path}` }));
 
   // anon 클라이언트 경유라 RLS 가 published 만 내준다 — draft 는 사이트맵에 안 실린다
-  const [courses, cases, guides, insights] = await Promise.all([
+  const [courses, cases, insights] = await Promise.all([
     fetchCourses(),
     fetchCases(),
-    fetchGuides(),
     fetchInsights(),
   ]);
 
@@ -40,7 +37,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticPages,
     ...courses.map((c) => entry("/courses", c.slug)),
     ...cases.map((c) => entry("/cases", c.slug)),
-    ...guides.map((g) => entry("/guides", g.slug, g.published_at)),
     ...insights.map((i) => entry("/insights", i.slug, i.published_at)),
   ];
 }

@@ -81,7 +81,6 @@ export function SiteFooter() {
             </h3>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-zinc-700">
               <li><Link href="/insights" className="hover:text-zinc-900">인사이트</Link></li>
-              <li><Link href="/guides" className="hover:text-zinc-900">가이드</Link></li>
               <li><Link href="/about" className="hover:text-zinc-900">데이지란?</Link></li>
               <li><Link href="/ai-champion" className="hover:text-zinc-900">AI챔피언</Link></li>
             </ul>

@@ -22,7 +22,6 @@ const sharedContentItems: Item[] = [
 /** admin 전용 메뉴 */
 const adminContentItems: Item[] = [
   { href: "/admin/insights", label: "인사이트" },
-  { href: "/admin/guides", label: "가이드" },
 ];
 
 const settingItems: Item[] = [{ href: "/admin/members", label: "계정" }];

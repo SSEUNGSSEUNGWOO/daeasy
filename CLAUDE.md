@@ -6,7 +6,7 @@
 
 ```
 frontend/    # Next.js 16 + App Router + TS + Tailwind (npm) — 사이트 + API Route Handler
-ai-service/  # 인사이트/가이드 자동 발행 파이프라인 + uv (Python 3.12) — 로컬 실행 전용
+ai-service/  # 인사이트 자동 발행 파이프라인 + uv (Python 3.12) — 로컬 실행 전용
 supabase/    # 스키마 SQL + RLS
 scripts/     # 루트 일회성 유틸 (이미지 정규화 등). 파이프라인 아님
 .claude/     # 슬래시 명령어 (commands/)
@@ -32,7 +32,7 @@ docs/
 - 데이터 페칭: 서버 컴포넌트 우선, 클라이언트 상태 필요한 곳만 `'use client'`
 - 스타일: Tailwind. 임의 색상 남발 금지. 디자인 토큰 정의되면 그것만 사용
 - **read 경로가 두 갈래다** — 헷갈리면 draft 가 안 보이는 원인이 된다
-  - 공개 페이지: server component 가 `frontend/src/lib/{insights,guides,cases,courses}.ts` 를 통해 `supabase` (anon) 호출. RLS 가 published 만 노출
+  - 공개 페이지: server component 가 `frontend/src/lib/{insights,cases,courses}.ts` 를 통해 `supabase` (anon) 호출. RLS 가 published 만 노출
   - 어드민 페이지: server component 가 `getSupabaseAdmin()` (service_role) 로 **직접** 조회 — draft 포함 전체를 본다. `lib/*.ts` 의 공개용 fetch 함수를 재사용하면 안 된다
 - 데이터 write / RPC: client 가 `/api/*` (Next.js Route Handler) 호출 → Handler 가 `getSupabaseAdmin()` (service_role) 또는 외부 API 호출
 - 캐싱: 공개 인사이트 목록·상세는 `export const revalidate = 60` (ISR), 어드민 페이지는 전부 `export const dynamic = "force-dynamic"`. 새 페이지 추가 시 같은 쪽을 따른다
@@ -71,12 +71,12 @@ docs/
 - **모델을 바꾸면 출력 계약 준수를 반드시 재검증한다.** Gemini 는 여는 ` ```html ` 펜스를 빠뜨리는 일이 있다 — `vibe-flow.tsx` 에 raw doctype 폴백이 있어 렌더는 되지만, 새 모델을 넣을 땐 `scripts/gen-canned.mjs` 로 8건을 뽑아 눈으로 확인할 것
 - 예시 칩 응답은 `public/experience/*-canned.json` 에 미리 생성해 두고 클라이언트가 재생한다 (API 호출·rate limit 소모 0). 프롬프트나 과정 목록이 바뀌면 `node scripts/gen-canned.mjs` 로 다시 생성
 
-## AI Service (인사이트 / 가이드 파이프라인)
+## AI Service (인사이트 파이프라인)
 
 - 원본 패턴 출처: `SSEUNGSSEUNGWOO/public-ax`. dataeasy 맥락으로 점진적으로 수정 중
 - 가상환경: `ai-service/` 안에서 `uv sync` / `uv run`. backend와 분리
-- 직접 실행: `uv run python insights/run.py` / `uv run python guides/run.py "<주제>"`. 슬래시 명령어(`/insight-publish`, `/guide-publish`)가 이걸 감싸 호출
-- 진입점은 각각 `insights/run.py`, `guides/run.py` — 파이프라인 단계 수정은 거기서부터 따라가면 된다
+- 직접 실행: `uv run python insights/run.py`. 슬래시 명령어(`/insight-publish`)가 이걸 감싸 호출
+- 진입점은 `insights/run.py` — 파이프라인 단계 수정은 거기서부터 따라가면 된다
 - LLM: Writer / Proofreader / Image Agent 키워드 추출은 **`claude` CLI 서브프로세스**. `ANTHROPIC_API_KEY` 는 의도적으로 비워둠 (Anthropic Max 구독 소비). `os.environ.pop("ANTHROPIC_API_KEY", None)` 패턴은 의도된 것
 - **Evaluator 는 `codex` CLI 별도 사용** — `claude` 외에 codex 도 PATH 에 있어야 발행이 끝까지 통과 (`evaluator.evaluate_with_codex_cli`)
 - 평가 루프: `evaluator/rubric.yaml` 7개 기준 (factual_accuracy / relevance / insight_quality / source_linkage / seo_quality / human_voice / image_relevance), 가중평균 4.0/5.0 미만이면 Writer 최대 3회 재실행. **image_relevance 만 부족하고 텍스트 평균이 통과면 image_agent 만 재실행** (다른 출처 og:image + 다른 Unsplash random)
@@ -86,7 +86,6 @@ docs/
 ### 슬래시 명령어 (`.claude/commands/`)
 
 - `/insight-publish` — 인사이트 1건 발행 (크롤 → 작성 → 이미지 → 평가 → DB)
-- `/guide-publish` — 가이드 1건 발행 (주제 추천 → YouTube/웹 수집 → 작성-평가 루프 → 이미지 → DB)
 
 명령어 추가 시 같은 패턴(frontmatter `description` + 단계별 지시)을 따른다.
 
@@ -110,7 +109,7 @@ docs/
 
 - 마이그레이션 파일명: `YYYYMMDDHHMMSS_<설명>.sql`
 - RLS는 항상 켠 상태가 기본. 새 테이블 추가 시 정책 같이 작성
-- **발행 상태는 `public.content_status` enum (`draft` / `published`)** — `courses` / `cases` / `guides` / `insights` 가 같은 컬럼(`status`)을 공유한다. anon 읽기 정책은 `using (status = 'published')`. `is_published` 같은 boolean 컬럼은 존재하지 않는다
+- **발행 상태는 `public.content_status` enum (`draft` / `published`)** — `courses` / `cases` / `insights` 가 같은 컬럼(`status`)을 공유한다. (`guides` 테이블은 기능 제거 후에도 남아 있으나 읽는 코드가 없다) anon 읽기 정책은 `using (status = 'published')`. `is_published` 같은 boolean 컬럼은 존재하지 않는다
 - `insights` 는 ai-service 가 `status` 를 지정하지 않고 INSERT 해 default `published` 로 들어가고, `ON CONFLICT` 갱신 목록에도 없다 — 어드민이 draft 로 내린 글은 재발행해도 draft 를 유지한다
 - 어드민 쓰기는 service_role 또는 추후 admin role로
 
@@ -125,7 +124,7 @@ docs/
 - **Frontend (사이트 + API)**: Vercel. Root Directory = `frontend`
 - **DB / RLS / RPC**: Supabase Cloud
 - **(선택) Rate limiter**: Upstash Redis (REST API)
-- **AI Service**: 배포 없음. 승우님이 로컬에서 `/insight-publish` `/guide-publish` 슬래시 명령으로 발행 → 결과만 Supabase 에 들어감
+- **AI Service**: 배포 없음. 승우님이 로컬에서 `/insight-publish` 슬래시 명령으로 발행 → 결과만 Supabase 에 들어감
 
 ### Vercel 환경변수
 - `NEXT_PUBLIC_SUPABASE_URL`

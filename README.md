@@ -4,7 +4,7 @@ AI · 데이터 교육 회사 사이트.
 
 - 교육과정 소개 / 신청
 - 진행한 교육 사례 (포트폴리오)
-- AI · 데이터 가이드 · 인사이트 (자동 발행)
+- AI · 데이터 인사이트 (자동 발행)
 - 장비 대여 문의
 - 어드민 페이지 (콘텐츠 관리 · 문의 관리)
 
@@ -14,11 +14,11 @@ AI · 데이터 교육 회사 사이트.
 dataeasy/
 ├── frontend/      Next.js 16 + React 19 + Tailwind v4
 │                  └ 공개 사이트 + 어드민 UI + API Route Handler
-├── ai-service/    인사이트 / 가이드 자동 발행 파이프라인 (uv, claude·codex CLI 서브프로세스)
+├── ai-service/    인사이트 자동 발행 파이프라인 (uv, claude·codex CLI 서브프로세스)
 ├── supabase/      DB 스키마 / 마이그레이션 / RLS
 ├── scripts/       일회성 유틸 (이미지 정규화 등)
 ├── .claude/
-│   └── commands/  슬래시 명령어 (/insight-publish, /guide-publish)
+│   └── commands/  슬래시 명령어 (/insight-publish)
 ├── docs/
 └── CLAUDE.md      이 프로젝트 작업 가이드
 ```
@@ -64,7 +64,7 @@ npm run dev                     # http://localhost:3000
 첫 관리자 계정은 Studio 에서 만들고 `public.profiles` 에 `role='admin'` 행을 넣는다.
 이후 계정은 관리자가 `/admin/members` 에서 발급한다. 역할은 `admin`(전체) / `editor`(교육과정 · 교육후기만).
 
-### 3. AI 서비스 (인사이트 / 가이드 자동 발행)
+### 3. AI 서비스 (인사이트 자동 발행)
 
 ```bash
 cd ai-service
@@ -81,7 +81,6 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 `.claude/commands/` 안의 명령어는 Claude Code 에서 실행:
 
 - `/insight-publish` — 크롤러 → Writer → Image → Proofreader → Evaluator → DB 업로드
-- `/guide-publish` — 주제 추천 → YouTube/웹 수집 → Writer-Evaluator 루프 → Editor → 이미지 → DB 발행
 
 ## 배포
 
@@ -96,8 +95,7 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 
 - [x] 모노레포 골격, DB 스키마 · RLS
 - [x] ai-service 인사이트 파이프라인 (크롤 → 작성 → 평가 → DB) E2E
-- [x] ai-service 가이드 파이프라인
-- [x] 공개 페이지 (홈 / 소개 / 교육과정 / 사례 / 가이드 / 인사이트 / 대여 / 지원 / 문의)
+- [x] 공개 페이지 (홈 / 소개 / 교육과정 / 사례 / 인사이트 / 대여 / 지원 / 문의)
 - [x] 문의 · 대여 접수 API + rate limit
 - [x] 어드민 인증 + 문의 관리
 - [x] 어드민 교육과정 · 교육 사례 CRUD

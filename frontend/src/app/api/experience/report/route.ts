@@ -8,6 +8,13 @@ import { getClientIp, rateLimit } from "@/lib/rate-limit";
 export const runtime = "nodejs";
 
 const MAX_WORK_LEN = 500;
+/** 한 사람(IP)이 하루에 쓸 수 있는 횟수. 실제 이용 경험을 정하는 선. */
+const PER_IP_DAILY = 10;
+/**
+ * 전역 일일 상한 — 정상 트래픽은 닿지 않는 높이의 폭주 브레이크.
+ * IP 를 돌리는 봇에만 걸린다. 여기 걸릴 정도면 이미 공격이니 마감이 맞다.
+ */
+const GLOBAL_DAILY_CAP = 1500;
 
 type Payload = { work?: string };
 
@@ -76,6 +83,35 @@ export async function POST(req: Request) {
   if (!rl.success) {
     return NextResponse.json(
       { detail: "체험 횟수를 잠시 초과했어요. 1시간 후 다시 시도해주세요." },
+      { status: 429 },
+    );
+  }
+
+  const ipDaily = await rateLimit(
+    "experience-report-ip-daily",
+    getClientIp(req),
+    PER_IP_DAILY,
+    "24 h",
+  );
+  if (!ipDaily.success) {
+    return NextResponse.json(
+      { detail: "오늘 체험 횟수를 다 쓰셨어요. 내일 다시 찾아주세요." },
+      { status: 429 },
+    );
+  }
+
+  // 위 두 제한은 IP 단위라 IP 를 돌리면 뚫린다. 전역 상한은 그때만 걸리는
+  // 폭주 브레이크로, 정상 트래픽이 닿을 높이가 아니다 (선착순 마감이 되면 안 된다).
+  const global = await rateLimit(
+    "experience-report-global-daily",
+    "global",
+    GLOBAL_DAILY_CAP,
+    "24 h",
+  );
+  if (!global.success) {
+    console.error("[experience/report] 전역 일일 상한 도달 — 비정상 트래픽 의심");
+    return NextResponse.json(
+      { detail: "체험이 일시적으로 중단됐어요. 잠시 후 다시 찾아주세요." },
       { status: 429 },
     );
   }

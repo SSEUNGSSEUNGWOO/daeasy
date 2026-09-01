@@ -16,7 +16,7 @@ export default async function ContactPage({
 }) {
   const [courses, sp] = await Promise.all([fetchCourses(), searchParams]);
   const courseOptions = courses.map((c) => ({ slug: c.slug, title: c.title }));
-  // /quiz 추천 결과에서 넘어온 경우 해당 과정을 미리 선택
+  // /quiz/report 리포트 추천에서 넘어온 경우 해당 과정을 미리 선택
   const defaultCourseSlug =
     sp.course && courseOptions.some((c) => c.slug === sp.course) ? sp.course : "";
 

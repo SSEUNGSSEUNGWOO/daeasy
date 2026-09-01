@@ -45,3 +45,6 @@ supabase/.temp/
 scripts/veo-hero/frames/
 
 .superpowers/
+
+# Playwright MCP 스크린샷 아티팩트
+.playwright-mcp/

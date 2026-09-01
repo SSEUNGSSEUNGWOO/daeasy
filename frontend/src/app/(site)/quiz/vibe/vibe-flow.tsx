@@ -5,6 +5,8 @@ import Link from "next/link";
 
 import type { CourseLevel } from "@/lib/courses";
 
+import { VIBE_PRESETS } from "../presets";
+
 export type VibeCourse = {
   slug: string;
   title: string;
@@ -14,12 +16,6 @@ export type VibeCourse = {
 type Phase = "idle" | "streaming" | "done" | "error";
 type Reco = { course: VibeCourse; reason: string };
 
-const CHIPS = [
-  "부서 비품 신청 페이지",
-  "회의실 예약 현황판",
-  "민원 접수 폼",
-  "팀 점심 메뉴 룰렛",
-];
 
 const LEVEL_LABEL: Record<CourseLevel, string> = {
   beginner: "입문",
@@ -32,20 +28,18 @@ const FALLBACK_MSG = "코드 생성에 실패했어요. 잠시 후 다시 시도
 class VibeError extends Error {}
 
 /**
- * 예시 칩은 고정 문자열이라 매번 모델을 부를 이유가 없다.
- * 미리 생성해둔 응답 원문을 그대로 재생하면 타자기·미리보기 연출은 동일하고
- * API 비용과 IP당 rate limit 을 쓰지 않는다.
- * 갱신: `node scripts/gen-canned.mjs` (프롬프트·과정 목록이 바뀌면 다시 생성)
+ * 선택지는 고정돼 있으므로 응답을 미리 생성해 두고 그대로 재생한다.
+ * 타자기·미리보기 연출은 동일하고 API 비용과 rate limit 을 쓰지 않는다.
+ * 갱신: `node scripts/gen-canned.mjs` — 생성 후 JSON 을 직접 다듬어도 된다.
  */
 let cannedCache: Record<string, string> | null = null;
 async function loadCanned(key: string): Promise<string | null> {
-  if (!CHIPS.includes(key)) return null;
   try {
     cannedCache ??= await fetch("/experience/vibe-canned.json").then((r) =>
       r.ok ? (r.json() as Promise<Record<string, string>>) : null,
     );
   } catch {
-    // 정적 파일을 못 받으면 그냥 모델을 부른다 (fail-open)
+    // 정적 파일을 못 받으면 모델을 부른다 (fail-open)
     return null;
   }
   return cannedCache?.[key] ?? null;
@@ -117,7 +111,6 @@ function extractRecos(full: string, courses: VibeCourse[]): Reco[] {
 }
 
 export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
-  const [work, setWork] = useState("");
   const [phase, setPhase] = useState<Phase>("idle");
   const [code, setCode] = useState("");
   const [srcDoc, setSrcDoc] = useState<string | null>(null);
@@ -179,8 +172,8 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     el.scrollTop = el.scrollHeight;
   }, [code, phase]);
 
-  async function run() {
-    const trimmed = work.trim();
+  async function run(selected: string) {
+    const trimmed = selected.trim();
     if (!trimmed || phase === "streaming") return;
     setPhase("streaming");
     setCode("");
@@ -265,7 +258,6 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     displayedLenRef.current = 0;
     streamEndedRef.current = false;
     stickRef.current = true;
-    setWork("");
     setPhase("idle");
     setCode("");
     setSrcDoc(null);
@@ -274,47 +266,34 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     setShowCode(false);
   }
 
-  // ── 입력 화면 ──
+  // ── 선택 화면 ──
   if (phase === "idle" || (phase === "error" && code === "")) {
     return (
       <div className="anim-page-fade-up mt-12">
-        <textarea
-          value={work}
-          onChange={(e) => setWork(e.target.value)}
-          maxLength={500}
-          rows={3}
-          placeholder="예) 부서 비품 신청 페이지"
-          aria-label="만들고 싶은 것 설명"
-          className="w-full rounded-2xl bg-white p-5 text-[15.5px] leading-[1.7] text-ink ring-1 ring-zinc-200 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-accent"
-        />
-        <div className="mt-3 flex flex-wrap gap-2">
-          {CHIPS.map((chip) => (
+        <p className="text-[13px] font-bold uppercase tracking-[0.14em] text-zinc-400">
+          만들 화면을 골라주세요
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {VIBE_PRESETS.map((preset) => (
             <button
-              key={chip}
+              key={preset.work}
               type="button"
-              onClick={() => setWork(chip)}
-              className="rounded-full border border-zinc-300 px-3.5 py-1.5 text-[13px] font-semibold text-zinc-600 transition hover:border-accent hover:text-accent"
+              onClick={() => run(preset.work)}
+              className="group rounded-xl bg-white p-5 text-left ring-1 ring-zinc-200 transition hover:ring-2 hover:ring-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              {chip}
+              <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-accent">
+                {preset.category}
+              </span>
+              <span className="mt-1.5 block text-[15px] font-semibold leading-[1.5] text-ink">
+                {preset.work}
+              </span>
             </button>
           ))}
         </div>
 
         {phase === "error" && (
-          <p className="mt-4 text-[14px] font-semibold text-red-600">{error}</p>
+          <p className="mt-5 text-[14px] font-semibold text-red-600">{error}</p>
         )}
-
-        <button
-          type="button"
-          onClick={run}
-          disabled={!work.trim()}
-          className="mt-6 inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-[15px] font-bold text-white transition hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          코딩 시작 →
-        </button>
-        <p className="mt-3 text-[12.5px] text-zinc-400">
-          개인정보(이름 · 연락처 등)는 적지 마세요 · 입력 내용은 저장되지 않습니다
-        </p>
       </div>
     );
   }

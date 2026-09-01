@@ -8,7 +8,7 @@ export const revalidate = 60;
 export const metadata = {
   title: "내 업무 AI 리포트",
   description:
-    "업무를 한 줄만 적으면 AI가 자동화 포인트와 절감 시간, 보안 주의까지 맞춤 리포트를 실시간으로 작성합니다.",
+    "담당 업무를 고르면 AI가 자동화 포인트와 절감 시간, 보안 주의까지 정리한 맞춤 리포트를 보여드립니다.",
 };
 
 export default async function ReportStationPage() {
@@ -28,8 +28,8 @@ export default async function ReportStationPage() {
           내 업무 AI 리포트
         </h1>
         <p className="mt-6 text-[17px] leading-[1.75] text-zinc-700">
-          어떤 일을 하고 계신가요? 한 줄만 적어주시면 AI가 지금 이 자리에서
-          맞춤 리포트를 씁니다.
+          어떤 일을 하고 계신가요? 담당 업무를 고르면 AI가 그 업무 기준으로
+          작성한 맞춤 리포트를 보여드립니다.
         </p>
 
         <ReportFlow courses={courses} />

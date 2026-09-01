@@ -11,16 +11,16 @@ const STATIONS = [
     key: "report",
     badge: "STATION 01",
     title: "내 업무 AI 리포트",
-    desc: "업무를 한 줄만 적으면 AI가 자동화 포인트 · 절감 시간 · 보안 주의까지 맞춤 리포트를 실시간으로 써 드립니다.",
-    meta: "약 2분 · 입력 1줄",
+    desc: "담당 업무를 고르면 AI가 자동화 포인트 · 절감 시간 · 보안 주의까지 정리한 맞춤 리포트를 보여드립니다.",
+    meta: "약 2분 · 업무 8종",
     href: "/quiz/report",
   },
   {
     key: "vibe-coding",
     badge: "STATION 02",
     title: "바이브 코딩 라이브",
-    desc: "말 한마디로 실제 동작하는 웹앱이 눈앞에서 만들어지는 체험.",
-    meta: "약 1분 · 입력 1줄",
+    desc: "만들 화면을 고르면 AI가 쓴 코드와, 그 코드가 실제로 동작하는 웹앱을 함께 보여줍니다.",
+    meta: "약 1분 · 화면 8종",
     href: "/quiz/vibe",
   },
   {
@@ -46,8 +46,8 @@ export default function ExperienceHubPage() {
           직접 겪어보세요
         </h1>
         <p className="mt-6 text-[17px] leading-[1.75] text-zinc-700">
-          설명을 듣는 것과 직접 겪는 것은 다릅니다. 진짜 AI가 실시간으로
-          움직이는 체험 스테이션에서 확인해 보세요.
+          설명을 듣는 것과 직접 보는 것은 다릅니다. AI가 실제로 무엇을 해내는지
+          체험 스테이션에서 확인해 보세요.
         </p>
 
         <ul className="mt-12 space-y-4">

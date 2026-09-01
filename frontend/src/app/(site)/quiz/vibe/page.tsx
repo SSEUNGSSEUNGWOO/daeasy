@@ -8,7 +8,7 @@ export const revalidate = 60;
 export const metadata = {
   title: "바이브 코딩 라이브",
   description:
-    "만들고 싶은 것을 한 줄만 적으면 AI가 눈앞에서 코드를 쓰고, 실제로 동작하는 웹앱을 바로 보여드립니다.",
+    "만들 화면을 고르면 AI가 쓴 코드와, 그 코드가 실제로 동작하는 웹앱을 함께 보여드립니다.",
 };
 
 export default async function VibeStationPage() {
@@ -28,8 +28,8 @@ export default async function VibeStationPage() {
           바이브 코딩 라이브
         </h1>
         <p className="mt-6 text-[17px] leading-[1.75] text-zinc-700">
-          뭘 만들어볼까요? 한 줄만 적어주시면 AI가 지금 이 자리에서 코드를 쓰고,
-          완성되는 순간 실제로 동작하는 화면을 보여드립니다.
+          뭘 만들어볼까요? 만들 화면을 고르면 AI가 쓴 코드와, 그 코드가
+          실제로 동작하는 화면을 함께 보여드립니다.
         </p>
 
         <VibeFlow courses={courses} />

@@ -18,6 +18,7 @@ docs/
 **더 깊은 문서** (이 파일에 복붙하지 말고 필요할 때 읽는다):
 - `docs/architecture.md` — 데이터 흐름 다이어그램 / 책임 분리 / 보안 원칙 / 미정사항
 - `supabase/README.md` — 테이블별 용도·쓰는 주체 표, RLS 정책 요약, 발행 상태 모델
+- `docs/YYYY-MM-DD-<주제>-design.md` (설계) + `docs/YYYY-MM-DD-<주제>.md` (구현 기록) 쌍 — 기능 단위로 쌓인다. 기존 기능을 건드리기 전에 해당 쌍을 먼저 읽는다. 새 기능도 같은 쌍으로 남긴다
 
 > **note:** 옛 `backend/` (FastAPI) 는 폐기됨. 트랜잭셔널 API 는 모두 `frontend/src/app/api/*/route.ts` (Next.js Route Handler) 로 이식. 옛 코드는 `archive/backend-fastapi` 브랜치에 보관.
 
@@ -26,7 +27,7 @@ docs/
 - 명령어 (frontend/): `npm run dev` (http://localhost:3000) / `npm run build` / `npm run lint`
 - **테스트 스위트가 없다** (jest/vitest/playwright 모두 미도입). 변경 검증은 `npm run lint && npm run build` 가 전부 — 단위 테스트를 찾지 말고 이 둘로 확인한다. ai-service 는 `uv run ruff check .`
 - **Next.js 16은 학습 데이터와 다르다** — 새 코드를 짜기 전 `frontend/node_modules/next/dist/docs/` 의 관련 가이드를 먼저 읽는다. APIs / 컨벤션 / 파일 구조가 모두 깨질 수 있다 (`frontend/AGENTS.md`)
-- App Router (`src/app/...`), 라우트 그룹은 필요해질 때 도입
+- App Router. 라우트 그룹 2개: `src/app/(site)/` (공개 페이지, 공용 헤더·푸터), `src/app/admin/(authed)/` (로그인 필요한 어드민). `/admin/login` 만 `(authed)` 밖
 - 타입: `any` 금지 (전역 규칙). `unknown` + 좁히기 사용
 - 데이터 페칭: 서버 컴포넌트 우선, 클라이언트 상태 필요한 곳만 `'use client'`
 - 스타일: Tailwind. 임의 색상 남발 금지. 디자인 토큰 정의되면 그것만 사용
@@ -36,7 +37,9 @@ docs/
 - 데이터 write / RPC: client 가 `/api/*` (Next.js Route Handler) 호출 → Handler 가 `getSupabaseAdmin()` (service_role) 또는 외부 API 호출
 - 캐싱: 공개 인사이트 목록·상세는 `export const revalidate = 60` (ISR), 어드민 페이지는 전부 `export const dynamic = "force-dynamic"`. 새 페이지 추가 시 같은 쪽을 따른다
 - DB·외부에서 온 HTML 을 `dangerouslySetInnerHTML` 에 넣기 전에는 **반드시** `lib/sanitize.ts` 의 `sanitizeHtml()` 을 거친다 (허용 태그·속성 화이트리스트가 거기 있다)
-- Rate limiter: `frontend/src/lib/rate-limit.ts` (Upstash Redis 기반). `UPSTASH_REDIS_REST_URL/TOKEN` 없으면 자동 noop (로컬 개발 편의). **Redis 호출이 실패해도 통과시킨다(fail-open)** — 부가 기능인 rate limiter 장애로 문의 접수·어드민 로그인이 같이 죽으면 안 되기 때문. 실패는 `console.error` 로 함수 로그에만 남는다
+- Rate limiter: `frontend/src/lib/rate-limit.ts` (Upstash Redis 기반). **정책이 두 갈래이니 엔드포인트에 맞는 함수를 골라 쓴다**
+  - `rateLimit()` — **fail-open**. env 미설정이면 noop, Redis 장애도 통과. 부가 기능인 rate limiter 때문에 문의 접수가 같이 죽으면 안 되기 때문. 실패는 `console.error` 로 함수 로그에만
+  - `rateLimitAuth()` — **운영에선 fail-closed**. env 미설정·Redis 장애 모두 `NODE_ENV === "production"` 이면 차단한다 (로컬은 통과 — Upstash 없이 폼 확인 가능). 고객 가입·로그인 등 인증 엔드포인트 전용
 - 정적 이미지: `public/<카테고리>/` 단위(logo / partners / hero / about / reviews). 같은 파일을 덮어쓰면 Next.js Image 캐시가 stale 응답으로 잡혀 dev에서도 안 갱신된다 — **갱신 시 파일명을 바꾸거나** `unoptimized` 추가. querystring(`?v=2`) 우회는 Next.js 16에서 `images.localPatterns` 미등록 시 런타임 에러
 - 이미지 처리(크롭·리사이즈·포맷 변환): Windows 환경에선 **PowerShell + `System.Drawing`** 이 가장 가볍다(Pillow·ImageMagick 의존 없음). 대량 일괄 통일은 `dataeasy/scripts/normalize_partners.py` (uv inline `pillow + svglib + reportlab`) 패턴 참고 — Cairo 시스템 라이브러리 없이 SVG 래스터화까지 가능
 
@@ -48,6 +51,25 @@ docs/
 - 방어는 두 겹이고 **둘 다 필요하다**: (i) `proxy.ts` 는 **로그인 여부만** 본다 (Next.js 문서가 proxy 에서 DB 조회를 금지 — optimistic check), (ii) 역할 판정은 데이터 가까이서 — 페이지는 `requireRole("admin")`, 핸들러는 `getCurrentUser()` + `forbidden()`. 사이드바에서 메뉴를 숨기는 건 접근 제어가 아니다
 - `is_active = false` 로 내리면 **이미 로그인한 세션도 즉시 막힌다** (매 요청 조회하므로). 이탈자는 계정을 지우지 않고 이렇게 처리한다
 - 계정 발급은 `/admin/members` 에서 `admin` 이 이메일·초기 비밀번호를 직접 만들어 전달한다. 메일 발송 서비스가 없어 초대 메일을 쓸 수 없다
+
+### 일반 고객 인증 (어드민과 별개, 세션은 공유)
+
+- **어드민과 고객이 같은 Supabase Auth 세션을 쓴다** — 갈라지는 건 프로필 테이블뿐: 어드민은 `public.profiles`(`role`), 고객은 `public.customer_profiles`. 서버에서 고객을 읽는 건 `lib/customer-auth.ts` 의 `getCurrentCustomer()`, 어드민은 `lib/admin-auth.ts` 의 `getCurrentUser()`
+- 이 공유 때문에 `proxy.ts` 는 `/admin/login` 에서 **로그인 상태여도 리다이렉트하지 않는다**. 고객 세션을 `/admin` 으로 보내면 어드민 페이지가 다시 로그인으로 튕겨 무한 루프가 된다. 여기를 "로그인했으면 대시보드로" 로 고치지 말 것
+- 페이지: `/signup` `/login` `/mypage` (모두 `(site)` 그룹). API: `/api/auth/{signup,login,logout,me}`
+- 가입은 Cloudflare Turnstile CAPTCHA + 이메일 인증 필수. 인증 링크 복귀 지점은 `src/app/auth/confirm/route.ts` (`/api/` 밑이 아니다 — Supabase 메일 템플릿의 URL 과 맞춰져 있으니 옮기지 말 것). `TURNSTILE_SECRET_KEY` / `NEXT_PUBLIC_SITE_URL` 이 없으면 운영에서 가입이 막힌다(로컬은 통과)
+- 가입 시 마케팅 동의 → `newsletter_subscribers` 등록은 **`customer_profiles` update 가 1건 이상일 때만** 한다. Supabase 는 이미 가입된 이메일에 계정 존재를 숨기려고 가짜 user id 를 돌려주므로, 이 순서가 아니면 남의 이메일로 재가입을 시도해 해지된 구독을 되살릴 수 있다 (`api/auth/signup/route.ts` 주석 참고)
+
+### AI 체험관 (`/quiz`)
+
+- 사이트에서 LLM 을 부르는 **유일한 경로이자 ai-service 와 완전히 다른 방식**이다. ai-service 는 `claude` CLI 서브프로세스(Max 구독 소비), 여기는 `lib/experience-llm.ts` 의 `streamExperience()` 를 통한 서버 직접 호출. 새 AI 기능을 프론트에 붙일 땐 이쪽 패턴
+- **프로바이더는 `lib/experience-llm.ts` 한 곳에만 있다.** 우선순위는 로컬 GPU(Ollama, `LOCAL_LLM_URL`) → Gemini(`gemini-3.1-flash-lite`). 환경변수 유무로만 분기하므로 코드 수정 없이 전환된다 (rate-limit 의 Upstash 패턴과 동일). 사내 GPU 세팅은 `docs/local-llm-setup.md`
+- **폴백 판정은 첫 토큰 이전에 끝난다.** 한 바이트라도 클라이언트로 흘린 뒤에는 프로바이더를 바꿀 수 없어서다. 로컬이 20초 안에 첫 토큰을 못 주면 Gemini 로 넘어간다
+- 스테이션 ① `/quiz/report` → `POST /api/experience/report`, 스테이션 ② `/quiz/vibe` → `POST /api/experience/vibe`. 둘 다 `runtime = "nodejs"`, 응답은 SSE 가 아니라 **`text/plain` ReadableStream 원문 토큰**을 흘린다 (클라이언트가 reader 로 직접 파싱)
+- 프로바이더가 하나도 없으면 해당 API 만 503, 사이트 나머지는 정상. 체험 rate limit 은 IP 당 시간당 5회 (`rateLimit()`, fail-open)
+- 시스템 프롬프트가 교육과정 카탈로그(`fetchCourses()`)를 주입하고 응답 끝에 `json` 코드블록으로 추천 slug 를 뱉게 한다 → 클라이언트가 `/contact?course=` 로 연결. 프롬프트를 손대도 이 출력 계약(마지막 json 블록)은 깨지 말 것
+- **모델을 바꾸면 출력 계약 준수를 반드시 재검증한다.** Gemini 는 여는 ` ```html ` 펜스를 빠뜨리는 일이 있다 — `vibe-flow.tsx` 에 raw doctype 폴백이 있어 렌더는 되지만, 새 모델을 넣을 땐 `scripts/gen-canned.mjs` 로 8건을 뽑아 눈으로 확인할 것
+- 예시 칩 응답은 `public/experience/*-canned.json` 에 미리 생성해 두고 클라이언트가 재생한다 (API 호출·rate limit 소모 0). 프롬프트나 과정 목록이 바뀌면 `node scripts/gen-canned.mjs` 로 다시 생성
 
 ## AI Service (인사이트 / 가이드 파이프라인)
 
@@ -109,5 +131,8 @@ docs/
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY` — Sensitive 체크 (server-only)
-- `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` — 없으면 rate limit 비활성
-- `ANTHROPIC_API_KEY` — Sensitive 체크. AI 체험관 스테이션 ① (`/api/experience/report`) 용. 없으면 해당 체험만 503
+- `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` — 없으면 `rateLimit()` 은 비활성, `rateLimitAuth()` 는 운영에서 **차단**
+- `NEXT_PUBLIC_SITE_URL` — 인증 메일 복귀 주소. 운영에서 없으면 고객 가입 503
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` — 고객 가입 CAPTCHA. secret 없으면 운영에서 가입 차단
+- `GEMINI_API_KEY` — Sensitive 체크. AI 체험관(`/api/experience/*`) 용. 없고 `LOCAL_LLM_URL` 도 없으면 해당 체험만 503
+- `LOCAL_LLM_URL` / `LOCAL_LLM_SECRET` / `LOCAL_LLM_MODEL` — (선택) 사내 GPU PC. 넣으면 그쪽을 먼저 쓰고 실패 시 Gemini 로 폴백. `docs/local-llm-setup.md`

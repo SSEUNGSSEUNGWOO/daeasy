@@ -23,9 +23,7 @@ const LEVEL_LABEL: Record<CourseLevel, string> = {
   advanced: "심화",
 };
 
-const FALLBACK_MSG = "코드 생성에 실패했어요. 잠시 후 다시 시도해주세요.";
-
-class VibeError extends Error {}
+const FALLBACK_MSG = "화면을 불러오지 못했어요. 잠시 후 다시 시도해주세요.";
 
 /**
  * 선택지는 고정돼 있으므로 응답을 미리 생성해 두고 그대로 재생한다.
@@ -117,7 +115,6 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
   const [recos, setRecos] = useState<Reco[]>([]);
   const [error, setError] = useState("");
   const [showCode, setShowCode] = useState(false);
-  const abortRef = useRef<AbortController | null>(null);
   const preRef = useRef<HTMLPreElement | null>(null);
   const stickRef = useRef(true);
 
@@ -157,13 +154,7 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     }, 30);
   }
 
-  useEffect(
-    () => () => {
-      abortRef.current?.abort();
-      stopTyper();
-    },
-    [],
-  );
+  useEffect(() => stopTyper, []);
 
   useEffect(() => {
     if (phase !== "streaming") return;
@@ -188,68 +179,26 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
     stickRef.current = true;
     startTyper();
 
-    abortRef.current?.abort();
-
-    // 응답 원문 하나를 화면 상태로 푼다 (스트림 완료분·미리 생성한 칩 응답 공통)
-    const applyFull = (full: string) => {
-      targetRef.current = visibleStream(full).trim();
-      const html =
-        extractHtml(full) ??
-        (/^\s*(<!doctype html|<html)/i.test(full)
-          ? full.replace(/```[\s\S]*$/, "").trim()
-          : null);
-      setSrcDoc(html ? injectCsp(html) : null);
-      setRecos(extractRecos(full, courses));
-      // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
-      streamEndedRef.current = true;
-    };
-
-    const canned = await loadCanned(trimmed);
-    if (canned) {
-      applyFull(canned);
+    const full = await loadCanned(trimmed);
+    if (!full) {
+      stopTyper();
+      console.error("코드 원문을 불러오지 못했습니다:", trimmed);
+      setError(FALLBACK_MSG);
+      setPhase("error");
       return;
     }
 
-    const ac = new AbortController();
-    abortRef.current = ac;
-
-    try {
-      const res = await fetch("/api/experience/vibe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ work: trimmed }),
-        signal: ac.signal,
-      });
-      if (!res.ok || !res.body) {
-        const detail = await res
-          .json()
-          .then((d: { detail?: string }) => d.detail)
-          .catch(() => null);
-        throw new VibeError(detail ?? FALLBACK_MSG);
-      }
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let full = "";
-      for (;;) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        full += decoder.decode(value, { stream: true });
-        targetRef.current = visibleStream(full);
-      }
-      full += decoder.decode();
-
-      applyFull(full);
-    } catch (err) {
-      if (ac.signal.aborted) return;
-      stopTyper();
-      const target = targetRef.current;
-      displayedLenRef.current = target.length;
-      setCode(target);
-      console.error("코드 생성 실패:", err);
-      setError(err instanceof VibeError ? err.message : FALLBACK_MSG);
-      setPhase("error");
-    }
+    targetRef.current = visibleStream(full).trim();
+    // 여는 ```html 펜스가 빠진 응답도 있어 raw doctype 을 폴백으로 받는다
+    const html =
+      extractHtml(full) ??
+      (/^\s*(<!doctype html|<html)/i.test(full)
+        ? full.replace(/```[\s\S]*$/, "").trim()
+        : null);
+    setSrcDoc(html ? injectCsp(html) : null);
+    setRecos(extractRecos(full, courses));
+    // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
+    streamEndedRef.current = true;
   }
 
   function restart() {

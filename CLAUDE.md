@@ -62,14 +62,12 @@ docs/
 
 ### AI 체험관 (`/quiz`)
 
-- 사이트에서 LLM 을 부르는 **유일한 경로이자 ai-service 와 완전히 다른 방식**이다. ai-service 는 `claude` CLI 서브프로세스(Max 구독 소비), 여기는 `lib/experience-llm.ts` 의 `streamExperience()` 를 통한 서버 직접 호출. 새 AI 기능을 프론트에 붙일 땐 이쪽 패턴
-- **프로바이더는 `lib/experience-llm.ts` 한 곳에만 있다.** 우선순위는 로컬 GPU(Ollama, `LOCAL_LLM_URL`) → Gemini(`gemini-3.1-flash-lite`). 환경변수 유무로만 분기하므로 코드 수정 없이 전환된다 (rate-limit 의 Upstash 패턴과 동일). 사내 GPU 세팅은 `docs/local-llm-setup.md`
-- **폴백 판정은 첫 토큰 이전에 끝난다.** 한 바이트라도 클라이언트로 흘린 뒤에는 프로바이더를 바꿀 수 없어서다. 로컬이 20초 안에 첫 토큰을 못 주면 Gemini 로 넘어간다
-- 스테이션 ① `/quiz/report` → `POST /api/experience/report`, 스테이션 ② `/quiz/vibe` → `POST /api/experience/vibe`. 둘 다 `runtime = "nodejs"`, 응답은 SSE 가 아니라 **`text/plain` ReadableStream 원문 토큰**을 흘린다 (클라이언트가 reader 로 직접 파싱)
-- 프로바이더가 하나도 없으면 해당 API 만 503, 사이트 나머지는 정상. 체험 rate limit 은 IP 당 시간당 5회 (`rateLimit()`, fail-open)
-- 시스템 프롬프트가 교육과정 카탈로그(`fetchCourses()`)를 주입하고 응답 끝에 `json` 코드블록으로 추천 slug 를 뱉게 한다 → 클라이언트가 `/contact?course=` 로 연결. 프롬프트를 손대도 이 출력 계약(마지막 json 블록)은 깨지 말 것
-- **모델을 바꾸면 출력 계약 준수를 반드시 재검증한다.** Gemini 는 여는 ` ```html ` 펜스를 빠뜨리는 일이 있다 — `vibe-flow.tsx` 에 raw doctype 폴백이 있어 렌더는 되지만, 새 모델을 넣을 땐 `scripts/gen-canned.mjs` 로 8건을 뽑아 눈으로 확인할 것
-- 예시 칩 응답은 `public/experience/*-canned.json` 에 미리 생성해 두고 클라이언트가 재생한다 (API 호출·rate limit 소모 0). 프롬프트나 과정 목록이 바뀌면 `node scripts/gen-canned.mjs` 로 다시 생성
+- **런타임에 모델을 부르지 않는다.** 사이트에 LLM 호출 경로가 없다 — 방문자는 고정된 선택지에서 고르고, 클라이언트는 미리 생성해둔 `public/experience/*-canned.json` 원문을 타자기 연출로 재생할 뿐이다. 그래서 Vercel 에 AI 키가 필요 없고 운영 비용도 0이다
+- 선택지 정의는 `(site)/quiz/presets.ts` 한 곳. `work` 문자열이 곧 canned JSON 의 키다 — 문구를 바꾸면 저장된 응답과 어긋나므로 반드시 재생성해야 한다
+- 재생성: `cd frontend && node scripts/gen-canned.mjs`. dev 서버 없이 도는 독립 스크립트로, `.env.local` 의 `GEMINI_API_KEY` 로 Gemini(`gemini-3.1-flash-lite`)를 직접 부른다. 프롬프트는 `scripts/prompts.mjs`, 과정 카탈로그는 Supabase REST 로 직접 조회
+- **생성 결과는 손으로 다듬는 것이 정상 워크플로다.** 출력 JSON 은 그냥 데이터라, 어색한 문장이나 밋밋한 HTML 을 직접 고쳐 완성도를 올린다
+- 출력 계약: 응답 끝에 `json` 코드블록으로 추천 slug → 클라이언트가 `/contact?course=` 로 연결. vibe 는 그 앞에 ` ```html ` 블록. **모델을 바꾸면 계약 준수를 반드시 재검증한다** — Gemini 는 여는 ` ```html ` 펜스를 빠뜨리는 일이 있어 `vibe-flow.tsx` 에 raw doctype 폴백을 둔다
+- 카피가 생성 시점을 주장하지 않게 유지할 것. 미리 만든 응답을 재생하면서 "실시간으로 씁니다" 라고 쓰면 거짓말이 된다
 
 ## AI Service (인사이트 파이프라인)
 
@@ -133,5 +131,3 @@ docs/
 - `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` — 없으면 `rateLimit()` 은 비활성, `rateLimitAuth()` 는 운영에서 **차단**
 - `NEXT_PUBLIC_SITE_URL` — 인증 메일 복귀 주소. 운영에서 없으면 고객 가입 503
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` — 고객 가입 CAPTCHA. secret 없으면 운영에서 가입 차단
-- `GEMINI_API_KEY` — Sensitive 체크. AI 체험관(`/api/experience/*`) 용. 없고 `LOCAL_LLM_URL` 도 없으면 해당 체험만 503
-- `LOCAL_LLM_URL` / `LOCAL_LLM_SECRET` / `LOCAL_LLM_MODEL` — (선택) 사내 GPU PC. 넣으면 그쪽을 먼저 쓰고 실패 시 Gemini 로 폴백. `docs/local-llm-setup.md`

@@ -25,9 +25,7 @@ const LEVEL_LABEL: Record<CourseLevel, string> = {
   advanced: "심화",
 };
 
-const FALLBACK_MSG = "리포트 생성에 실패했어요. 잠시 후 다시 시도해주세요.";
-
-class ReportError extends Error {}
+const FALLBACK_MSG = "리포트를 불러오지 못했어요. 잠시 후 다시 시도해주세요.";
 
 /**
  * 선택지는 고정돼 있으므로 응답을 미리 생성해 두고 그대로 재생한다.
@@ -80,7 +78,6 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
   const [report, setReport] = useState("");
   const [recos, setRecos] = useState<Reco[]>([]);
   const [error, setError] = useState("");
-  const abortRef = useRef<AbortController | null>(null);
 
   // 타자기 연출: 네트워크로 도착한 전체 텍스트(target)를 버퍼에 두고
   // 일정한 속도로 풀어낸다. 덩어리 도착이 부드러운 타이핑으로 보이고,
@@ -120,13 +117,7 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
     }, 30);
   }
 
-  useEffect(
-    () => () => {
-      abortRef.current?.abort();
-      stopTyper();
-    },
-    [],
-  );
+  useEffect(() => stopTyper, []);
 
   async function run(selected: string) {
     const trimmed = selected.trim();
@@ -141,60 +132,19 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
     streamEndedRef.current = false;
     startTyper();
 
-    abortRef.current?.abort();
-
     const canned = await loadCanned(trimmed);
-    if (canned) {
-      targetRef.current = visibleText(canned).trim();
-      setRecos(extractRecos(canned, courses));
-      streamEndedRef.current = true;
+    if (!canned) {
+      stopTyper();
+      console.error("리포트 원문을 불러오지 못했습니다:", trimmed);
+      setError(FALLBACK_MSG);
+      setPhase("error");
       return;
     }
 
-    const ac = new AbortController();
-    abortRef.current = ac;
-
-    try {
-      const res = await fetch("/api/experience/report", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ work: trimmed }),
-        signal: ac.signal,
-      });
-      if (!res.ok || !res.body) {
-        const detail = await res
-          .json()
-          .then((d: { detail?: string }) => d.detail)
-          .catch(() => null);
-        throw new ReportError(detail ?? FALLBACK_MSG);
-      }
-
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let full = "";
-      for (;;) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        full += decoder.decode(value, { stream: true });
-        targetRef.current = visibleText(full);
-      }
-      full += decoder.decode();
-
-      targetRef.current = visibleText(full).trim();
-      setRecos(extractRecos(full, courses));
-      // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
-      streamEndedRef.current = true;
-    } catch (err) {
-      if (ac.signal.aborted) return;
-      stopTyper();
-      // 받다 만 텍스트는 즉시 전부 보여주고 에러를 안내한다
-      const target = targetRef.current;
-      displayedLenRef.current = target.length;
-      setReport(target);
-      console.error("리포트 생성 실패:", err);
-      setError(err instanceof ReportError ? err.message : FALLBACK_MSG);
-      setPhase("error");
-    }
+    targetRef.current = visibleText(canned).trim();
+    setRecos(extractRecos(canned, courses));
+    // 타자기가 남은 버퍼를 다 풀어내면 스스로 done 으로 전환한다
+    streamEndedRef.current = true;
   }
 
   function restart() {

@@ -7,9 +7,25 @@ import { StatNumber } from "@/components/ai-champion/stat-number";
 import { TrackPanels } from "@/components/ai-champion/track-panels";
 
 export const metadata: Metadata = {
-  title: "AI 챔피언",
+  // "AI 챔피언" 검색 노출을 노리는 페이지 — 제목에 프로그램 주체(행정안전부)와
+  // 성격(공공부문 교육·인증)을 함께 넣어야 검색 결과에서 무엇인지 바로 읽힌다
+  title: "AI 챔피언 교육 — 행정안전부 공공부문 AI 인재 양성·인증",
   description:
-    "공공행정 현장의 AI 전환을 이끄는 실무 인재를 양성·인증하는 AI 챔피언 Green·Blue·Black 체계를 소개합니다.",
+    "행정안전부·NIA 공공부문 AI 챔피언 프로그램 운영사 데이지(DAEASY). Green·Blue·Black 3단계 인증 체계와 교육 과정, 실제 운영 사례를 확인하세요.",
+  keywords: [
+    "AI 챔피언",
+    "AI 챔피언 교육",
+    "AI 챔피언 자격",
+    "행정안전부 AI 챔피언",
+    "공공부문 AI 교육",
+    "공무원 AI 교육",
+  ],
+  openGraph: {
+    title: "AI 챔피언 교육 — 행정안전부 공공부문 AI 인재 양성·인증",
+    description:
+      "Green·Blue·Black 3단계 인증 체계와 교육 과정, 실제 운영 사례를 확인하세요.",
+    type: "website",
+  },
 };
 
 const heroTracks = [

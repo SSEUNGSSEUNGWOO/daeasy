@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type FloatingHeart = {
   id: number;
@@ -10,11 +10,16 @@ type FloatingHeart = {
   delay: number;
 };
 
-// 인사이트·교육후기가 같은 버튼을 공유한다 — API 경로와 세션 키만 리소스별로 다르다
+// 인사이트·교육후기가 같은 버튼을 공유한다 — API 경로와 저장 키만 리소스별로 다르다
 const RESOURCES = {
   insights: { api: "insights", storagePrefix: "liked_insight_" },
   cases: { api: "cases", storagePrefix: "liked_case_" },
 } as const;
+
+/** 한 사람이 한 글에 누를 수 있는 상한. 없으면 한 명이 지표를 통째로 왜곡한다 */
+const MAX_PER_VISITOR = 10;
+/** 연타를 모아 한 번에 보내는 간격 */
+const FLUSH_MS = 600;
 
 export type LikeResource = keyof typeof RESOURCES;
 
@@ -26,28 +31,74 @@ export function LikeButton({
   resource?: LikeResource;
 }) {
   const [count, setCount] = useState(0);
-  const [liked, setLiked] = useState(false);
+  const [mine, setMine] = useState(0);
   const [hearts, setHearts] = useState<FloatingHeart[]>([]);
   const counter = useRef(0);
+  const pending = useRef(0);
+  const timer = useRef<number | null>(null);
   const { api, storagePrefix } = RESOURCES[resource];
-  const sessionKey = `${storagePrefix}${slug}`;
+  const storeKey = `${storagePrefix}${slug}`;
+  const liked = mine > 0;
+  const maxed = mine >= MAX_PER_VISITOR;
 
   useEffect(() => {
     fetch(`/api/${api}/${encodeURIComponent(slug)}/likes`)
       .then((r) => r.json())
-      .then((d) => setCount(d.count ?? 0))
+      // 응답이 늦게 와도 이미 누른 낙관적 카운트를 깎지 않는다 (좋아요는 줄지 않는다)
+      .then((d) => setCount((c) => Math.max(c, d.count ?? 0)))
       .catch(() => {});
     if (typeof window !== "undefined") {
-      // sessionStorage는 client-only — SSR 후 hydrate 시점에 동기화. cascading render 1회뿐이라 안전.
+      // localStorage 는 client-only — hydrate 시점에 동기화. cascading render 1회뿐이라 안전.
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setLiked(!!sessionStorage.getItem(sessionKey));
+      setMine(Number(localStorage.getItem(storeKey)) || 0);
     }
-  }, [slug, api, sessionKey]);
+  }, [slug, api, storeKey]);
 
-  async function press() {
+  /** 모아둔 연타를 한 요청으로 보낸다 */
+  const flush = useCallback(async () => {
+    const presses = pending.current;
+    if (presses <= 0) return;
+    pending.current = 0;
+    try {
+      const res = await fetch(`/api/${api}/${encodeURIComponent(slug)}/likes`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ presses }),
+      });
+      const data = await res.json();
+      // 서버 값이 낙관적 값보다 작으면 무시 — 응답이 뒤섞여 와도 숫자가 되돌아가지 않는다
+      if (typeof data?.count === "number") {
+        setCount((c) => Math.max(c, data.count));
+      }
+    } catch {
+      // 네트워크 오류 시 silent — 로컬 카운트만 올라간 채로 유지
+    }
+  }, [api, slug]);
+
+  // 페이지를 떠날 때 아직 못 보낸 연타를 흘리지 않는다
+  useEffect(() => {
+    return () => {
+      if (timer.current !== null) window.clearTimeout(timer.current);
+      void flush();
+    };
+  }, [flush]);
+
+  function press() {
+    if (maxed) return;
+
     setCount((c) => c + 1);
-    setLiked(true);
-    sessionStorage.setItem(sessionKey, "1");
+    setMine((m) => {
+      const next = m + 1;
+      localStorage.setItem(storeKey, String(next));
+      return next;
+    });
+
+    pending.current += 1;
+    if (timer.current !== null) window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => {
+      timer.current = null;
+      void flush();
+    }, FLUSH_MS);
 
     const newHearts: FloatingHeart[] = Array.from({ length: 5 }, () => ({
       id: counter.current++,
@@ -62,21 +113,6 @@ export function LikeButton({
         prev.filter((h) => !newHearts.find((n) => n.id === h.id)),
       );
     }, 1200);
-
-    try {
-      const res = await fetch(
-        `/api/${api}/${encodeURIComponent(slug)}/likes`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({}),
-        },
-      );
-      const data = await res.json();
-      if (typeof data?.count === "number") setCount(data.count);
-    } catch {
-      // 네트워크 오류 시 silent — 로컬 카운트만 업데이트된 채로 유지
-    }
   }
 
   return (
@@ -109,11 +145,13 @@ export function LikeButton({
         <button
           type="button"
           onClick={press}
+          disabled={maxed}
+          aria-label={maxed ? "좋아요를 모두 눌렀습니다" : "좋아요"}
           className={`flex items-center gap-2 rounded-xl border px-4 py-2 transition-colors ${
             liked
               ? "border-red-300 bg-red-50 hover:bg-red-100"
               : "border-zinc-200 bg-paper hover:border-red-300 hover:bg-red-50"
-          }`}
+          } ${maxed ? "cursor-not-allowed opacity-70 hover:bg-red-50" : ""}`}
         >
           <svg
             width="16"
@@ -136,7 +174,11 @@ export function LikeButton({
         </button>
       </div>
 
-      <span className="text-[11px] text-zinc-400">마음에 드는 만큼 눌러주세요</span>
+      <span className="text-[11px] text-zinc-400">
+        {maxed
+          ? "고맙습니다! 마음 잘 받았습니다"
+          : `여러 번 눌러도 됩니다 (${mine}/${MAX_PER_VISITOR})`}
+      </span>
       {count > 0 && (
         <span className="text-[11px] text-zinc-500">
           {count}개의 관심을 받았습니다

@@ -72,26 +72,75 @@ export default function ExperienceHubPage() {
                   <p className="mt-2 text-[14px] leading-[1.65] text-zinc-600">
                     {s.desc}
                   </p>
-                  <span className="mt-4 inline-block text-[14px] font-bold text-accent">
+
+                  {/* 무엇을 받게 되는지 말로 설명하는 대신 결과물 형태를 그대로 보여준다 */}
+                  {s.key === "report" && (
+                    <div className="mt-5 overflow-hidden rounded-xl bg-ink px-5 py-4">
+                      <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-white/45">
+                        결과 예시
+                      </p>
+                      <p className="mt-1.5 flex items-baseline gap-1.5 text-white">
+                        <span className="text-[26px] font-extrabold leading-none tracking-[-0.02em]">
+                          주당 12시간
+                        </span>
+                        <span className="text-[13px] font-semibold text-white/60">
+                          절감
+                        </span>
+                      </p>
+                      <p className="mt-1.5 text-[11.5px] text-white/45">
+                        자동화 포인트 3가지 · 보안 주의 1가지 · 맞춤 과정 추천
+                      </p>
+                    </div>
+                  )}
+
+                  {s.key === "vibe-coding" && (
+                    <div className="mt-5 overflow-hidden rounded-xl ring-1 ring-zinc-200">
+                      <div className="flex items-center gap-1.5 bg-zinc-100 px-3 py-2">
+                        <span className="h-2 w-2 rounded-full bg-zinc-300" />
+                        <span className="h-2 w-2 rounded-full bg-zinc-300" />
+                        <span className="h-2 w-2 rounded-full bg-zinc-300" />
+                        <span className="ml-2 text-[10.5px] font-semibold text-zinc-500">
+                          예산 집행 현황 대시보드
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 bg-white p-3">
+                        {[
+                          ["전체 예산", "50,000,000원"],
+                          ["집행 금액", "12,500,000원"],
+                          ["잔액", "37,500,000원"],
+                        ].map(([label, value]) => (
+                          <div
+                            key={label}
+                            className="rounded-md border-l-2 border-accent bg-zinc-50 px-2.5 py-2"
+                          >
+                            <p className="text-[9.5px] text-zinc-500">{label}</p>
+                            <p className="mt-0.5 text-[11px] font-bold text-ink">
+                              {value}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <span className="mt-5 inline-block text-[14px] font-bold text-accent">
                     지금 체험하기 →
                   </span>
                 </Link>
               ) : (
-                <div className="rounded-2xl bg-white/60 p-7 ring-1 ring-zinc-100">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500">
-                      {s.badge}
-                    </span>
-                    <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-[11px] font-bold text-zinc-500">
-                      {s.meta}
-                    </span>
-                  </div>
-                  <h2 className="mt-3 text-[20px] font-bold leading-[1.35] tracking-[-0.01em] text-zinc-500">
+                /* 아직 열지 않은 스테이션 — 체험 가능한 카드와 같은 비중을 주면
+                   목록의 3분의 1이 클릭도 안 되는 자리로 낭비된다. 예고 줄로 낮춘다 */
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border border-dashed border-zinc-300 px-5 py-3.5">
+                  <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.12em] text-zinc-500">
+                    {s.badge}
+                  </span>
+                  <span className="text-[14px] font-bold text-zinc-600">
                     {s.title}
-                  </h2>
-                  <p className="mt-2 text-[14px] leading-[1.65] text-zinc-500">
-                    {s.desc}
-                  </p>
+                  </span>
+                  <span className="text-[13px] text-zinc-400">{s.desc}</span>
+                  <span className="ml-auto text-[12px] font-semibold text-zinc-400">
+                    {s.meta}
+                  </span>
                 </div>
               )}
             </li>

@@ -48,6 +48,21 @@ async function loadCanned(key: string): Promise<string | null> {
 /** 스트리밍 중 json 블록을 화면에 노출하지 않기 위해 펜스 앞부분만 남긴다. */
 const visibleText = (s: string) => s.split("```")[0]!.replace(/`{1,2}$/, "");
 
+/**
+ * 리포트 본문에 흩어진 "(예상 절감: 주당 약 N시간)" 을 합산한다.
+ * 항목별로 3~5시간씩 적혀 있어도 읽는 사람은 총합을 계산하지 않는다.
+ * 합계를 크게 보여주는 것이 이 체험의 설득력 대부분을 만든다.
+ */
+function totalWeeklyHours(md: string): number {
+  return [...md.matchAll(/주당\s*약?\s*(\d+(?:\.\d+)?)\s*시간/g)].reduce(
+    (sum, m) => sum + Number(m[1]),
+    0,
+  );
+}
+
+/** 주당 시간 → 연간 환산. 연 48주 근무(휴가·공휴일 제외) 기준의 보수적 추정 */
+const WORK_WEEKS = 48;
+
 /** 응답 끝의 ```json {"courses":[...]}``` 블록을 파싱해 추천 카드 데이터로 변환. 실패 시 빈 배열. */
 function extractRecos(full: string, courses: ReportCourse[]): Reco[] {
   const m = full.match(/```json\s*([\s\S]*?)```/);
@@ -191,6 +206,8 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
   }
 
   // ── 생성 중 + 결과 화면 ──
+  const savedHours = totalWeeklyHours(report);
+
   return (
     <div className="anim-page-fade-up mt-12">
       <div
@@ -213,6 +230,46 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
           </ReactMarkdown>
         </div>
       </div>
+
+      {/* 본문에 흩어진 절감 시간을 합쳐 한 번에 보여준다 — 이 체험의 결론에 해당한다 */}
+      {phase === "done" && savedHours > 0 && (
+        <div className="anim-page-fade-up mt-6 overflow-hidden rounded-2xl bg-ink text-white">
+          <div className="px-7 py-6">
+            <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-white/50">
+              AI로 되찾는 시간
+            </p>
+            <p className="mt-3 text-[15px] text-white/70">
+              위 3가지만 적용해도
+            </p>
+            <p className="mt-1 flex flex-wrap items-baseline gap-x-2">
+              <span className="text-[44px] font-extrabold leading-none tracking-[-0.03em]">
+                주당 {savedHours}시간
+              </span>
+              <span className="text-[17px] font-semibold text-white/70">
+                을 아낍니다
+              </span>
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-5">
+              <div>
+                <p className="text-[12px] text-white/50">연간 환산</p>
+                <p className="mt-0.5 text-[19px] font-bold">
+                  {(savedHours * WORK_WEEKS).toLocaleString()}시간
+                </p>
+              </div>
+              <div>
+                <p className="text-[12px] text-white/50">근무일로 치면</p>
+                <p className="mt-0.5 text-[19px] font-bold">
+                  약 {Math.round((savedHours * WORK_WEEKS) / 8)}일
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-[12px] leading-[1.6] text-white/40">
+              리포트에 적힌 항목별 예상 절감 시간을 합산한 값입니다 · 연 {WORK_WEEKS}주
+              근무 기준
+            </p>
+          </div>
+        </div>
+      )}
 
       {phase === "error" && (
         <p className="mt-4 text-[14px] font-semibold text-red-600">{error}</p>

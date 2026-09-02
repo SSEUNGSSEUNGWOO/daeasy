@@ -7,13 +7,13 @@ import { MobileNav } from "./mobile-nav";
 import { TopStrip } from "./top-strip";
 
 const NAV_ITEMS = [
-  { href: "/about", label: "데이지란?" },
   { href: "/ai-champion", label: "AI챔피언" },
   { href: "/quiz", label: "AI체험" },
   { href: "/courses", label: "교육과정" },
-  { href: "/rentals", label: "강의실 대관" },
   { href: "/cases", label: "교육후기" },
   { href: "/insights", label: "인사이트" },
+  { href: "/rentals", label: "강의실 대관" },
+  { href: "/about", label: "데이지란?" },
   { href: "/support", label: "고객센터" },
 ];
 

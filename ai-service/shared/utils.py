@@ -1,8 +1,52 @@
 import hashlib
+import os
 import re
 import time
 import requests
 from datetime import datetime, timezone
+
+# 외부 이미지 복사본 저장 버킷 (public read)
+STORAGE_BUCKET = "insight-images"
+_MIRROR_EXTS = {
+    "image/jpeg": ".jpg",
+    "image/png": ".png",
+    "image/webp": ".webp",
+    "image/gif": ".gif",
+    "image/avif": ".avif",
+}
+
+
+def mirror_image_to_storage(img_url: str, timeout: int = 15) -> str | None:
+    """외부 이미지를 Supabase Storage 에 복사하고 공개 URL 반환.
+    원본 사이트가 이미지를 내리거나 핫링크를 막아도 본문이 깨지지 않게 발행 시점에 복사한다.
+    실패 시 None — 호출부는 원본 URL 로 폴백 (이미지는 부가 요소라 fail-open)."""
+    base = os.getenv("SUPABASE_URL", "").rstrip("/")
+    key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+    if not base or not key:
+        return None
+    try:
+        resp = requests.get(img_url, timeout=timeout, headers={"User-Agent": "Mozilla/5.0"})
+        resp.raise_for_status()
+    except Exception:
+        return None
+    ctype = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
+    ext = _MIRROR_EXTS.get(ctype)
+    if not ext:
+        return None
+
+    name = compute_hash(img_url) + ext  # URL 기준 결정적 이름 → 재실행 시 같은 파일에 upsert
+    try:
+        up = requests.post(
+            f"{base}/storage/v1/object/{STORAGE_BUCKET}/{name}",
+            data=resp.content,
+            headers={"Authorization": f"Bearer {key}", "Content-Type": ctype, "x-upsert": "true"},
+            timeout=timeout,
+        )
+        up.raise_for_status()
+    except Exception as e:
+        print(f"[mirror] 업로드 실패 ({img_url[:60]}): {e}")
+        return None
+    return f"{base}/storage/v1/object/public/{STORAGE_BUCKET}/{name}"
 
 
 def compute_hash(url: str) -> str:

@@ -4,10 +4,14 @@ import shutil
 import subprocess
 from urllib.parse import urljoin, urlparse
 
-from shared.utils import fetch_og_image, fetch_unsplash_image
+from shared.utils import fetch_og_image, fetch_unsplash_image, mirror_image_to_storage
 
 # og:image가 항상 로고/플레이스홀더인 도메인 (의미 있는 이미지 추출 불가)
 EXCLUDE_DOMAINS = {"arxiv.org"}
+
+# 번호 항목("1. ### 소제목") 시작 줄. 첫 파트는 앞에 태그 주석·제목·"## 핵심 인사이트"가
+# 붙어 있으므로 파트 맨 앞이 아니라 파트 안 어디서든 찾아야 한다.
+ITEM_START = re.compile(r'(?m)^\d+\.\s')
 
 
 def _extract_unsplash_query(draft: str) -> str:
@@ -78,7 +82,8 @@ def insert_section_images(draft: str, item_urls: set[str], skip_first_n: int = 0
 
     new_parts = []
     for part in parts:
-        if not re.search(r'^\d+\.', part.strip()):
+        item_start = ITEM_START.search(part)
+        if not item_start:
             new_parts.append(part)
             continue
 
@@ -92,8 +97,11 @@ def insert_section_images(draft: str, item_urls: set[str], skip_first_n: int = 0
                 continue
             img = _resolve_image(url, fetch_og_image(url))
             if img:
+                # 원본 삭제·핫링크 차단 대비 우리 Storage 로 복사. 실패 시 원본 URL 그대로
+                img = mirror_image_to_storage(img) or img
                 seen_urls.add(url)
-                part = f"![source-image]({img})\n\n" + part.lstrip()
+                i = item_start.start()
+                part = part[:i] + f"![source-image]({img})\n\n" + part[i:]
                 break
 
         new_parts.append(part)
@@ -126,3 +134,25 @@ def run(draft: str, items: list[dict], section_skip: int = 0) -> tuple[str, str 
             print(f"[image_agent] 커버 이미지 획득: {cover_image[:60]}...")
 
     return draft, cover_image, cover_query
+
+
+if __name__ == "__main__":
+    # 자체 체크: 항목 N개면 이미지도 N개, 각각 자기 번호 줄 바로 위에 붙어야 한다.
+    # (과거엔 첫 파트에 문서 헤더가 붙어 있어 1번 항목이 통째로 스킵됐다)
+    fetch_og_image = lambda url: f"https://img.test/{urlparse(url).path.strip('/')}.jpg"  # noqa: E731
+    mirror_image_to_storage = lambda url: None  # noqa: E731 — 네트워크 없이 원본 폴백 경로 검증
+
+    urls = [f"https://ex.com/{n}" for n in range(1, 6)]
+    draft = "<!-- tags: a, b -->\n\n# 헤드라인\n\n## 핵심 인사이트\n\n" + "\n---\n".join(
+        f"{n}. ### 소제목 {n}\n\n   본문\n\n   [출처]({u})\n" for n, u in enumerate(urls, 1)
+    )
+
+    out = insert_section_images(draft, set(urls))
+    lines = [ln for ln in out.splitlines() if ln.startswith("![source-image]") or ITEM_START.match(ln)]
+
+    assert len(lines) == 10, f"항목 5 + 이미지 5 = 10줄이어야 함, 실제 {len(lines)}"
+    for n in range(5):
+        img, item = lines[2 * n], lines[2 * n + 1]
+        assert img == f"![source-image](https://img.test/{n + 1}.jpg)", f"{n + 1}번 이미지 불일치: {img}"
+        assert item.startswith(f"{n + 1}. "), f"{n + 1}번 항목이 이미지 바로 뒤에 없음: {item}"
+    print("self-check OK: 5개 항목 모두 자기 이미지를 바로 위에 가짐")

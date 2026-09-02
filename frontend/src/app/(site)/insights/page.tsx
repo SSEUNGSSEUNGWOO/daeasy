@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import { InsightCoverFallback } from "@/components/insight-cover-fallback";
-import { RevealList } from "@/components/reveal";
+import { PaginatedList } from "@/components/paginated-list";
 import { fetchInsights, type InsightSummary } from "@/lib/insights";
 
 export const metadata = { title: "인사이트" };
@@ -38,13 +38,13 @@ export default async function InsightsPage() {
       {insights.length === 0 ? (
         <EmptyState />
       ) : (
-        <RevealList className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <PaginatedList pageSize={10} className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
           {insights.map((insight) => (
             <li key={insight.slug}>
               <InsightCard insight={insight} />
             </li>
           ))}
-        </RevealList>
+        </PaginatedList>
       )}
     </section>
   );

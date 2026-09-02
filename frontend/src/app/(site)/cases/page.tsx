@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-import { RevealList } from "@/components/reveal";
+import { PaginatedList } from "@/components/paginated-list";
 import { fetchCases } from "@/lib/cases";
 
 // 어드민에서 발행한 후기가 재배포 없이 반영되도록
@@ -50,7 +50,7 @@ export default async function CasesPage() {
               곧 첫 후기가 등록됩니다.
             </p>
           ) : (
-            <RevealList className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <PaginatedList pageSize={9} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {cases.map((c) => (
                 <li key={c.slug}>
                   <Link
@@ -95,7 +95,7 @@ export default async function CasesPage() {
                   </Link>
                 </li>
               ))}
-            </RevealList>
+            </PaginatedList>
           )}
         </div>
       </section>

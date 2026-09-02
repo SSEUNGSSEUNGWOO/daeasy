@@ -9,24 +9,34 @@ export type CaseSummary = {
   client_name: string | null;
   conducted_at: string | null;
   thumbnail_url: string | null;
+  view_count: number;
+  like_count: number;
 };
 
-export type CaseDetail = CaseSummary & {
+// 상세는 좋아요 수를 fetchCaseLikeCount 로 따로 조회한다
+export type CaseDetail = Omit<CaseSummary, "like_count"> & {
   description: string;
-  view_count: number;
 };
 
 const LIST_COLUMNS =
-  "slug,title,summary,client_name,conducted_at,thumbnail_url";
-const DETAIL_COLUMNS = `${LIST_COLUMNS},description,view_count`;
+  "slug,title,summary,client_name,conducted_at,thumbnail_url,view_count";
+const DETAIL_COLUMNS = `${LIST_COLUMNS},description`;
 
 export async function fetchCases(): Promise<CaseSummary[]> {
-  const { data, error } = await supabase
-    .from("cases")
-    .select(LIST_COLUMNS)
-    .eq("status", "published")
-    .order("conducted_at", { ascending: false });
+  const [{ data, error }, likesRes] = await Promise.all([
+    supabase
+      .from("cases")
+      .select(LIST_COLUMNS)
+      .eq("status", "published")
+      .order("conducted_at", { ascending: false }),
+    supabase.from("case_likes").select("slug"),
+  ]);
   if (error) throw new Error(`Failed to fetch cases: ${error.message}`);
+
+  const counts = new Map<string, number>();
+  for (const row of (likesRes.data ?? []) as { slug: string }[]) {
+    counts.set(row.slug, (counts.get(row.slug) ?? 0) + 1);
+  }
 
   return (data ?? []).map((row) => ({
     slug: row.slug as string,
@@ -35,6 +45,8 @@ export async function fetchCases(): Promise<CaseSummary[]> {
     client_name: (row.client_name as string | null) ?? null,
     conducted_at: (row.conducted_at as string | null) ?? null,
     thumbnail_url: (row.thumbnail_url as string | null) ?? null,
+    view_count: (row.view_count as number) ?? 0,
+    like_count: counts.get(row.slug as string) ?? 0,
   }));
 }
 

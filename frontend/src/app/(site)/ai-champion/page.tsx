@@ -60,6 +60,18 @@ export default function AiChampionPage() {
     <>
       <section className="relative isolate overflow-hidden bg-ink-warm text-white">
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(37,99,235,0.3),transparent_38%)]" />
+        {/* 3단계 등급 비주얼 — 가장자리가 투명하게 페이드된 이미지라 배경색과 섞인다.
+            xl 미만에서는 헤드라인이 줄바꿈되며 텍스트와 겹치므로 숨긴다 */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 hidden xl:block">
+          <div className="relative mx-auto h-full max-w-[1280px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/ai-champion/hero-tiers.webp"
+              alt=""
+              className="absolute -bottom-16 -right-16 w-[560px] opacity-90"
+            />
+          </div>
+        </div>
         <div className="mx-auto max-w-[1280px] px-6 py-24 lg:px-10 lg:py-32">
           <p className="anim-page-fade-up text-[13px] font-bold uppercase tracking-[0.2em] text-blue-300">공공 AI 인재</p>
           <h1 className="mt-5 max-w-5xl text-[44px] font-extrabold leading-[1.06] tracking-[-0.03em] sm:text-[60px] lg:text-[72px]">

@@ -68,6 +68,14 @@ export function TrackPanels() {
               onFocus={() => setActive(index)}
               className="w-full p-7 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:p-8"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/ai-champion/emblem-${track.name.toLowerCase()}.webp`}
+                alt=""
+                width={320}
+                height={320}
+                className="mb-6 h-20 w-20 rounded-2xl ring-1 ring-black/5"
+              />
               <div className="flex items-center justify-between gap-4">
                 <p className="flex items-center gap-2.5 text-[26px] font-extrabold tracking-[-0.02em]">
                   <span aria-hidden className={`h-2.5 w-2.5 shrink-0 rounded-full ${track.dot} ${inverted ? "ring-1 ring-white/40" : ""}`} />

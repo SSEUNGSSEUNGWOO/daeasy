@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // 성격(공공부문 교육·인증)을 함께 넣어야 검색 결과에서 무엇인지 바로 읽힌다
   title: "AI 챔피언 교육 — 행정안전부 공공부문 AI 인재 양성·인증",
   description:
-    "행정안전부·NIA 공공부문 AI 챔피언 프로그램 운영사 데이지(DAEASY). Green·Blue·Black 3단계 인증 체계와 교육 과정, 실제 운영 사례를 확인하세요.",
+    "행정안전부·NIA 공공부문 AI 챔피언 프로그램 운영사 데이지(DAEASY). 공무원·공공기관 임직원 대상 Green·Blue·Black 3단계 인증 체계와 교육 과정, 실제 운영 사례를 확인하세요.",
   keywords: [
     "AI 챔피언",
     "AI 챔피언 교육",
@@ -48,12 +48,6 @@ const assessmentAreas = [
   },
 ] as const;
 
-const certificationRoutes = [
-  ["교육과정형", "종합과정에 참여한 뒤 수행평가를 통해 인증받습니다."],
-  ["자기주도형", "공개 학습자료로 준비하고 종합과정 없이 수행평가에 참여합니다."],
-  ["자격연계형", "지정 자격증과 교육과목 이수 요건을 결합해 Blue 인증을 취득합니다."],
-] as const;
-
 const operationScopes = [
   ["역량체계 설계", "역량진단 모델과 평가 지표 개발"],
   ["교육 운영", "종합과정 운영과 학습·과제 지원"],
@@ -80,8 +74,9 @@ export default function AiChampionPage() {
             className="anim-page-fade-up mt-8 max-w-3xl text-[17px] leading-[1.8] text-zinc-300 sm:text-[19px]"
             style={{ animationDelay: "380ms" }}
           >
-            AI 챔피언은 공공행정 분야의 현업 문제를 AI와 데이터로 해결하고,
-            기관의 변화를 주도할 실무 인재를 양성·인증하는 제도입니다.
+            AI 챔피언은 <strong className="font-bold text-white">공무원과 공공기관 임직원을 대상으로</strong>,
+            공공행정 현업 문제를 AI와 데이터로 해결하고 기관의 변화를 주도할
+            실무 인재를 양성·인증하는 제도입니다.
           </p>
           <div className="mt-10 flex flex-wrap gap-3" aria-label="AI 챔피언 인증 등급">
             {heroTracks.map(([name, role, dot], index) => (
@@ -147,28 +142,7 @@ export default function AiChampionPage() {
         </div>
       </section>
 
-      <section className="border-y border-zinc-100 bg-zinc-50/70">
-        <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
-          <div className="max-w-3xl">
-            <h2 className="text-[34px] font-extrabold leading-[1.12] tracking-[-0.025em] text-ink sm:text-[46px]">
-              인증까지 가는 길은 세 갈래입니다.
-            </h2>
-            <p className="mt-5 text-[16px] leading-[1.8] text-zinc-600">
-              지금의 역량과 상황에 맞는 경로를 고르면 됩니다.
-            </p>
-          </div>
-          <div className="mt-12 divide-y divide-zinc-200 border-y border-zinc-200">
-            {certificationRoutes.map(([title, body]) => (
-              <div key={title} className="grid gap-2 py-7 sm:grid-cols-[240px_1fr] sm:items-baseline sm:gap-10 sm:py-8">
-                <h3 className="text-[19px] font-bold text-ink">{title}</h3>
-                <p className="text-[15px] leading-[1.75] text-zinc-600">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
+      <section className="border-t border-zinc-100 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28 reveal">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>

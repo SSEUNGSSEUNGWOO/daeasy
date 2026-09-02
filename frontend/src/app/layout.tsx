@@ -24,7 +24,7 @@ const ORGANIZATION_LD = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo/daeasy-symbol-mark.png`,
   description:
-    "행정안전부 공공부문 AI 챔피언 프로그램을 운영하는 AI·데이터 교육 전문 브랜드",
+    "기업·공공기관 대상 AI·데이터 교육 전문 브랜드. 행정안전부 AI 챔피언 프로그램 공식 운영",
   email: CONTACT_EMAIL,
   telephone: CONTACT_PHONE,
   address: {
@@ -63,11 +63,11 @@ export const metadata: Metadata = {
   // metadataBase + 자기 경로로 해석되므로, 어느 도메인으로 들어와도 정규 URL 하나를 가리킨다.
   alternates: { canonical: "./" },
   title: {
-    default: "DAEASY(데이지) — 행정안전부 AI 챔피언 운영·AI 데이터 교육",
+    default: "DAEASY(데이지) — 기업·공공기관 AI 데이터 교육 · 행정안전부 AI 챔피언 운영",
     template: "%s | DAEASY(데이지)",
   },
   description:
-    "케이브레인컴퍼니가 만든 AI·데이터 교육 전문 브랜드 데이지입니다. 행정안전부 공공부문 AI 챔피언 프로그램 운영과 기업·기관 대상 실무 교육을 제공합니다.",
+    "케이브레인컴퍼니가 만든 AI·데이터 교육 전문 브랜드 데이지입니다. 기업·공공기관 대상 실무 교육을 제공하며, 행정안전부 AI 챔피언 프로그램을 공식 운영합니다.",
   openGraph: {
     siteName: "DAEASY(데이지)",
     locale: "ko_KR",

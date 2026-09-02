@@ -82,18 +82,36 @@ export function SceneAiChampion() {
             scrollTrigger: { trigger: scope.current, start: "top 78%", once: true },
           },
         );
-        gsap.fromTo(
-          ".champ-step",
-          { autoAlpha: 0, y: 24 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.55,
-            stagger: 0.16,
-            ease: "power2.out",
-            scrollTrigger: { trigger: ".champ-steps", start: "top 82%", once: true },
-          },
+        // 여정 드로잉 — 진행선이 왼쪽부터 그려지고, 선단이 지나는 지점의
+        // 점·카드가 순서대로 켜진다. 선은 ease 없이 등속으로 그려야
+        // 점 위치(12.5% + 25%*i)와 카드 타이밍이 맞아떨어진다.
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: ".champ-steps", start: "top 82%", once: true },
+        });
+        tl.fromTo(
+          ".champ-line",
+          { scaleX: 0 },
+          { scaleX: 1, duration: 1.12, ease: "none" },
+          0,
         );
+        const dots = gsap.utils.toArray<Element>(".champ-dot");
+        gsap.utils.toArray<Element>(".champ-step").forEach((el, i) => {
+          const at = 1.12 * (0.125 + 0.25 * i) - 0.08; // 선단이 점을 지나는 순간
+          tl.fromTo(
+            el,
+            { autoAlpha: 0, y: 24 },
+            { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" },
+            at,
+          );
+          if (dots[i]) {
+            tl.fromTo(
+              dots[i],
+              { scale: 0 },
+              { scale: 1, duration: 0.3, ease: "back.out(2.5)" },
+              at,
+            );
+          }
+        });
       });
 
       return () => mm.revert();
@@ -128,24 +146,27 @@ export function SceneAiChampion() {
           </Link>
         </div>
 
-        {/* 여정 카드 4장. 카드 사이 화살표는 lg 에서만 — 접힌 폭에서는
+        {/* 여정 진행선 — lg 에서만. 스크롤 진입 시 왼쪽부터 그려지고
+            점 4개가 각 카드 열 중앙에서 순서대로 켜진다. 접힌 폭에서는
             카드 안 번호가 순서를 대신한다. */}
-        <ol className="champ-steps mt-14 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+        <div aria-hidden className="relative mx-0 mt-16 hidden h-2 lg:block">
+          <div className="absolute inset-x-0 top-1/2 h-px bg-white/10" />
+          <div className="champ-line absolute inset-x-0 top-1/2 h-px origin-left bg-blue-400/60" />
+          {JOURNEY_STEPS.map((step, i) => (
+            <span
+              key={step.title}
+              className="champ-dot absolute top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-400"
+              style={{ left: `${12.5 + i * 25}%` }}
+            />
+          ))}
+        </div>
+
+        {/* 여정 카드 4장 */}
+        <ol className="champ-steps mt-14 grid gap-6 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4">
           {JOURNEY_STEPS.map((step, index) => {
             const highlight = "highlight" in step && step.highlight;
             return (
               <li key={step.title} className="champ-step relative">
-                {/* 카드 → 다음 카드 화살표. 아이콘 행 높이에 맞춰 띄운다. */}
-                {index < JOURNEY_STEPS.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="absolute -right-[1.15rem] top-[38px] hidden text-zinc-600 lg:block"
-                  >
-                    <svg viewBox="0 0 16 16" className="h-4 w-4 fill-none stroke-current stroke-[2]">
-                      <path d="m6 3.5 5 4.5-5 4.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                )}
                 <div
                   className={`flex h-full flex-col rounded-2xl p-6 ring-1 backdrop-blur-sm transition-colors duration-300 motion-reduce:transition-none ${
                     highlight

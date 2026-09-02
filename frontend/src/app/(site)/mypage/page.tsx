@@ -6,7 +6,7 @@ import { getCurrentCustomer } from "@/lib/customer-auth";
 import { CONTACT_EMAIL } from "@/lib/site";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
-import { NewsletterToggle, PasswordForm, ProfileForm } from "./account-settings";
+import { NewsletterToggle, PasswordForm, ProfileForm, WithdrawSection } from "./account-settings";
 
 export const metadata = { title: "내 정보" };
 export const dynamic = "force-dynamic";
@@ -219,6 +219,9 @@ export default async function MyPage() {
           ))}
         </ul>
       )}
+
+      <h2 className="mt-16 text-2xl font-semibold tracking-tight">계정 삭제</h2>
+      <WithdrawSection />
     </section>
   );
 }

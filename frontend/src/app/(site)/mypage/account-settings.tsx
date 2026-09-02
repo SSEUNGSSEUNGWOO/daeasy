@@ -154,6 +154,78 @@ export function PasswordForm() {
   );
 }
 
+export function WithdrawSection() {
+  const router = useRouter();
+  const [confirmed, setConfirmed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<Feedback>(null);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    setSubmitting(true);
+    setFeedback(null);
+    try {
+      const res = await fetch("/api/auth/withdraw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: form.get("password") }),
+      });
+      const body = (await res.json().catch(() => ({}))) as { detail?: string };
+      if (!res.ok) throw new Error(body.detail ?? "탈퇴에 실패했습니다.");
+      router.push("/");
+      router.refresh();
+    } catch (err) {
+      setFeedback({ type: "error", text: err instanceof Error ? err.message : "알 수 없는 오류" });
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="mt-6 rounded-md border border-red-200 bg-red-50/50 p-5"
+    >
+      <p className="text-[14px] font-bold text-red-800">회원 탈퇴</p>
+      <p className="mt-2 text-[13px] leading-[1.7] text-zinc-600">
+        탈퇴하면 계정과 프로필, 뉴스레터 구독 정보가 즉시 삭제되며 되돌릴 수 없습니다.
+        접수하신 문의 기록은 분쟁 처리를 위해 계정 연결 없이 보존됩니다.
+        같은 이메일로 다시 가입할 수 있습니다.
+      </p>
+      <label className="mt-4 flex items-start gap-2.5 text-[13px] leading-[1.6] text-zinc-700">
+        <input
+          type="checkbox"
+          checked={confirmed}
+          onChange={(e) => setConfirmed(e.target.checked)}
+          className="mt-0.5 h-4 w-4 accent-red-600"
+        />
+        위 내용을 확인했으며 탈퇴에 동의합니다.
+      </label>
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <input
+          name="password"
+          type="password"
+          autoComplete="current-password"
+          required
+          placeholder="비밀번호 확인"
+          disabled={submitting}
+          className="w-full rounded-md border border-zinc-200 bg-white px-4 py-2.5 text-[14px] focus:border-red-400 focus:outline-none sm:max-w-[240px]"
+        />
+        <button
+          type="submit"
+          disabled={!confirmed || submitting}
+          className="rounded-md bg-red-600 px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-red-700 disabled:bg-zinc-300"
+        >
+          {submitting ? "처리 중..." : "탈퇴하기"}
+        </button>
+      </div>
+      <div className="mt-3">
+        <FeedbackLine feedback={feedback} />
+      </div>
+    </form>
+  );
+}
+
 export function NewsletterToggle({ initialSubscribed }: { initialSubscribed: boolean }) {
   const [subscribed, setSubscribed] = useState(initialSubscribed);
   const [submitting, setSubmitting] = useState(false);

@@ -52,20 +52,35 @@ export default async function CourseDetailPage(
             <span className="mx-2 text-zinc-300">/</span>
             <span className="text-zinc-800">{clean}</span>
           </nav>
-          <div className="mt-8 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-accent/10 px-3 py-1 text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
-              {track}
-            </span>
-            <span className="rounded-full bg-zinc-100 px-3 py-1 text-[12px] font-bold uppercase tracking-[0.12em] text-zinc-600">
-              {level}
-            </span>
+          {/* 목록 카드에서 본 썸네일을 상세에서도 이어 보여준다 — 없으면 텍스트만 */}
+          <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+            <div className={course.thumbnail_url ? "lg:col-span-7" : "lg:col-span-12"}>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-accent/10 px-3 py-1 text-[12px] font-bold uppercase tracking-[0.12em] text-accent">
+                  {track}
+                </span>
+                <span className="rounded-full bg-zinc-100 px-3 py-1 text-[12px] font-bold uppercase tracking-[0.12em] text-zinc-600">
+                  {level}
+                </span>
+              </div>
+              <h1 className="mt-6 text-[36px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[48px] lg:text-[56px]">
+                {clean}
+              </h1>
+              <p className="mt-7 max-w-3xl text-[18px] leading-[1.75] text-zinc-700">
+                {course.summary}
+              </p>
+            </div>
+            {course.thumbnail_url ? (
+              <div className="overflow-hidden rounded-2xl ring-1 ring-zinc-100 lg:col-span-5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={course.thumbnail_url}
+                  alt=""
+                  className="aspect-[16/9] w-full object-cover"
+                />
+              </div>
+            ) : null}
           </div>
-          <h1 className="mt-6 text-[36px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[48px] lg:text-[56px]">
-            {clean}
-          </h1>
-          <p className="mt-7 max-w-3xl text-[18px] leading-[1.75] text-zinc-700">
-            {course.summary}
-          </p>
         </div>
       </section>
 

@@ -70,6 +70,23 @@ export default async function ContactPage({
                   <span>{OFFICE_HOURS}</span>
                 </div>
               </div>
+              {/* 폼만 있으면 차갑다 — 교육 현장 사진(후기 페이지와 공유) + 약속 한 줄 */}
+              <figure className="relative mt-10 overflow-hidden rounded-2xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/reviews/public-genai-2026-h1-02.jpg"
+                  alt="생성형 AI 실습 교육 현장"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent px-6 pb-5 pt-14 text-white">
+                  <p className="text-[12px] font-bold uppercase tracking-[0.16em] text-blue-200">
+                    문의 후 일주일
+                  </p>
+                  <p className="mt-1 text-[17px] font-bold leading-[1.4]">
+                    사전 인터뷰를 거쳐 조직에 맞춘 커리큘럼 제안서를 보내드립니다.
+                  </p>
+                </figcaption>
+              </figure>
             </div>
             <ContactForm courses={courseOptions} defaultCourseSlug={defaultCourseSlug} />
           </div>

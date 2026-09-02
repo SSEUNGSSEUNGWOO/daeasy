@@ -1,0 +1,268 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Qwen/Qwen3.8-Flash-Next",
+    "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 4634
+    },
+    "item_hash": "eb79656c925ccbff"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "zai-org/GLM-5.3-Flash",
+    "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1878
+    },
+    "item_hash": "5302786105ea2e93"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "zai-org/GLM-5.3",
+    "url": "https://huggingface.co/zai-org/GLM-5.3",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1466
+    },
+    "item_hash": "4424584ee706d4b4"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Qwen/Qwen3.8-27B",
+    "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 13581
+    },
+    "item_hash": "ca26bca182f697df"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/Qwen3.8-Flash-Next-GGUF",
+    "url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 667
+    },
+    "item_hash": "1549a63baf38e744"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 447
+    },
+    "item_hash": "20c9f9de702fe722"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "tencent/Hy4-preview",
+    "url": "https://huggingface.co/tencent/Hy4-preview",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 382
+    },
+    "item_hash": "87553218d4be0ba9"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/Qwen3.8-27B-GGUF",
+    "url": "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 3333
+    },
+    "item_hash": "bb6e58f548947f8d"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Lightricks/LTX-2.5",
+    "url": "https://huggingface.co/Lightricks/LTX-2.5",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 2460
+    },
+    "item_hash": "92c1824269f45469"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "unsloth/GLM-5.3-Flash-GGUF",
+    "url": "https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 326
+    },
+    "item_hash": "fe8cee02dd348c02"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "BreezeBlue/Breeze-TTS-2",
+    "url": "https://huggingface.co/BreezeBlue/Breeze-TTS-2",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 306
+    },
+    "item_hash": "3c97c389c32d00df"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
+    "url": "https://huggingface.co/FastVideo/FastVideo-FastH3-4-step-Preview-v1-VSA-DataFree",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 233
+    },
+    "item_hash": "d810a7f795612911"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+    "url": "https://huggingface.co/OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1000
+    },
+    "item_hash": "607c6d607948697e"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "google/timesfm-3.0-pytorch",
+    "url": "https://huggingface.co/google/timesfm-3.0-pytorch",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 211
+    },
+    "item_hash": "3d72f61333f55bdf"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "pipecat-ai/phonellm-alpha-1",
+    "url": "https://huggingface.co/pipecat-ai/phonellm-alpha-1",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 185
+    },
+    "item_hash": "9621eb6753328304"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
+    "url": "https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 836
+    },
+    "item_hash": "0f13731b0e37d531"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Qwen/Qwen3.8-Flash-Next-FP8",
+    "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next-FP8",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 178
+    },
+    "item_hash": "611ad27beb84f451"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "alibaba-pai/MiniMax-H3-Acc-LoRAs",
+    "url": "https://huggingface.co/alibaba-pai/MiniMax-H3-Acc-LoRAs",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 176
+    },
+    "item_hash": "117a064940ebdc92"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "thomsonreuters/Thomson-1.0-Small",
+    "url": "https://huggingface.co/thomsonreuters/Thomson-1.0-Small",
+    "content": "",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 181
+    },
+    "item_hash": "1843722a74a46dcc"
+  }
+]

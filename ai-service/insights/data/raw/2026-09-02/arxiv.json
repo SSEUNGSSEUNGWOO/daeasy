@@ -1,0 +1,535 @@
+[
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Agentic research is oxymoronic",
+    "url": "https://arxiv.org/abs/2608.31161",
+    "content": "The use of agentic large language models obviates human interpretation of scientific results, and will lead to substantial distrust in the literature.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Natalie B. Hogg"
+      ]
+    },
+    "item_hash": "5323638e7dd31fed"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "OntoAligner-Ensemble: Voting-Based Fusion across Heterogeneous Ontology Alignment Techniques",
+    "url": "https://arxiv.org/abs/2608.31137",
+    "content": "Ontology alignment (OA) has evolved through several methodological paradigms, ranging from lexical and structural aligners to knowledge graph embedding (KGE) models and, more recently, Large Language Model (LLM)-based approaches. Although modern OA frameworks provide unified ecosystems for deploying these heterogeneous aligners, mechanisms for systematically reconciling their complementary and sometimes conflicting predictions remain relatively underexplored. We present OntoAligner-Ensemble, a modular and aligner-agnostic framework that combines candidate correspondences through a configurable two-stage process comprising voting-based fusion strategies followed by post-fusion selection policies. The framework supports any aligner implemented within OntoAligner that produces candidate correspondences, enabling diverse alignment paradigms to be integrated through a unified decision process. To demonstrate its effectiveness, we instantiate the framework using representative lightweight string-aligner, KGE-based, and Retrieval-Augmented Generation aligners powered by both open-weight and API-based LLMs. We evaluate individual aligners and ensemble configurations across eight benchmark tasks from five OAEI tracks spanning biomedical to beyond-equivalence. The results show that ensemble fusion consistently improves the balance between precision and recall and frequently outperforms standalone aligners across diverse domains. Furthermore, our analysis reveals that ensemble composition directly affects the precision-recall trade-off: heterogeneous cross-paradigm ensembles generally improve precision, whereas homogeneous LLM ensembles more often achieve higher overall F1-scores. These findings demonstrate that systematic ensemble learning offers a robust and reproducible strategy for OA while providing practical guidance for selecting ensemble compositions under different alignment scenarios.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hamed Babaei Giglou",
+        "Sören Auer",
+        "Peio Popov",
+        "Mahsa Sanaei",
+        "Jennifer D'Souza"
+      ]
+    },
+    "item_hash": "abb124e6744739e7"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "DIASENTINEL: An Auditable Multi-Agent System for Guideline-Grounded Diabetes Risk Screening",
+    "url": "https://arxiv.org/abs/2608.31128",
+    "content": "Large language models (LLMs) offer promising clinical decision support but remain vulnerable to hallucinated facts, unsupported recommendations, and citation errors. We present DIASENTINEL, a fully on-premise multi-agent system for one-year type 2 diabetes mellitus (T2DM) risk screening and guideline-grounded report generation from electronic health records (EHRs). The system integrates calibrated risk prediction, deterministic clinical signal extraction, Reciprocal Rank Fusion over American Diabetes Association (ADA) guidelines, and a hybrid verification layer combining rule-based checks with LLM entailment. The demonstration provides a real-time batch-screening dashboard and an interactive patient report interface with cited recommendations, verification results, and raw EHR comparison. DIASENTINEL demonstrates a practical framework for reliable, auditable, and privacy-preserving LLM-based clinical decision support.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Yung Wei Shueh",
+        "Zhi-Jie Chen",
+        "Chia-Hsuan Hsu",
+        "Hsin-Ling Hsu",
+        "Donghua Zhang"
+      ]
+    },
+    "item_hash": "7ba335844120a81a"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "When Does Bigger Help? A Controlled Study of LLM Scale for Ontology Learning",
+    "url": "https://arxiv.org/abs/2608.31118",
+    "content": "The effect of Large Language Model (LLM) scale on ontology learning (OL) performance remains insufficiently characterized. We present a controlled evaluation of 13 models spanning dense and Mixture-of-Experts variants from the Qwen3.5 and Qwen3.6 lineages, together with proprietary GPT release variants, using the OntoLearner retrieval-augmented generation pipeline. All models are evaluated with the same embedding model, retrieval configuration, prompt templates, decoding settings, datasets, and metrics on term typing, taxonomy discovery, and non-taxonomic relationship extraction across four biomedical and materials science and engineering ontologies. Within the dense Qwen3.5 lineage, increasing parameter count primarily improves precision rather than recall, with the largest gains occurring between 9B and 27B parameters. However, the effect of scale is neither monotonic nor uniform across tasks and domains. Dense 27B models outperform substantially larger sparse models on term typing, whereas larger Mixture-of-Experts models achieve the strongest open-weight results on taxonomy discovery. Non-taxonomic relationship extraction remains difficult across model scales, particularly for the Materials Data Science ontology. Performance differences across matched Qwen variants and proprietary GPT releases further indicate that architecture and model lineage can outweigh nominal parameter count. These findings show that model size alone is an insufficient selection criterion for OL and provide empirical guidance for reproducible LLM-assisted ontology engineering.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hamed Babaei Giglou",
+        "Sören Auer",
+        "Jennifer D'Souza"
+      ]
+    },
+    "item_hash": "4bad3de269a722ae"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "InsightToast: Proactive Information Retrieval & Glanceable Visualization in the Side Channel of Data-Rich Meetings",
+    "url": "https://arxiv.org/abs/2608.31115",
+    "content": "Missing institutional context during meetings can impede effective participation. Retrieving relevant information, often scattered across heterogeneous internal and external sources, requires costly task-switching that disrupts both individual focus and collective conversational flow, particularly detrimental during cognitively demanding tasks such as decision-making. We introduce InsightToast, a mixed-initiative application that monitors verbal discourse in real time, identifies topics and informational needs as they emerge, and proactively retrieves relevant information through a multi-agent large language model (LLM)-based pipeline integrating retrieval-augmented generation (RAG) to produce source-grounded insights as succinct text and glanceable interactive charts, delivered through a peripheral interface as ephemeral toasts in the conversation's side channel. To demonstrate the potential for yielding serendipitous insights, we showcase a usage scenario involving a knowledge base of legislative documents as the meeting's context. We then report on a comparative study (N=16), in which participants arrived at informed policy decisions while maintaining natural conversation flow.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Mohammad Abolnejadian",
+        "Matthew Brehmer"
+      ]
+    },
+    "item_hash": "649d1cdcce6d9185"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "S3Gym: Can LLMs Turn Self-Testing and Self-Judging into Self-Improvement?",
+    "url": "https://arxiv.org/abs/2608.31100",
+    "content": "Large language models (LLMs) increasingly interact with external environments and accumulate substantial behavioral experience, yet existing agent benchmarks largely evaluate them as fixed policies. It therefore remains unclear whether an agent can actively test its behavior, judge the resulting experience, and use that experience to improve future decisions. We introduce \\textbf{S\\textsuperscript{3}Gym}, an interactive benchmark for evaluating LLM self-improvement through three coupled capabilities: \\textbf{Self-Testing}, \\textbf{Self-Judging}, and \\textbf{Self-Improvement}. S$^3$Gym separates permissive exploration from strict held-out evaluation and instantiates this protocol in seven text-based games with executable environment verifiers. We evaluate three pathways for incorporating interaction experience: direct History ICL, score-conditioned Summary Memory, and parameter Training.\n  Our experiments reveal that self-improvement is neither automatic nor uniform. Context-level experience improves performance for several model--game pairs, but the most effective pathway depends strongly on the task structure: summaries are beneficial when experience can be compressed into reusable strategic rules, yet often underperform raw history when success depends on precise, state-contingent information. Parameter training produces substantial gains on some tasks, but also exhibits unstable improvement and severe negative transfer on others. These findings show that recognizing successful actions is insufficient; agents must also transform feedback into executable and transferable policies. S$^3$Gym provides a unified framework for diagnosing this process and identifying the bottlenecks that prevent agents from translating interaction experience into reliable self-improvement.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jiajun Shi",
+        "Siyuan Tao",
+        "Yuhao Wu",
+        "Zexuan Wang",
+        "Jingyuan Zhang"
+      ]
+    },
+    "item_hash": "5115234ebf17feb0"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "A Model with No Head and Many Thoughts",
+    "url": "https://arxiv.org/abs/2608.31069",
+    "content": "Large language models decode by projecting hidden states through a large vocabulary head at every step. This operation is computationally costly and forces all reasoning to be expressed in discrete tokens. We introduce Soft Latent Thinking, a method that replaces the LM head during reasoning with a lightweight projector, enabling autoregressive rollout in embedding space where reasoning steps remain continuous rather than tokenized. Experiments on DeepSeek-Qwen-1.5B and LLaMA-3.2-3B show that Soft Latent Thinking consistently improves pass@k across all k while reducing per-step compute during chain-of-thought. Our method achieves the highest pass@32 among all soft-thinking approaches, demonstrating that effective reasoning can be carried out in continuous space without discrete token generation.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Nikita Koriagin",
+        "Yaroslav Aksenov",
+        "George Bredis",
+        "Gleb Gerasimov",
+        "Nikita Balagansky"
+      ]
+    },
+    "item_hash": "070af28ca10e8da9"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Wrong Prediction, Right Answer: Recovering Evidence from Collapsed LLM Sequence Scores",
+    "url": "https://arxiv.org/abs/2608.31068",
+    "content": "When a large language model fails a reasoning task, it is often assumed to lack the underlying capability. However, this conflates a genuine absence of reasoning with a late-stage output bottleneck. We observe a consistent readout gap across diverse reasoning benchmarks: hidden-state probes successfully decode correct answers even when native sequence scoring completely collapses due to structural biases. To test whether instance-specific logic survives this collapse, we introduce a diagnostic protocol using a minimal, target-label-free additive correction. Fitting just two parameters on as few as 25 unlabeled examples recovers 9--34 accuracy points for Qwen3.5 models, transferring successfully to OLMo-2-1B and Llama-3.1-8B. Crucially, these recovered decisions persist on hard instances unresolved by simple lexical overlap and significantly exceed count-preserving permutation baselines. Our results show that many apparent zero-shot reasoning deficits are expression failures masking intact internal logic, urging a narrower interpretation of benchmark evaluations.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Qiyao Yan",
+        "Chenpeng Wang",
+        "Liangming Pan"
+      ]
+    },
+    "item_hash": "b8b5041b52cacf18"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "XAI2CSI: Interpreting CSI with eXplainable AI for Human Activity Recognition",
+    "url": "https://arxiv.org/abs/2608.31034",
+    "content": "Wi-Fi Channel State Information (CSI) has emerged as a key enabler for device-free Human Activity Recognition (HAR), enabling low-cost, unobtrusive sensing using existing communication infrastructure. However, Deep Learning (DL) models trained on CSI data often struggle to generalize across users, environments, and device setups due to the context sensitivity of wireless propagation. Despite this challenge, limited attention has been devoted to understanding model decisions and generalization failures. This paper introduces XAI2CSI, a framework that leverages eXplainable Artificial Intelligence (XAI) to analyze DL-based CSI sensing systems. XAI2CSI employs SAGE, a model-agnostic explainability method, to quantify temporal, spectral, and spatial CSI contributions to HAR decisions under nominal and cross-context evaluations on IEEE 802.11ax data. Our analysis reveals that the considered DL model exhibits limited robustness to unseen conditions due to an over-reliance on context-specific CSI patterns, causing models to misinterpret the underlying signal dynamics when deployment conditions change. The proposed methodology and findings provide a reference framework to explore alternative solutions and guide the development of robust, transparent Wi-Fi sensing systems.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Idio Guarino",
+        "Alfredo Nascita",
+        "Domenico Ciuonzo",
+        "Damiano Carra",
+        "Antonio Pescapé"
+      ]
+    },
+    "item_hash": "78017987b1c32c58"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "From Prompt to Prototype: Towards a Frontier LLM Driven RF Engineering Workflow",
+    "url": "https://arxiv.org/abs/2608.31006",
+    "content": "Agentic coding environments give a frontier large language model (LLM) direct access to a workstation's terminal, file system, and software. This work demonstrates they extend to professional RF hardware design: an active GNSS L1-band antenna - a circularly polarized patch, surface acoustic wave (SAW) prefilter, and two-stage low-noise amplifier (LNA) on one printed circuit board (PCB) - was designed, optimized, and made manufacturing-ready. The LLM agent autonomously operated CST Studio Suite, Keysight ADS, and KiCad via scripting interfaces. Engineer input was limited to the specification, trade-off decisions, and design reviews. Workflow, results, and the RF engineer's evolving role are discussed.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Markus Heinrichs",
+        "Oscar Moschner",
+        "Simon Tewes",
+        "Volker Wienstroer",
+        "Aydin Sezgin"
+      ]
+    },
+    "item_hash": "4988579ed8b28595"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "A Human-in-the-Loop Autonomous Agent for Industry Time Series Forecasting",
+    "url": "https://arxiv.org/abs/2608.30976",
+    "content": "Real-world time-series forecasting is rarely a one-shot model invocation: practitioners must formulate tasks, connect data and models, incorporate domain expertise, assess prediction plausibility, and communicate uncertainty. Specialized forecasting models provide strong numerical predictions but usually operate in fixed pipelines, while general-purpose large language model (LLM) agents often lack forecasting-specific checks, constraints, and stopping rules. We present CastClaw, a human-in-the-loop autonomous forecasting system built through forecasting-oriented harness engineering. CastClaw connects data, specialized models, analytical tools, user input, and a versioned execution record in one runtime. Users specify the target, horizon, constraints, and hypotheses in natural language. Starting from a supplied or model-generated forecast, CastClaw checks temporal patterns and user constraints; when evidence is missing, it retrieves context, runs an analysis or another model, or asks the user. It then keeps, revises, or escalates the result under explicit stopping conditions. The output contains the final forecast and an execution report recording inputs, evidence, actions, and revisions. In this five-dataset electricity-price setting, CastClaw reports the lowest point-estimate MSE and MAE among 16 baselines. A Nord Pool case demonstrates the inspectable workflow. CastClaw was also validated offline on provincial electricity-load data from North China covering January--June 2026.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Xiaoyu Tao",
+        "Mingyue Cheng",
+        "Ze Guo",
+        "Bokai Pan",
+        "Qi Liu"
+      ]
+    },
+    "item_hash": "703596012a302395"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "A Universal Context-Reuse Layer for Cross-Model KV Sharing",
+    "url": "https://arxiv.org/abs/2608.30963",
+    "content": "Modern large language model (LLM) serving systems increasingly operate over repeated or shared context, yet each model typically performs its own prefill computation even when another model has already processed the same input. Existing KV-cache reuse mechanisms substantially reduce redundant computation within a single model, but generally assume that the producer and consumer of a cache are identical. We study \\emph{cross-model KV sharing}, which translates the KV state produced by a source model into a representation that can be consumed by a different target model, including models that differ in scale, architecture, attention configuration, tokenizer, and model family. We evaluate the approach in both within-family and cross-family settings. For Qwen2.5-7B $\\rightarrow$ Qwen2.5-1.5B, translated KV states improve LongBench2 accuracy from 27.59\\% to 34.48\\%, a gain of 6.89 percentage points over the native 1.5B baseline, while reducing handoff cost relative to native target prefill. For the cross-family Qwen2.5-1.5B $\\rightarrow$ Gemma-2-2B setting, KV handoff reduces target-side prefill cost by up to 67.05\\% at 4K context length while maintaining decoding perplexity close to native-model baselines. In a more heterogeneous Llama3.1-70B $\\rightarrow$ Qwen2.5-7B setting, cross-family handoff achieves 44.0\\% accuracy compared with 45.7\\% for native Qwen2.5-7B inference, while reducing measured latency from 899ms to 138ms. These results provide initial evidence that KV states can serve as transferable computational representations rather than strictly model-local caches, and motivate \\emph{context mobility} as a systems abstraction for reducing redundant prefill across heterogeneous LLM and multi-agent inference workflows.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Yi Li",
+        "Dongming Jiang",
+        "Yi Zhao",
+        "Bingzhe Li"
+      ]
+    },
+    "item_hash": "3c86b4a536043353"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Taking the Whys Seriously: Limitations of Counterfactual Explanations in Justification and Recourse",
+    "url": "https://arxiv.org/abs/2608.30956",
+    "content": "Counterfactual explanations (CEs) are widely used in explainable artificial intelligence (AI) to show how a model's outputs would change if the input features were manipulated. This technique is used for a range of tasks such as debugging models, explaining predictions, justifying decisions, and providing algorithmic recourse. In this paper, we explore the normative legitimacy of employing counterfactuals in real-life model deployment settings. We discuss the different stakes involved in these different purposes for which CEs are commonly employed, and find stricter requirements for justification and recourse. In particular, we find that naive application of CEs for justification and recourse can lead to ignoring contestable choices made throughout the machine learning (ML) pipeline, thus obfuscating that decisions and counterfactuals for those decisions are also artifacts of an organization's materialized design and governance choices. We demonstrate this with four empirical experiments involving interventions at stages of the ML pipeline ``upstream\" of the explanation itself, and show that these affect the generated counterfactuals. We find that an organization's choices on measurement models for feature and labels, business requirements, model validation, and the metric of model success have as much or more impact on the generated counterfactuals as the specifics of the generating method. Our findings underline the need to account for such choices upon providing justification and recourse, providing a stark reminder of the relational nature of these tasks. As putative justifications or recourse recommendations, CEs do not provide adequate answers to some important \"why\"-questions because they preclude consideration of whether the decision-maker ought to have acted differently.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Mattia Cerrato",
+        "Otto Sahlgren",
+        "Xenia Heilmann"
+      ]
+    },
+    "item_hash": "57f192a4bc824502"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Evidence, Logic, and Compliance: Multi-Agent Structured Graph Reasoning with Expert Arbitration for Medical Referral",
+    "url": "https://arxiv.org/abs/2608.30938",
+    "content": "Medical referral (directing patients to the appropriate hospital department) is a complex decision-making process requiring the synthesis of multimodal data, including patient narratives, laboratory indicators, and radiology imaging. While Large Language Models (LLMs) have advanced medical dialogue systems, they struggle with real-world referral tasks due to two primary limitations: (1) Information Overload, where models fixate on high-frequency disease terms while overlooking subtle but critical urgency indicators; and (2) Unstructured Collaboration, where existing multi-agent frameworks rely on loose dialogue that leads to semantic drift and confirmation bias. To address these challenges, we introduce MASGR (Multi-Agent Structured Graph Reasoning), a framework that treats referral not as a classification task but as a structured graph construction problem. MASGR deploys specialized agents to extract evidence from distinct modalities and coordinates them through a clinical reasoning graph. This graph forces agents to establish explicit logical connections between conflicting evidence. Furthermore, we integrate a knowledge-guided arbitration mechanism that prioritizes patient safety rules over standard diagnostic classification. Extensive experiments on real-world medical records demonstrate that MASGR significantly outperforms state-of-the-art LLMs and existing multi-agent systems, particularly in complex cases requiring the balancing of chronic disease management and emergency intervention. The AI contribution lies in the Multi-Agent Structured Graph Reasoning framework that transforms unstructured multi-agent dialogue into a verifiable logical graph construction. The engineering application is demonstrated through its deployment in a complex healthcare decision-making system to optimize the precision of complex medical referrals.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Qi Peng",
+        "Yi Cai",
+        "Jialin Cui",
+        "Tong Zhu",
+        "Yujuan Ding"
+      ]
+    },
+    "item_hash": "9883937a306cbab2"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Beacon: LLM Multi-Agent Driven Hardware Design Space Exploration for Heterogeneous Multi-Chiplet Deep Learning Accelerators",
+    "url": "https://arxiv.org/abs/2608.30932",
+    "content": "Heterogeneous multi-chiplet accelerators allow chiplets to be configured independently to better match different operator characteristics and improve inference efficiency. However, heterogeneity makes simulator evaluation expensive, limiting the number of iterations affordable for hardware design space exploration (HW-DSE). Mainstream data-driven methods rely mainly on final metrics and a few predefined states, and require many search iterations to implicitly learn the relationships between input parameters and optimization objectives, making them less effective in this setting. In practice, evaluators also generate detailed reports on execution timelines, resource utilization, memory accesses, and communication behavior. Large language models (LLMs) can combine domain knowledge with these reports to explicitly identify bottleneck locations, degradation causes, and parameter adjustment directions, thereby improving each design decision under limited iteration budgets. Based on this observation, we propose Beacon, a report-driven LLM multi-agent framework for heterogeneous multi-chiplet HW-DSE. Beacon employs hierarchical agents for bottleneck localization, root-cause diagnosis, and hardware candidate generation, together with an Analysis Toolbox and RAG memory for closed-loop search. Under the same limited iteration budget, Beacon reduces the composite latency-energy-monetary-cost objective by 25.1\\%--93.5\\% compared with random search, Bayesian optimization, and reinforcement learning.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Boyu Li",
+        "Zongwei Zhu",
+        "Qianyue Cao",
+        "Xi Li",
+        "Xuehai Zhou"
+      ]
+    },
+    "item_hash": "8dd24ca7e5217daa"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Responsible Integration of AI in Cancer Genomics: Barriers, Risks, and Pathways to Trustworthy Clinical Translation",
+    "url": "https://arxiv.org/abs/2608.30912",
+    "content": "Artificial intelligence (AI) and natural language processing (NLP) are increasingly used to extract, integrate, and interpret biomedical knowledge relevant to cancer genomics, yet their translation into routine clinical oncology has been comparatively slow. The central challenge is not computational capability alone, but trustworthy integration into clinical workflows. This review examines how NLP and AI support the cancer genomics pipeline, from literature mining and automated variant interpretation to clinical trial matching, knowledge graph construction, and multimodal data integration. We identify four interrelated translational failure domains: evidence inconsistency, explainability and uncertainty, data governance and reproducibility, and interoperability. Rather than considering these challenges in isolation, we take a systems-level view, focusing on their interaction across the translational pathway. We propose a conceptual framework and roadmap for addressing these domains through rigorous validation, uncertainty-aware methods, interoperable infrastructures, regulatory alignment, and human oversight across the AI lifecycle. Progress toward routine clinical use will depend less on further improving model capability than on systematically addressing these interacting failure domains from development through deployment and post-deployment monitoring.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Bahar İlgen",
+        "Yiannos Tolias",
+        "Denise Kühnert",
+        "Paraskevi Papadopoulou",
+        "Magnus Westerlund"
+      ]
+    },
+    "item_hash": "d784204424c0c241"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "S3C-LLM: Skill-Code Guided Agentic Language Models for Spectrum-to-Structure Elucidation",
+    "url": "https://arxiv.org/abs/2608.30910",
+    "content": "Spectroscopic structure elucidation is central to molecular analysis, but recent Large Language Model (LLM)-based methods mostly formulate it as direct spectrum-to-SMILES generation. Although this paradigm can leverage paired spectral data, it does not explicitly model the analytical workflow used by spectroscopists, such as diagnostic peak interpretation, fragment reasoning, formula constraints, and chemical consistency checking. In this paper, we introduce S3C-LLM, a skill-guided and code-grounded agentic LLM for spectrum-to-structure elucidation. Rather than directly predicting a molecule, S3C-LLM retrieves modality-specific spectroscopy skills, executes analysis code to instantiate these skills on the input spectra, and integrates the resulting peak-level evidence and formula constraints before generating SMILES. Specifically, we contribute a self-evolving spectroscopy skill library, a thinking-augmented skill-code trajectory construction pipeline, and a two-stage training strategy that teaches Qwen3-4B through supervised fine-tuning (SFT) followed by our proposed step-level reinforcement learning (RL). Experiments on diverse benchmarks show that S3C-LLM consistently outperforms current general LLMs and spectrum-specific models across spectra, while using less than 1/10th of SpectraLLM's training corpus.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Xuanle Zhao",
+        "Xinyuan Cai",
+        "Xiang Cheng",
+        "Bo Xu"
+      ]
+    },
+    "item_hash": "31ee493e6a63cf89"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "MMDS-Bench: Benchmarking Multimodal Large Language Models on Dynamic Stance in Social Media Interactions",
+    "url": "https://arxiv.org/abs/2608.30903",
+    "content": "Dynamic stance classification models how a reply responds to its direct parent message, rather than how a post relates to a fixed topic. Existing work has mainly studied this problem in text-only settings, while social media interactions increasingly rely on images, screenshots, memes, reaction images, and cross-modal references. We introduce MMDS-Bench, a diagnostic benchmark for multimodal dynamic stance classification in social media parent-reply interactions. MMDS-Bench contains 3,482 multimodal instances annotated with a seven-label dynamic stance taxonomy, together with an 800-instance diagnostic subset that requires structured reasoning over parent understanding, reply understanding, and stance-relation inference. We further annotate each instance with five challenge factors covering multimodal fusion, parent framing, non-literal expression, interaction reasoning, and label-boundary ambiguity. We evaluate 12 closed-source and open-source multimodal large language models and propose a reference-grounded LLM-judge protocol for assessing reasoning quality. Results show that current MLLMs still struggle with multimodal dynamic stance understanding, especially in cases that require relational inference beyond separate parent and reply comprehension.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Yuzhe Ding",
+        "Kang He",
+        "Li Zheng",
+        "Shengwu Zheng",
+        "Teng Shi"
+      ]
+    },
+    "item_hash": "9a6824a27b8b24b2"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Low-Resource Preference Adaptation of LLMs via Activation-Based Label Propagation",
+    "url": "https://arxiv.org/abs/2608.30902",
+    "content": "Adapting large language models to user-specific preferences is often constrained by the cost of human annotation, making preference optimisation impractical in low-resource settings where preferences cannot be reliably labelled by LLMs themselves, e.g., due to cultural, subjective, or personalised contexts. In this paper, we investigate how language models encode preference information in their intermediate representations, finding that activations from chosen and rejected responses form distinct clusters across layers, even in pretrained models. Strikingly, this structure is strengthened by alignment on canonical datasets but erased when the target preferences differ from those the model was aligned on, suggesting aligned LLMs are poor judges for non-mainstream populations. Exploiting this structure, we propose training a lightweight linear probe on a few labelled preference pairs ($\\leq$500) and using it to annotate large unlabelled datasets (50K+) for downstream preference optimisation. We systematically evaluate this approach across different datasets, preference optimisation methods and model scales and find that our method consistently outperforms direct training given the same annotation budget, and remains competitive against baselines trained on $50-100\\times$ more labelled data in the majority of our settings. Code is available at https://github.com/alessioGalatolo/activ-pref-probe.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Alessio Galatolo",
+        "Meriem Beloucif"
+      ]
+    },
+    "item_hash": "35ab3b9322268436"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Flexible Training Workloads in Large-Scale AI Data Centers for Transient-Stability Support in Transmission-Constrained Power Systems",
+    "url": "https://arxiv.org/abs/2608.30901",
+    "content": "The rapid expansion of large-scale artificial intelligence (AI) data centers is adding substantial, concentrated, and rapidly varying loads to transmission-constrained power systems. Although such load variations are generally regarded as operational challenges, this paper presents an alternative perspective in which the upward load flexibility of AI data centers could be coordinated for transient-stability support. To this end, this paper proposes training-induced load surge (TILS), a fast demand-side strategy that initiates or resumes flexible AI training workloads after fault clearing to increase active-power demand at electrically effective locations. The resulting load increase allows accelerating generators to supply additional electrical power, thereby reducing the accelerating-power imbalance and limiting the first-swing rotor-angle excursion. The underlying mechanism is first clarified in a single-machine infinite-bus (SMIB) system and then evaluated in the IEEE 39-bus system and a large-scale Korean power system. Results across all three systems demonstrate that TILS can increase the transient-stability-constrained generation limit. Larger responses, earlier activation, and siting at buses with a stronger electrical influence on the critical generators provide greater generation-limit increases. These results suggest that the upward load-response capability of AI data centers can provide complementary transient-stability support when sufficient electrical headroom, flexible workloads, and reliable grid-triggered activation are available.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jae-Kyeong Kim"
+      ]
+    },
+    "item_hash": "10648e74ee41b39a"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Deploying DeepSeek 175B Locally on a Single Consumer-Grade RTX 4060 Laptop with 32GB RAM for 200k-Scale Protein-Ligand Virtual Screening",
+    "url": "https://arxiv.org/abs/2608.30877",
+    "content": "Recent advances in large language models (LLMs) have demonstrated exceptional performance in protein-ligand interaction prediction, but state-of-the-art pipelines for large-scale virtual screening almost exclusively rely on high-end GPU clusters with hundreds of gigabytes of memory, creating prohibitive hardware barriers for small academic teams. In this work, we present a fully local low-resource framework that deploys the 175-billion-parameter DeepSeek 175B LLM on a single consumer-grade RTX 4060 laptop equipped with 32GB system RAM and 8GB VRAM, completing a full 200k-scale protein-ligand virtual screening workflow across 20 distinct protein targets. Our implementation achieves 100x throughput of an 8-card A100 cluster baseline under identical task configurations within 72 hours, with an average binding affinity prediction error of 0.88 kcal/mol across all targets, satisfying the 1.0 kcal/mol chemical accuracy requirement for preclinical drug discovery. Systematic runtime profiling reveals that heterogeneous memory management overhead accounts for 72% of total execution time, while accuracy loss introduced by model optimization contributes less than 10% to total prediction error. This work validates the engineering feasibility of running industrial-scale trillion-parameter LLM-driven biomedical computing tasks on consumer hardware, establishing a new low-barrier paradigm for AI-powered early stage drug discovery.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Rui Xiao",
+        "Yili Xu"
+      ]
+    },
+    "item_hash": "c36a01c88ef4bf2d"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "You Shouldn't Have Asked: A Pragmatics-Inspired Taxonomy for Evaluating LLM Refusals",
+    "url": "https://arxiv.org/abs/2608.30856",
+    "content": "Refusals are often treated as face-threatening acts in pragmatics because they can challenge the requester's socially claimed self-image. Large language models (LLMs) are increasingly trained to refuse unsafe and inappropriate requests, and these refusals may harm users when models fail to manage this interactional cost properly. While existing work has mainly approached LLM non-compliance as a safety-alignment outcome, it does not provide a way to evaluate whether LLMs refuse appropriately across different harmful contexts. To study this question, we propose (to our knowledge) the first taxonomy of LLM refusals that is grounded in pragmatic theory. Applying this taxonomy to responses from 16 modern LLMs across 14 harm categories, we find that although models differ in how they refuse, their refusals are overall explicit and strongly morally evaluative, with interactional repair occurring mainly through offering or providing safer alternatives instead of interpersonal facework. This pattern is especially consequential in sensitive harm contexts, where overuse of negative framing may make users feel shamed or provoked, undermining the purpose of safe non-compliance. We therefore call for alignment evaluation that considers not only whether models refuse harmful requests, but also whether they refuse in ways that are contextually adaptive and socially accountable for the interactional consequences of saying no.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Ruoxuan Li",
+        "Pinqiao Wang",
+        "Sheng Li",
+        "Cameron Robert Jones"
+      ]
+    },
+    "item_hash": "c5ec360d04e2a2bc"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "VFR-Audit: Verdict-Level Reliability for Fairness Audits in Hospital Length-of-Stay Prediction",
+    "url": "https://arxiv.org/abs/2608.30846",
+    "content": "Fairness audits in clinical Artificial Intelligence convert continuous fairness metrics into binary pass-or-fail verdicts against operational thresholds, where hospital governance boards, payers, and regulators act on the resulting verdicts. Such audits are repeated over time and across hospital sites, thus the same verdict can flip between pass and fail across audits. Existing uncertainty methods such as Bayesian posteriors, bootstrap confidence intervals, and permutation tests address verdict instability only at the continuous-metric level. Converting metric-level uncertainty into a verdict-stability claim remains a manual step that scales poorly across the (model, metric, attribute) cells an audit covers. Existing uncertainty methods also leave open whether bias-mitigation steps, such as reweighing or per-group threshold shifts, yield a stable passing verdict at the cost of model discrimination measured as AUROC or AUPRC.To address this verdict-stability gap, we propose VFR-Audit, a framework built around the Verdict Flip Rate (VFR), a scalar bounded between 0 and 0.5 that measures the probability of verdict reversal under stratified bootstrap resampling. VFR-Audit reports VFR alongside three reliability axes, namely within-cohort resampling stability, audit-size sensitivity, and cross-hospital verdict agreement via Fleiss' kappa.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Md Jannatul Rakib Joy",
+        "Viet Vo",
+        "Caslon Chua"
+      ]
+    },
+    "item_hash": "4a97eb0790a88891"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "HSRM: Hidden-State Reward Models for Test-Time Verification",
+    "url": "https://arxiv.org/abs/2608.30841",
+    "content": "Large language models can often generate plausible mathematical reasoning traces, but reliably identifying the correct solution among multiple candidates remains a key challenge. Existing test-time reasoning pipelines typically rely on text-based verifiers that re-read each generated solution, making verification an expensive component of inference. Prior work has shown, however, that LLMs often encode correctness-related signals in their internal representations, including awareness of when their own answers are likely to be wrong. Building on this observation, we introduce HSRM, a lightweight hidden-state reward model that verifies candidate solutions by directly reading the generator's internal representations rather than re-processing its text. HSRM extracts hidden states from a frozen generator at reasoning-step boundaries and uses a small Transformer encoder to rank candidates. It is trained from self-generated trajectories with outcome labels, requiring neither human-written process supervision nor a large pretrained verifier. Across four mathematical reasoning benchmarks, HSRM matches or outperforms a 55M-parameter text-only energy verifier in 15 of 16 generator--dataset settings while using only about 2M parameters, providing an efficient alternative to text-only verification by reusing representations already computed during generation.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Xianzhi Li",
+        "Xiaodan Zhu"
+      ]
+    },
+    "item_hash": "a01236d6650b0909"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Error-Type-Aware Loss Reweighting for Robust Named Entity Recognition with Noisy LLM Labels",
+    "url": "https://arxiv.org/abs/2608.30827",
+    "content": "Large language models are increasingly used to annotate datasets for training smaller, task-specialized models such as named entity recognition. While this method yields effective models, it assumes that the synthetic dataset is correctly annotated. In this work, we find that (i) current fine-tuning processes simply ignore LLM-introduced annotation noise, resulting in degraded performance and (ii) existing noise-robust losses are not transferable to sequence labeling because annotation noise in named entity recognition is heterogeneous: for example, missing mentions and type errors affect the training signal in different ways. Treating all noisy tokens equally in noise-robust losses and applying a single reweighing criterion for all may therefore remove useful supervision or reinforce incorrect labels. To address this limitation, we propose error-type-aware loss reweighting for NER, which introduces separate reweighing rules for different types of potentially erroneous tokens. Our approach is simple and efficient, does not require additional training resources, and improves F1 by 0.8 - 2.0 percentage points on dataset-level average for noise levels between 15% and 40%, with a maximum improvement of 4.6 percentage points with 24.1% noise on Wikigold.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Elena Merdjanovska",
+        "Jonas Golde",
+        "Alan Akbik"
+      ]
+    },
+    "item_hash": "5373f80c8124fc13"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "TopoCompress: Long Context Compression via Graph-Wired Semantic Trajectories",
+    "url": "https://arxiv.org/abs/2608.30811",
+    "content": "Long-context compression is essential for reducing the cost and latency of large language model inference. However, existing methods can fragment important evidence, require additional training or alignment, and often depend on the target model for effective compression. We introduce TopoCompress, a training-free and model-agnostic framework that compresses long contexts by selecting coherent semantic spans. TopoCompress first scores each span using dense and lexical query relevance together with semantic acceleration. It then constructs a hybrid graph that connects spans based on semantic similarity and sequential adjacency, and propagates the query-guided relevance scores over the graph. Across five long-context tasks-HotpotQA, 2WikiMQA, MuSiQue, Qasper, and MultiFieldQA-en-TopoCompress consistently outperforms strong compression baselines. Notably, TopoCompress achieves performance comparable to the strongest baseline while using a 4x smaller compression budget, and provides a 1.41x smaller compression time over the fastest baseline.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Daniel Agyei Asante",
+        "Yang Li"
+      ]
+    },
+    "item_hash": "32570fefe16c6fa3"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Conjoint Audio-to-Spikes Encoding and Processing for Efficient Neuromorphic Speech Recognition",
+    "url": "https://arxiv.org/abs/2608.30792",
+    "content": "Obtaining data from neuromorphic sensors and processing it with Spiking Neural Networks is a promising solution to lower the energy cost of artificial intelligence. The current rarity of natively neuromorphic datasets promotes the development of software tools to translate input sensory data into spikes. However, highly bio-mimetic simulators can be challenging to implement on digital hardware. In this work, we evaluate the neuromorphic encoding and subsequent classification of audio into spikes using a non-learnable, high-level, programmable encoder targeting hardware implementation on FPGA. We quantify the pipeline's efficiency with hardware-agnostic metrics based on the quantitative spiking activity. Our study focuses on the simultaneous optimisation of encoder and classifier: the first provides efficient and informative data so that the latter achieves a better performance with an overall lower energy cost at learning and inference. This work introduces the first end-to-end neuromorphic spike-encoding and evaluation of the TIMIT dataset. Our simple feedforward network reaches a classification accuracy of 99.77% on a spike-encoded Heidelberg Digits, overcoming the neuromorphic state of the art on this benchmark dataset.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Valentin M. Meunier",
+        "Amélie Gruel",
+        "Pierre Lewden",
+        "Adrien F. Vincent",
+        "Sylvain Saïghi"
+      ]
+    },
+    "item_hash": "dfc3811a395d1285"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Likelihood-Constrained Acoustic Reranking for Training-Free Hallucination Mitigation in LLM-Based ASR",
+    "url": "https://arxiv.org/abs/2608.30776",
+    "content": "Large language model (LLM)-based automatic speech recognition (ASR) systems achieve strong performance on conventional speech data by leveraging powerful linguistic priors and multilingual capabilities. However, under challenging conditions, these priors can override acoustic evidence, resulting in unintended translation, instruction execution, repetition, or catastrophic deletion. We propose Likelihood-Constrained Acoustic Reranking (LCAR), a training-free decoding method that improves acoustic grounding while preserving support from the base model. At each decoding step, LCAR first retains tokens whose base-model likelihood falls within a margin of the greedy token, then reranks them using an acoustic compatibility score computed from attention-pooled audio embeddings and the existing LM head. By restricting acoustic intervention to plausible, model-supported alternatives, LCAR requires no additional training, external detector, reference transcript, or auxiliary model at inference. We evaluate LCAR on four LLM-based ASR systems using human-audited TTS and open-source speech challenge suites. At $δ=0.60$, LCAR removes 38.8--57.1\\% of detector-identified hallucination failures while largely maintaining WER/CER on standard open-source test sets.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jiasheng Kuang",
+        "Linru Zheng",
+        "Hongjin Song",
+        "Zhaoqi Cui",
+        "Song Li"
+      ]
+    },
+    "item_hash": "d768b11fae076096"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "TrainSDC: Characterizing and Mitigating Silent Data Corruption in Large Language Model Training",
+    "url": "https://arxiv.org/abs/2608.30769",
+    "content": "LLM training is increasingly vulnerable to silent data corruption (SDC), yet existing protection methods largely treat Transformer computations uniformly because their vulnerability remains poorly understood. We present the first systematic characterization of SDC vulnerability across major computation interfaces in both the forward and backward passes of Transformer training. Our analysis reveals two distinct error propagation mechanisms: forward-pass vulnerability is highly location dependent, with faults on the Q/K path producing persistent training deviations, whereas backward-pass vulnerability is largely governed by gradient exponent distributions rather than computation locations. Motivated by these observations, we propose TrainSDC, a characterization-guided protection framework consisting of Q/K-path recomputation, residual-gain monitoring, and exponent-aware gradient scaling. Experiments on Llama 3.2-1B and Qwen3-0.6B show that TrainSDC maintains training behavior close to fault-free execution under both sparse and dense fault injection while introducing only 1.65%-6.76% runtime overhead.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Zhipeng Xia",
+        "Haotian Xu",
+        "Siyu Yun",
+        "Liqi Lin",
+        "Hu Liu"
+      ]
+    },
+    "item_hash": "213df0ace38fbc4f"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "PRACTICE: From Experience to Expertise in Self-Evolving Embodied Agents",
+    "url": "https://arxiv.org/abs/2608.30760",
+    "content": "Recent studies have shown that multimodal large language models (MLLMs) can serve as embodied agents, translating language instructions and visual observations into executable plans. However, building agents that can continually improve through interaction and rapidly adapt to their environments remains challenging. Summing up experience from past interaction trajectories provides a promising solution, but existing experience-based methods often rely on manually designed prompting workflows to extract and update skills. Such fixed procedures may struggle to learn updated skills from new and diverse experiences. We introduce PRACTICE, which trains a skill learner to discover and maintain a persistent skill library from past interaction trajectories while keeping the task executor frozen. Given the historical accumulated skills and incoming trajectories, the skill learner produces structured batch-edits that add, refine, merge, or remove skills, and then hierarchical consolidate all collected edits into a consistent updated skill library. We train the learner with a two-stage curriculum. First, it learns basic skill generation and library maintenance from oracle trajectories. Then, by contrasting successful and failed trajectories from heterogeneous executors on the same tasks, it learn to identify invalid action patterns and recovery strategies. Finally, we apply online skill-edit distillation to align the skill learner with a stronger teacher on its current edit distribution to further improves the policy. Experiments demonstrate that a compact skill learner delivers consistent performance improvements across successive library-update rounds for multiple frozen executors. On EB-ALFRED and EB-Habitat, PRACTICE further outperforms the strongest experience-based baselines. Project resources are publicly available at: https://baai-agents.github.io/PRACTICE",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Ziyi Bai",
+        "Siqi Li",
+        "Tinglei Huang",
+        "Börje F. Karlsson"
+      ]
+    },
+    "item_hash": "9fb3f6e41fad0f90"
+  }
+]

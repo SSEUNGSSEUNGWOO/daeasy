@@ -1,0 +1,80 @@
+[
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "How AI-native companies turn workflows into operating capability",
+    "url": "https://openai.com/index/ai-native-company-workflows",
+    "content": "Basis, Clay, and Exa Labs use AI agents to improve onboarding, account management, and developer integrations. See what enterprise leaders can apply.",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "b0cbef382238cdd5"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Path to Astra: critical capabilities and frontier safeguards",
+    "url": "https://openai.com/index/path-to-astra",
+    "content": "Astra is the first OpenAI model to meet the Critical cybersecurity capability threshold under the Preparedness Framework, with stronger safeguards for release.",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "f2694bfa96c49e91"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Healthcare organizations can now connect EHR and additional industry data to ChatGPT",
+    "url": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
+    "content": "ChatGPT can now connect to trusted healthcare data, helping clinicians securely access patient context, medical research, and more.",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "c0364833b41073ca"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "OpenAI supports California’s bill to advance youth AI safety",
+    "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+    "content": "OpenAI supports California SB 1119, advancing strong, age-appropriate AI safeguards for teens while preserving opportunities to learn, create, and explore.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "4862f3d2c68fb1ad"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Polimill builds Japan's next-generation public AI infrastructure",
+    "url": "https://openai.com/index/polimill",
+    "content": "Polimill uses OpenAI GPT models and Codex to help municipalities search and use administrative knowledge while accelerating development.",
+    "published_at": "2026-08-31",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "0b5a688ac44522d6"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "Google DeepMind Blog",
+    "title": "Introducing agentic video understanding with Gemini",
+    "url": "https://deepmind.google/blog/introducing-agentic-video-in-gemini/",
+    "content": "Introducing agentic video understanding with Gemini",
+    "published_at": "2026-09-01",
+    "image_url": null,
+    "extra": {
+      "company": "Google DeepMind"
+    },
+    "item_hash": "20b040f8e58f31e9"
+  }
+]

@@ -6,6 +6,8 @@ import { getCurrentCustomer } from "@/lib/customer-auth";
 import { CONTACT_EMAIL } from "@/lib/site";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
+import { NewsletterToggle, PasswordForm, ProfileForm } from "./account-settings";
+
 export const metadata = { title: "내 정보" };
 export const dynamic = "force-dynamic";
 
@@ -133,27 +135,35 @@ export default async function MyPage() {
   const customer = await getCurrentCustomer();
   if (!customer) redirect("/login");
 
-  const inquiries = await fetchMyInquiries(customer.id);
-
-  const rows = [
-    ["이름", customer.name],
-    ["이메일", customer.email],
-    ["연락처", customer.phone],
-    ["소속", customer.organization],
-  ];
+  // 뉴스레터 구독 상태 — 조회 실패 시 미구독으로 표시 (토글 시도에서 에러가 드러난다)
+  const [inquiries, newsletterRow] = await Promise.all([
+    fetchMyInquiries(customer.id),
+    getSupabaseAdmin()
+      .from("newsletter_subscribers")
+      .select("status")
+      .eq("email", customer.email)
+      .maybeSingle()
+      .then(({ data }) => data, () => null),
+  ]);
 
   return (
     <section className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
       <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">마이페이지</p>
       <h1 className="mt-2 text-3xl font-semibold tracking-tight">내 정보</h1>
-      <dl className="mt-10 divide-y divide-zinc-200 border-y border-zinc-200">
-        {rows.map(([label, value]) => (
-          <div key={label} className="grid grid-cols-[100px_1fr] gap-4 py-5 text-sm">
-            <dt className="font-bold text-zinc-600">{label}</dt>
-            <dd className="text-zinc-900">{value}</dd>
-          </div>
-        ))}
-      </dl>
+      <ProfileForm
+        initial={{
+          name: customer.name,
+          email: customer.email,
+          phone: customer.phone,
+          organization: customer.organization,
+        }}
+      />
+
+      <h2 className="mt-16 text-2xl font-semibold tracking-tight">비밀번호 변경</h2>
+      <PasswordForm />
+
+      <h2 className="mt-16 text-2xl font-semibold tracking-tight">뉴스레터</h2>
+      <NewsletterToggle initialSubscribed={newsletterRow?.status === "active"} />
 
       <h2 className="mt-16 text-2xl font-semibold tracking-tight">문의 내역</h2>
 

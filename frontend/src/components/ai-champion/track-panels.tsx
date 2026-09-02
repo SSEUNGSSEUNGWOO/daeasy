@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-/* 등급별 색은 활성/비활성 조합이 서로 달라 세트로 묶는다.
-   Black 은 활성 시 다크 패널로 반전 — 안쪽 텍스트 색까지 함께 바뀐다. */
+/* 세 등급 모두 활성 시 등급색 다크 패널로 반전 — 안쪽 텍스트는 흰색 계열.
+   emerald·blue 는 흰 텍스트 대비(WCAG)를 위해 700 단계를 쓴다. */
 const TRACKS = [
   {
     name: "Green",
@@ -13,9 +13,8 @@ const TRACKS = [
     body: "생성형 AI와 노코드 도구를 활용해 행정 혁신 아이디어를 기획안과 업무 프로토타입으로 구현합니다.",
     audience: "비개발 실무자",
     dot: "bg-emerald-500",
-    shellActive: "bg-emerald-50/60 ring-emerald-200",
-    badgeActive: "bg-emerald-100 text-emerald-800",
-    inverted: false,
+    shellActive: "bg-emerald-700 ring-emerald-700",
+    badgeActive: "bg-white/15 text-white",
   },
   {
     name: "Blue",
@@ -25,9 +24,8 @@ const TRACKS = [
     body: "데이터 분석과 모델링, LLM API·RAG·FastAPI를 활용해 기관 맞춤형 AI 서비스를 설계하고 구현합니다.",
     audience: "IT 담당자·개발 인력",
     dot: "bg-blue-600",
-    shellActive: "bg-blue-50/60 ring-blue-200",
-    badgeActive: "bg-blue-100 text-blue-800",
-    inverted: false,
+    shellActive: "bg-blue-700 ring-blue-700",
+    badgeActive: "bg-white/15 text-white",
   },
   {
     name: "Black",
@@ -38,8 +36,7 @@ const TRACKS = [
     audience: "AI 챔피언 고급과정 인증자",
     dot: "bg-zinc-900",
     shellActive: "bg-ink-warm ring-ink-warm",
-    badgeActive: "bg-white/10 text-white",
-    inverted: true,
+    badgeActive: "bg-white/15 text-white",
   },
 ] as const;
 
@@ -50,7 +47,7 @@ export function TrackPanels() {
     <div className="mt-12 flex flex-col gap-3 lg:flex-row">
       {TRACKS.map((track, index) => {
         const isActive = index === active;
-        const inverted = isActive && track.inverted;
+        const inverted = isActive; // 활성 패널은 등급색으로 반전
         return (
           <article
             key={track.name}
@@ -78,7 +75,7 @@ export function TrackPanels() {
               />
               <div className="flex items-center justify-between gap-4">
                 <p className="flex items-center gap-2.5 text-[26px] font-extrabold tracking-[-0.02em]">
-                  <span aria-hidden className={`h-2.5 w-2.5 shrink-0 rounded-full ${track.dot} ${inverted ? "ring-1 ring-white/40" : ""}`} />
+                  <span aria-hidden className={`h-2.5 w-2.5 shrink-0 rounded-full ${inverted ? "bg-white ring-1 ring-white/40" : track.dot}`} />
                   {track.name}
                 </p>
                 <span
@@ -89,7 +86,7 @@ export function TrackPanels() {
                   {track.level}
                 </span>
               </div>
-              <p className={`mt-6 text-[12px] font-bold uppercase tracking-[0.15em] ${inverted ? "text-zinc-400" : "text-zinc-500"}`}>
+              <p className={`mt-6 text-[12px] font-bold uppercase tracking-[0.15em] ${inverted ? "text-white/65" : "text-zinc-500"}`}>
                 {track.role}
               </p>
               <h3 className="mt-2 text-[20px] font-bold leading-[1.35] tracking-[-0.015em]">{track.title}</h3>
@@ -105,10 +102,10 @@ export function TrackPanels() {
                     isActive ? "opacity-100 delay-150" : "opacity-0"
                   }`}
                 >
-                  <p className={`text-[14.5px] leading-[1.75] ${inverted ? "text-zinc-300" : "text-zinc-600"}`}>{track.body}</p>
+                  <p className={`text-[14.5px] leading-[1.75] ${inverted ? "text-white/85" : "text-zinc-600"}`}>{track.body}</p>
                   <div className={`mt-6 border-t pt-5 ${inverted ? "border-white/15" : "border-zinc-200/70"}`}>
-                    <p className={`text-[11px] font-bold uppercase tracking-[0.12em] ${inverted ? "text-zinc-400" : "text-zinc-500"}`}>대상</p>
-                    <p className={`mt-1.5 text-[14px] font-semibold ${inverted ? "text-zinc-200" : "text-zinc-700"}`}>{track.audience}</p>
+                    <p className={`text-[11px] font-bold uppercase tracking-[0.12em] ${inverted ? "text-white/65" : "text-zinc-500"}`}>대상</p>
+                    <p className={`mt-1.5 text-[14px] font-semibold ${inverted ? "text-white/90" : "text-zinc-700"}`}>{track.audience}</p>
                   </div>
                 </div>
               </div>

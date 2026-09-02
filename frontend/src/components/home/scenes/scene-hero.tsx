@@ -81,38 +81,11 @@ export function SceneHero() {
             생성형 AI 활용부터 데이터 분석과 AI 서비스 개발까지, 기업과 공공기관의
             직무와 현업 과제에 맞춰 교육을 설계·운영하는 AI·데이터 교육 전문기업입니다.
           </p>
-          {/* 배지는 헤드라인 아래에 둔다 — 전체 사업(교육 기업)을 먼저 읽히고,
-              행안부 AI 챔피언은 그 다음의 신뢰 근거로. 헤드라인 위에 두면
-              첫인상이 공공 전문사로 좁게 읽힌다.
-
-              칩을 어둡게 채운 이유: 좌측 워시가 흰색 92% 라 밝은 색 배지는 묻힌다.
-              파랑으로 채우면 아래 CTA 버튼과 무게가 겹쳐 시선이 갈린다.
-              발주처(행정안전부)와 역할(운영기관)을 세로선으로 나눠 정보 구조를 드러낸다. */}
-          <Link
-            href="/ai-champion"
-            className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-ink-warm py-2 pl-2.5 pr-4 text-[12px] tracking-[-0.01em] text-white shadow-[0_10px_30px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-14px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2 sm:text-[13px]"
-          >
-            <span
-              aria-hidden
-              className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-blue-400/20 text-blue-300"
-            >
-              <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 fill-none stroke-current stroke-[2]">
-                <path d="M2.5 6.3 5 8.8 9.5 3.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            <span className="font-bold text-blue-300">행정안전부</span>
-            <span aria-hidden className="h-3 w-px shrink-0 bg-white/20" />
-            <span className="font-bold">AI 챔피언 인증 운영기관</span>
-            <span
-              aria-hidden
-              className="text-white/45 transition-transform duration-200 group-hover:translate-x-0.5"
-            >
-              →
-            </span>
-          </Link>
-          {/* 히어로의 주 행동 유도. 헤드라인이 80px 로 커진 만큼 버튼도 키우고,
-              색 면적 대신 그림자와 화살표로 무게를 준다. */}
-          <div className="mt-12">
+          {/* 같은 크기의 버튼 2개 — 주 동선(교육 문의, B2B)과 신뢰 근거(행안부
+              AI 챔피언, B2G)를 나란히. 색으로만 위계를 나눈다: 파랑=주, 잉크=보조.
+              어두운 잉크를 쓰는 이유는 좌측 워시가 흰색 92% 라 밝은 보조 버튼은
+              묻히기 때문. */}
+          <div className="mt-12 flex flex-wrap gap-3">
             <Link
               href="/contact"
               className="group inline-flex items-center gap-3 rounded-full bg-accent py-4 pl-8 pr-5 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(37,99,235,0.85)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(37,99,235,0.95)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
@@ -121,6 +94,20 @@ export function SceneHero() {
               <span
                 aria-hidden
                 className="grid h-7 w-7 place-items-center rounded-full bg-white/20 text-[13px] leading-none transition-transform duration-200 group-hover:translate-x-0.5"
+              >
+                →
+              </span>
+            </Link>
+            <Link
+              href="/ai-champion"
+              className="group inline-flex items-center gap-3 rounded-full bg-ink-warm py-4 pl-8 pr-5 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2"
+            >
+              <span className="font-bold text-blue-300">행정안전부</span>
+              <span aria-hidden className="h-3.5 w-px shrink-0 bg-white/25" />
+              AI 챔피언
+              <span
+                aria-hidden
+                className="grid h-7 w-7 place-items-center rounded-full bg-white/15 text-[13px] leading-none transition-transform duration-200 group-hover:translate-x-0.5"
               >
                 →
               </span>

@@ -117,9 +117,6 @@ export default function AiChampionPage() {
             </p>
           </div>
           <TrackPanels />
-          <p className="mt-5 text-[12.5px] leading-[1.7] text-zinc-500">
-            Black은 2026년 신설된 고급과정 연계 등급으로, 올해는 보수교육형으로 운영됩니다.
-          </p>
         </div>
       </section>
 

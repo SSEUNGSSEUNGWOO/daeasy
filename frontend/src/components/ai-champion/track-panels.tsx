@@ -33,7 +33,7 @@ const TRACKS = [
     role: "AI 거점 리더",
     title: "기관의 AI 전환과 확산을 이끕니다.",
     body: "고급 AI 기술과 도구 생태계를 바탕으로 기관 단위 전환을 리딩하고 동료 코칭과 우수사례 확산을 주도합니다.",
-    audience: "AI 챔피언 고급과정 인증자",
+    audience: "기관의 AI 전환을 이끄는 리더급 인재",
     dot: "bg-zinc-900",
     shellActive: "bg-ink-warm ring-ink-warm",
     badgeActive: "bg-white/15 text-white",

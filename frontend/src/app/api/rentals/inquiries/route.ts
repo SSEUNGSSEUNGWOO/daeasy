@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getCurrentCustomer } from "@/lib/customer-auth";
+import { getCurrentCustomer, isAuthenticated } from "@/lib/customer-auth";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -17,6 +17,11 @@ type Payload = {
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 export async function POST(req: Request) {
+  // 대관 문의는 로그인 필수 — UI 게이트만으로는 직접 POST 를 못 막는다
+  if (!(await isAuthenticated())) {
+    return NextResponse.json({ detail: "로그인이 필요합니다." }, { status: 401 });
+  }
+
   const rl = await rateLimit("rentals", getClientIp(req), 5, "1 m");
   if (!rl.success) {
     return NextResponse.json(
@@ -47,10 +52,10 @@ export async function POST(req: Request) {
   const timeSlot = payload.time_slot ? payload.time_slot.slice(0, 40) : null;
   const message = (payload.message ?? "").slice(0, 2000);
 
-  // 로그인 회원이면 신청을 계정에 연결한다. 실패해도 비회원 신청으로 접수된다.
-  // 실패를 조용히 삼키면 Auth 장애를 감지할 수 없으므로 로그는 남긴다.
+  // 신청을 계정에 연결한다. 위에서 로그인은 확인했지만 customer_profiles 가
+  // 없는 세션(어드민 등)일 수 있어 null 허용 — 접수는 막지 않고 연결만 생략.
   const customer = await getCurrentCustomer().catch((err) => {
-    console.error("[rentals/inquiries] 세션 조회 실패 — 비회원으로 접수:", err);
+    console.error("[rentals/inquiries] 고객 프로필 조회 실패 — 연결 없이 접수:", err);
     return null;
   });
 

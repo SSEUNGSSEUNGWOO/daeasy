@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getCurrentCustomer } from "@/lib/customer-auth";
+import { getCurrentCustomer, isAuthenticated } from "@/lib/customer-auth";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -18,6 +18,11 @@ type Payload = {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
+  // 문의는 로그인 필수 — UI 게이트만으로는 직접 POST 를 못 막는다
+  if (!(await isAuthenticated())) {
+    return NextResponse.json({ detail: "로그인이 필요합니다." }, { status: 401 });
+  }
+
   const rl = await rateLimit("contact", getClientIp(req), 5, "1 m");
   if (!rl.success) {
     return NextResponse.json(
@@ -51,12 +56,10 @@ export async function POST(req: Request) {
 
   const sb = getSupabaseAdmin();
 
-  // 로그인 회원이면 문의를 계정에 연결한다. 세션이 없거나 조회에 실패하면
-  // null 이 되어 비회원 문의로 접수된다 — 문의 접수 자체를 막지 않는다.
-  // 다만 조용히 묻히면 Auth 장애 때 회원 문의가 전부 비회원으로 새는 걸
-  // 아무도 모르므로, 실패는 함수 로그에 남긴다.
+  // 문의를 계정에 연결한다. 위에서 로그인은 확인했지만 customer_profiles 가
+  // 없는 세션(어드민 등)일 수 있어 null 허용 — 접수는 막지 않고 연결만 생략.
   const customer = await getCurrentCustomer().catch((err) => {
-    console.error("[contact/inquiries] 세션 조회 실패 — 비회원으로 접수:", err);
+    console.error("[contact/inquiries] 고객 프로필 조회 실패 — 연결 없이 접수:", err);
     return null;
   });
 

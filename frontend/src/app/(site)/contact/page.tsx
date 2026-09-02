@@ -1,4 +1,6 @@
+import { LoginGate } from "@/components/login-gate";
 import { fetchCourses } from "@/lib/courses";
+import { isAuthenticated } from "@/lib/customer-auth";
 
 import { ContactForm } from "./contact-form";
 import { CONTACT_EMAIL, OFFICE_HOURS } from "@/lib/site";
@@ -14,7 +16,11 @@ export default async function ContactPage({
 }: {
   searchParams: Promise<{ course?: string }>;
 }) {
-  const [courses, sp] = await Promise.all([fetchCourses(), searchParams]);
+  const [courses, sp, authed] = await Promise.all([
+    fetchCourses(),
+    searchParams,
+    isAuthenticated(),
+  ]);
   const courseOptions = courses.map((c) => ({ slug: c.slug, title: c.title }));
   // /quiz/report 리포트 추천에서 넘어온 경우 해당 과정을 미리 선택
   const defaultCourseSlug =
@@ -88,7 +94,16 @@ export default async function ContactPage({
                 </figcaption>
               </figure>
             </div>
-            <ContactForm courses={courseOptions} defaultCourseSlug={defaultCourseSlug} />
+            {authed ? (
+              <ContactForm courses={courseOptions} defaultCourseSlug={defaultCourseSlug} />
+            ) : (
+              <div className="lg:col-span-7 self-start">
+                <LoginGate
+                  next={defaultCourseSlug ? `/contact?course=${defaultCourseSlug}` : "/contact"}
+                  message="교육 문의는 로그인 후 남길 수 있습니다."
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

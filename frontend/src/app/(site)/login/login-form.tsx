@@ -26,7 +26,11 @@ export function CustomerLoginForm() {
         const body = (await res.json().catch(() => ({}))) as { detail?: string };
         throw new Error(body.detail ?? "로그인에 실패했습니다.");
       }
-      router.push("/mypage");
+      // 게이트에서 넘어온 경우 원래 보던 페이지로 복귀. 내부 경로만 허용
+      // ("//host" 형태의 오픈 리다이렉트 차단)
+      const next = searchParams.get("next");
+      const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : "/mypage";
+      router.push(safeNext);
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "알 수 없는 오류");

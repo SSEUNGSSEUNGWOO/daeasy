@@ -3,11 +3,13 @@ import Link from "next/link";
 
 import { RentalForm } from "./rental-form";
 import { BookingCalendar } from "./booking-calendar";
+import { LoginGate } from "@/components/login-gate";
+import { isAuthenticated } from "@/lib/customer-auth";
 import { fetchPublicBookings } from "@/lib/rental-bookings";
 import { CONTACT_EMAIL, OFFICE_HOURS, VENUE_ADDRESS } from "@/lib/site";
 
-// 어드민이 등록한 예약 현황이 재배포 없이 반영되도록
-export const revalidate = 60;
+// 로그인 게이트(쿠키 조회) 때문에 요청마다 렌더 — 예약 현황도 항상 최신
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "강의실 대관",
@@ -75,7 +77,7 @@ const gallery = [
 ];
 
 export default async function RentalsPage() {
-  const bookings = await fetchPublicBookings();
+  const [bookings, authed] = await Promise.all([fetchPublicBookings(), isAuthenticated()]);
   return (
     <>
       {/* Hero */}
@@ -310,7 +312,13 @@ export default async function RentalsPage() {
                 </a>
               </div>
             </div>
-            <RentalForm />
+            {authed ? (
+              <RentalForm />
+            ) : (
+              <div className="lg:col-span-7 self-start">
+                <LoginGate next="/rentals" message="대관 문의는 로그인 후 남길 수 있습니다." />
+              </div>
+            )}
           </div>
         </div>
       </section>

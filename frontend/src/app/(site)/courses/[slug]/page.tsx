@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { LoginGate } from "@/components/login-gate";
 import { fetchCourse, fetchCourses } from "@/lib/courses";
+import { isAuthenticated } from "@/lib/customer-auth";
 import { sanitizeHtml } from "@/lib/sanitize";
 
 import { CourseDescription } from "./course-description";
@@ -34,7 +36,7 @@ export default async function CourseDetailPage(
   props: PageProps<"/courses/[slug]">,
 ) {
   const { slug } = await props.params;
-  const course = await fetchCourse(slug);
+  const [course, authed] = await Promise.all([fetchCourse(slug), isAuthenticated()]);
   if (!course) notFound();
 
   const { track, clean } = splitTrack(course.title);
@@ -96,9 +98,18 @@ export default async function CourseDetailPage(
                 커리큘럼.
               </h2>
               {course.description ? (
-                <div className="mt-8">
-                  <CourseDescription html={sanitizeHtml(course.description)} />
-                </div>
+                authed ? (
+                  <div className="mt-8">
+                    <CourseDescription html={sanitizeHtml(course.description)} />
+                  </div>
+                ) : (
+                  <div className="mt-8">
+                    <LoginGate
+                      next={`/courses/${course.slug}`}
+                      message="커리큘럼 세부 항목은 로그인 후 확인할 수 있습니다."
+                    />
+                  </div>
+                )
               ) : (
                 <div className="mt-8 rounded-2xl bg-white p-8 ring-1 ring-zinc-100">
                   <p className="text-[15px] leading-[1.85] text-zinc-700">

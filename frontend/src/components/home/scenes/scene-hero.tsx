@@ -99,13 +99,15 @@ export function SceneHero() {
             </span>
           </Link>
           <h1 className="mt-6 text-[46px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[60px] lg:text-[80px]">
-            공공기관의 <span className="whitespace-nowrap">AI 전환을</span>{" "}
+            조직의 <span className="whitespace-nowrap">AI 전환을</span>{" "}
             <br className="hidden sm:inline" />
-            교육에서 인증까지.
+            교육에서 성과까지.
           </h1>
+          {/* 행안부 AI 챔피언은 위 배지가 이미 말한다 — 본문은 B2B·B2G 를 모두 품는
+              "AI·데이터 교육 기업" 정체성으로. 공공 한정 문구를 쓰지 않는다. */}
           <p className="mt-7 max-w-2xl text-[16px] font-medium leading-[1.8] text-zinc-700 sm:text-[18px]">
-            행정안전부 AI 챔피언 인증을 운영하며, 생성형 AI 활용·데이터 분석·AI 서비스
-            개발을 교육하는 공공부문 전문기업입니다.
+            기업과 공공기관의 직무에 맞춰 생성형 AI 활용·데이터 분석·AI 서비스 개발을
+            교육하는 AI·데이터 교육 전문기업입니다.
           </p>
           {/* 히어로의 주 행동 유도. 헤드라인이 80px 로 커진 만큼 버튼도 키우고,
               색 면적 대신 그림자와 화살표로 무게를 준다. */}

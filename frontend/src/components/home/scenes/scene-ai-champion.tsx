@@ -89,19 +89,13 @@ export function SceneAiChampion() {
               진단부터 인증까지,<br />전 과정을 직접 운영합니다.
             </h2>
           </div>
-          <div className="champ-head">
-            <p className="max-w-sm text-[15px] leading-[1.75] text-zinc-300">
-              교육만 하는 곳은 많습니다. 진단 체계를 설계하고 인증까지 운영하는 곳은
-              드뭅니다.
-            </p>
-            <Link
-              href="/ai-champion"
-              className="group mt-4 inline-flex items-center gap-2 text-[15px] font-bold text-white"
-            >
-              AI 챔피언 자세히 보기
-              <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
+          <Link
+            href="/ai-champion"
+            className="champ-head group inline-flex items-center gap-2 text-[15px] font-bold text-white"
+          >
+            AI 챔피언 자세히 보기
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+          </Link>
         </div>
 
         {/* 여정 카드 4장. 연결선은 lg 에서만 — 접힌 폭에서는 번호가 순서를 대신한다. */}

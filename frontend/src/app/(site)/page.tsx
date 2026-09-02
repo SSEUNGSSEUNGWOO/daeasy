@@ -13,6 +13,12 @@ import { fetchInsights } from "@/lib/insights";
 // 추천 과정·최신 인사이트가 재배포 없이 갱신되도록 (insights 페이지와 동일 주기)
 export const revalidate = 60;
 
+// 루트 레이아웃의 상대 canonical("./")이 홈에서는 "/index" 로 풀리는 Next.js
+// 동작이 있어, 홈만 명시적으로 "/" 를 지정한다 (검색 신호가 /index 로 새는 것 방지)
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 const TRACK_PATTERN = /^\[([^\]]+)\]\s*/;
 
 const LEVEL_LABELS = { beginner: "초급", intermediate: "중급", advanced: "고급" } as const;

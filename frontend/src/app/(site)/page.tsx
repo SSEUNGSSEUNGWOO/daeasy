@@ -47,6 +47,7 @@ export default async function HomePage() {
       summary: c.summary,
       levelLabel: LEVEL_LABELS[c.level],
       hours: c.duration_hours,
+      thumbnail_url: c.thumbnail_url,
     }));
 
   const latestInsights: InsightCard[] = allInsights.slice(0, 3).map((i) => ({

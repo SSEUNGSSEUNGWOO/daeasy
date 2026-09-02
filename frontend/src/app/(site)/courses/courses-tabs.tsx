@@ -68,27 +68,39 @@ export function CoursesTabs({ courses }: { courses: CourseSummary[] }) {
             <li key={c.slug}>
               <Link
                 href={`/courses/${c.slug}`}
-                className="group flex h-full flex-col rounded-2xl bg-white p-7 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
               >
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
-                    {track}
-                  </span>
-                  {c.duration_hours > 0 && (
-                    <span className="text-[12px] font-semibold text-zinc-400">
-                      {c.duration_hours}시간
+                {c.thumbnail_url ? (
+                  <div className="aspect-[16/9] w-full overflow-hidden border-b border-zinc-100 bg-zinc-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.thumbnail_url}
+                      alt=""
+                      className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                    />
+                  </div>
+                ) : null}
+                <div className="flex flex-1 flex-col p-7">
+                  <div className="flex items-center justify-between">
+                    <span className="rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
+                      {track}
                     </span>
-                  )}
+                    {c.duration_hours > 0 && (
+                      <span className="text-[12px] font-semibold text-zinc-400">
+                        {c.duration_hours}시간
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="mt-4 text-[18px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
+                    {clean}
+                  </h3>
+                  <p className="mt-3 line-clamp-4 text-[14px] leading-[1.65] text-zinc-600">
+                    {c.summary}
+                  </p>
+                  <span className="mt-6 inline-flex items-center gap-1 text-[13px] font-bold text-zinc-500 transition group-hover:text-accent">
+                    자세히 보기 →
+                  </span>
                 </div>
-                <h3 className="mt-4 text-[18px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
-                  {clean}
-                </h3>
-                <p className="mt-3 line-clamp-4 text-[14px] leading-[1.65] text-zinc-600">
-                  {c.summary}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-1 text-[13px] font-bold text-zinc-500 transition group-hover:text-accent">
-                  자세히 보기 →
-                </span>
               </Link>
             </li>
           );

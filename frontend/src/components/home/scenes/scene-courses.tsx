@@ -13,6 +13,7 @@ export type CourseCard = {
   summary: string;
   levelLabel: string;
   hours: number;
+  thumbnail_url: string | null;
 };
 
 export function SceneCourses({ courses }: { courses: CourseCard[] }) {
@@ -71,8 +72,19 @@ export function SceneCourses({ courses }: { courses: CourseCard[] }) {
               <li key={c.slug} className="w-[300px] shrink-0 snap-start sm:w-[360px]">
                 <Link
                   href={`/courses/${c.slug}`}
-                  className="group flex h-full flex-col rounded-2xl bg-white p-7 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
                 >
+                  {c.thumbnail_url ? (
+                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-zinc-100 bg-zinc-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={c.thumbnail_url}
+                        alt=""
+                        className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  ) : null}
+                  <div className="flex flex-1 flex-col p-7">
                   <div className="flex items-center justify-between">
                     <span className="rounded-full bg-accent/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
                       {c.levelLabel}
@@ -90,6 +102,7 @@ export function SceneCourses({ courses }: { courses: CourseCard[] }) {
                   <span className="mt-6 inline-flex items-center gap-1 text-[13px] font-bold text-zinc-500 transition group-hover:text-accent">
                     자세히 보기 →
                   </span>
+                  </div>
                 </Link>
               </li>
             ))}

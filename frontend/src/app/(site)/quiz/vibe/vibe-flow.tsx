@@ -313,11 +313,13 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
               <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-accent">
                 🎉 완성 — 실제로 동작하는 화면입니다
               </p>
+              {/* 본문(max-w-3xl)이 좁아 동작 화면이 답답하다 — 데스크톱에선
+                  뷰포트 기준 1080px 까지 브레이크아웃하고 높이도 화면 비례로 키운다 */}
               <iframe
                 sandbox="allow-scripts"
                 srcDoc={srcDoc}
                 title="AI가 생성한 웹앱 미리보기"
-                className="mt-4 h-[480px] w-full rounded-2xl bg-white ring-1 ring-zinc-200"
+                className="mt-4 h-[70vh] max-h-[820px] min-h-[480px] w-full rounded-2xl bg-white ring-1 ring-zinc-200 lg:relative lg:left-1/2 lg:w-[min(1080px,calc(100vw-5rem))] lg:-translate-x-1/2"
               />
               <button
                 type="button"

@@ -88,7 +88,7 @@ export function SceneHero() {
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 rounded-full bg-accent py-4 pl-8 pr-5 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(37,99,235,0.85)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(37,99,235,0.95)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
+              className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent px-5 py-4 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(37,99,235,0.85)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(37,99,235,0.95)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 sm:w-[250px]"
             >
               교육 문의하기
               <span
@@ -100,7 +100,7 @@ export function SceneHero() {
             </Link>
             <Link
               href="/ai-champion"
-              className="group inline-flex items-center gap-3 rounded-full bg-ink-warm py-4 pl-8 pr-5 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2"
+              className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink-warm px-5 py-4 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2 sm:w-[250px]"
             >
               <span className="font-bold text-blue-300">행정안전부</span>
               <span aria-hidden className="h-3.5 w-px shrink-0 bg-white/25" />

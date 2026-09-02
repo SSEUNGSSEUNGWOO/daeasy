@@ -24,9 +24,9 @@ const OUTPUTS = [
   },
 ] as const;
 
-export function SceneCourseOutputs() {
+export function CourseOutputsSection() {
   return (
-    <section className="border-t border-zinc-100 bg-zinc-50/70">
+    <section className="border-t border-zinc-100 bg-white">
       <div className="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
         <div className="max-w-3xl">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">

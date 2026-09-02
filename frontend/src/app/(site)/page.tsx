@@ -1,6 +1,5 @@
 import { SceneCases, type CaseCard } from "@/components/home/scenes/scene-cases";
 import { SceneCourses, type CourseCard } from "@/components/home/scenes/scene-courses";
-import { SceneCourseOutputs } from "@/components/home/scenes/scene-course-outputs";
 import { SceneCta } from "@/components/home/scenes/scene-cta";
 import { SceneAiChampion } from "@/components/home/scenes/scene-ai-champion";
 import { SceneHero } from "@/components/home/scenes/scene-hero";
@@ -69,12 +68,12 @@ export default async function HomePage() {
   return (
     <>
       <SceneHero />
-      {/* 순서 원칙: 신뢰(로고) → 시그니처(AI 챔피언) → 상품(교육과정·결과물)
-          → 증거(교육후기) → 콘텐츠(인사이트) → 부가(대관) → CTA */}
+      {/* 순서 원칙: 신뢰(로고) → 시그니처(AI 챔피언) → 상품(교육과정)
+          → 증거(교육후기) → 콘텐츠(인사이트) → 부가(대관) → CTA.
+          교육 산출물은 /cases 페이지가 후기와 함께 모아서 보여준다. */}
       <ScenePartners />
       <SceneAiChampion />
       <SceneCourses courses={featuredCourses} />
-      <SceneCourseOutputs />
       <SceneCases cases={latestCases} />
       <SceneInsights insights={latestInsights} />
       <SceneRentals />

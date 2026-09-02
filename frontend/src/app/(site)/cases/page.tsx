@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
+import { CourseOutputsSection } from "@/components/course-outputs";
 import { PaginatedList } from "@/components/paginated-list";
 import { fetchCases } from "@/lib/cases";
 
@@ -99,6 +100,9 @@ export default async function CasesPage() {
           )}
         </div>
       </section>
+
+      {/* 후기(사람 증거) 아래에 산출물(물적 증거) — 이 페이지가 교육 성과의 증거 허브 */}
+      <CourseOutputsSection />
     </>
   );
 }

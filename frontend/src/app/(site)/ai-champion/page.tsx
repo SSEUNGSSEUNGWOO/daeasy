@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // 성격(공공부문 교육·인증)을 함께 넣어야 검색 결과에서 무엇인지 바로 읽힌다
   title: "AI 챔피언 교육 — 행정안전부 공공부문 AI 인재 양성·인증",
   description:
-    "행정안전부·NIA 공공부문 AI 챔피언 프로그램 운영사 데이지(DAEASY). 공무원·공공기관 임직원 대상 Green·Blue·Black 3단계 인증 체계와 교육 과정, 실제 운영 사례를 확인하세요.",
+    "행정안전부·NIA 공공부문 AI 챔피언 프로그램 운영사 데이지(DAEASY). 공무원·공공기관 임직원 대상 Green·Blue·Black 3단계 인증 체계와 교육 과정, 운영 경험과 범위를 확인하세요.",
   keywords: [
     "AI 챔피언",
     "AI 챔피언 교육",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI 챔피언 교육 — 행정안전부 공공부문 AI 인재 양성·인증",
     description:
-      "Green·Blue·Black 3단계 인증 체계와 교육 과정, 실제 운영 사례를 확인하세요.",
+      "Green·Blue·Black 3단계 인증 체계와 교육 과정, 운영 경험과 범위를 확인하세요.",
     type: "website",
   },
 };
@@ -74,8 +74,8 @@ export default function AiChampionPage() {
             className="anim-page-fade-up mt-8 max-w-3xl text-[17px] leading-[1.8] text-zinc-300 sm:text-[19px]"
             style={{ animationDelay: "380ms" }}
           >
-            AI 챔피언은 <strong className="font-bold text-white">공무원과 공공기관 임직원을 대상으로</strong>,
-            공공행정 현업 문제를 AI와 데이터로 해결하고 기관의 변화를 주도할
+            AI 챔피언은 <strong className="font-bold text-white">공무원과 공공기관 임직원을 대상으로</strong>{" "}
+            공공행정 현장의 문제를 AI와 데이터로 해결하고 기관의 변화를 주도할
             실무 인재를 양성·인증하는 제도입니다.
           </p>
           <div className="mt-10 flex flex-wrap gap-3" aria-label="AI 챔피언 인증 등급">

@@ -70,15 +70,27 @@ export function SceneHero() {
 
       <div className="relative mx-auto flex min-h-[calc(100svh-64px)] max-w-[1280px] flex-col justify-center px-6 py-20 lg:px-10">
         <div className="hero-copy max-w-[900px]">
-          {/* 헤드라인보다 먼저 놓는다 — 결재권자에게는 "무엇을 하는 회사인가"보다
-              "국가 인증제도를 맡고 있는 회사인가"가 먼저 읽혀야 한다.
+          <h1 className="text-[46px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[60px] lg:text-[80px]">
+            조직의 <span className="whitespace-nowrap">AI 전환,</span>{" "}
+            <br className="hidden sm:inline" />
+            교육에서 성과까지.
+          </h1>
+          {/* 본문은 B2B·B2G 를 모두 품는 "AI·데이터 교육 기업" 정체성으로.
+              공공 한정 문구를 쓰지 않는다. */}
+          <p className="mt-7 max-w-2xl text-[16px] font-medium leading-[1.8] text-zinc-700 sm:text-[18px]">
+            생성형 AI 활용부터 데이터 분석과 AI 서비스 개발까지, 기업과 공공기관의
+            직무와 현업 과제에 맞춰 교육을 설계·운영하는 AI·데이터 교육 전문기업입니다.
+          </p>
+          {/* 배지는 헤드라인 아래에 둔다 — 전체 사업(교육 기업)을 먼저 읽히고,
+              행안부 AI 챔피언은 그 다음의 신뢰 근거로. 헤드라인 위에 두면
+              첫인상이 공공 전문사로 좁게 읽힌다.
 
               칩을 어둡게 채운 이유: 좌측 워시가 흰색 92% 라 밝은 색 배지는 묻힌다.
               파랑으로 채우면 아래 CTA 버튼과 무게가 겹쳐 시선이 갈린다.
               발주처(행정안전부)와 역할(운영기관)을 세로선으로 나눠 정보 구조를 드러낸다. */}
           <Link
             href="/ai-champion"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-ink-warm py-2 pl-2.5 pr-4 text-[12px] tracking-[-0.01em] text-white shadow-[0_10px_30px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-14px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2 sm:text-[13px]"
+            className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-ink-warm py-2 pl-2.5 pr-4 text-[12px] tracking-[-0.01em] text-white shadow-[0_10px_30px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-14px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2 sm:text-[13px]"
           >
             <span
               aria-hidden
@@ -98,17 +110,6 @@ export function SceneHero() {
               →
             </span>
           </Link>
-          <h1 className="mt-6 text-[46px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[60px] lg:text-[80px]">
-            조직의 <span className="whitespace-nowrap">AI 전환을</span>{" "}
-            <br className="hidden sm:inline" />
-            교육에서 성과까지.
-          </h1>
-          {/* 행안부 AI 챔피언은 위 배지가 이미 말한다 — 본문은 B2B·B2G 를 모두 품는
-              "AI·데이터 교육 기업" 정체성으로. 공공 한정 문구를 쓰지 않는다. */}
-          <p className="mt-7 max-w-2xl text-[16px] font-medium leading-[1.8] text-zinc-700 sm:text-[18px]">
-            생성형 AI 활용부터 데이터 분석, AI 서비스 개발까지 — 기업과 공공기관의
-            직무에 맞는 교육을 설계하고 운영하는 AI·데이터 교육 전문기업입니다.
-          </p>
           {/* 히어로의 주 행동 유도. 헤드라인이 80px 로 커진 만큼 버튼도 키우고,
               색 면적 대신 그림자와 화살표로 무게를 준다. */}
           <div className="mt-12">

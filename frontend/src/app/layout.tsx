@@ -63,7 +63,9 @@ export const metadata: Metadata = {
   // metadataBase + 자기 경로로 해석되므로, 어느 도메인으로 들어와도 정규 URL 하나를 가리킨다.
   alternates: { canonical: "./" },
   title: {
-    default: "DAEASY(데이지) — 기업·공공기관 AI 데이터 교육 · 행정안전부 AI 챔피언 운영",
+    // "AI 챔피언" 검색 유입은 /ai-champion 전용 타이틀이 담당 — 기본 타이틀은
+    // 핵심 정체성(기업·공공기관 AI·데이터 교육)에 집중해 검색 결과 잘림을 피한다
+    default: "기업·공공기관 AI·데이터 교육 | DAEASY(데이지)",
     template: "%s | DAEASY(데이지)",
   },
   description:

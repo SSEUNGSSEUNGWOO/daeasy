@@ -26,7 +26,7 @@ const JOURNEY_STEPS = [
   },
   {
     title: "교육 운영",
-    body: "종합과정을 공식 대행해 학습과 과제를 지원합니다.",
+    body: "종합과정 운영을 공식 대행하며 학습과 과제 수행을 지원합니다.",
     // book-open — 학습 단계
     icon: (
       <>
@@ -49,7 +49,7 @@ const JOURNEY_STEPS = [
   },
   {
     title: "결과 관리",
-    body: "채점·심사부터 통계까지 인증 운영을 마무리합니다.",
+    body: "채점·심사부터 결과 통계와 보고까지 관리합니다.",
     // bar-chart — 결과 단계
     icon: (
       <>

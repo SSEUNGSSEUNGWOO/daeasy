@@ -88,24 +88,24 @@ export function SceneHero() {
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="group inline-flex w-[180px] items-center justify-center gap-3 rounded-full bg-accent py-4 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(37,99,235,0.85)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(37,99,235,0.95)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
+              className="group inline-flex w-[180px] items-center justify-center gap-3 rounded-full bg-accent py-3 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(37,99,235,0.85)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(37,99,235,0.95)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
             >
               교육 문의하기
               <span
                 aria-hidden
-                className="grid h-7 w-7 place-items-center rounded-full bg-white/20 text-[13px] leading-none transition-transform duration-200 group-hover:translate-x-0.5"
+                className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-[13px] leading-none transition-transform duration-200 group-hover:translate-x-0.5"
               >
                 →
               </span>
             </Link>
             <Link
               href="/ai-champion"
-              className="group inline-flex w-[180px] items-center justify-center gap-3 rounded-full bg-ink-warm py-4 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2"
+              className="group inline-flex w-[180px] items-center justify-center gap-3 rounded-full bg-ink-warm py-3 text-[16px] font-bold tracking-[-0.01em] text-white shadow-[0_12px_32px_-14px_rgba(15,15,15,0.75)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(15,15,15,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2"
             >
               AI 챔피언
               <span
                 aria-hidden
-                className="grid h-7 w-7 place-items-center rounded-full bg-white/15 text-[13px] leading-none transition-transform duration-200 group-hover:translate-x-0.5"
+                className="grid h-6 w-6 place-items-center rounded-full bg-white/15 text-[13px] leading-none transition-transform duration-200 group-hover:translate-x-0.5"
               >
                 →
               </span>

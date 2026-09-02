@@ -2,10 +2,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/json-ld";
 import { LikeButton } from "@/components/insights/like-button";
 import { TableOfContents, type TocItem } from "@/components/insights/toc";
 import { ViewTracker } from "@/components/insights/view-tracker";
 import { fetchCase, fetchCaseLikeCount } from "@/lib/cases";
+import { SITE_URL } from "@/lib/site";
 import { sanitizeHtml } from "@/lib/sanitize";
 
 const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
@@ -76,6 +78,25 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
 
   return (
     <article className="mx-auto max-w-6xl px-6 py-16 lg:py-20 anim-page-fade-up">
+      {/* 자사 교육 후기라 Review(별점) 대신 Article 로 마크업 — 자기 리뷰는
+          구글 리치결과 대상에서 제외되므로 정직하게 사례 글로 선언한다 */}
+      <JsonLd
+        id="case-article-ld"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: c.title.slice(0, 110),
+          ...(c.conducted_at ? { datePublished: c.conducted_at } : {}),
+          ...(c.thumbnail_url ? { image: `${SITE_URL}${c.thumbnail_url}` } : {}),
+          author: { "@type": "Organization", name: "DAEASY(데이지)" },
+          publisher: {
+            "@type": "Organization",
+            name: "DAEASY(데이지)",
+            logo: { "@type": "ImageObject", url: `${SITE_URL}/logo/daeasy-symbol-mark.png` },
+          },
+          mainEntityOfPage: `${SITE_URL}/cases/${encodeURIComponent(c.slug)}`,
+        }}
+      />
       <ViewTracker slug={c.slug} resource="cases" />
       <Link
         href="/cases"

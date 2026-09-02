@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { JsonLd } from "@/components/json-ld";
 import { LoginGate } from "@/components/login-gate";
 import { fetchCourse, fetchCourses } from "@/lib/courses";
 import { isAuthenticated } from "@/lib/customer-auth";
 import { sanitizeHtml } from "@/lib/sanitize";
+import { SITE_URL } from "@/lib/site";
 
 import { CourseDescription } from "./course-description";
 
@@ -44,6 +46,17 @@ export default async function CourseDetailPage(
 
   return (
     <>
+      <JsonLd
+        id="course-ld"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: clean,
+          description: course.summary,
+          provider: { "@type": "Organization", name: "DAEASY(데이지)", sameAs: SITE_URL },
+          ...(course.thumbnail_url ? { image: `${SITE_URL}${course.thumbnail_url}` } : {}),
+        }}
+      />
       {/* Hero */}
       <section className="bg-white">
         <div className="mx-auto max-w-[1280px] px-6 pb-12 pt-16 lg:px-10 lg:pb-16 lg:pt-20 anim-page-fade-up">

@@ -4,10 +4,12 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { JsonLd } from "@/components/json-ld";
 import { LikeButton } from "@/components/insights/like-button";
 import { TableOfContents, type TocItem } from "@/components/insights/toc";
 import { ViewTracker } from "@/components/insights/view-tracker";
 import { fetchInsight, type InsightDetail } from "@/lib/insights";
+import { SITE_URL } from "@/lib/site";
 
 const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
   year: "numeric",
@@ -88,6 +90,23 @@ export default async function InsightDetailPage(
 
   return (
     <article className="mx-auto max-w-6xl px-6 py-16 anim-page-fade-up">
+      <JsonLd
+        id="insight-article-ld"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: insight.title.slice(0, 110),
+          datePublished: insight.published_at,
+          ...(insight.image_url ? { image: insight.image_url } : {}),
+          author: { "@type": "Organization", name: "DAEASY(데이지)" },
+          publisher: {
+            "@type": "Organization",
+            name: "DAEASY(데이지)",
+            logo: { "@type": "ImageObject", url: `${SITE_URL}/logo/daeasy-symbol-mark.png` },
+          },
+          mainEntityOfPage: `${SITE_URL}/insights/${encodeURIComponent(insight.slug)}`,
+        }}
+      />
       <ViewTracker slug={insight.slug} />
 
       <Link

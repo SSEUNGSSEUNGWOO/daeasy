@@ -1,3 +1,4 @@
+import { SceneCases, type CaseCard } from "@/components/home/scenes/scene-cases";
 import { SceneCourses, type CourseCard } from "@/components/home/scenes/scene-courses";
 import { SceneCourseOutputs } from "@/components/home/scenes/scene-course-outputs";
 import { SceneCta } from "@/components/home/scenes/scene-cta";
@@ -6,6 +7,7 @@ import { SceneHero } from "@/components/home/scenes/scene-hero";
 import { SceneInsights, type InsightCard } from "@/components/home/scenes/scene-insights";
 import { ScenePartners } from "@/components/home/scenes/scene-partners";
 import { SceneRentals } from "@/components/home/scenes/scene-rentals";
+import { fetchCases } from "@/lib/cases";
 import { fetchCourses } from "@/lib/courses";
 import { fetchInsights } from "@/lib/insights";
 
@@ -30,9 +32,10 @@ function formatDate(value: string) {
 }
 
 export default async function HomePage() {
-  const [allCourses, allInsights] = await Promise.all([
+  const [allCourses, allInsights, allCases] = await Promise.all([
     fetchCourses(),
     fetchInsights(),
+    fetchCases(),
   ]);
 
   // 장면 컴포넌트(client)에는 직렬화 가능한 표시용 데이터만 내린다.
@@ -55,15 +58,24 @@ export default async function HomePage() {
     dateLabel: formatDate(i.published_at),
   }));
 
+  const latestCases: CaseCard[] = allCases.slice(0, 3).map((c) => ({
+    slug: c.slug,
+    title: c.title,
+    client_name: c.client_name,
+    thumbnail_url: c.thumbnail_url,
+    dateLabel: c.conducted_at ? formatDate(c.conducted_at) : "",
+  }));
+
   return (
     <>
       <SceneHero />
-      {/* AI 챔피언이 교육과정보다 앞이다 — 결재 라인은 "무엇을 파는가"보다
-          "믿을 만한가"를 먼저 확인한다. 신뢰 근거를 상품 앞에 둔다. */}
+      {/* 순서 원칙: 신뢰(로고) → 시그니처(AI 챔피언) → 상품(교육과정·결과물)
+          → 증거(교육후기) → 콘텐츠(인사이트) → 부가(대관) → CTA */}
+      <ScenePartners />
       <SceneAiChampion />
       <SceneCourses courses={featuredCourses} />
       <SceneCourseOutputs />
-      <ScenePartners />
+      <SceneCases cases={latestCases} />
       <SceneInsights insights={latestInsights} />
       <SceneRentals />
       <SceneCta />

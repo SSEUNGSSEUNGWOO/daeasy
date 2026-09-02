@@ -29,7 +29,7 @@ export function CustomerLoginForm() {
       // 게이트에서 넘어온 경우 원래 보던 페이지로 복귀. 내부 경로만 허용
       // ("//host" 형태의 오픈 리다이렉트 차단)
       const next = searchParams.get("next");
-      const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : "/mypage";
+      const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : "/";
       router.push(safeNext);
       router.refresh();
     } catch (err) {

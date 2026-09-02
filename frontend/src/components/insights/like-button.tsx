@@ -177,7 +177,7 @@ export function LikeButton({
       <span className="text-[11px] text-zinc-400">
         {maxed
           ? "고맙습니다! 마음 잘 받았습니다"
-          : `여러 번 눌러도 됩니다 (${mine}/${MAX_PER_VISITOR})`}
+          : `마음에 들면 여러 번 눌러주세요 (${mine}/${MAX_PER_VISITOR})`}
       </span>
       {count > 0 && (
         <span className="text-[11px] text-zinc-500">

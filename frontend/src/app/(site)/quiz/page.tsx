@@ -124,7 +124,7 @@ export default function ExperienceHubPage() {
                   )}
 
                   <span className="mt-5 inline-block text-[14px] font-bold text-accent">
-                    지금 체험하기 →
+                    지금 AI 체험하기 →
                   </span>
                 </Link>
               ) : (

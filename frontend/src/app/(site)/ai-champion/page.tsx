@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { JourneySection } from "@/components/ai-champion/journey-section";
 import { ScorePanel } from "@/components/ai-champion/score-panel";
-import { StatNumber } from "@/components/ai-champion/stat-number";
 import { TrackPanels } from "@/components/ai-champion/track-panels";
 
 export const metadata: Metadata = {
@@ -191,31 +190,7 @@ export default function AiChampionPage() {
               ))}
             </ul>
           </div>
-          <dl className="mt-12 grid overflow-hidden rounded-2xl bg-blue-50 ring-1 ring-blue-100 sm:grid-cols-3">
-            <div className="p-7 text-center sm:border-r sm:border-blue-100">
-              <dt className="text-[13px] font-bold text-zinc-600">교육 수료</dt>
-              <dd className="mt-2 text-[36px] font-extrabold tracking-[-0.03em] text-ink">
-                <StatNumber value={2227} />명
-              </dd>
-            </div>
-            <div className="border-y border-blue-100 p-7 text-center sm:border-x sm:border-y-0">
-              <dt className="text-[13px] font-bold text-zinc-600">표준 콘텐츠 개발</dt>
-              <dd className="mt-2 text-[36px] font-extrabold tracking-[-0.03em] text-ink">
-                <StatNumber value={12} />종
-              </dd>
-            </div>
-            <div className="p-7 text-center sm:border-l sm:border-blue-100">
-              <dt className="text-[13px] font-bold text-zinc-600">인증평가 운영</dt>
-              <dd className="mt-2 text-[36px] font-extrabold tracking-[-0.03em] text-ink">
-                <StatNumber value={1450} />명
-              </dd>
-            </div>
-          </dl>
-          {/* 홈(scene-ai-champion.tsx)과 같은 숫자·같은 기준이다. 한쪽만 고치면
-              두 페이지가 어긋나 실적 자체가 의심받는다. 바꿀 때 함께 바꾼다. */}
-          <p className="mt-3 text-right text-[12px] text-zinc-500">
-            2025 ~ 2026년 8월 누적 · 2026년 연간 2,200명 이상 인증 예정
-          </p>
+          {/* 수료·인증 실적 수치는 비공개 지침으로 싣지 않는다 (홈 scene-ai-champion 동일) */}
         </div>
       </section>
 

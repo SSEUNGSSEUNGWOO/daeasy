@@ -1,6 +1,6 @@
 import { SignupForm } from "./signup-form";
 
-export const metadata = { title: "회원가입" };
+export const metadata = { title: "회원가입", robots: { index: false } };
 
 export default function SignupPage() {
   return (

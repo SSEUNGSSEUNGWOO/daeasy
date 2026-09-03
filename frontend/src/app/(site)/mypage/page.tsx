@@ -8,7 +8,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 
 import { NewsletterToggle, PasswordForm, ProfileForm, WithdrawSection } from "./account-settings";
 
-export const metadata = { title: "내 정보" };
+export const metadata = { title: "내 정보", robots: { index: false } };
 export const dynamic = "force-dynamic";
 
 /** 최근 N건만 보여준다. 개인 문의가 그 이상 쌓일 시나리오가 아직 없어 페이지네이션은 두지 않는다. */

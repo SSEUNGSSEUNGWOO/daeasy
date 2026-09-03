@@ -75,6 +75,20 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
+  // 서치콘솔·서치어드바이저 소유 확인. 옛 아임웹 사이트에 등록돼 있던 값을 그대로 옮겼다
+  verification: {
+    google: [
+      "MtjRBDW5NV8UYoZyQs7V5uFWt9ZhhMU_duC9uHEv_RU",
+      "RmHQo9DrlymTdZ08YoYdcszAvL8PumgDVAhCEmXk09c",
+      "xtfrY6poli4lzCk5QIHT6lz30YSvGyOlY9PJkwbfLd0",
+    ],
+    other: {
+      "naver-site-verification": [
+        "e1880d4c560d9e756ebeef0b3dfc45fdfe69994e",
+        "747da3bfdcd11fe127f14280f4c9b3c781cae2d7",
+      ],
+    },
+  },
 };
 
 export default function RootLayout({

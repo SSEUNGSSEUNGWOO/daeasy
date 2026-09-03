@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import { CustomerLoginForm } from "./login-form";
 
-export const metadata = { title: "로그인" };
+export const metadata = { title: "로그인", robots: { index: false } };
 
 export default function LoginPage() {
   return (

@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
@@ -69,6 +70,10 @@ export async function POST(
   if (insertError) {
     return NextResponse.json({ detail: insertError.message }, { status: 500 });
   }
+
+  // 좋아요 직후 목록·상세의 ISR(60초) 캐시를 즉시 무효화 (insights likes 와 동일)
+  revalidatePath("/cases");
+  revalidatePath("/cases/[slug]", "page");
 
   const { count, error } = await supabase
     .from("case_likes")

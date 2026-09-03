@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
@@ -69,6 +70,12 @@ export async function POST(
   if (insertError) {
     return NextResponse.json({ detail: insertError.message }, { status: 500 });
   }
+
+  // 좋아요 직후 목록·상세의 ISR(60초) 캐시를 즉시 무효화 — 다음 방문/새로고침에서
+  // 바로 최신 숫자가 보인다. (뒤로가기 직후의 옛 화면은 Next 라우터 캐시가
+  // 스크롤 보존을 위해 의도적으로 보여주는 것이라 여기서 제어할 수 없다)
+  revalidatePath("/insights");
+  revalidatePath("/insights/[slug]", "page");
 
   const { count, error } = await supabase
     .from("insight_likes")

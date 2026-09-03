@@ -23,7 +23,7 @@ const values = [
 ];
 
 const company = [
-  { dt: "법인명", dd: "케이브레인컴퍼니 (DAEASY 데이터교육 브랜드)" },
+  { dt: "법인명", dd: "케이브레인컴퍼니 (DAEASY AI·데이터 교육 브랜드)" },
   { dt: "대표", dd: "민상일" },
   { dt: "대표번호", dd: CONTACT_PHONE },
   { dt: "이메일", dd: CONTACT_EMAIL },
@@ -45,7 +45,7 @@ export default function AboutPage() {
           </h1>
           <p className="mt-8 max-w-2xl text-[18px] leading-[1.75] text-zinc-700">
             <strong className="text-ink">데이터(DATA)를 쉽고 재미있게(EASY)</strong> 배울 수 있는 맞춤형 교육 플랫폼.
-            케이브레인컴퍼니의 데이터교육 브랜드입니다.
+            케이브레인컴퍼니의 AI·데이터 교육 브랜드입니다.
           </p>
           <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-zinc-600">
             데이터와 AI의 시대에 실무자가 알아야 할 최신 데이터 분석 기법과 실무 적용 가능한 AI 활용 노하우를 제공합니다.

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getCurrentCustomer, isAuthenticated } from "@/lib/customer-auth";
+import { notifyInquiry } from "@/lib/notify";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -79,5 +80,18 @@ export async function POST(req: Request) {
       { status: 500 },
     );
   }
+
+  // 관리자 메일 알림 — 실패해도 접수는 성공 (notify 내부 fail-open)
+  await notifyInquiry({
+    kind: "rental",
+    fields: [
+      ["이름", name],
+      ["연락처", phone],
+      ["희망 날짜", usageDate],
+      ["희망 시간대", timeSlot],
+      ["문의 내용", message],
+    ],
+  });
+
   return NextResponse.json({ id: data.id }, { status: 201 });
 }

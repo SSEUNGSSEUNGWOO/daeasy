@@ -61,13 +61,37 @@ function extractToc(body: string): TocItem[] {
 
 export const revalidate = 60;
 
+/** 메타 description 용 발췌 — 메타 코멘트·이미지·제목·마크다운 기호를 걷어낸 첫 문단 */
+function excerpt(body: string, max = 120): string {
+  const para = body
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .split(/\n\s*\n/)
+    .map((p) =>
+      p
+        .replace(/^\s*(\d+\.\s+)?#{1,6}\s+.*$/gm, "")
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+        .replace(/[*_`>]/g, "")
+        .replace(/\s+/g, " ")
+        .trim(),
+    )
+    .find((p) => p.length >= 40);
+  if (!para) return "";
+  return para.length > max ? `${para.slice(0, max - 1)}…` : para;
+}
+
 export async function generateMetadata(
   props: PageProps<"/insights/[slug]">,
 ) {
   const { slug } = await props.params;
   const insight = await fetchInsight(slug);
   if (!insight) return { title: "인사이트" };
-  return { title: insight.title };
+  const description = excerpt(insight.body) || undefined;
+  return {
+    title: insight.title,
+    description,
+    openGraph: insight.image_url ? { images: [insight.image_url] } : undefined,
+  };
 }
 
 export default async function InsightDetailPage(

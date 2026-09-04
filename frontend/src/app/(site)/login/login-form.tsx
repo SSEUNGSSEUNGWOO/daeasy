@@ -55,6 +55,7 @@ export function CustomerLoginForm() {
       </button>
       {error && <p role="alert" className="text-[13px] text-red-600">{error}</p>}
       <p className="text-center text-sm text-zinc-500">아직 회원이 아니신가요? <Link href="/signup" className="font-bold text-ink hover:underline">회원가입</Link></p>
+      <p className="text-center text-sm text-zinc-500"><Link href="/forgot-password" className="hover:underline">비밀번호를 잊으셨나요?</Link></p>
     </form>
   );
 }

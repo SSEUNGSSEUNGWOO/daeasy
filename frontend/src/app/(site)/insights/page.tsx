@@ -5,7 +5,11 @@ import { InsightCoverFallback } from "@/components/insight-cover-fallback";
 import { PaginatedList } from "@/components/paginated-list";
 import { fetchInsights, type InsightSummary } from "@/lib/insights";
 
-export const metadata = { title: "인사이트" };
+export const metadata = {
+  title: "인사이트",
+  description:
+    "AI·데이터 동향을 일터 언어로 매일 정리합니다. 모델 출시, 정책, 기업 도입 사례를 기업·공공기관 실무자 관점에서 읽어드립니다.",
+};
 export const revalidate = 60;
 
 const dateFormatter = new Intl.DateTimeFormat("ko-KR", {

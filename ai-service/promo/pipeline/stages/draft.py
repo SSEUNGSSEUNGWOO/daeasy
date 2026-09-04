@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""6단계 발행 준비 — draft까지만, 실제 발행은 절대 하지 않는다.
+"""6단계 발행 — 기본은 draft 까지. 사이트는 config `publish.site: true` 일 때만 곧장 공개한다.
 
-- `uv run prpub naver <slug>` (--publish 없이), `uv run prpub site <slug>` (--live 없이).
-- 실행 직전 ensure_no_publish_flags 로 금지 플래그를 명시적으로 검사한다
-  (C15: assert 금지 — python -O에서도 살아 있어야 하는 안전핀).
+- `uv run prpub naver <slug>` (--publish 없이), `uv run prpub site <slug>` (publish.site 면 --live).
+- 실행 직전 ensure_no_publish_flags 로 발행 플래그를 명시적으로 검사한다 — config 가 허용한
+  플래그만 통과 (C15: assert 금지 — python -O에서도 살아 있어야 하는 안전핀).
 - 채널별 독립 판정·기록 (C18): skipped(세션 부재)·failed·already_exists_stale은
   done이 아니라서 재실행마다 재시도한다.
 - site slug 중복(F8) 시 기록된 content_hash와 현재 post.md 해시를 대조해
@@ -39,12 +39,12 @@ def has_site_session(cfg) -> bool:
     return (prpub_root(cfg) / cfg_get(cfg, "prpub.site_session_file", ".daeasy-session.json")).exists()
 
 
-def ensure_no_publish_flags(args: list[str]) -> None:
-    """실행 인자에 발행 플래그가 섞이면 즉시 중단한다 (assert 금지 — C15)."""
-    forbidden = {"--publish", "--live"}
+def ensure_no_publish_flags(args: list[str], allowed: frozenset[str] = frozenset()) -> None:
+    """실행 인자에 config 가 허용하지 않은 발행 플래그가 섞이면 즉시 중단한다 (assert 금지 — C15)."""
+    forbidden = {"--publish", "--live"} - allowed
     hit = forbidden.intersection(args)
     if hit:
-        raise PipelineError(f"발행 플래그 금지: {sorted(hit)} — draft까지만 허용된다")
+        raise PipelineError(f"발행 플래그 금지: {sorted(hit)} — config publish.* 로 허용한 채널만 발행한다")
 
 
 def _post_hash(out_dir) -> str:
@@ -70,18 +70,19 @@ def classify_site_result(state: dict, out_dir, cmd_result) -> str:
 
 
 def _run_site(cfg, slug: str, out_dir, state: dict, log) -> None:
-    """`prpub site <slug>` (--live 없이) 실행 후 결과를 ok/already_exists(_stale)/
-    skipped/failed로 분류해 기록한다."""
-    args = ["uv", "run", "prpub", "site", slug]
-    ensure_no_publish_flags(args)
+    """`prpub site <slug>` 실행 후 결과를 ok/already_exists(_stale)/skipped/failed로 분류해
+    기록한다. config `publish.site` 가 참이면 `--live` 로 곧장 공개한다."""
+    live = bool(cfg_get(cfg, "publish.site", False))
+    args = ["uv", "run", "prpub", "site", slug] + (["--live"] if live else [])
+    ensure_no_publish_flags(args, allowed=frozenset({"--live"}) if live else frozenset())
     timeout = int(cfg_get(cfg, "prpub.site_timeout_sec", 600))
     res = run_cmd(args, cwd=prpub_root(cfg), timeout_sec=timeout, log=log)
     combined = res.stdout + "\n" + res.stderr
 
     if res.ok:
-        _record(state, "site", "ok", "draft 업로드 완료 — 어드민에서 확인",
-                content_hash=_post_hash(out_dir))
-        log.info("[%s] site draft ok", slug)
+        what = "공개 발행 완료" if live else "draft 업로드 완료 — 어드민에서 확인"
+        _record(state, "site", "ok", what, content_hash=_post_hash(out_dir), live=live)
+        log.info("[%s] site %s ok", slug, "publish(live)" if live else "draft")
     elif "같은 slug" in combined and "이미 있습니다" in combined:
         status = classify_site_result(state, out_dir, res)
         if status == "already_exists":

@@ -84,7 +84,7 @@ docs/
 ### 슬래시 명령어 (`.claude/commands/`)
 
 - `/insight-publish` — 인사이트 1건 발행 (크롤 → 작성 → 이미지 → 평가 → DB)
-- `/review-publish` — 홍보자료 접수 건을 발행 준비(draft)까지 처리. `ai-service/promo/run.py` 오케스트레이터의 래퍼 (아래 "홍보발행 오케스트레이터" 절 참고). 실제 발행은 파이프라인이 하지 않으며 사람이 draft 확인 후 prpub 로 직접 한다. (`.claude/agents/{정보수집,글검수,발행검수}.md` 는 옛 에이전트 주도 방식의 잔재로 현재 이 명령이 쓰지 않는다)
+- `/review-publish` — 홍보자료 접수 건을 사이트 발행까지 처리. `ai-service/promo/run.py` 오케스트레이터의 래퍼 (아래 "홍보발행 오케스트레이터" 절 참고). 사이트는 `publish.site` 설정대로 공개 또는 draft, 네이버는 발행 직전 정지 후 사람이 직접 발행한다. (`.claude/agents/{정보수집,글검수,발행검수}.md` 는 옛 에이전트 주도 방식의 잔재로 현재 이 명령이 쓰지 않는다)
 
 명령어 추가 시 같은 패턴(frontmatter `description` + 단계별 지시)을 따른다.
 
@@ -98,7 +98,8 @@ docs/
 
 - 인사이트 파이프라인과 **같은 uv 환경**을 쓰되 코드는 독립 (`shared/` 미사용). 진입점 `promo/run.py`, 실행은 `ai-service/` 에서 `uv run python promo/run.py [--slug <slug>]`. 상세 사용법·설정표·에러 대처는 `promo/README.md`
 - 6단계: ①접수 ②정보수집 ③글 작성 ④LLM-as-judge 정량평가 ⑤형식 검토 ⑥발행 준비(draft). **판정은 코드가 한다** — LLM 은 항목별 점수 JSON 만 내고 통과선(12/14)·거부권·재작성 루프·정체 감지는 `pipeline/` 코드. `prompts/*.md` 가 역할별(researcher/writer/judge/reviewer/rewriter) 프롬프트, `config.yaml` 이 역할별 `--allowedTools`/`--disallowedTools` 까지 관리
-- **실제 발행은 절대 하지 않는다** (`--publish`/`--live` 가 섞이면 즉시 중단). 사람이 draft 를 확인한 뒤 pr-publish 에서 직접 발행한다
+- 발행 범위는 **`config.yaml` 의 `publish.*` 가 결정한다** — `publish.site: true`(기본)면 5.5 통과 글을 `prpub site --live` 로 곧장 공개, `false` 면 draft 까지. 네이버는 항상 무발행(`--publish` 없음, 발행 직전 정지)이라 사람이 직접 발행한다. config 가 허용하지 않은 발행 플래그가 인자에 섞이면 `ensure_no_publish_flags` 가 즉시 중단(안전핀)
+- 사이트 글의 사진은 post.md 의 `![캡션](images/…)` 줄에서 온다 — **첫 사진이 썸네일**이 되고 본문에서는 빠진다(`prpub/site.py`). `::수치 …::` 요약 박스·URL 문단·`──` 구분선도 site.py 가 HTML 로 변환한다 (2026-09-04 mock 실측으로 보강)
 - 밑단은 **별도 프로젝트 `C:\Users\케이브레인\project\daeasy-pr-publish` 의 `prpub` CLI** (`config.yaml` 의 `prpub.root`). 접수함·원고(`out/<slug>/`)·네이버/사이트 세션은 그쪽에 있고, promo 는 이를 subprocess 로 부른다. 세션이 없으면 해당 채널은 skipped 로 기록되며 `prpub naver-login` / `prpub site-login` 후 재실행하면 그 채널만 재시도
 - LLM 호출은 insights 와 같은 규약 — `claude` CLI subprocess, `ANTHROPIC_API_KEY` 는 `run.py` 가 제거 (구독 세션 사용)
 - `promo/{state,logs,output}/` 은 재개용 로컬 상태·로그·보고서로 gitignore. 중단 후 재실행하면 `state/<slug>.json` 에서 이어서 진행하고, 완주한 건은 품질 게이트로 재평가를 건너뛴다. 처음부터 다시 하려면 `--reset <slug>`

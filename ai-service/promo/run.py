@@ -2,7 +2,7 @@
 """홍보발행 오케스트레이터 파이프라인 — 진입점.
 
 접수(prpub scan/build) → 정보수집 → 글 작성 → LLM-as-judge 정량평가 →
-형식 검토 → (5.5 최종 재판정) → 발행 준비(draft까지만) → 실행 보고서.
+형식 검토 → (5.5 최종 재판정) → 발행(사이트 공개 또는 draft, 네이버 무발행) → 실행 보고서.
 
 실행 (ai-service/ 에서): uv run python promo/run.py [--config <path>] [--slug <slug>] [--reset <slug>] [--yes]
 """
@@ -151,7 +151,7 @@ def process_slug(cfg, slug: str, log) -> None:
             write_stage.run_rewrite(cfg, slug, out_dir, targets, log, state=state)
             c += 1
 
-    # 6단계 — 발행 준비 (draft까지만)
+    # 6단계 — 발행 (config publish.* 에 따라 공개 또는 draft)
     draft_stage.run_draft(cfg, slug, out_dir, state, log)
 
 

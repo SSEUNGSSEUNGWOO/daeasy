@@ -77,7 +77,7 @@ def _review_history(state: dict) -> list[str]:
     return lines
 
 
-def _draft_section(state: dict, out_dir, admin_url: str) -> list[str]:
+def _draft_section(cfg, state: dict, out_dir, admin_url: str) -> list[str]:
     """채널별 draft 결과 + 확인 링크(어드민 URL·미리보기) + 무발행 고지 줄 목록."""
     lines = ["", "#### 발행 준비 결과", ""]
     for ch, label in (("site", "daeasy 사이트"), ("naver", "네이버 블로그")):
@@ -91,8 +91,12 @@ def _draft_section(state: dict, out_dir, admin_url: str) -> list[str]:
         if ch == "naver" and status in ("ok", "draft_ready"):
             lines.append(f"  - 미리보기: {out_dir / 'naver_미리보기1.png'}")
     lines.append("")
-    lines.append("> 실제 발행(`--publish`/`--live`)은 이 파이프라인이 절대 실행하지 않습니다. "
-                 "사람이 확인한 뒤 pr-publish에서 직접 실행하세요.")
+    if cfg_get(cfg, "publish.site", False):
+        lines.append("> 사이트는 `publish.site: true` 설정에 따라 공개로 발행했습니다. "
+                     "네이버는 발행 직전에서 멈추므로 미리보기를 확인한 뒤 pr-publish에서 직접 발행하세요.")
+    else:
+        lines.append("> 사이트는 draft(임시저장)까지만 올렸고, 네이버는 발행 직전에서 멈춥니다. "
+                     "사람이 확인한 뒤 pr-publish에서 직접 발행하세요.")
     return lines
 
 
@@ -137,7 +141,7 @@ def write_report(cfg, slugs: list[str], failures: list[dict],
         lines += _stage_table(state)
         lines += _judge_history(state)
         lines += _review_history(state)
-        lines += _draft_section(state, out_dir, admin_url)
+        lines += _draft_section(cfg, state, out_dir, admin_url)
         lines.append("")
 
     lines += [

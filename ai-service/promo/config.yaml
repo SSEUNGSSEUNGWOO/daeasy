@@ -75,6 +75,11 @@ review:
 pipeline:
   max_cycles: 2                  # 5.5 불통과 시 judge→review 재사이클 상한 (초과 시 stalled_regression)
 
+# ---- 6단계 발행 ----
+publish:
+  site: true                     # true: 5.5 통과 글을 사이트에 곧장 공개(`prpub site --live`). false: draft(임시저장)까지만
+                                 # 네이버는 항상 무발행(draft) — 발행 직전 정지 후 사람이 확인
+
 # ---- 실행 lock ----
 lock:
   path: "state/pipeline.lock"    # 프로젝트 루트 기준

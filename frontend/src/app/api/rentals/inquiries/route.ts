@@ -50,6 +50,13 @@ export async function POST(req: Request) {
   const usageDate = payload.usage_date && DATE_RE.test(payload.usage_date)
     ? payload.usage_date
     : null;
+  // 대관은 평일만. 서버는 UTC 라 요일 판정은 UTC 자정 기준으로 고정한다
+  if (usageDate && [0, 6].includes(new Date(`${usageDate}T00:00:00Z`).getUTCDay())) {
+    return NextResponse.json(
+      { detail: "주말은 대관이 어렵습니다. 평일 날짜를 선택해주세요." },
+      { status: 400 },
+    );
+  }
   const timeSlot = payload.time_slot ? payload.time_slot.slice(0, 40) : null;
   const message = (payload.message ?? "").slice(0, 2000);
 

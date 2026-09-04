@@ -145,8 +145,16 @@ export function RentalForm() {
             <input
               name="usage_date"
               type="date"
+              // 주말은 브라우저 기본 검증으로 막는다 — valueAsDate 는 UTC 자정이라 getUTCDay 로 본다
+              onChange={(e) => {
+                const d = e.currentTarget.valueAsDate;
+                e.currentTarget.setCustomValidity(
+                  d && [0, 6].includes(d.getUTCDay()) ? "주말은 대관이 어렵습니다. 평일 날짜를 선택해주세요." : "",
+                );
+              }}
               className="mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100"
             />
+            <span className="mt-1.5 block text-[12px] text-zinc-500">평일만 예약할 수 있습니다.</span>
           </label>
           <label className="block">
             <span className="text-[13px] font-bold text-ink">이용 시간</span>

@@ -89,19 +89,21 @@ export function BookingCalendar({
         {cells.map((cell, i) => {
           if (!cell) return <div key={`empty-${i}`} />;
           const past = cell.ymd < todayYmd;
-          const status = statusOf(byDate.get(cell.ymd));
+          // 주말은 대관하지 않는다 — 요일 인덱스는 달력 칸 위치(일=0)에서 바로 나온다
+          const weekend = i % 7 === 0 || i % 7 === 6;
+          const status: DayStatus = weekend ? "closed" : statusOf(byDate.get(cell.ymd));
           return (
             <div
               key={cell.ymd}
               className={
-                past
+                past || weekend
                   ? "min-h-16 rounded-lg bg-zinc-50 p-2 text-left text-zinc-300"
                   : status === "closed"
                     ? "min-h-16 rounded-lg bg-zinc-100 p-2 text-left"
                     : "min-h-16 rounded-lg border border-zinc-100 p-2 text-left"
               }
             >
-              <p className={past ? "text-[13px]" : "text-[13px] font-semibold text-ink"}>
+              <p className={past || weekend ? "text-[13px]" : "text-[13px] font-semibold text-ink"}>
                 {cell.day}
               </p>
               {!past && status !== "available" && (
@@ -112,7 +114,7 @@ export function BookingCalendar({
                       : "mt-1 text-[11px] font-bold text-accent-warm"
                   }
                 >
-                  {STATUS_LABEL[status]}
+                  {weekend ? "휴무" : STATUS_LABEL[status]}
                 </p>
               )}
             </div>
@@ -121,7 +123,7 @@ export function BookingCalendar({
       </div>
 
       <p className="mt-4 text-[12.5px] text-zinc-500">
-        표시가 없는 날짜는 예약 가능합니다. 오전·오후 예약일은 나머지 시간대 이용이 가능합니다.
+        표시가 없는 날짜는 예약 가능합니다. 오전·오후 예약일은 나머지 시간대 이용이 가능하며, 주말은 대관하지 않습니다.
       </p>
     </div>
   );

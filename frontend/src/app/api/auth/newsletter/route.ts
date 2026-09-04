@@ -7,7 +7,7 @@ import { getSupabaseAdmin } from "@/lib/supabase";
 export const runtime = "nodejs";
 
 /** 로그인한 회원 본인 이메일의 뉴스레터 구독 상태 조회/변경.
- *  비회원 구독 신청은 기존 /api/newsletter/subscribe 가 담당한다. */
+ *  뉴스레터는 회원 전용 — 비회원 구독 API 는 두지 않는다 (미검증 주소 발송 방지). */
 export async function GET() {
   const customer = await getCurrentCustomer();
   if (!customer) {

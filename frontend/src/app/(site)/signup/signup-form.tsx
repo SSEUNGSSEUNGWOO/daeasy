@@ -4,11 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const INPUT_CLASS = "mt-2 w-full rounded-md border border-zinc-200 bg-white px-4 py-3 text-[15px] text-zinc-800 focus:border-ink focus:outline-none disabled:bg-zinc-100";
 
 export function SignupForm() {
+  // 인사이트 페이지 "뉴스레터 받기" 에서 온 경우 동의 체크를 미리 켠다
+  const newsletterIntent = useSearchParams().get("newsletter") === "1";
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -80,7 +83,7 @@ export function SignupForm() {
         </span>
       </label>
       <label className="flex items-start gap-3 rounded-md border border-zinc-200 p-4 text-sm leading-6 text-zinc-700">
-        <input name="marketingAgreed" type="checkbox" disabled={submitting} className="mt-1 h-4 w-4 accent-black" />
+        <input name="marketingAgreed" type="checkbox" defaultChecked={newsletterIntent} disabled={submitting} className="mt-1 h-4 w-4 accent-black" />
         <span>
           교육 개설 소식과 뉴스레터를 이메일로 받겠습니다. <span className="text-zinc-500">(선택)</span>
         </span>

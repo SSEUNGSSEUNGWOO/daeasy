@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import { InsightCoverFallback } from "@/components/insight-cover-fallback";
-import { NewsletterForm } from "@/components/newsletter-form";
+import { NewsletterCta } from "@/components/newsletter-cta";
 import { PaginatedList } from "@/components/paginated-list";
 import { fetchInsights, type InsightSummary } from "@/lib/insights";
 
@@ -39,7 +39,7 @@ export default async function InsightsPage() {
           하루 한 통, 오늘 꼭 알아야 할 AI · 데이터 소식을 일터 언어로. 뉴스레터로 받아보세요.
         </p>
         <div className="mt-6">
-          <NewsletterForm source="insights" />
+          <NewsletterCta />
         </div>
       </header>
 

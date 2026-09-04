@@ -8,6 +8,7 @@
 """
 
 import os
+import shutil
 import subprocess
 import sys
 from dataclasses import dataclass, field
@@ -54,6 +55,11 @@ def run_cmd(
     정리한 뒤 남은 출력까지 회수한다.
     """
     log.debug("실행: %s (cwd=%s, timeout=%ss)", " ".join(cmd[:6]) + (" …" if len(cmd) > 6 else ""), cwd, timeout_sec)
+    # Windows 의 claude/uv 는 .cmd 셔임이라 "claude" 이름 그대로는 CreateProcess 가 못 찾는다
+    # ([WinError 2], CLAUDE.md 함정 2). which 로 실경로(.cmd 포함)를 얻어 argv[0] 에 넣는다.
+    resolved = shutil.which(cmd[0])
+    if resolved:
+        cmd = [resolved, *cmd[1:]]
     try:
         proc = subprocess.Popen(
             cmd,

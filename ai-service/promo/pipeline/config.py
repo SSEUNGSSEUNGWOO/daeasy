@@ -6,6 +6,7 @@
 - cfg_get(cfg, "a.b.c", default) 점표기 접근 헬퍼를 제공한다.
 """
 
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -57,8 +58,8 @@ def load_config(path: str | None = None) -> dict:
         cfg.setdefault("paths", {})
         cfg["paths"][key] = _resolve(PROJECT_ROOT, cfg.get("paths", {}).get(key, default))
 
-    # pr-publish 경로
-    prpub_root = cfg_get(cfg, "prpub.root")
+    # pr-publish 경로 — PC 마다 다르므로 환경변수 PRPUB_ROOT 가 있으면 config.yaml 값보다 우선
+    prpub_root = os.environ.get("PRPUB_ROOT") or cfg_get(cfg, "prpub.root")
     if not prpub_root:
         print("[설정 오류] prpub.root 가 비어 있습니다.", file=sys.stderr)
         raise SystemExit(1)

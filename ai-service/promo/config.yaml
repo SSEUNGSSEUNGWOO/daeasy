@@ -4,7 +4,7 @@
 # ============================================================
 # ---- pr-publish (기존 도구) ----
 prpub:
-  root: "C:/Users/케이브레인/project/daeasy-pr-publish"   # pr-publish 프로젝트 루트 (절대경로)
+  root: "C:/Users/케이브레인/project/daeasy-pr-publish"   # pr-publish 프로젝트 루트 (절대경로). PC 가 다르면 환경변수 PRPUB_ROOT 로 덮어쓴다
   admin_url: "https://daeasy.co.kr/admin/cases"           # 사이트 draft 확인용 어드민 URL (보고서·stale 안내에 사용)
   scan_timeout_sec: 120          # prpub scan --json 타임아웃
   build_timeout_sec: 300         # prpub build (사진 리사이즈 포함)

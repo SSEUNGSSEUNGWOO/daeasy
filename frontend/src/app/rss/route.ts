@@ -1,7 +1,7 @@
 import { fetchInsights } from "@/lib/insights";
 import { SITE_URL } from "@/lib/site";
 
-// 옛 아임웹 사이트가 /rss 를 냈고 네이버 서치어드바이저에 그 주소가 등록돼 있어 경로를 유지한다
+// 인사이트 목록 RSS. 네이버 서치어드바이저 RSS 제출용
 export const revalidate = 60;
 
 const escape = (s: string) =>

@@ -53,6 +53,23 @@ def body_hash(out_dir) -> str:
     return hashlib.sha256((post + "\n\x00\n" + naver).encode("utf-8")).hexdigest()
 
 
+def read_title(out_dir) -> str:
+    """post.md 첫 `# ` 줄의 제목. 없으면 빈 문자열."""
+    m = re.match(r"#\s*([^\n]*)", read_out_file(out_dir, "post.md"))
+    return m.group(1).strip() if m else ""
+
+
+def restore_title(out_dir, title: str) -> None:
+    """post.md 첫 줄과 naver.md `제목:` 을 확정 제목으로 되돌린다 (본문 재작성이 제목을 건드린 경우)."""
+    post = out_dir / "post.md"
+    text = post.read_text(encoding="utf-8")
+    post.write_text(re.sub(r"\A#[^\n]*", f"# {title}", text, count=1), encoding="utf-8")
+    naver = out_dir / "naver.md"
+    if naver.exists():
+        text = naver.read_text(encoding="utf-8")
+        naver.write_text(re.sub(r"^제목:[^\n]*", f"제목: {title}", text, count=1, flags=re.M), encoding="utf-8")
+
+
 def carry_over_body_items(cfg, verdict: dict, prev: dict) -> dict:
     """본문이 그대로일 때 LLM 본문 항목(1·2·3·5·6·7)을 직전 verdict에서 이어받는다.
 
@@ -195,6 +212,7 @@ def run_judge_loop(cfg, slug: str, out_dir, state: dict, log) -> None:
     totals: list[int] = []
     prev_verdict: dict | None = None
     title_only_hash: str | None = None  # 직전 재작성이 제목만이었을 때의 본문 해시
+    locked_title: str | None = None  # 한 번 통과한 제목은 확정 — 본문이 바뀌어도 다시 심사하지 않는다
 
     for rnd in range(1, max_rounds + 1):
         verdict = run_judge_once(cfg, slug, out_dir, log)
@@ -202,6 +220,13 @@ def run_judge_loop(cfg, slug: str, out_dir, state: dict, log) -> None:
             verdict = carry_over_body_items(cfg, verdict, prev_verdict)
             log.info("[%s] 본문 변경 없음(제목만 재작성) — 본문 항목 점수는 직전 라운드에서 이어받음", slug)
         title_only_hash = None
+        if locked_title is not None and not verdict["title_pass"] and read_title(out_dir) == locked_title:
+            verdict = {**verdict, "title_pass": True, "title_reasons": [], "title_locked": True,
+                       "passed": (not verdict["blocking"]) and verdict["score_ok"]}
+            log.info("[%s] 제목 확정 상태(이전 라운드 통과) — 제목 재판정 무시", slug)
+        if verdict["title_pass"] and locked_title is None:
+            locked_title = read_title(out_dir)
+            log.info("[%s] 제목 확정: %s", slug, locked_title)
         prev_verdict = verdict
         state["history"]["judge"].append({"cycle": cycle, "round": rnd, **verdict})
         st.save_state(cfg, state)
@@ -231,6 +256,11 @@ def run_judge_loop(cfg, slug: str, out_dir, state: dict, log) -> None:
         if all(t["origin"] == "judge_title" for t in targets):
             title_only_hash = body_hash(out_dir)
         run_rewrite(cfg, slug, out_dir, targets, log, state=state)
+        if locked_title is not None and read_title(out_dir) != locked_title:
+            restore_title(out_dir, locked_title)
+            st.record_file_hashes(state, "write", out_dir)
+            st.save_state(cfg, state)
+            log.warning("[%s] 본문 재작성이 확정 제목을 바꿔 원래 제목으로 되돌림", slug)
 
     st.mark_stage(state, "judge", "failed", f"상한 {max_rounds}회 도달 · 점수 이력 {totals}")
     st.save_state(cfg, state)

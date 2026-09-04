@@ -96,7 +96,9 @@ def _run_site(cfg, slug: str, out_dir, state: dict, log) -> None:
             _record(state, "site", "already_exists_stale", notice,
                     content_hash=prev_hash)
             log.warning("[%s] site draft stale — %s", slug, notice)
-    elif "로그인" in combined and ("만료" in combined or "세션이 없습니다" in combined):
+    elif "로그인" in combined and ("만료" in combined or "세션이 없습니다" in combined
+                                  or "로그인이 필요합니다" in combined):
+        # 마지막 조건: 이미지 업로드 API 가 401 을 돌려준 경우 (`이미지 업로드 실패 (401): 로그인이 필요합니다`)
         _record(state, "site", "skipped",
                 "로그인 세션 없음/만료 — `uv run prpub site-login` 후 재실행하면 재시도됩니다")
         log.warning("[%s] site draft skipped: 세션 없음/만료", slug)

@@ -78,7 +78,8 @@ function InsightCard({ insight }: { insight: InsightSummary }) {
             </span>
           ))}
         </div>
-        <h2 className="mt-3 text-[20px] font-bold leading-[1.3] tracking-[-0.015em] text-ink">
+        {/* 제목이 1줄이든 2줄이든 카드 높이가 같도록 2줄 높이를 고정 확보하고 그 이상은 자른다 */}
+        <h2 className="mt-3 line-clamp-2 min-h-[2.6em] text-[20px] font-bold leading-[1.3] tracking-[-0.015em] text-ink">
           {insight.title}
         </h2>
         <div className="mt-4 flex items-center gap-3 text-[12.5px] text-zinc-500">

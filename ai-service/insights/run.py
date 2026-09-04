@@ -24,6 +24,7 @@ from writer.writer import run as writer_run
 from image_agent.image_agent import run as image_agent_run
 from proofreader.proofreader import run as proofreader_run
 from evaluator.evaluator import run as evaluator_run
+from newsletter import send as newsletter_send
 from shared.storage import load_draft_meta, load_raw_items, save_draft, save_insight
 from shared.models import Insight
 from shared.db import get_conn
@@ -216,6 +217,13 @@ def save_to_insights(result: dict):
         print(f"[run] DB 업로드 완료: {insight.slug}")
     except Exception as e:
         print(f"[run] DB 업로드 실패 (로컬엔 저장됨): {e}")
+        return insight
+
+    # 메일은 부가 기능 — 실패해도 발행은 이미 끝난 상태다
+    try:
+        newsletter_send(insight)
+    except Exception as e:
+        print(f"[run] 뉴스레터 발송 실패: {e}")
 
     return insight
 

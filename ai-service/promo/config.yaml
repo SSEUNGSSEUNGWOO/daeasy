@@ -1,0 +1,90 @@
+# ============================================================
+# 홍보발행 오케스트레이터 설정
+# 모든 경로·기준점수·루프 상한·claude CLI 옵션은 이 파일에서 관리한다.
+# ============================================================
+# ---- pr-publish (기존 도구) ----
+prpub:
+  root: "C:/Users/케이브레인/project/daeasy-pr-publish"   # pr-publish 프로젝트 루트 (절대경로)
+  admin_url: "https://daeasy.co.kr/admin/cases"           # 사이트 draft 확인용 어드민 URL (보고서·stale 안내에 사용)
+  scan_timeout_sec: 120          # prpub scan --json 타임아웃
+  build_timeout_sec: 300         # prpub build (사진 리사이즈 포함)
+  score_timeout_sec: 120         # scripts/score.py
+  site_timeout_sec: 600          # prpub site (이미지 업로드 + API)
+  naver_timeout_sec: 1500        # prpub naver — 무발행 모드는 10분 대기 후 스스로 종료(F6)하므로 그보다 길게
+  naver_profile_dir: ".naver-profile"        # 네이버 세션 = 이 폴더 존재 (F7)
+  site_session_file: ".daeasy-session.json"  # 사이트 세션 = 이 파일 존재 (F7)
+
+# ---- claude CLI ----
+claude:
+  cmd: "claude"
+  model: "sonnet"                # claude CLI --model 값 (별칭 또는 전체 모델명)
+  timeout_sec: 900               # 호출 1회 타임아웃 (초)
+  retries: 3                     # 호출 재시도 (총 시도 횟수)
+  retry_wait_sec: 10             # 재시도 대기
+  reformat_retries: 1            # JSON 파싱 실패 시 형식 재요청 횟수 (C22)
+  extra_args: ["--no-session-persistence"]   # 모든 호출에 붙는 공통 인자
+  roles:
+    researcher:
+      # 검색은 search_kr.py, 열람은 아래 web_domains의 WebFetch만 (C4)
+      allowed_tools:
+        - "Read"
+        - "Write"
+        - "Glob"
+        - "Bash(uv run python scripts/search_kr.py:*)"
+      disallowed_tools: ["WebSearch", "Edit", "Task", "Agent"]
+      web_domains:               # WebFetch(domain:…) 로 인코딩된다 — 허용 기관 사이트만
+        - "korea.kr"
+        - "www.korea.kr"
+        - "mois.go.kr"
+        - "www.mois.go.kr"
+        - "msit.go.kr"
+        - "www.msit.go.kr"
+        - "daeasy.co.kr"
+    writer:
+      allowed_tools: ["Read", "Write", "Glob"]
+      disallowed_tools: ["WebFetch", "WebSearch", "Bash", "Edit", "Task", "Agent"]
+      web_domains: []
+    judge:
+      # 본문은 프롬프트로 주입 — 도구 전면 봉쇄 (C9·C14: Read·Grep·Glob 포함)
+      allowed_tools: []
+      disallowed_tools: ["Write", "Edit", "Bash", "WebFetch", "WebSearch", "Read", "Grep", "Glob", "Task", "Agent"]
+      web_domains: []
+    reviewer:
+      allowed_tools: []
+      disallowed_tools: ["Write", "Edit", "Bash", "WebFetch", "WebSearch", "Read", "Grep", "Glob", "Task", "Agent"]
+      web_domains: []
+    rewriter:
+      allowed_tools: ["Read", "Write", "Edit", "Glob"]
+      disallowed_tools: ["WebFetch", "WebSearch", "Bash", "Task", "Agent"]
+      web_domains: []
+
+# ---- 4단계 judge ----
+judge:
+  max_rounds: 5                  # judge 루프 상한 (라운드)
+  pass_score: 12                 # 14점 만점 통과선 (루브릭 3절)
+  stall_rounds: 2                # 총점이 이 횟수 연속 오르지 않으면 정체로 중단
+  search_item4_full: 4.0         # 검색 노출 → 항목4 환산: 이 값 이상 = 2점
+  search_item4_half: 2.5         #                        이 값 이상 = 1점 (미만 = 0점)
+
+# ---- 5단계 review ----
+review:
+  max_rounds: 5                  # review 루프 상한
+  stall_rounds: 2                # FAIL 건수가 이 횟수 연속 줄지 않으면 정체
+
+# ---- 사이클(5.5 최종 재판정) ----
+pipeline:
+  max_cycles: 2                  # 5.5 불통과 시 judge→review 재사이클 상한 (초과 시 stalled_regression)
+
+# ---- 실행 lock ----
+lock:
+  path: "state/pipeline.lock"    # 프로젝트 루트 기준
+  stale_after_sec: 600           # heartbeat가 이만큼 끊기면 stale로 회수
+  heartbeat_sec: 60              # 실행 중 mtime 갱신 주기 (C2)
+  acquire_retries: 2             # O_EXCL 재획득 시도 횟수 (C22)
+
+# ---- 프로젝트 내부 경로 ----
+paths:
+  state_dir: "state"
+  logs_dir: "logs"
+  output_dir: "output"
+  prompts_dir: "prompts"

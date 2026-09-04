@@ -1,0 +1,82 @@
+# 검증용 설정 — config.yaml과 동일하되 세션 경로만 존재하지 않는 이름으로 바꿔
+# 6단계 두 채널이 모두 skipped 되는 것을 실측한다 (테스트 계획 5-①).
+# 실제 블로그·사이트에 픽스처(가짜) 본문 draft가 올라가는 것을 막기 위한 구성이다.
+# 사용 (ai-service/ 에서): uv run python promo/run.py --config tests/config.검증.yaml --slug <픽스처 slug>
+
+prpub:
+  root: "C:/Users/케이브레인/project/daeasy-pr-publish"
+  admin_url: "https://daeasy.co.kr/admin/cases"
+  scan_timeout_sec: 120
+  build_timeout_sec: 300
+  score_timeout_sec: 120
+  site_timeout_sec: 600
+  naver_timeout_sec: 1500
+  naver_profile_dir: ".naver-profile-검증용-없는폴더"      # 일부러 없는 경로 → skipped
+  site_session_file: ".daeasy-session-검증용-없는파일.json" # 일부러 없는 경로 → skipped
+
+claude:
+  cmd: "claude"
+  model: "sonnet"
+  timeout_sec: 900
+  retries: 3
+  retry_wait_sec: 10
+  reformat_retries: 1
+  extra_args: ["--no-session-persistence"]
+  roles:
+    researcher:
+      allowed_tools:
+        - "Read"
+        - "Write"
+        - "Glob"
+        - "Bash(uv run python scripts/search_kr.py:*)"
+      disallowed_tools: ["WebSearch", "Edit", "Task", "Agent"]
+      web_domains:
+        - "korea.kr"
+        - "www.korea.kr"
+        - "mois.go.kr"
+        - "www.mois.go.kr"
+        - "msit.go.kr"
+        - "www.msit.go.kr"
+        - "daeasy.co.kr"
+    writer:
+      allowed_tools: ["Read", "Write", "Glob"]
+      disallowed_tools: ["WebFetch", "WebSearch", "Bash", "Edit", "Task", "Agent"]
+      web_domains: []
+    judge:
+      allowed_tools: []
+      disallowed_tools: ["Write", "Edit", "Bash", "WebFetch", "WebSearch", "Read", "Grep", "Glob", "Task", "Agent"]
+      web_domains: []
+    reviewer:
+      allowed_tools: []
+      disallowed_tools: ["Write", "Edit", "Bash", "WebFetch", "WebSearch", "Read", "Grep", "Glob", "Task", "Agent"]
+      web_domains: []
+    rewriter:
+      allowed_tools: ["Read", "Write", "Edit", "Glob"]
+      disallowed_tools: ["WebFetch", "WebSearch", "Bash", "Task", "Agent"]
+      web_domains: []
+
+judge:
+  max_rounds: 5
+  pass_score: 12
+  stall_rounds: 2
+  search_item4_full: 4.0
+  search_item4_half: 2.5
+
+review:
+  max_rounds: 5
+  stall_rounds: 2
+
+pipeline:
+  max_cycles: 2
+
+lock:
+  path: "state/pipeline.lock"
+  stale_after_sec: 600
+  heartbeat_sec: 60
+  acquire_retries: 2
+
+paths:
+  state_dir: "state"
+  logs_dir: "logs"
+  output_dir: "output"
+  prompts_dir: "prompts"

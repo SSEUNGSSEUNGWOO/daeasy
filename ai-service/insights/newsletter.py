@@ -34,31 +34,48 @@ def _unsub_url(site: str, email: str, secret: str) -> str:
     return f"{site}/api/newsletter/unsubscribe?e={quote(email)}&s={sig}"
 
 
-def _html(insight, site: str, unsub: str) -> str:
+def _date_ko(iso: str) -> str:
+    y, m, d = iso[:10].split("-")
+    return f"{y}년 {int(m)}월 {int(d)}일"
+
+
+def _html(insight, site: str, unsub: str, prev: dict | None = None) -> str:
+    """회색 바탕 위 흰 카드 640px — 메일은 화면을 다 못 채우니 여백을 배경으로 처리한다."""
     e = html.escape
     url = f"{site}/insights/{quote(insight.slug)}"
     cover = (
-        f'<a href="{url}"><img src="{e(insight.image_url)}" alt="" width="560" '
-        'style="display:block;width:100%;max-width:560px;border-radius:12px"></a>'
+        f'<a href="{url}"><img src="{e(insight.image_url)}" alt="" width="576" '
+        'style="display:block;width:100%;max-width:576px;border-radius:10px"></a>'
         if insight.image_url
         else ""
     )
     items = "".join(
-        f'<li style="margin:0 0 8px">{e(h)}</li>' for h in _headlines(insight.body)
+        f'<li style="margin:0 0 10px">{e(h)}</li>' for h in _headlines(insight.body)
+    )
+    yesterday = (
+        '<p style="font-size:13px;color:#71717a;margin:32px 0 0;border-top:1px solid #e4e4e7;padding-top:20px">'
+        f'어제 놓치셨다면 → <a href="{site}/insights/{quote(prev["slug"])}" '
+        f'style="color:#18181b;font-weight:700">{e(prev["title"])}</a></p>'
+        if prev
+        else ""
     )
     return (
-        '<div style="font-family:sans-serif;font-size:15px;line-height:1.7;color:#18181b;'
-        'max-width:560px;margin:0 auto;padding:24px 16px">'
-        '<p style="font-size:12px;font-weight:700;letter-spacing:.12em;color:#71717a;margin:0 0 12px">'
-        "DAEASY 뉴스레터</p>"
-        f'<h1 style="font-size:22px;line-height:1.35;margin:0 0 16px"><a href="{url}" '
+        '<div style="background:#f4f4f5;padding:32px 12px;font-family:sans-serif">'
+        '<div style="max-width:640px;margin:0 auto;background:#fff;border-radius:14px;'
+        'padding:32px;font-size:15px;line-height:1.7;color:#18181b">'
+        '<table width="100%" cellpadding="0" cellspacing="0" style="font-size:12px;color:#71717a;margin:0 0 14px">'
+        '<tr><td style="font-weight:700;letter-spacing:.12em">DAEASY 뉴스레터</td>'
+        f'<td align="right">{_date_ko(insight.published_at)}</td></tr></table>'
+        f'<h1 style="font-size:24px;line-height:1.35;margin:0 0 18px"><a href="{url}" '
         f'style="color:#18181b;text-decoration:none">{e(insight.title)}</a></h1>'
         f"{cover}"
-        '<p style="font-weight:700;margin:24px 0 8px">오늘 다룬 이야기</p>'
-        f'<ol style="margin:0 0 24px;padding-left:20px">{items}</ol>'
+        '<p style="font-weight:700;font-size:16px;margin:28px 0 10px">오늘 다룬 이야기</p>'
+        f'<ol style="margin:0 0 28px;padding-left:22px">{items}</ol>'
         f'<a href="{url}" style="display:inline-block;background:#18181b;color:#fff;font-weight:700;'
-        'padding:12px 22px;border-radius:8px;text-decoration:none">전문 읽기 →</a>'
-        '<p style="font-size:12px;color:#a1a1aa;margin:40px 0 0;border-top:1px solid #e4e4e7;padding-top:16px">'
+        'padding:13px 24px;border-radius:8px;text-decoration:none">전문 읽기 →</a>'
+        f"{yesterday}"
+        "</div>"
+        '<p style="max-width:640px;margin:20px auto 0;font-size:12px;color:#a1a1aa;text-align:center">'
         "케이브레인컴퍼니 · DAEASY(데이지) · 매일 AI·데이터 인사이트<br>"
         f'<a href="{unsub}" style="color:#a1a1aa">수신 거부</a></p>'
         "</div>"
@@ -85,6 +102,13 @@ def send(insight) -> None:
         else:
             cur.execute("SELECT email FROM newsletter_subscribers WHERE status = 'active'")
             emails = [r["email"] for r in cur.fetchall()]
+        # "어제 놓치셨다면" — 직전 발행 글 1건 (없으면 그 줄이 빠진다)
+        cur.execute(
+            "SELECT slug, title FROM insights WHERE status = 'published' AND slug <> %s "
+            "AND published_at <= %s ORDER BY published_at DESC LIMIT 1",
+            (insight.slug, insight.published_at),
+        )
+        prev = cur.fetchone()
     if not emails:
         print("[newsletter] 활성 구독자 없음 — 발송 생략")
         return
@@ -101,7 +125,7 @@ def send(insight) -> None:
                     "to": [email],
                     "reply_to": REPLY_TO,
                     "subject": subject,
-                    "html": _html(insight, site, unsub),
+                    "html": _html(insight, site, unsub, prev),
                     "headers": {
                         "List-Unsubscribe": f"<{unsub}>",
                         "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
@@ -136,7 +160,7 @@ def send(insight) -> None:
                 INSERT INTO newsletter_issues (subject, content, insight_slug, status, sent_at, recipient_count)
                 VALUES (%s, %s, %s, 'sent', now(), %s)
                 """,
-                (subject, _html(insight, site, f"{site}/mypage"), insight.slug, sent),
+                (subject, _html(insight, site, f"{site}/mypage", prev), insight.slug, sent),
             )
             conn.commit()
 

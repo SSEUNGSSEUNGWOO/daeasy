@@ -7,7 +7,12 @@
   (항목1=0)·차단 검사·제목 심사로 통과/불통과 결정
 - 항목4(검색 노출)는 scripts/score.py 코드 점수를 환산한다 — LLM에 맡기지 않는다
 - 정체 감지: 총점이 stall_rounds(기본 2)회 연속 오르지 않으면 중단·보고
+- 제목만 재작성한 라운드는 본문이 그대로이므로 LLM 본문 항목 점수를 직전 라운드에서
+  이어받는다 — 같은 글을 라운드마다 다르게 채점하는 judge 편차를 코드로 막는다
 """
+
+import hashlib
+import re
 
 from ..claude_cli import call_claude_json
 from ..config import cfg_get
@@ -39,6 +44,38 @@ FIX_SCOPE = {
     6: "빼도 되는 그 문단만 삭제한다. 같은 내용 반복 제거",
     7: "소제목만 고치거나 그 문단을 맞는 절로 옮긴다",
 }
+
+
+def body_hash(out_dir) -> str:
+    """제목을 뺀 본문의 해시 — post.md 첫 `# ` 줄, naver.md `제목:` 줄만 제외한다."""
+    post = re.sub(r"\A#[^\n]*\n", "", read_out_file(out_dir, "post.md"), count=1)
+    naver = re.sub(r"^제목:[^\n]*\n", "", read_out_file(out_dir, "naver.md"), count=1, flags=re.M)
+    return hashlib.sha256((post + "\n\x00\n" + naver).encode("utf-8")).hexdigest()
+
+
+def carry_over_body_items(cfg, verdict: dict, prev: dict) -> dict:
+    """본문이 그대로일 때 LLM 본문 항목(1·2·3·5·6·7)을 직전 verdict에서 이어받는다.
+
+    새로 반영하는 것은 제목 판정·차단 검사·코드 환산 항목4뿐이다. 판정은 다시 계산한다.
+    """
+    items = dict(verdict["items"])
+    evidence = dict(verdict["evidence"])
+    for iid in LLM_ITEMS:
+        key = str(iid)
+        items[key] = prev["items"][key]
+        evidence[key] = prev["evidence"].get(key, "")
+    total = sum(items.values())
+    pass_score = int(cfg_get(cfg, "judge.pass_score", 12))
+    score_ok = total >= pass_score and items["1"] > 0
+    return {
+        **verdict,
+        "items": items,
+        "evidence": evidence,
+        "total": total,
+        "score_ok": score_ok,
+        "passed": (not verdict["blocking"]) and score_ok and verdict["title_pass"],
+        "carried_over": True,
+    }
 
 
 def run_judge_once(cfg, slug: str, out_dir, log) -> dict:
@@ -86,10 +123,12 @@ def run_judge_once(cfg, slug: str, out_dir, log) -> dict:
 
     total = sum(items.values())
     pass_score = int(cfg_get(cfg, "judge.pass_score", 12))
-    passed = (not blocking) and total >= pass_score and items[1] > 0 and title_pass
+    score_ok = total >= pass_score and items[1] > 0
+    passed = (not blocking) and score_ok and title_pass
 
     return {
         "passed": passed,
+        "score_ok": score_ok,
         "total": total,
         "items": {str(k): v for k, v in sorted(items.items())},
         "evidence": {str(k): v for k, v in sorted(evidence.items())},
@@ -105,6 +144,10 @@ def verdict_to_targets(verdict: dict, origin: str) -> list[dict]:
 
     origin: "judge" | "final_judge" — final_judge 타깃은 재작성 후 반드시
     judge 루프를 다시 통과해야 한다 (D15 불변식, C16).
+
+    총점이 이미 통과선을 넘었으면(score_ok) 1점짜리 항목은 통과를 막는 게 아니므로
+    타깃에서 뺀다 — 본문을 건드려 멀쩡한 항목이 회귀하는 것을 막는다. 그때는
+    차단 위반·제목만 남는다.
     """
     targets: list[dict] = []
     for b in verdict.get("blocking", []):
@@ -113,7 +156,8 @@ def verdict_to_targets(verdict: dict, origin: str) -> list[dict]:
             "what": f"차단 검사 위반: {b}",
             "scope": "그 문장·그 자리만 고친다. 근거 없는 숫자·인용은 뺀다",
         })
-    for key, score in verdict.get("items", {}).items():
+    items = {} if verdict.get("score_ok") else verdict.get("items", {})
+    for key, score in items.items():
         iid = int(key)
         if score >= 2:
             continue
@@ -126,7 +170,8 @@ def verdict_to_targets(verdict: dict, origin: str) -> list[dict]:
         targets.append({
             "origin": f"{origin}_title",
             "what": "제목 불통과: " + "; ".join(verdict.get("title_reasons", [])),
-            "scope": "제목만 고친다. 헤드라인 규칙 절차대로 재작성 — 본문 문장을 옮기지 말고 의미로 재구성",
+            "scope": "제목만 고친다. 헤드라인 규칙 절차대로 재작성 — 본문 문장을 옮기지 말고 의미로 재구성. "
+                     "검색 노출(항목4)이 제목 키워드에 걸리므로 기관명·과정명은 제목에 유지한다",
         })
     return targets
 
@@ -148,9 +193,16 @@ def run_judge_loop(cfg, slug: str, out_dir, state: dict, log) -> None:
     stall_rounds = int(cfg_get(cfg, "judge.stall_rounds", 2))
     cycle = st.get_cycle(state)
     totals: list[int] = []
+    prev_verdict: dict | None = None
+    title_only_hash: str | None = None  # 직전 재작성이 제목만이었을 때의 본문 해시
 
     for rnd in range(1, max_rounds + 1):
         verdict = run_judge_once(cfg, slug, out_dir, log)
+        if title_only_hash is not None and prev_verdict is not None and body_hash(out_dir) == title_only_hash:
+            verdict = carry_over_body_items(cfg, verdict, prev_verdict)
+            log.info("[%s] 본문 변경 없음(제목만 재작성) — 본문 항목 점수는 직전 라운드에서 이어받음", slug)
+        title_only_hash = None
+        prev_verdict = verdict
         state["history"]["judge"].append({"cycle": cycle, "round": rnd, **verdict})
         st.save_state(cfg, state)
         log.info(
@@ -176,6 +228,8 @@ def run_judge_loop(cfg, slug: str, out_dir, state: dict, log) -> None:
         if rnd == max_rounds:
             break
         targets = verdict_to_targets(verdict, "judge")
+        if all(t["origin"] == "judge_title" for t in targets):
+            title_only_hash = body_hash(out_dir)
         run_rewrite(cfg, slug, out_dir, targets, log, state=state)
 
     st.mark_stage(state, "judge", "failed", f"상한 {max_rounds}회 도달 · 점수 이력 {totals}")

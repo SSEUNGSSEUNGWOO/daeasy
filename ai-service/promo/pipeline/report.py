@@ -56,7 +56,7 @@ def _judge_history(state: dict) -> list[str]:
             item_str = " ".join(f"{k}:{items[k]}" for k in sorted(items, key=int))
             lines.append(
                 f"| {kind} | {h.get('cycle', '?')} | {h.get('round', '?')} "
-                f"| {h.get('total', '?')}/14 | {item_str} "
+                f"| {h.get('total', '?')}/14{' (본문 이어받음)' if h.get('carried_over') else ''} | {item_str} "
                 f"| {'통과' if h.get('title_pass') else '불통과'} "
                 f"| {len(h.get('blocking', []))}건 |"
             )

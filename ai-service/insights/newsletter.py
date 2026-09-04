@@ -16,7 +16,7 @@ import requests
 
 from shared.db import get_conn
 
-FROM_DEFAULT = "데이지 인사이트 <no-reply@daeasy.co.kr>"
+FROM_DEFAULT = "데이지 뉴스레터 <no-reply@daeasy.co.kr>"
 # ponytail: Resend 무료 구간 하루 100통. 구독자가 넘으면 요금제부터 올린다
 BATCH = 100
 
@@ -48,7 +48,7 @@ def _html(insight, site: str, unsub: str) -> str:
         '<div style="font-family:sans-serif;font-size:15px;line-height:1.7;color:#18181b;'
         'max-width:560px;margin:0 auto;padding:24px 16px">'
         '<p style="font-size:12px;font-weight:700;letter-spacing:.12em;color:#71717a;margin:0 0 12px">'
-        "DAEASY 인사이트</p>"
+        "DAEASY 뉴스레터</p>"
         f'<h1 style="font-size:22px;line-height:1.35;margin:0 0 16px"><a href="{url}" '
         f'style="color:#18181b;text-decoration:none">{e(insight.title)}</a></h1>'
         f"{cover}"
@@ -87,7 +87,7 @@ def send(insight) -> None:
         print("[newsletter] 활성 구독자 없음 — 발송 생략")
         return
 
-    subject = f"[데이지 인사이트] {insight.title}"
+    subject = f"[데이지 뉴스레터] {insight.title}"
     sent = 0
     for i in range(0, len(emails), BATCH):
         batch = []

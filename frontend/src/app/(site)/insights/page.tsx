@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import { InsightCoverFallback } from "@/components/insight-cover-fallback";
+import { NewsletterForm } from "@/components/newsletter-form";
 import { PaginatedList } from "@/components/paginated-list";
 import { fetchInsights, type InsightSummary } from "@/lib/insights";
 
@@ -35,8 +36,11 @@ export default async function InsightsPage() {
           인사이트
         </h1>
         <p className="mt-4 text-[16px] leading-[1.7] text-zinc-600">
-          AI · 데이터를 일터 언어로 바꿔서 매일 보내드립니다.
+          하루 한 통, 오늘 꼭 알아야 할 AI · 데이터 소식을 일터 언어로. 뉴스레터로 받아보세요.
         </p>
+        <div className="mt-6">
+          <NewsletterForm source="insights" />
+        </div>
       </header>
 
       {insights.length === 0 ? (

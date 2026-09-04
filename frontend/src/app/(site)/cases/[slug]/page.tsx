@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LikeButton } from "@/components/insights/like-button";
 import { TableOfContents, type TocItem } from "@/components/insights/toc";
 import { ViewTracker } from "@/components/insights/view-tracker";
-import { fetchCase, fetchCaseLikeCount } from "@/lib/cases";
+import { fetchCase, fetchCaseLikeCount, fetchCasesBySlugs } from "@/lib/cases";
 import { SITE_URL } from "@/lib/site";
 import { sanitizeHtml } from "@/lib/sanitize";
 
@@ -55,6 +55,28 @@ function injectHeadingIds(sanitized: string): { html: string; toc: TocItem[] } {
   return { html, toc };
 }
 
+/**
+ * 홍보발행 파이프라인(prpub site.py)이 본문 끝에 남기는 '함께 보면 좋은 글' 블록 —
+ * `<hr>` → `<p>함께 보면 좋은 글</p>` → URL 만 든 `<p>`/`<ul>` — 을 본문에서 떼어내고
+ * 그 안의 /cases/<slug> 링크만 뽑는다. 네이버에선 에디터가 URL 을 썸네일 카드로
+ * 바꿔주지만 사이트는 그냥 글자 링크라, 여기서 카드로 다시 그린다.
+ * 블록이 없는 글(어드민에서 손으로 쓴 옛 글)은 그대로 둔다.
+ */
+const RELATED_BLOCK =
+  /(?:<hr\s*\/?>\s*)?<p>함께 보면 좋은 글<\/p>\s*(?:<p>|<ul>)([\s\S]*?)(?:<\/p>|<\/ul>)/;
+const CASE_HREF = /href="(?:https?:\/\/[^/"]+)?\/cases\/([^"/?#]+)"/g;
+
+function splitRelatedBlock(sanitized: string, selfSlug: string): { html: string; slugs: string[] } {
+  const m = sanitized.match(RELATED_BLOCK);
+  if (!m) return { html: sanitized, slugs: [] };
+  const slugs: string[] = [];
+  for (const hit of m[1].matchAll(CASE_HREF)) {
+    const s = decodeURIComponent(hit[1]);
+    if (s !== selfSlug && !slugs.includes(s)) slugs.push(s);
+  }
+  return { html: sanitized.replace(m[0], ""), slugs };
+}
+
 export async function generateMetadata(props: PageProps<"/cases/[slug]">) {
   const { slug } = await props.params;
   const c = await fetchCase(slug);
@@ -69,10 +91,16 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
   const likeCount = await fetchCaseLikeCount(slug);
 
   // 본문은 반드시 sanitizeHtml() 을 먼저 통과시킨다 (기존 정책 동일)
-  const { html: bodyHtml, toc } = injectHeadingIds(sanitizeHtml(c.description));
+  const { html: bodyWithoutRelated, slugs: relatedSlugs } = splitRelatedBlock(
+    sanitizeHtml(c.description),
+    c.slug,
+  );
+  const { html: bodyHtml, toc } = injectHeadingIds(bodyWithoutRelated);
+  const related = await fetchCasesBySlugs(relatedSlugs);
   const tocItems: TocItem[] = [
     { id: "top", text: "제목", level: 2 },
     ...toc,
+    ...(related.length > 0 ? [{ id: "related", text: "함께 보면 좋은 글", level: 2 }] : []),
     { id: "contact-cta", text: "교육 문의", level: 2 },
   ];
 
@@ -136,6 +164,42 @@ export default async function CaseDetailPage(props: PageProps<"/cases/[slug]">) 
             className="prose prose-zinc mt-12 max-w-none text-[16px] leading-[1.85] prose-p:my-4"
             dangerouslySetInnerHTML={{ __html: bodyHtml }}
           />
+
+          {related.length > 0 ? (
+            <section id="related" className="mt-16 scroll-mt-24">
+              <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+                함께 보면 좋은 글
+              </p>
+              <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {related.map((r) => (
+                  <li key={r.slug}>
+                    <Link
+                      href={`/cases/${r.slug}`}
+                      className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
+                    >
+                      <div className="aspect-[16/9] w-full overflow-hidden bg-zinc-100">
+                        {r.thumbnail_url ? (
+                          <img
+                            src={r.thumbnail_url}
+                            alt=""
+                            className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                          />
+                        ) : null}
+                      </div>
+                      <div className="p-5">
+                        <h3 className="line-clamp-2 text-[16px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
+                          {r.title}
+                        </h3>
+                        <p className="mt-2 line-clamp-2 text-[13.5px] leading-[1.65] text-zinc-600">
+                          {r.summary}
+                        </p>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
           <div
             id="contact-cta"

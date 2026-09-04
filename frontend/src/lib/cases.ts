@@ -77,6 +77,33 @@ export async function fetchCase(slug: string): Promise<CaseDetail | null> {
   };
 }
 
+export type CaseCard = Pick<CaseSummary, "slug" | "title" | "summary" | "thumbnail_url">;
+
+/** 본문 끝 '함께 보면 좋은 글' 카드용. 주어진 slug 순서를 유지하고, 공개 글만 돌려준다. */
+export async function fetchCasesBySlugs(slugs: string[]): Promise<CaseCard[]> {
+  if (slugs.length === 0) return [];
+  const { data, error } = await supabase
+    .from("cases")
+    .select("slug,title,summary,thumbnail_url")
+    .in("slug", slugs)
+    .eq("status", "published");
+  if (error) throw new Error(`Failed to fetch related cases: ${error.message}`);
+
+  const bySlug = new Map<string, CaseCard>();
+  for (const row of data ?? []) {
+    bySlug.set(row.slug as string, {
+      slug: row.slug as string,
+      title: (row.title as string) ?? "",
+      summary: (row.summary as string) ?? "",
+      thumbnail_url: (row.thumbnail_url as string | null) ?? null,
+    });
+  }
+  return slugs.flatMap((s) => {
+    const c = bySlug.get(s);
+    return c ? [c] : [];
+  });
+}
+
 /** 교육후기 좋아요 수. 표시용이므로 조회 실패 시 0 으로 조용히 폴백한다. */
 export async function fetchCaseLikeCount(slug: string): Promise<number> {
   const safe = decodeURIComponent(slug);

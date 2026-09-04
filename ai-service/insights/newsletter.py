@@ -16,9 +16,9 @@ import requests
 
 from shared.db import get_conn
 
+# 답장 주소(reply_to)는 두지 않는다 — 도메인이 다르면 네이버·다음이 "답장 주소가 다릅니다" 경고를 붙인다.
+# 독자 답장은 newsletter@ → data-edu@kbrainc.com 포워딩으로 받는다 (도메인 메일 쪽 설정)
 FROM_DEFAULT = "DAEASY(데이지) <newsletter@daeasy.co.kr>"
-# 답장은 문의 메일함으로 — no-reply 로 두면 독자 답장(리드)이 반송된다
-REPLY_TO = "data-edu@kbrainc.com"
 # ponytail: Resend 무료 구간 하루 100통. 구독자가 넘으면 요금제부터 올린다
 BATCH = 100
 
@@ -123,7 +123,6 @@ def send(insight) -> None:
                 {
                     "from": sender,
                     "to": [email],
-                    "reply_to": REPLY_TO,
                     "subject": subject,
                     "html": _html(insight, site, unsub, prev),
                     "headers": {

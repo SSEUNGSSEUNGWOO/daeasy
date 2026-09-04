@@ -62,19 +62,25 @@ function injectHeadingIds(sanitized: string): { html: string; toc: TocItem[] } {
  * 바꿔주지만 사이트는 그냥 글자 링크라, 여기서 카드로 다시 그린다.
  * 블록이 없는 글(어드민에서 손으로 쓴 옛 글)은 그대로 둔다.
  */
-const RELATED_BLOCK =
-  /(?:<hr\s*\/?>\s*)?<p>함께 보면 좋은 글<\/p>\s*(?:<p>|<ul>)([\s\S]*?)(?:<\/p>|<\/ul>)/;
+const RELATED_HEAD = /(?:<hr\s*\/?>\s*)?<p>함께 보면 좋은 글<\/p>\s*/;
+// URL 줄 하나가 `<p>` 하나로 오기도 하고(줄 사이 빈 줄), `<br>` 로 묶여 오기도 하고, `- ` 목록이면 `<ul>` 로 온다
+const URL_ONLY_BLOCK = /^(?:<p>(?:\s*<a\b[^>]*>[^<]*<\/a>\s*(?:<br\s*\/?>)?\s*)+<\/p>|<ul>(?:\s*<li>\s*<a\b[^>]*>[^<]*<\/a>\s*<\/li>\s*)+<\/ul>)\s*/;
 const CASE_HREF = /href="(?:https?:\/\/[^/"]+)?\/cases\/([^"/?#]+)"/g;
 
 function splitRelatedBlock(sanitized: string, selfSlug: string): { html: string; slugs: string[] } {
-  const m = sanitized.match(RELATED_BLOCK);
-  if (!m) return { html: sanitized, slugs: [] };
+  const head = sanitized.match(RELATED_HEAD);
+  if (!head || head.index === undefined) return { html: sanitized, slugs: [] };
+  const start = head.index;
+  let end = start + head[0].length;
+  let block: RegExpMatchArray | null;
+  while ((block = sanitized.slice(end).match(URL_ONLY_BLOCK))) end += block[0].length;
+
   const slugs: string[] = [];
-  for (const hit of m[1].matchAll(CASE_HREF)) {
+  for (const hit of sanitized.slice(start, end).matchAll(CASE_HREF)) {
     const s = decodeURIComponent(hit[1]);
     if (s !== selfSlug && !slugs.includes(s)) slugs.push(s);
   }
-  return { html: sanitized.replace(m[0], ""), slugs };
+  return { html: sanitized.slice(0, start) + sanitized.slice(end), slugs };
 }
 
 export async function generateMetadata(props: PageProps<"/cases/[slug]">) {

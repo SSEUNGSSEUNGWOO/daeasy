@@ -56,7 +56,7 @@ docs/
 
 - **어드민과 고객이 같은 Supabase Auth 세션을 쓴다** — 갈라지는 건 프로필 테이블뿐: 어드민은 `public.profiles`(`role`), 고객은 `public.customer_profiles`. 서버에서 고객을 읽는 건 `lib/customer-auth.ts` 의 `getCurrentCustomer()`, 어드민은 `lib/admin-auth.ts` 의 `getCurrentUser()`
 - 이 공유 때문에 `proxy.ts` 는 `/admin/login` 에서 **로그인 상태여도 리다이렉트하지 않는다**. 고객 세션을 `/admin` 으로 보내면 어드민 페이지가 다시 로그인으로 튕겨 무한 루프가 된다. 여기를 "로그인했으면 대시보드로" 로 고치지 말 것
-- 페이지: `/signup` `/login` `/mypage` (모두 `(site)` 그룹). API: `/api/auth/{signup,login,logout,me}`
+- 페이지: `/signup` `/login` `/mypage` `/forgot-password` `/reset-password` (모두 `(site)` 그룹). API: `/api/auth/{signup,login,logout,me,profile,password,newsletter,withdraw,forgot-password,reset-password}`. 비밀번호 재설정 메일 링크도 `/auth/confirm?next=/reset-password` 로 복귀하므로 Supabase Redirect URLs 에 `https://daeasy.co.kr/auth/confirm*` 이 허용돼 있어야 한다
 - 가입은 Cloudflare Turnstile CAPTCHA + 이메일 인증 필수. 인증 링크 복귀 지점은 `src/app/auth/confirm/route.ts` (`/api/` 밑이 아니다 — Supabase 메일 템플릿의 URL 과 맞춰져 있으니 옮기지 말 것). `TURNSTILE_SECRET_KEY` / `NEXT_PUBLIC_SITE_URL` 이 없으면 운영에서 가입이 막힌다(로컬은 통과)
 - 가입 시 마케팅 동의 → `newsletter_subscribers` 등록은 **`customer_profiles` update 가 1건 이상일 때만** 한다. Supabase 는 이미 가입된 이메일에 계정 존재를 숨기려고 가짜 user id 를 돌려주므로, 이 순서가 아니면 남의 이메일로 재가입을 시도해 해지된 구독을 되살릴 수 있다 (`api/auth/signup/route.ts` 주석 참고)
 

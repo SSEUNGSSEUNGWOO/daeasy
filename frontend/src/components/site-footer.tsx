@@ -72,7 +72,9 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-zinc-700">
               <li><Link href="/courses" className="hover:text-zinc-900">교육과정</Link></li>
               <li><Link href="/cases" className="hover:text-zinc-900">교육후기</Link></li>
+              <li><Link href="/quiz" className="hover:text-zinc-900">AI체험</Link></li>
               <li><Link href="/contact" className="hover:text-zinc-900">교육 문의</Link></li>
+              <li><Link href="/rentals" className="hover:text-zinc-900">강의실 대관</Link></li>
             </ul>
           </div>
           <div className="col-span-1 md:col-span-2">
@@ -83,6 +85,7 @@ export function SiteFooter() {
               <li><Link href="/insights" className="hover:text-zinc-900">인사이트</Link></li>
               <li><Link href="/about" className="hover:text-zinc-900">데이지란?</Link></li>
               <li><Link href="/ai-champion" className="hover:text-zinc-900">AI챔피언</Link></li>
+              <li><Link href="/support" className="hover:text-zinc-900">고객센터</Link></li>
             </ul>
           </div>
           <div className="col-span-2 md:col-span-4">

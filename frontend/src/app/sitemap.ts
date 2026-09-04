@@ -19,6 +19,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/contact",
     "/rentals",
     "/support",
+    "/quiz",
+    "/quiz/report",
+    "/quiz/vibe",
+    "/privacy",
   ].map((path) => ({ url: `${SITE_URL}${path}` }));
 
   // anon 클라이언트 경유라 RLS 가 published 만 내준다 — draft 는 사이트맵에 안 실린다

@@ -36,7 +36,7 @@ export default async function InsightsPage() {
           인사이트
         </h1>
         <p className="mt-4 text-[16px] leading-[1.7] text-zinc-600">
-          하루 한 통, 오늘 꼭 알아야 할 AI · 데이터 소식을 일터 언어로. 뉴스레터로 받아보세요.
+          하루가 다르게 바뀌는 AI · 데이터 소식, 놓치지 않도록 매일 아침 쉽게 풀어 보내드립니다.
         </p>
         <div className="mt-6">
           <NewsletterCta />

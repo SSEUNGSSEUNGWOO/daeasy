@@ -32,11 +32,12 @@ export async function PATCH(req: Request) {
   if (name.length < 1 || name.length > 50) {
     return NextResponse.json({ detail: "이름이 올바르지 않습니다." }, { status: 400 });
   }
-  if (phone.length < 1 || phone.length > 40) {
-    return NextResponse.json({ detail: "연락처가 올바르지 않습니다." }, { status: 400 });
+  // 가입(signup/route.ts)과 같은 기준 — 두 화면의 허용 범위가 달라지지 않게
+  if (phone.length < 1 || phone.length > 20) {
+    return NextResponse.json({ detail: "연락처는 20자 이내로 입력해주세요." }, { status: 400 });
   }
-  if (organization.length > 200) {
-    return NextResponse.json({ detail: "소속이 너무 깁니다." }, { status: 400 });
+  if (organization.length < 1 || organization.length > 100) {
+    return NextResponse.json({ detail: "소속은 100자 이내로 입력해주세요." }, { status: 400 });
   }
 
   const { error } = await getSupabaseAdmin()

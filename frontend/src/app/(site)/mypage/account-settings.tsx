@@ -74,11 +74,11 @@ export function ProfileForm({
         </label>
         <label className="block">
           <span className="text-[13px] font-bold text-ink">연락처</span>
-          <input name="phone" required maxLength={40} defaultValue={initial.phone} disabled={submitting} className={inputCls} />
+          <input name="phone" required maxLength={20} defaultValue={initial.phone} disabled={submitting} className={inputCls} />
         </label>
         <label className="block">
           <span className="text-[13px] font-bold text-ink">소속</span>
-          <input name="organization" maxLength={200} defaultValue={initial.organization} disabled={submitting} className={inputCls} />
+          <input name="organization" required maxLength={100} defaultValue={initial.organization} disabled={submitting} className={inputCls} />
         </label>
       </div>
       <div className="flex items-center gap-4">

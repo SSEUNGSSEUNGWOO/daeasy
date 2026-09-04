@@ -84,7 +84,7 @@ docs/
 ### 슬래시 명령어 (`.claude/commands/`)
 
 - `/insight-publish` — 인사이트 1건 발행 (크롤 → 작성 → 이미지 → 평가 → DB)
-- `/홍보발행` — 홍보자료 접수 건을 발행 준비(draft)까지 처리. `ai-service/promo/run.py` 오케스트레이터의 래퍼 (아래 "홍보발행 오케스트레이터" 절 참고). 실제 발행은 파이프라인이 하지 않으며 사람이 draft 확인 후 prpub 로 직접 한다. (`.claude/agents/{정보수집,글검수,발행검수}.md` 는 옛 에이전트 주도 방식의 잔재로 현재 이 명령이 쓰지 않는다)
+- `/review-publish` — 홍보자료 접수 건을 발행 준비(draft)까지 처리. `ai-service/promo/run.py` 오케스트레이터의 래퍼 (아래 "홍보발행 오케스트레이터" 절 참고). 실제 발행은 파이프라인이 하지 않으며 사람이 draft 확인 후 prpub 로 직접 한다. (`.claude/agents/{정보수집,글검수,발행검수}.md` 는 옛 에이전트 주도 방식의 잔재로 현재 이 명령이 쓰지 않는다)
 
 명령어 추가 시 같은 패턴(frontmatter `description` + 단계별 지시)을 따른다.
 

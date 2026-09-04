@@ -95,7 +95,7 @@ uv sync
 
 ## 7. 실행 방법
 
-모든 명령은 `ai-service/` 디렉토리에서 실행합니다. daeasy 저장소의 `/홍보발행` 슬래시 명령이 이 실행을 감쌉니다.
+모든 명령은 `ai-service/` 디렉토리에서 실행합니다. daeasy 저장소의 `/review-publish` 슬래시 명령이 이 실행을 감쌉니다.
 
 ```powershell
 cd C:\dev\kbrain\daeasy\ai-service

@@ -16,7 +16,9 @@ import requests
 
 from shared.db import get_conn
 
-FROM_DEFAULT = "데이지 뉴스레터 <no-reply@daeasy.co.kr>"
+FROM_DEFAULT = "DAEASY(데이지) <newsletter@daeasy.co.kr>"
+# 답장은 문의 메일함으로 — no-reply 로 두면 독자 답장(리드)이 반송된다
+REPLY_TO = "data-edu@kbrainc.com"
 # ponytail: Resend 무료 구간 하루 100통. 구독자가 넘으면 요금제부터 올린다
 BATCH = 100
 
@@ -87,7 +89,7 @@ def send(insight) -> None:
         print("[newsletter] 활성 구독자 없음 — 발송 생략")
         return
 
-    subject = f"[데이지 뉴스레터] {insight.title}"
+    subject = f"[DAEASY 뉴스레터] {insight.title}"
     sent = 0
     for i in range(0, len(emails), BATCH):
         batch = []
@@ -97,6 +99,7 @@ def send(insight) -> None:
                 {
                     "from": sender,
                     "to": [email],
+                    "reply_to": REPLY_TO,
                     "subject": subject,
                     "html": _html(insight, site, unsub),
                     "headers": {

@@ -19,7 +19,7 @@
 | 수신 거부 | `GET /api/newsletter/unsubscribe?e=<email>&s=<HMAC>` 확인 화면 → `POST` 해지 | 비회원 구독자는 로그인이 없어 토큰 방식. GET 즉시 해지는 메일 스캐너 프리페치 사고가 있어 POST 로만. `List-Unsubscribe(-Post)` 헤더로 원클릭도 지원 |
 | 서명 | `HMAC-SHA256(lower(email), NEWSLETTER_UNSUB_SECRET)` hex | DB 컬럼 추가 없이 해지 링크를 만들 수 있다. 시크릿은 ai-service `.env` 와 Vercel 양쪽 동일 값 |
 | 구독 자격 | **회원 전용**. 비회원 구독 API·폼은 제거. 인사이트 페이지 CTA 는 비회원이면 `/signup?newsletter=1`(동의 미리 체크), 회원이면 그 자리에서 구독 토글 | 열린 폼은 이메일 검증이 없어 남의 주소 등록·반송 누적·동의 없는 발송 위험. 가입은 이메일 인증을 거치고 이름·소속이 붙어 리드로도 쓸 수 있다 |
-| 발신자 | `NEWSLETTER_FROM` (기본 `데이지 뉴스레터 <no-reply@daeasy.co.kr>`) | 문의 알림과 같은 Resend 인증 도메인 |
+| 발신자 | `NEWSLETTER_FROM` (기본 `DAEASY(데이지) <newsletter@daeasy.co.kr>`), 답장 주소 `data-edu@kbrainc.com`, 제목 `[DAEASY 뉴스레터] …` | 문의 알림과 같은 Resend 인증 도메인. no-reply 는 독자 답장(리드)이 반송돼 쓰지 않는다 |
 
 ## 미정 / 다음
 

@@ -100,7 +100,7 @@ docs/
 - 6단계: ①접수 ②정보수집 ③글 작성 ④LLM-as-judge 정량평가 ⑤형식 검토 ⑥발행 준비(draft). **판정은 코드가 한다** — LLM 은 항목별 점수 JSON 만 내고 통과선(12/14)·거부권·재작성 루프·정체 감지는 `pipeline/` 코드. `prompts/*.md` 가 역할별(researcher/writer/judge/reviewer/rewriter) 프롬프트, `config.yaml` 이 역할별 `--allowedTools`/`--disallowedTools` 까지 관리
 - 발행 범위는 **`config.yaml` 의 `publish.*` 가 결정한다** — `publish.site: true`(기본)면 5.5 통과 글을 `prpub site --live` 로 곧장 공개, `false` 면 draft 까지. 네이버는 항상 무발행(`--publish` 없음, 발행 직전 정지)이라 사람이 직접 발행한다. config 가 허용하지 않은 발행 플래그가 인자에 섞이면 `ensure_no_publish_flags` 가 즉시 중단(안전핀)
 - 사이트 글의 사진은 post.md 의 `![캡션](images/…)` 줄에서 온다 — **첫 사진이 썸네일**이 되고 본문에서는 빠진다(`prpub/site.py`). `::수치 …::` 요약 박스·URL 문단·`──` 구분선도 site.py 가 HTML 로 변환한다 (2026-09-04 mock 실측으로 보강)
-- 밑단은 **별도 프로젝트 `C:\Users\케이브레인\project\daeasy-pr-publish` 의 `prpub` CLI** (`config.yaml` 의 `prpub.root`). 접수함·원고(`out/<slug>/`)·네이버/사이트 세션은 그쪽에 있고, promo 는 이를 subprocess 로 부른다. 세션이 없으면 해당 채널은 skipped 로 기록되며 `prpub naver-login` / `prpub site-login` 후 재실행하면 그 채널만 재시도
+- 밑단은 **이 저장소 밖의 별도 프로젝트 `daeasy-pr-publish` 의 `prpub` CLI** — 경로는 `config.yaml` 의 `prpub.root` 이고 PC 마다 다르므로 환경변수 `PRPUB_ROOT` 가 있으면 그것이 우선한다. 그 프로젝트가 없는 PC 에서는 파이프라인이 시작 시 exit 1. 접수함·원고(`out/<slug>/`)·네이버/사이트 세션은 그쪽에 있고, promo 는 이를 subprocess 로 부른다. 세션이 없으면 해당 채널은 skipped 로 기록되며 `prpub naver-login` / `prpub site-login` 후 재실행하면 그 채널만 재시도
 - LLM 호출은 insights 와 같은 규약 — `claude` CLI subprocess, `ANTHROPIC_API_KEY` 는 `run.py` 가 제거 (구독 세션 사용)
 - `promo/{state,logs,output}/` 은 재개용 로컬 상태·로그·보고서로 gitignore. 중단 후 재실행하면 `state/<slug>.json` 에서 이어서 진행하고, 완주한 건은 품질 게이트로 재평가를 건너뛴다. 처음부터 다시 하려면 `--reset <slug>`
 

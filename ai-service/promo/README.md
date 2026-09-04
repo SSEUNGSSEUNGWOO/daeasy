@@ -42,14 +42,15 @@
 `pyyaml` · `python-dotenv` 뿐이라 `ai-service/pyproject.toml` 에 이미 포함돼 있습니다.
 
 ```powershell
-cd C:\dev\kbrain\daeasy\ai-service
+cd <저장소 루트>\ai-service
 uv sync
 
 # claude CLI 확인 (없으면 https://claude.com/claude-code 참고)
 claude --version
 
 # pr-publish 쪽 의존성은 그 프로젝트에서 uv sync 되어 있어야 한다
-cd C:\Users\케이브레인\project\daeasy-pr-publish
+# 경로는 config.yaml 의 prpub.root — PC 가 다르면 환경변수 PRPUB_ROOT 로 덮어쓴다
+cd <pr-publish 루트>
 uv sync
 ```
 
@@ -63,7 +64,7 @@ uv sync
 
 | 키 | 기본값 | 설명 |
 |---|---|---|
-| `prpub.root` | (필수) | pr-publish 프로젝트 루트 절대경로. `config.toml`이 있어야 함 |
+| `prpub.root` | (필수) | pr-publish 프로젝트 루트 절대경로. `config.toml`이 있어야 함. **환경변수 `PRPUB_ROOT` 가 있으면 그 값이 우선** (PC 마다 경로가 다르므로) |
 | `prpub.scan_timeout_sec` | 120 | `prpub scan --json` 타임아웃(초) |
 | `prpub.build_timeout_sec` | 300 | `prpub build` 타임아웃 |
 | `prpub.score_timeout_sec` | 120 | `scripts/score.py` 타임아웃 |

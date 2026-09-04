@@ -43,12 +43,16 @@ def _html(insight, site: str, unsub: str, prev: dict | None = None) -> str:
     """회색 바탕 위 흰 카드 640px — 메일은 화면을 다 못 채우니 여백을 배경으로 처리한다."""
     e = html.escape
     url = f"{site}/insights/{quote(insight.slug)}"
-    cover = (
-        f'<a href="{url}"><img src="{e(insight.image_url)}" alt="" width="576" '
-        'style="display:block;width:100%;max-width:576px;border-radius:10px"></a>'
-        if insight.image_url
-        else ""
-    )
+    cover = ""
+    if insight.image_url:
+        src = insight.image_url
+        # Unsplash 는 URL 파라미터로 잘라준다 — 매일 같은 2:1 비율로 카드 상단에 꽉 차게
+        if "images.unsplash.com" in src:
+            src = f"{src.split('?')[0]}?w=1280&h=640&fit=crop&crop=entropy&q=80&fm=jpg"
+        cover = (
+            f'<a href="{url}"><img src="{e(src)}" alt="" width="640" '
+            'style="display:block;width:100%;border-radius:14px 14px 0 0"></a>'
+        )
     items = "".join(
         f'<li style="margin:0 0 10px">{e(h)}</li>' for h in _headlines(insight.body)
     )
@@ -61,20 +65,21 @@ def _html(insight, site: str, unsub: str, prev: dict | None = None) -> str:
     )
     return (
         '<div style="background:#f4f4f5;padding:32px 12px;font-family:sans-serif">'
-        '<div style="max-width:640px;margin:0 auto;background:#fff;border-radius:14px;'
-        'padding:32px;font-size:15px;line-height:1.7;color:#18181b">'
+        '<div style="max-width:640px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;'
+        'font-size:15px;line-height:1.7;color:#18181b">'
+        f"{cover}"
+        '<div style="padding:28px 32px 32px">'
         '<table width="100%" cellpadding="0" cellspacing="0" style="font-size:12px;color:#71717a;margin:0 0 14px">'
         '<tr><td style="font-weight:700;letter-spacing:.12em">DAEASY 뉴스레터</td>'
         f'<td align="right">{_date_ko(insight.published_at)}</td></tr></table>'
-        f'<h1 style="font-size:24px;line-height:1.35;margin:0 0 18px"><a href="{url}" '
+        f'<h1 style="font-size:24px;line-height:1.35;margin:0 0 6px"><a href="{url}" '
         f'style="color:#18181b;text-decoration:none">{e(insight.title)}</a></h1>'
-        f"{cover}"
         '<p style="font-weight:700;font-size:16px;margin:28px 0 10px">오늘 다룬 이야기</p>'
         f'<ol style="margin:0 0 28px;padding-left:22px">{items}</ol>'
         f'<a href="{url}" style="display:inline-block;background:#18181b;color:#fff;font-weight:700;'
         'padding:13px 24px;border-radius:8px;text-decoration:none">전문 읽기 →</a>'
         f"{yesterday}"
-        "</div>"
+        "</div></div>"
         '<p style="max-width:640px;margin:20px auto 0;font-size:12px;color:#a1a1aa;text-align:center">'
         "케이브레인컴퍼니 · DAEASY(데이지) · 매일 AI·데이터 인사이트<br>"
         f'<a href="{unsub}" style="color:#a1a1aa">수신 거부</a></p>'

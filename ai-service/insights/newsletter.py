@@ -70,7 +70,11 @@ def _html(insight, site: str, unsub: str, prev: dict | None = None) -> str:
         f"{cover}"
         '<div style="padding:28px 32px 32px">'
         '<table width="100%" cellpadding="0" cellspacing="0" style="font-size:12px;color:#71717a;margin:0 0 14px">'
-        '<tr><td style="font-weight:700;letter-spacing:.12em">DAEASY 뉴스레터</td>'
+        # 로고는 SVG 가 메일에서 안 먹혀 사이트의 PNG 심볼을 절대 URL 로 쓴다
+        f'<tr><td style="font-weight:700;letter-spacing:.12em"><img src="{site}/logo/daeasy-symbol-mark.png" '
+        'alt="DAEASY" width="22" height="22" style="vertical-align:middle;margin-right:8px">'
+        '<span style="vertical-align:middle;color:#18181b">DAEASY</span>'
+        '<span style="vertical-align:middle;margin-left:6px">뉴스레터</span></td>'
         f'<td align="right">{_date_ko(insight.published_at)}</td></tr></table>'
         f'<h1 style="font-size:24px;line-height:1.35;margin:0 0 6px"><a href="{url}" '
         f'style="color:#18181b;text-decoration:none">{e(insight.title)}</a></h1>'

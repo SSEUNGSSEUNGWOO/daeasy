@@ -35,7 +35,7 @@ export function ForgotPasswordForm() {
     return (
       <div className="mt-10 space-y-5">
         <p role="status" className="rounded-md bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-700">
-          가입된 이메일이라면 재설정 링크를 보냈습니다. 메일함(스팸함 포함)을 확인해주세요. 링크는 잠시 후 만료됩니다.
+          가입된 이메일이라면 재설정 링크를 보냈습니다. 메일함(스팸함 포함)을 확인해주세요. 링크는 잠시 후 만료되며, 지금 이 브라우저에서 열어야 합니다.
         </p>
         <p className="text-center text-sm text-zinc-500">
           <Link href="/login" className="font-bold text-ink hover:underline">로그인으로 돌아가기</Link>

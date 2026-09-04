@@ -105,16 +105,25 @@ def send(insight) -> None:
                     },
                 }
             )
+        headers = {"Authorization": f"Bearer {api_key}"}
+        if not test_to:
+            # 타임아웃 뒤 재실행해도 Resend 가 같은 요청으로 보고 중복 발송하지 않는다 (24h 유지).
+            # 테스트는 매번 다시 받아봐야 하므로 키를 붙이지 않는다
+            digest = hashlib.sha256(insight.slug.encode()).hexdigest()[:32]
+            headers["Idempotency-Key"] = f"newsletter/{digest}/{i // BATCH}"
         res = requests.post(
             "https://api.resend.com/emails/batch",
-            headers={"Authorization": f"Bearer {api_key}"},
+            headers=headers,
             json=batch,
             timeout=30,
         )
         if res.ok:
             sent += len(batch)
         else:
+            # ponytail: 일부 배치만 실패해도 이력은 sent 로 남는다 — 실패 배치 수신자는 여기 출력으로만
+            # 남으니 손으로 처리. 구독자가 100명을 넘어 배치가 여럿이 되면 배치별 이력으로 바꾼다
             print(f"[newsletter] 발송 실패 ({res.status_code}): {res.text[:300]}")
+            print(f"[newsletter] 실패 수신자: {', '.join(emails[i : i + BATCH])}")
 
     print(f"[newsletter] {sent}/{len(emails)}명 발송{' (테스트)' if test_to else ''}")
     if sent and not test_to:

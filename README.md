@@ -102,4 +102,4 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 - [x] Vercel 배포
 - [ ] 뉴스레터 발송 (구독 접수만 구현됨, 발송 경로 · 메일 서비스 미정)
 - [x] `/quiz` → AI 체험관 허브 전환 — 스테이션 ① "내 업무 AI 리포트", ② 바이브 코딩. **런타임 LLM 호출 없음**: 방문자는 고정 선택지에서 고르고, 클라이언트가 미리 생성해둔 `public/experience/*-canned.json` 을 타자기 연출로 재생한다 (과정 추천 → `/contact?course=` 연결). 재생성은 `cd frontend && node scripts/gen-canned.mjs` (Gemini, `.env.local` 의 `GEMINI_API_KEY`). Vercel 에 AI 키 불필요
-- [ ] `/quiz` 스테이션 03 레드팀 게임 — 오픈 예정 placeholder
+- [x] `/quiz` 스테이션 03 레드팀 게임 — 규칙이 걸린 공공 챗봇 5라운드를 뚫어보는 시나리오 게임. 대사는 `quiz/redteam/content.ts` 에 손으로 쓴 TS 상수, 런타임 LLM 호출 없음 (`docs/2026-09-08-redteam-station.md`)

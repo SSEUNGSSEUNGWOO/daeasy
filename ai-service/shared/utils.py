@@ -3,6 +3,7 @@ import os
 import re
 import time
 import requests
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 
 # 외부 이미지 복사본 저장 버킷 (public read)
@@ -89,6 +90,46 @@ def fetch_og_image(url: str, timeout: int = 5) -> str | None:
     return None
 
 
+_ARTICLE_NOISE_TAGS = ["script", "style", "nav", "header", "footer", "aside", "form", "iframe"]
+
+
+def _direct_p_len(el) -> int:
+    return sum(len(p.get_text(" ", strip=True)) for p in el.find_all("p", recursive=False))
+
+
+def extract_article_text(html: str | bytes, max_chars: int = 3000) -> str:
+    """기사 HTML 에서 본문 문단만 뽑는다. 직계 <p> 텍스트가 가장 많은 컨테이너를 본문으로 보고,
+    그 안의 40자 이상 <p> 만 모은다 — 메뉴·저작권·공유 버튼 문구는 이 길이에 못 미친다.
+    첫 <article> 을 믿으면 관련기사 카드에 걸리고(AI타임스), 문서 전체 <p> 를 모으면 배너 문단이
+    앞에 붙는다(TechCrunch). readability 류 없이 설치된 bs4 로만. 사이트별 셀렉터는 두지 않는다."""
+    soup = BeautifulSoup(html, "lxml")
+    for tag in soup(_ARTICLE_NOISE_TAGS):
+        tag.decompose()
+    root = max(soup.find_all(["article", "main", "section", "div"]), key=_direct_p_len, default=soup)
+    paras = (p.get_text(" ", strip=True) for p in root.find_all("p"))
+    text = "\n".join(p for p in paras if len(p) >= 40)
+    return text[:max_chars]
+
+
+# 기사 본문 fetch 용. 맨 "Mozilla/5.0" 은 WAF 가 봇으로 점수 매기기 쉽다
+_BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    "Accept-Language": "ko,en;q=0.8",
+}
+
+
+def fetch_article_text(url: str, max_chars: int = 3000) -> str | None:
+    """기사 본문. 네트워크·파싱 실패는 None — 호출부가 RSS 요약으로 폴백한다.
+    재시도 없음: 403/429 를 받고 곧장 또 때리면 차단이 길어진다 (AI타임스 2026-09-08 실측)."""
+    resp = safe_get(url, timeout=10, retries=1, headers=_BROWSER_HEADERS)
+    if resp is None:
+        return None
+    try:
+        return extract_article_text(resp.content, max_chars) or None  # bytes → bs4 가 meta charset 으로 디코딩
+    except Exception:
+        return None
+
+
 def now_kst() -> str:
     from zoneinfo import ZoneInfo
     return datetime.now(ZoneInfo("Asia/Seoul")).isoformat()
@@ -118,10 +159,11 @@ def fetch_unsplash_image(keyword: str, access_key: str) -> str | None:
         return None
 
 
-def safe_get(url: str, timeout: int = 10, retries: int = 3, delay: int = 2) -> requests.Response | None:
+def safe_get(url: str, timeout: int = 10, retries: int = 3, delay: int = 2,
+             headers: dict | None = None) -> requests.Response | None:
     for attempt in range(retries):
         try:
-            resp = requests.get(url, timeout=timeout, headers={"User-Agent": "Mozilla/5.0"})
+            resp = requests.get(url, timeout=timeout, headers=headers or {"User-Agent": "Mozilla/5.0"})
             resp.raise_for_status()
             return resp
         except Exception:

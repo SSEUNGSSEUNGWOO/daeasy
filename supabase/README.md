@@ -26,6 +26,7 @@ seed.sql       로컬 개발용 시드
 | `contact_inquiries` | 교육 문의 | 사이트 문의 폼 |
 | `rental_inquiries` | 강의실 대관 문의 | 사이트 대관 폼 |
 | `rental_bookings` | 대관 확정 예약 (예약 현황 캘린더) | 어드민 `/admin/rental-schedule` |
+| `team_topics` | 팀 프로젝트 조별 주제 제출 (임시, 행사 후 drop) | 사이트 `/team-topic` → `/api/team-topic` |
 
 **문의-회원 연결** — `contact_inquiries` / `rental_inquiries` 의 `user_id` 는 접수 시점에
 로그인 세션이 있을 때만 Route Handler 가 채운다(`on delete set null`). 비회원 문의는 `null` 이며,

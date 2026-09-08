@@ -1,13 +1,8 @@
 import type { EmailOtpType } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 
+import { RESET_COOKIE, RESET_COOKIE_PATH, signResetCookie } from "@/lib/reset-cookie";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
-
-/** 비밀번호 재설정 링크로 들어왔음을 /api/auth/reset-password 에만 알리는 쿠키.
- *  path 를 그 엔드포인트로 좁혀 다른 요청엔 실리지 않는다. 이름·경로는 그쪽 route 와 맞춘다
- *  (route.ts 는 HTTP 메서드 외 export 가 금지라 상수를 공유하지 못한다) */
-const RESET_COOKIE = "pw-reset";
-const RESET_COOKIE_PATH = "/api/auth/reset-password";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -33,14 +28,16 @@ export async function GET(request: Request) {
   }
   const res = NextResponse.redirect(new URL(next, url.origin));
   // 메일 링크를 통과한 세션만 현재 비밀번호 없이 새 비밀번호를 정할 수 있다.
-  // 도난당한 일반 세션이 재설정 API 를 부르는 경로를 막는다
-  if (next === "/reset-password") {
-    res.cookies.set(RESET_COOKIE, "1", {
+  // 도난당한 일반 세션이 재설정 API 를 부르는 경로를 막는다 — 값은 이 사용자 id 로 서명 (lib/reset-cookie.ts)
+  const userId = "data" in result ? result.data.user?.id : undefined;
+  if (next === "/reset-password" && userId) {
+    const { value, maxAge } = signResetCookie(userId);
+    res.cookies.set(RESET_COOKIE, value, {
       httpOnly: true,
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
       path: RESET_COOKIE_PATH,
-      maxAge: 600,
+      maxAge,
     });
   }
   return res;

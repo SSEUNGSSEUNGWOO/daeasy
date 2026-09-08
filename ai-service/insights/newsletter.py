@@ -109,7 +109,13 @@ def send(insight) -> None:
         if test_to:
             emails = [test_to]
         else:
-            cur.execute("SELECT email FROM newsletter_subscribers WHERE status = 'active'")
+            # 뉴스레터는 회원 전용 — 이메일 인증을 마친 계정에만 보낸다. 가입 직후 구독이 active 로
+            # 들어가므로 이 조인이 없으면 남의 주소로 가입만 해도(인증 전) 그 주소로 메일이 나간다
+            cur.execute(
+                "SELECT s.email FROM newsletter_subscribers s "
+                "JOIN auth.users u ON lower(u.email) = lower(s.email) AND u.email_confirmed_at IS NOT NULL "
+                "WHERE s.status = 'active'"
+            )
             emails = [r["email"] for r in cur.fetchall()]
         # "어제 놓치셨다면" — 직전 발행 글 1건 (없으면 그 줄이 빠진다)
         cur.execute(

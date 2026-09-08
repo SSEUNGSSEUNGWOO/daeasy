@@ -101,6 +101,5 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 - [x] 어드민 교육과정 · 교육 사례 CRUD
 - [x] Vercel 배포
 - [ ] 뉴스레터 발송 (구독 접수만 구현됨, 발송 경로 · 메일 서비스 미정)
-- [x] `/quiz` → AI 체험관 허브 전환 — 스테이션 ① "내 업무 AI 리포트" 라이브 (Claude Haiku `claude-haiku-4-5` 실시간 스트리밍, `POST /api/experience/report`, 과정 추천 → `/contact?course=` 연결, `ANTHROPIC_API_KEY` 필요)
-- [x] `/quiz` 스테이션 02 바이브 코딩 라이브 (`POST /api/experience/vibe`, 코드 극장 → 샌드박스 미리보기 → 과정 추천)
+- [x] `/quiz` → AI 체험관 허브 전환 — 스테이션 ① "내 업무 AI 리포트", ② 바이브 코딩. **런타임 LLM 호출 없음**: 방문자는 고정 선택지에서 고르고, 클라이언트가 미리 생성해둔 `public/experience/*-canned.json` 을 타자기 연출로 재생한다 (과정 추천 → `/contact?course=` 연결). 재생성은 `cd frontend && node scripts/gen-canned.mjs` (Gemini, `.env.local` 의 `GEMINI_API_KEY`). Vercel 에 AI 키 불필요
 - [ ] `/quiz` 스테이션 03 레드팀 게임 — 오픈 예정 placeholder

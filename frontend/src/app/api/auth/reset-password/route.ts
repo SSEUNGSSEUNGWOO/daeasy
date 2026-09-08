@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 import { getClientIp, rateLimitAuth } from "@/lib/rate-limit";
+import { RESET_COOKIE, RESET_COOKIE_PATH, verifyResetCookie } from "@/lib/reset-cookie";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export const runtime = "nodejs";
@@ -9,13 +10,10 @@ export const runtime = "nodejs";
 // 가입과 동일 규칙 (signup/route.ts 의 PASSWORD_RE)
 const PASSWORD_RE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,128}$/;
 
-// /auth/confirm 이 재설정 링크를 통과시킬 때 심는 쿠키 (이름·경로 그쪽과 동일)
-const RESET_COOKIE = "pw-reset";
-const RESET_COOKIE_PATH = "/api/auth/reset-password";
-
 /** 재설정 메일 링크로 들어온 세션에서 새 비밀번호 저장.
- *  현재 비밀번호 재확인이 없는 대신, 메일 링크를 실제로 통과했다는 쿠키를 요구한다 —
- *  이게 없으면 도난당한 일반 세션이 /api/auth/password 의 재확인을 우회하는 통로가 된다. */
+ *  현재 비밀번호 재확인이 없는 대신, 메일 링크를 실제로 통과했다는 서명 쿠키를 요구한다 —
+ *  이게 없으면 도난당한 일반 세션이 /api/auth/password 의 재확인을 우회하는 통로가 된다.
+ *  쿠키는 이 사용자 id 로 서명돼 있어야 한다 (lib/reset-cookie.ts). */
 export async function POST(req: Request) {
   const rl = await rateLimitAuth("customer-reset", getClientIp(req), 5, "1 m");
   if (!rl.success) {
@@ -25,7 +23,7 @@ export async function POST(req: Request) {
   const store = await cookies();
   const supabase = await createSupabaseServerClient();
   const { data, error: userError } = await supabase.auth.getUser();
-  if (userError || !data.user || store.get(RESET_COOKIE)?.value !== "1") {
+  if (userError || !data.user || !verifyResetCookie(store.get(RESET_COOKIE)?.value, data.user.id)) {
     return NextResponse.json({ detail: "재설정 링크가 만료되었습니다. 다시 요청해주세요." }, { status: 401 });
   }
 

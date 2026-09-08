@@ -15,7 +15,11 @@ criteria:
     max_score: 5
 
   - name: "source_linkage"
-    description: "출처 URL이 수집 데이터에 실제로 존재하는 URL인가. 창작하거나 추측한 URL이 있으면 감점. 각 번호 항목에 출처가 1개 이상 있는가"
+    description: |
+      각 번호 항목에 출처 링크가 1개 이상 붙어 있고, 본문의 수치·주장이 그 출처에 귀속되는가.
+      URL의 실재 여부·접근 가능 여부는 평가하지 말 것 — 코드가 이미 결정론적으로 판정한다.
+      (writer가 수집 데이터 화이트리스트 밖 URL을 제거하고, evaluator가 HTTP로 유효성을 확인한다.
+       평가자에게는 수집 데이터가 주어지지 않으므로 "확인 불가"를 감점 사유로 삼지 마라.)
     weight: 0.09
     max_score: 5
 
@@ -35,10 +39,11 @@ criteria:
   - name: "image_relevance"
     description: |
       커버 이미지(Unsplash) 검색 키워드가 헤드라인·핵심 주제와 잘 맞는가.
-      본문 항목별 og:image의 출처 도메인이 그 항목 주제와 어울리는가.
-      이미지 자체는 직접 보지 못하므로 메타데이터(URL, 도메인, 검색어)로 판단.
-      - 검색어가 헤드라인의 핵심 도메인을 잡지 못하고 일반어("technology")로만 끝나면 감점
-      - 본문 og:image URL이 인물명·무관 키워드(GettyImages 일반 stock 등) 위주이면 감점
+      이미지 자체는 보지 못하므로 검색어만으로 판단한다.
+      본문 항목별 이미지는 출처 페이지의 og:image를 그대로 쓴 뒤 우리 Storage로 복사하므로
+      URL에 출처 도메인이 남지 않는다 — 평가 대상이 아니고, 감점 사유도 아니다.
+      - 검색어가 헤드라인의 핵심 도메인을 잡지 못하고 일반어("technology", "risk management")로만
+        끝나면 감점
       - 검색어에 브랜드명이 들어가면 Unsplash에 없을 가능성이 커서 감점
     weight: 0.10
     max_score: 5

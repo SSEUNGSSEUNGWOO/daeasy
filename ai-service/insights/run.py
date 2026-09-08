@@ -7,6 +7,12 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+# Windows 콘솔 기본 인코딩(cp949)에는 em dash(U+2014)가 없어서, 그 문자가 든 진행 로그를
+# print 하는 순간 UnicodeEncodeError 로 단계 전체가 실패한 것처럼 보인다 (2026-09-08 뉴스레터
+# "활성 구독자 없음 — 발송 생략" 이 발송 실패로 둔갑). 로그가 파이프라인을 죽이면 안 된다.
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
+
 ROOT = Path(__file__).parent.parent.parent
 load_dotenv(ROOT / ".env")
 load_dotenv(Path(__file__).parent.parent / ".env", override=False)
@@ -22,7 +28,7 @@ from crawlers.huggingface import crawler as huggingface
 from crawlers.kr_ai_policy import crawler as kr_ai_policy
 from writer.writer import run as writer_run
 from image_agent.image_agent import run as image_agent_run
-from proofreader.proofreader import run as proofreader_run
+from proofreader.proofreader import TAGS_META_PATTERN, run_safe as proofreader_run, strip_tags_meta
 from evaluator.evaluator import run as evaluator_run
 from newsletter import send as newsletter_send
 from shared.storage import load_draft_meta, load_raw_items, save_draft, save_insight
@@ -73,12 +79,7 @@ def run_proofreader():
     print("=== [4/5] Proofreader 실행 ===")
     meta = load_draft_meta()
     draft = meta.get("draft", "")
-    # 태그 메타 라인은 LLM 교정에서 분리해 항상 보존한다 (Proofreader가 안내 문구로 오해해 제거하는 사고 방지)
-    tags_match = TAGS_META_PATTERN.search(draft)
-    tags_line = tags_match.group(0) if tags_match else ""
-    body_to_correct = strip_tags_meta(draft) if tags_line else draft
-    corrected_body = proofreader_run(body_to_correct)
-    corrected = f"{tags_line}\n\n{corrected_body.lstrip()}" if tags_line else corrected_body
+    corrected = proofreader_run(draft)
     if corrected != draft:
         from shared.storage import save_draft
         save_draft(corrected, cover_image=meta.get("cover_image"), cover_query=meta.get("cover_query"))
@@ -95,9 +96,6 @@ def run_evaluator():
     return True, result
 
 
-TAGS_META_PATTERN = re.compile(r"<!--\s*tags?\s*:\s*([^>]+?)\s*-->", re.IGNORECASE)
-
-
 def extract_tags(draft: str) -> list[str]:
     m = TAGS_META_PATTERN.search(draft)
     if not m:
@@ -108,10 +106,6 @@ def extract_tags(draft: str) -> list[str]:
         if tag and tag not in seen:
             seen.append(tag)
     return seen
-
-
-def strip_tags_meta(draft: str) -> str:
-    return TAGS_META_PATTERN.sub("", draft, count=1).lstrip()
 
 
 def extract_sources(draft: str, items: list[dict]) -> list[dict]:
@@ -217,7 +211,7 @@ def save_to_insights(result: dict):
         print(f"[run] DB 업로드 완료: {insight.slug}")
     except Exception as e:
         print(f"[run] DB 업로드 실패 (로컬엔 저장됨): {e}")
-        return insight
+        sys.exit(1)
 
     # 메일은 부가 기능 — 실패해도 발행은 이미 끝난 상태다
     try:
@@ -238,3 +232,4 @@ if __name__ == "__main__":
         save_to_insights(result)
     else:
         print("[run] 최종 인사이트 저장 생략")
+        sys.exit(1)

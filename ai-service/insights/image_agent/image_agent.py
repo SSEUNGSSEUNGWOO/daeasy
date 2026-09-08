@@ -12,15 +12,22 @@ EXCLUDE_DOMAINS = {"arxiv.org"}
 # 번호 항목("1. ### 소제목") 시작 줄. 첫 파트는 앞에 태그 주석·제목·"## 핵심 인사이트"가
 # 붙어 있으므로 파트 맨 앞이 아니라 파트 안 어디서든 찾아야 한다.
 ITEM_START = re.compile(r'(?m)^\d+\.\s')
+# 검색어 추출용 제목 줄: "# 헤드라인" 과 "1. ### 소제목". 소제목은 번호가 앞에 붙어 "###" 로 시작하지 않는다
+HEADING = re.compile(r'^(# |\s*(\d+\.\s+)?### )')
 
 
-def _extract_unsplash_query(draft: str) -> str:
+def _extract_unsplash_query(draft: str, query_feedback: str = "") -> str:
     """헤드라인+소제목을 Claude CLI에 보내 Unsplash 검색용 영어 키워드 1줄을 받는다.
-    실패 시 빈 문자열 반환 → 호출부가 폴백 키워드 사용."""
+    실패 시 빈 문자열 반환 → 호출부가 폴백 키워드 사용.
+    query_feedback: 재시도 시 이전 검색어에 대한 평가 지적. 같은 draft 면 같은 검색어가 나오므로 이게 있어야 바뀐다."""
     lines = draft.splitlines()
-    title_lines = [l for l in lines if l.startswith("# ") or l.strip().startswith("### ")]
+    title_lines = [ln for ln in lines if HEADING.match(ln)]
     summary = "\n".join(title_lines[:8]) or draft[:600]
 
+    feedback_section = (
+        f"이전 검색어는 평가에서 아래 지적을 받았다. 반영해 다른 키워드를 내라:\n{query_feedback}\n\n"
+        if query_feedback else ""
+    )
     prompt = (
         "다음은 AI 동향 일일 인사이트 리포트의 헤드라인과 핵심 인사이트 소제목입니다.\n"
         "이 리포트의 커버 사진으로 쓸 Unsplash 검색 키워드를 영어 1~3 단어로 1줄만 출력하세요.\n\n"
@@ -28,6 +35,7 @@ def _extract_unsplash_query(draft: str) -> str:
         "- 추상적이고 시각적인 일반 명사 (스톡 사진이 풍부한 단어)\n"
         "- 브랜드명(OpenAI, Google, Anthropic 등)은 피한다 — Unsplash에서 직접 매칭 안 됨\n"
         "- 답은 키워드만. 따옴표·접두어·마침표·설명 없이.\n\n"
+        f"{feedback_section}"
         f"{summary}\n\n"
         "검색 키워드:"
     )
@@ -109,12 +117,13 @@ def insert_section_images(draft: str, item_urls: set[str], skip_first_n: int = 0
     return "\n---\n".join(new_parts)
 
 
-def run(draft: str, items: list[dict], section_skip: int = 0) -> tuple[str, str | None, str | None]:
+def run(draft: str, items: list[dict], section_skip: int = 0, query_feedback: str = "") -> tuple[str, str | None, str | None]:
     """draft에 섹션 og:image 삽입 + Unsplash 커버 이미지/검색어 반환.
     반환: (draft, cover_image_url, cover_query).
 
     section_skip: image-only retry 시 항목 내 첫 N개 출처 매치를 건너뛰고
-    그 다음 매치부터 og:image를 잡는다. 0이면 첫 매치부터 (기본 동작)."""
+    그 다음 매치부터 og:image를 잡는다. 0이면 첫 매치부터 (기본 동작).
+    query_feedback: 재시도 시 이전 커버 검색어에 대한 평가 지적 → 검색어 추출에 반영."""
     item_urls = {item["url"] for item in items}
 
     if section_skip:
@@ -127,7 +136,7 @@ def run(draft: str, items: list[dict], section_skip: int = 0) -> tuple[str, str 
     cover_query = None
     unsplash_key = os.getenv("UNSPLASH_ACCESS_KEY")
     if unsplash_key:
-        cover_query = _extract_unsplash_query(draft) or "artificial intelligence technology"
+        cover_query = _extract_unsplash_query(draft, query_feedback) or "artificial intelligence technology"
         print(f"[image_agent] Unsplash 검색어: {cover_query}")
         cover_image = fetch_unsplash_image(cover_query, unsplash_key)
         if cover_image:
@@ -156,3 +165,8 @@ if __name__ == "__main__":
         assert img == f"![source-image](https://img.test/{n + 1}.jpg)", f"{n + 1}번 이미지 불일치: {img}"
         assert item.startswith(f"{n + 1}. "), f"{n + 1}번 항목이 이미지 바로 뒤에 없음: {item}"
     print("self-check OK: 5개 항목 모두 자기 이미지를 바로 위에 가짐")
+
+    # 검색어 추출용 제목 줄: 번호 붙은 소제목("1. ### …")도 잡혀야 한다 (과거엔 H1 만 잡혀 검색어가 헤드라인만 봤다)
+    heads = [ln for ln in draft.splitlines() if HEADING.match(ln)]
+    assert heads == ["# 헤드라인"] + [f"{n}. ### 소제목 {n}" for n in range(1, 6)], heads
+    print("self-check OK: 헤드라인 1 + 번호 붙은 소제목 5 추출")

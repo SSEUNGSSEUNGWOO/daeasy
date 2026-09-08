@@ -76,8 +76,8 @@ docs/
 - 직접 실행: `uv run python insights/run.py`. 슬래시 명령어(`/insight-publish`)가 이걸 감싸 호출
 - 진입점은 `insights/run.py` — 파이프라인 단계 수정은 거기서부터 따라가면 된다
 - LLM: Writer / Proofreader / Image Agent 키워드 추출은 **`claude` CLI 서브프로세스**. `ANTHROPIC_API_KEY` 는 의도적으로 비워둠 (Anthropic Max 구독 소비). `os.environ.pop("ANTHROPIC_API_KEY", None)` 패턴은 의도된 것
-- **Evaluator 는 `codex` CLI 별도 사용** — `claude` 외에 codex 도 PATH 에 있어야 발행이 끝까지 통과 (`evaluator.evaluate_with_codex_cli`)
-- 평가 루프: `evaluator/rubric.yaml` 7개 기준 (factual_accuracy / relevance / insight_quality / source_linkage / seo_quality / human_voice / image_relevance), 가중평균 4.0/5.0 미만이면 Writer 최대 3회 재실행. **image_relevance 만 부족하고 텍스트 평균이 통과면 image_agent 만 재실행** (다른 출처 og:image + 다른 Unsplash random)
+- **Evaluator 는 `codex` CLI 별도 사용** — `claude` 외에 codex 도 PATH 에 있어야 발행이 끝까지 통과 (`evaluator.evaluate_with_codex_cli`). **모델은 `evaluator.py` 의 `EVAL_MODEL` 로 핀 고정** — codex CLI 기본값을 따라가면 CLI 업데이트 때 심사 기준이 말없이 바뀐다 (2026-09-07 gpt-6-astra 전환으로 발행 중단됐던 원인). 모델을 올릴 땐 과거 통과 글을 재채점해 통과선을 다시 뽑는다
+- 평가 루프: `evaluator/rubric.yaml` 7개 기준 (factual_accuracy / relevance / insight_quality / source_linkage / seo_quality / human_voice / image_relevance). **가중평균과 합격은 코드가 계산한다** — LLM 은 항목별 점수 JSON 만 낸다. 4.0/5.0 미만이면 Writer 최대 3회 재실행 (재작성 글도 교정을 거친다). **image_relevance 만 부족하고 텍스트 평균이 통과면 image_agent 만 재실행** (다른 출처 og:image + 평가 피드백을 반영한 새 Unsplash 검색어)
 - DB 연결: `shared/db.py` 의 `psycopg2` direct connection. `DATABASE_URL` 은 **Supabase Session pooler URL** (`postgresql://postgres.<ref>:<pw>@aws-1-<region>.pooler.supabase.com:5432/postgres`). RLS 우회로 INSERT/SELECT/DELETE 가능 (frontend 의 supabase-js 는 RLS 적용 — 두 경로의 권한 모델이 다름을 항상 의식)
 - 이미지: 커버는 Unsplash (검색어를 claude CLI 가 헤드라인에서 추출). 본문 항목별은 출처 페이지의 `og:image` → `twitter:image` → 본문 첫 의미있는 `<img>` fallback. arxiv 등은 `EXCLUDE_DOMAINS` 로 스킵
 
@@ -92,7 +92,7 @@ docs/
 
 - 본문 첫 줄에 `<!-- tags: 태그1, 태그2, ... -->` HTML 코멘트 — Writer 가 강제 출력. `extract_tags()` 추출 후 `strip_tags_meta()` 가 본문에서 제거하고 DB `tags text[]` 컬럼에 별도 저장
 - 헤드라인 `# ...` 첫 줄은 `strip_first_h1()` 으로 제거 후 저장 — 제목은 `title` 컬럼에 별도. Frontend 의 `.replace(/^#\s+[^\n]+\n+/, "")` 는 옛 row 호환용 안전장치
-- Proofreader 는 HTML 코멘트(`<!-- ... -->`)를 절대 제거하지 않도록 (i) 프롬프트 명시 + (ii) `run_proofreader()` 가 메타 라인을 분리해 LLM 입력에서 빼고 결과에 다시 붙이는 안전장치 — 둘 다 동시 적용 (`evaluator` 가 메타 사라지면 image_relevance 도 못 매김)
+- Proofreader 는 HTML 코멘트(`<!-- ... -->`)를 절대 제거하지 않도록 (i) 프롬프트 명시 + (ii) `proofreader.run_safe()` 가 메타 라인을 분리해 LLM 입력에서 빼고 결과에 다시 붙이는 안전장치 — 둘 다 동시 적용. run.py 와 evaluator 재작성 경로 모두 `run_safe` 를 부른다 (`run()` 직접 호출 금지) (`evaluator` 가 메타 사라지면 image_relevance 도 못 매김)
 
 ### 홍보발행 오케스트레이터 (`ai-service/promo/`)
 

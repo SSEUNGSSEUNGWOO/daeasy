@@ -1,7 +1,11 @@
+import re
 import subprocess
 
 
-PROMPT_TEMPLATE = """다음은 AI 동향 리포트 마크다운 초안입니다. 아래 항목만 수정하고 수정된 전체 텍스트를 그대로 반환하세요.
+# 본문 첫 줄의 태그 메타 코멘트. run.py 가 태그 추출·제거에도 같은 패턴을 쓴다
+TAGS_META_PATTERN = re.compile(r"<!--\s*tags?\s*:\s*([^>]+?)\s*-->", re.IGNORECASE)
+
+PROMPT_TEMPLATE ="""다음은 AI 동향 리포트 마크다운 초안입니다. 아래 항목만 수정하고 수정된 전체 텍스트를 그대로 반환하세요.
 
 수정 항목:
 - 오타 교정
@@ -50,3 +54,17 @@ def run(draft: str) -> str:
         corrected = corrected[corrected.index("#"):]
     print("[proofreader] 교정 완료")
     return corrected
+
+
+def strip_tags_meta(draft: str) -> str:
+    return TAGS_META_PATTERN.sub("", draft, count=1).lstrip()
+
+
+def run_safe(draft: str) -> str:
+    """태그 메타 라인을 LLM 교정에서 분리해 항상 보존한다 (Proofreader 가 안내 문구로 오해해 제거하는 사고 방지).
+    본 실행(run.py)과 evaluator 의 재작성 경로가 모두 이걸 거쳐야 한다 — run() 을 직접 부르지 말 것."""
+    m = TAGS_META_PATTERN.search(draft)
+    tags_line = m.group(0) if m else ""
+    body = strip_tags_meta(draft) if tags_line else draft
+    corrected = run(body)
+    return f"{tags_line}\n\n{corrected.lstrip()}" if tags_line else corrected

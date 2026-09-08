@@ -34,6 +34,22 @@ def sanitize_urls(draft: str, allowed_urls: set[str]) -> tuple[str, list[str]]:
     return cleaned, removed
 
 
+def find_unlinked_mentions(draft: str, items: list[dict]) -> list[str]:
+    """이름만 언급되고 출처 URL 은 안 붙은 GitHub 도구를 찾는다.
+    prompts.py 의 "언급한 도구는 URL 을 함께 붙인다" 규칙을 코드로 확인한다 (경고만, 차단 안 함).
+    LLM 심사위원은 모델이 바뀌면 이걸 놓치지만 문자열 대조는 안 변한다."""
+    lower = draft.lower()
+    found = []
+    for item in items:
+        url = (item.get("url") or "").strip()
+        if "github.com/" not in url or url in draft:
+            continue
+        repo = url.rstrip("/").rsplit("/", 1)[-1]
+        if len(repo) >= 5 and repo.lower() in lower:
+            found.append(f"{repo} → {url}")
+    return found
+
+
 def run_claude(prompt: str, timeout: int = 180) -> str:
     import os
     import shutil
@@ -113,6 +129,9 @@ def write_report(items: list[dict], clusters: list[dict], feedback: str = "") ->
     cleaned, removed = sanitize_urls(draft, allowed_urls)
     if removed:
         print(f"[writer] 화이트리스트 외 URL {len(removed)}개 자동 제거: {removed}")
+    unlinked = find_unlinked_mentions(cleaned, items)
+    if unlinked:
+        print(f"[writer] 출처 링크 누락 의심 {len(unlinked)}건: {', '.join(unlinked)}")
     return cleaned
 
 
@@ -132,3 +151,18 @@ def run(feedback: str = "") -> str:
     save_draft(draft)
     print("[writer] 초안 저장 완료")
     return draft
+
+
+if __name__ == "__main__":
+    # 자체 체크: 이름만 나오면 잡고, 링크가 붙어 있거나 언급이 없으면 조용해야 한다.
+    # 실행: cd insights && PYTHONPATH=.. uv run python -m writer.writer
+    _items = [
+        {"url": "https://github.com/mksglu/context-mode"},
+        {"url": "https://github.com/microsoft/markitdown"},
+        {"url": "https://github.com/heygen-com/hyperframes"},
+    ]
+    _draft = "context-mode 는 좋다. [markitdown](https://github.com/microsoft/markitdown) 도 쓸 만하다."
+    assert find_unlinked_mentions(_draft, _items) == [
+        "context-mode → https://github.com/mksglu/context-mode"
+    ], find_unlinked_mentions(_draft, _items)
+    print("OK")

@@ -1,4 +1,5 @@
 import json
+import threading
 from dataclasses import asdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -39,8 +40,14 @@ def save_json(path: Path, data: Any):
 
 # ── seen hashes ──────────────────────────────────────────────
 
+# 크롤러가 스레드 3개로 병렬 실행되는데 state.json 은 하나라, 락 없이 read-modify-write 하면
+# 한 소스의 seen 해시가 다른 소스의 저장에 통째로 덮인다 (lost update → 다음 날 중복 수집)
+_STATE_LOCK = threading.Lock()
+
+
 def load_seen_hashes(source_id: str) -> set[str]:
-    state = load_json(DATA_DIR / "state.json")
+    with _STATE_LOCK:
+        state = load_json(DATA_DIR / "state.json")
     if isinstance(state, dict):
         return set(state.get(source_id, []))
     return set()
@@ -48,11 +55,12 @@ def load_seen_hashes(source_id: str) -> set[str]:
 
 def save_seen_hashes(source_id: str, hashes: set[str]):
     path = DATA_DIR / "state.json"
-    state = load_json(path)
-    if not isinstance(state, dict):
-        state = {}
-    state[source_id] = list(hashes)
-    save_json(path, state)
+    with _STATE_LOCK:
+        state = load_json(path)
+        if not isinstance(state, dict):
+            state = {}
+        state[source_id] = list(hashes)
+        save_json(path, state)
 
 
 # ── raw items ─────────────────────────────────────────────────

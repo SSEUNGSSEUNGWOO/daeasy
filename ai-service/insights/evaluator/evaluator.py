@@ -151,7 +151,7 @@ def run() -> tuple[bool, dict]:
 
         scores = result.get("scores", {})
         # 가중평균·합격 판정은 코드가 한다. LLM 산수를 믿지 않고, 통과선을 프롬프트에 알릴 필요도 없다
-        score = sum(scores.get(c["name"], 0) * c["weight"] for c in rubric["criteria"])
+        score = round(sum(scores.get(c["name"], 0) * c["weight"] for c in rubric["criteria"]), 4)
         result["weighted_score"] = score  # run.py 가 evaluation_score 로 저장
         passed = score >= threshold and not invalid_urls
 

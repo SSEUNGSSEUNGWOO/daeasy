@@ -1,0 +1,114 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "bannedbook/fanqiang",
+    "url": "https://github.com/bannedbook/fanqiang",
+    "content": "翻墙-科学上网",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 52129,
+      "language": "Kotlin"
+    },
+    "item_hash": "a92f0e1da4fc5888"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ByteByteGoHq/system-design-101",
+    "url": "https://github.com/ByteByteGoHq/system-design-101",
+    "content": "Explain complex systems using visuals and simple terms. Help you prepare for system design interviews.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 88314,
+      "language": ""
+    },
+    "item_hash": "b28e5f05a47b38cb"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "magnitudedev/magnitude",
+    "url": "https://github.com/magnitudedev/magnitude",
+    "content": "Open source inference server that runs the best local models for your hardware, plugged into the agent you already use. Works with Pi, OpenCode, Hermes, OpenClaw, Codex, Claude Code, Oh My Pi, and Cline.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 1932,
+      "language": "TypeScript"
+    },
+    "item_hash": "0241e600b90d751e"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "f/prompts.chat",
+    "url": "https://github.com/f/prompts.chat",
+    "content": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 168970,
+      "language": "HTML"
+    },
+    "item_hash": "1643157b768c76e7"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "content": "An agentic skills framework & software development methodology that works.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 281322,
+      "language": "Shell"
+    },
+    "item_hash": "8c6014a36ca90e3f"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "netalertx/NetAlertX",
+    "url": "https://github.com/netalertx/NetAlertX",
+    "content": "Centralized network visibility and continuous asset discovery. Monitor devices, detect change, and stay aware across distributed networks.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 7034,
+      "language": "Python"
+    },
+    "item_hash": "208441e4f99c6eb9"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "datacurve-ai/deep-swe",
+    "url": "https://github.com/datacurve-ai/deep-swe",
+    "content": "Measuring frontier coding agents on original, long-horizon engineering tasks",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 1592,
+      "language": "Python"
+    },
+    "item_hash": "fa3b77f0574e3d79"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Graphify-Labs/graphify",
+    "url": "https://github.com/Graphify-Labs/graphify",
+    "content": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 114413,
+      "language": "Python"
+    },
+    "item_hash": "c290a2acf859c75b"
+  }
+]

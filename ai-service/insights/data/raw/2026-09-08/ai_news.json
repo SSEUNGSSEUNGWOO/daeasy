@@ -1,0 +1,93 @@
+[
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "Opaque recurrence, and other AI terms that you should probably know",
+    "url": "https://techcrunch.com/2026/09/07/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+    "content": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases you might encounter.",
+    "published_at": "2026-09-07",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "8b8898d492e71416"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "Authors push back as publishers and agents make claims on Anthropic settlement",
+    "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
+    "content": "Authors say publishers seem to be claiming more than their fair share of settlement payments.",
+    "published_at": "2026-09-06",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "973d060680473f7c"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "Travis Kalanick’s Atoms might be getting into the robotaxi business",
+    "url": "https://techcrunch.com/2026/09/06/travis-kalanicks-atoms-might-be-getting-into-the-robotaxi-business/",
+    "content": "The Uber founder has said that Atoms will allow him to complete \"unfinished business.\"",
+    "published_at": "2026-09-06",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "36e2bba17c604c5d"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+    "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
+    "content": "Two more news organizations are suing OpenAI and Microsoft over the supposed use of their journalism to train AI.",
+    "published_at": "2026-09-05",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "6df0f5d81c2b28a3"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "Hikers rescued after using Google Gemini for planning",
+    "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+    "content": "The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\"",
+    "published_at": "2026-09-05",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "6ef2aef9012f0dd0"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "TechCrunch AI",
+    "title": "OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure",
+    "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
+    "content": "OpenAI acknowledged its role in a recently reported incident where AI agents took over a German wiki forum.",
+    "published_at": "2026-09-05",
+    "image_url": null,
+    "extra": {
+      "feed_name": "TechCrunch AI"
+    },
+    "item_hash": "b86b5015c5da7a40"
+  },
+  {
+    "source_id": "ai_news",
+    "source_name": "MIT Technology Review",
+    "title": "The Download: the hunt for underground hydrogen and more rogue OpenAI agents",
+    "url": "https://www.technologyreview.com/2026/09/07/1143592/the-download-underground-hydrogen-search-rogue-openai-agents/",
+    "content": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. How much hydrogen awaits us underground? A flurry of exploration efforts is searching for underground stores of hydrogen gas, which could provide a valuable source of zero-carbon fuel. The hunt has&#8230;",
+    "published_at": "2026-09-07",
+    "image_url": null,
+    "extra": {
+      "feed_name": "MIT Technology Review"
+    },
+    "item_hash": "b12a8e728183bf2c"
+  }
+]

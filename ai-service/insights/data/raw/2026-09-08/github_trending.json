@@ -1,0 +1,352 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "heygen-com/hyperframes",
+    "url": "https://github.com/heygen-com/hyperframes",
+    "content": "Write HTML. Render video. Built for agents.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 46424,
+      "language": "TypeScript"
+    },
+    "item_hash": "6e18aa23e1f0d144"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "microsoft/markitdown",
+    "url": "https://github.com/microsoft/markitdown",
+    "content": "Python tool for converting files and office documents to Markdown.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 180617,
+      "language": "Python"
+    },
+    "item_hash": "dec36f96df8d997b"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "mksglu/context-mode",
+    "url": "https://github.com/mksglu/context-mode",
+    "content": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and enforces routing across 17 platforms via MCP + hooks.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 20979,
+      "language": "TypeScript"
+    },
+    "item_hash": "cfe6b1639c3c3094"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "jo-inc/camofox-browser",
+    "url": "https://github.com/jo-inc/camofox-browser",
+    "content": "Stealth headless browser for AI agents — bypass Cloudflare, bot detection, and anti-scraping. Drop-in Puppeteer/Playwright replacement.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 9887,
+      "language": "JavaScript"
+    },
+    "item_hash": "05a714c235432447"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "MoonTechLab/LunaTV",
+    "url": "https://github.com/MoonTechLab/LunaTV",
+    "content": "本项目采用 CC BY-NC-SA 协议，禁止任何商业化行为，任何衍生项目必须保留本项目地址并以相同协议开源",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 9865,
+      "language": "TypeScript"
+    },
+    "item_hash": "433b95c03b7ba2e9"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "coreyhaines31/marketingskills",
+    "url": "https://github.com/coreyhaines31/marketingskills",
+    "content": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 48262,
+      "language": "JavaScript"
+    },
+    "item_hash": "8bf41c2345f4ad80"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "The-Swarm-Corporation/AutoHedge",
+    "url": "https://github.com/The-Swarm-Corporation/AutoHedge",
+    "content": "Build your autonomous hedge fund in minutes. AutoHedge harnesses the power of swarm intelligence and AI agents to automate market analysis, risk management, and trade execution.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 5341,
+      "language": "Python"
+    },
+    "item_hash": "c1ca66b2cea143ab"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "BraveOPotato/FckSignups",
+    "url": "https://github.com/BraveOPotato/FckSignups",
+    "content": "A list of tools that are open-source, in-browser, and require no-signups!",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 3900,
+      "language": "TypeScript"
+    },
+    "item_hash": "2f9e2e96849fd12f"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "openai/skills",
+    "url": "https://github.com/openai/skills",
+    "content": "Skills Catalog for Codex",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 26123,
+      "language": "Python"
+    },
+    "item_hash": "2cc5eab13f08dcd3"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "lightpanda-io/browser",
+    "url": "https://github.com/lightpanda-io/browser",
+    "content": "Lightpanda: the headless browser designed for AI and automation",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 34954,
+      "language": "Zig"
+    },
+    "item_hash": "3fbb0d0462685f17"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "pascalorg/editor",
+    "url": "https://github.com/pascalorg/editor",
+    "content": "Create and share 3D architectural projects.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 22429,
+      "language": "TypeScript"
+    },
+    "item_hash": "e1ae8aa0ded84424"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ruvnet/ruflo",
+    "url": "https://github.com/ruvnet/ruflo",
+    "content": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 71457,
+      "language": "TypeScript"
+    },
+    "item_hash": "c60b77ce50fb8910"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "pytorch/pytorch",
+    "url": "https://github.com/pytorch/pytorch",
+    "content": "Tensors and Dynamic neural networks in Python with strong GPU acceleration",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 102845,
+      "language": "Python"
+    },
+    "item_hash": "6ee2c2a30826817d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "browser-use/browser-use",
+    "url": "https://github.com/browser-use/browser-use",
+    "content": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 112985,
+      "language": "Python"
+    },
+    "item_hash": "c1af6b58492f9bf4"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Comfy-Org/ComfyUI",
+    "url": "https://github.com/Comfy-Org/ComfyUI",
+    "content": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 131982,
+      "language": "Python"
+    },
+    "item_hash": "32faae70661994ba"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "bikini/exploitarium",
+    "url": "https://github.com/bikini/exploitarium",
+    "content": "A single archive of public exploit PoCs and vulnerability research writeups. At the time I post these, none have been reported. Feel free to report them yourself and take credit for the CVE if handed out lulz. Please do not abuse these. I do this so to allure people into the field, and I've always found this is the most efficient way.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 4953,
+      "language": "Python"
+    },
+    "item_hash": "b2cf1ddaebde42be"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "mukul975/cve-mcp-server",
+    "url": "https://github.com/mukul975/cve-mcp-server",
+    "content": "Production-grade MCP server giving Claude 27 security intelligence tools across 21 APIs — CVE lookup, EPSS scoring, CISA KEV, MITRE ATT&CK, Shodan, VirusTotal, and more.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 1479,
+      "language": "Python"
+    },
+    "item_hash": "83660ce2f43a7497"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "AgriciDaniel/claude-ads",
+    "url": "https://github.com/AgriciDaniel/claude-ads",
+    "content": "Claude-first paid-media operations skill for Claude Code across 12 ad platforms (Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, Amazon, Reddit, Pinterest, Snapchat, X): source-grounded audits, deterministic scoring, versioned JSON reports, and capability-gated account changes.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 8994,
+      "language": "Python"
+    },
+    "item_hash": "19683f8c755f58a6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Free-TV/IPTV",
+    "url": "https://github.com/Free-TV/IPTV",
+    "content": "M3U Playlist for free TV channels",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 20386,
+      "language": "Python"
+    },
+    "item_hash": "214b56d1f5039dab"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "k2-fsa/OmniVoice",
+    "url": "https://github.com/k2-fsa/OmniVoice",
+    "content": "High-Quality Voice Cloning TTS for 600+ Languages",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 10508,
+      "language": "Python"
+    },
+    "item_hash": "6242800a9b7187f9"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "numpy/numpy",
+    "url": "https://github.com/numpy/numpy",
+    "content": "The fundamental package for scientific computing with Python.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 32702,
+      "language": "Python"
+    },
+    "item_hash": "53accc858c12ba46"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "vinta/awesome-python",
+    "url": "https://github.com/vinta/awesome-python",
+    "content": "The definitive list that answers \"I want to do X in Python, which tool should I use?\"",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 319181,
+      "language": "Python"
+    },
+    "item_hash": "7932f64c0fdba3a7"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "NVIDIA/personaplex",
+    "url": "https://github.com/NVIDIA/personaplex",
+    "content": "PersonaPlex code.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 10437,
+      "language": "Python"
+    },
+    "item_hash": "daeba845b475c7e4"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "huggingface/datasets",
+    "url": "https://github.com/huggingface/datasets",
+    "content": "🤗 The largest hub of ready-to-use datasets for AI models with fast, easy-to-use and efficient data manipulation tools",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 21949,
+      "language": "Python"
+    },
+    "item_hash": "014216b2538f3c17"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Zie619/n8n-workflows",
+    "url": "https://github.com/Zie619/n8n-workflows",
+    "content": "all of the workflows of n8n i could find (also from the site itself)",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "stars": 56536,
+      "language": "Python"
+    },
+    "item_hash": "17dd79d7bf96908b"
+  }
+]

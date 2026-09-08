@@ -1,0 +1,324 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "fmtlib/fmt",
+    "url": "https://github.com/fmtlib/fmt",
+    "content": "A modern formatting library",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 24229,
+      "language": "C++"
+    },
+    "item_hash": "f479be88947f9a61"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "google-research/timesfm",
+    "url": "https://github.com/google-research/timesfm",
+    "content": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 29747,
+      "language": "Python"
+    },
+    "item_hash": "52a49b8215a214a6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "DietrichGebert/ponytail",
+    "url": "https://github.com/DietrichGebert/ponytail",
+    "content": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 121485,
+      "language": "JavaScript"
+    },
+    "item_hash": "38c3408d933af173"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "debpalash/VoiceStudio",
+    "url": "https://github.com/debpalash/VoiceStudio",
+    "content": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 14673,
+      "language": "Python"
+    },
+    "item_hash": "da8ac24508773f98"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "sngyai/Sequoia-X",
+    "url": "https://github.com/sngyai/Sequoia-X",
+    "content": "A股自动选股系统 — 多种技术形态自动扫描，收盘后自动运行并推送飞书",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 6031,
+      "language": "Python"
+    },
+    "item_hash": "d2cf4485bef30cbf"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ChromeDevTools/chrome-devtools-mcp",
+    "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+    "content": "Chrome DevTools for coding agents",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 50626,
+      "language": "TypeScript"
+    },
+    "item_hash": "379642deb53f3714"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "superlinked/sie",
+    "url": "https://github.com/superlinked/sie",
+    "content": "Open-source inference server and production cluster for all the models your agent needs.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 3050,
+      "language": "Python"
+    },
+    "item_hash": "623376f479d42fb7"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "pacifio/atlas",
+    "url": "https://github.com/pacifio/atlas",
+    "content": "Source control for agents. Use multiple coding agents, track their changes and query them in one place",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 2858,
+      "language": "Rust"
+    },
+    "item_hash": "4930e4f9e24bb204"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "zyronon/TypeWords",
+    "url": "https://github.com/zyronon/TypeWords",
+    "content": "Practice English, one strike, one step forward; 练习英语，一次敲击，一点进步；",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 9293,
+      "language": "Vue"
+    },
+    "item_hash": "5409529ddb040a34"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "protocolbuffers/protobuf",
+    "url": "https://github.com/protocolbuffers/protobuf",
+    "content": "Protocol Buffers - Google's data interchange format",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 71934,
+      "language": "C++"
+    },
+    "item_hash": "5983b3f274244088"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "vercel-labs/portless",
+    "url": "https://github.com/vercel-labs/portless",
+    "content": "Replace port numbers with stable, named local URLs. For humans and agents.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 11739,
+      "language": "TypeScript"
+    },
+    "item_hash": "cdfb2cfc862fb076"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "blader/humanizer",
+    "url": "https://github.com/blader/humanizer",
+    "content": "Agent skill that removes signs of AI-generated writing from text",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 40353,
+      "language": "Python"
+    },
+    "item_hash": "2db4f7d2d7de0ea2"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "JuliusBrussee/caveman",
+    "url": "https://github.com/JuliusBrussee/caveman",
+    "content": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 102624,
+      "language": "Go"
+    },
+    "item_hash": "bac657e60ae022eb"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "mattpocock/skills",
+    "url": "https://github.com/mattpocock/skills",
+    "content": "Skills for Real Engineers. Straight from my .agents directory.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 245207,
+      "language": "Shell"
+    },
+    "item_hash": "637c99109af31ed2"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "zubair-trabzada/geo-seo-claude",
+    "url": "https://github.com/zubair-trabzada/geo-seo-claude",
+    "content": "GEO-first SEO skill for Claude Code. Comprehensive AI search optimization for any website — citability scoring, AI crawler analysis, brand authority, schema markup, platform-specific optimization, and PDF reports. If you want learn how to sell this to real businesses, check out the skool community",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 10169,
+      "language": "Python"
+    },
+    "item_hash": "a3b183624a359158"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "github/spec-kit",
+    "url": "https://github.com/github/spec-kit",
+    "content": "💫 Toolkit to help you get started with Spec-Driven Development",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 133100,
+      "language": "Python"
+    },
+    "item_hash": "f4e0adf84666b0c9"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "PDFMathTranslate/PDFMathTranslate",
+    "url": "https://github.com/PDFMathTranslate/PDFMathTranslate",
+    "content": "[EMNLP 2025 Demo] PDF scientific paper translation with preserved formats - 基于 AI 完整保留排版的 PDF 文档全文双语翻译，支持 Google/DeepL/Ollama/OpenAI 等服务，提供 CLI/GUI/MCP/Docker/Zotero",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 36630,
+      "language": "Python"
+    },
+    "item_hash": "b5de04ca4cb196c2"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "shaxiu/XianyuAutoAgent",
+    "url": "https://github.com/shaxiu/XianyuAutoAgent",
+    "content": "智能闲鱼客服机器人系统：专为闲鱼平台打造的AI值守解决方案，实现闲鱼平台7×24小时自动化值守，支持多专家协同决策、智能议价和上下文感知对话。",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 8967,
+      "language": "Python"
+    },
+    "item_hash": "39e7e2128fd901af"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "teng-lin/notebooklm-py",
+    "url": "https://github.com/teng-lin/notebooklm-py",
+    "content": "Unofficial Python API and agentic skill for Google Gemini Notebook. Full programmatic access to NotebookLM's features—including capabilities the web UI doesn't expose—via Python, CLI, and AI agents like Claude Code, Codex, and OpenClaw.",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 19094,
+      "language": "Python"
+    },
+    "item_hash": "9e0892762e053196"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "hacksider/Deep-Live-Cam",
+    "url": "https://github.com/hacksider/Deep-Live-Cam",
+    "content": "real time face swap and one-click video deepfake with only a single image",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 96454,
+      "language": "Python"
+    },
+    "item_hash": "ec2a1fb5129b99e9"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ScrapeGraphAI/Scrapegraph-ai",
+    "url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai",
+    "content": "Python scraper based on AI",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 30430,
+      "language": "Python"
+    },
+    "item_hash": "b4ea062177d54221"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "p-e-w/heretic",
+    "url": "https://github.com/p-e-w/heretic",
+    "content": "Fully automatic censorship removal for language models",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 30175,
+      "language": "Python"
+    },
+    "item_hash": "3db40af345d5afa2"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "lipku/LiveTalking",
+    "url": "https://github.com/lipku/LiveTalking",
+    "content": "Real time interactive streaming digital human",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "stars": 9359,
+      "language": "Python"
+    },
+    "item_hash": "a373bb938f5eabbc"
+  }
+]

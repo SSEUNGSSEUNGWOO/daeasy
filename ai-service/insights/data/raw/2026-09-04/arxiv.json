@@ -1,0 +1,542 @@
+[
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "User Feedback Provides a Unique Signal that LLMs Can not Detect",
+    "url": "https://arxiv.org/abs/2609.02859",
+    "content": "Harnessing naturally occurring feedback from user interactions offers a promising learning signal for Large Language Models (LLMs). However, recent studies suggest this feedback is inherently noisy and difficult to leverage effectively. We challenge this conception by demonstrating that user feedback is a highly actionable signal for improvement, and that its perceived ineffectiveness stems from a systematic bias in current evaluation paradigms. To isolate the usefulness of feedback, we construct synthetic data with a definitive ground truth, alongside naturalistic data to validate that our findings hold in real-world scenarios. By comparing model revisions generated with and without access to feedback across both settings, we show that feedback-informed revisions resolve targeted issues at significantly higher rates than baseline revisions. Finally, we expose the root of the evaluation bias: when a model successfully fixes an issue exclusively due to feedback, LLM judges frequently fail to identify the genuinely corrected response, systematically preferring inferior baseline outputs instead.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Shachar Don-Yehiya",
+        "Leshem Choshen",
+        "Omri Abend"
+      ]
+    },
+    "item_hash": "51118664f517bd64"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+    "url": "https://arxiv.org/abs/2609.02849",
+    "content": "Competitive programming has become a key test of large language model reasoning, with international competitions such as IOI and ICPC representing its most challenging settings. We present an end-to-end specialization pipeline combining large-scale problem curation, synthetic reasoning traces, supervised fine-tuning (SFT), and reinforcement learning (RL). Using 22,000 curated problems, we train Nemotron-3-Nano-CC (30B-A3B) with SFT and RL and Nemotron-3-Ultra-CC (550B-A55B) with SFT alone. We further introduce GenCorrect, a feedback-driven test-time compute strategy that iteratively generates, evaluates, and refines diverse solutions. On IOI 2025, Nano-CC improves from 130 points to 291 after post-training and to 468 with GenCorrect, exceeding the gold threshold of 438.3 while Ultra-CC reaches 502. Guided by these results, we develop a competition-specific Ultra-CC system and evaluate it prospectively during IOI 2026. Under the same time, internet-access, and submission constraints as human contestants, it scores 535.4 out of 600, exceeding both the gold threshold of 361.12 and the top human score of 498.27. To our knowledge, this is the first AI system to outscore the highest-scoring human contestant on an IOI problem set.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Aleksander Ficek",
+        "Sean Narenthiran",
+        "Mehrzad Samadi",
+        "Somshubra Majumdar",
+        "Boris Ginsburg"
+      ]
+    },
+    "item_hash": "facf073b3485aafa"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "AI Contextual Measurement for Recovering Individual and Group-Level Effects: Validation Against Survey Measures and an Occupational Application",
+    "url": "https://arxiv.org/abs/2609.02821",
+    "content": "Researchers increasingly use artificial intelligence to construct measures of social, organizational, and occupational characteristics that are absent from conventional surveys. We propose AICOME, AI COntextual MEasurement, a framework for evaluating whether AI-derived respondent-level measures can recover individual and group-level effects in contextual models. The key idea is that an AI measure constructed at the respondent level can be used to derive its group-level aggregate and its individual deviation, allowing researchers to estimate both between-group and within-group associations rather than treating AI measurement as response prediction alone.\n  We validate the framework using the 2022 China Family Panel Studies (CFPS), where occupations provide the empirical grouping structure and several job-related survey variables provide validation benchmarks. For computer use, foreign-language use, weekly hours, and management responsibilities, we compare survey measures with AI-derived measures in response-level, model-level, contextual, and boundary-condition validations. The results show that AI contextual measurement can recover much of the contextual-model information contained in observed survey variables when rich respondent and job characteristics are available. Weekly hours provides the strongest validation case, with AI-derived measures reproducing the large negative between- and within-occupation associations with satisfaction observed in CFPS. The framework also identifies clear boundary conditions: performance deteriorates when information is restricted to occupation and basic demographics, and recovery is weaker when several related concepts are treated as simultaneously unobserved. The findings suggest that AICOME is most useful for recovering a limited number of theoretically important constructs from rich existing datasets.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Wenxin Jiang",
+        "Xuyang Wang",
+        "Yuxiao Wu"
+      ]
+    },
+    "item_hash": "70382a894f7f68e7"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Cliff: Learning Process Rewards from the First Mistake",
+    "url": "https://arxiv.org/abs/2609.02817",
+    "content": "Reinforcement learning with verifiable rewards (RLVR) has emerged as a powerful paradigm for large language model (LLM) post-training, but its reliance on coarse outcome rewards leads to limited guidance on intermediate reasoning processes. Existing approaches such as process reward modeling and on-policy distillation introduce additional constraints, such as reliance on a specialized reward model or assuming identical reasoning patterns between teacher and student. Nevertheless, we observe that once a reasoning process first goes wrong, evaluating the subsequent reasoning provides limited additional information, as it is already conditioned on an invalid prefix. Therefore, we propose Cliff, a reward shaping strategy that utilizes an off-the-shelf LLM as a teacher to identify the first mistake in each rollout. As a result, the rollout is naturally decomposed into two parts: a correct prefix and an incorrect suffix. Cliff then converts this signal into token-level advantages, assigning positive advantages for the correct prefix and negative feedback afterward. Experiments across 12 different scenarios demonstrate that Cliff consistently improves reasoning performance, outperforming on-policy distillation by 15% and standard GRPO by 7%, even with teachers of modest capability. Furthermore, we analyse the role of ``ground truth'' in Cliff and investigate its training dynamics. These results establish Cliff as a simple, general and effective approach for improving RLVR with richer, fine-grained supervision.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Peixuan Han",
+        "Runhui Wang",
+        "Ketan Ramaneti",
+        "Jie Hao",
+        "Gerald Friedland"
+      ]
+    },
+    "item_hash": "64bfd6a43eaebf2d"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+    "url": "https://arxiv.org/abs/2609.02805",
+    "content": "Root cause analysis (RCA) is a critical task in telecom network operations, but diagnosing performance degradations in modern 5G and emerging 6G networks remains challenging due to complex cross-layer dependencies. While large language models (LLMs) offer promising capabilities for reasoning and knowledge integration, directly applying vanilla LLMs to telecom RCA often leads to hallucination, unstable reasoning, and poor alignment with structured network evidence. This work first reviews the evolution of telecom RCA from rule-based and machine learning (ML) approaches to emerging LLM-enabled techniques, and provides an overview of recent paradigms, including structured reasoning, retrieval-augmented knowledge grounding, agentic orchestration, and verifiable reasoning. Building upon these insights, we propose a structured reasoning framework for LLM-enabled telecom RCA that aligns diagnostic reasoning with telecom-specific evidence and domain knowledge. The proposed approach first organizes heterogeneous network telemetry into canonical contexts, and then enforces decision-path reasoning during diagnosis, and finally generates evidence-grounded explanations for reliable fault identification. Experimental results on two 5G RCA datasets, TeleLogs and TelecomTS, demonstrate that the proposed framework consistently improves diagnostic accuracy and decision consistency compared with baseline techniques. These cross-dataset results highlight the importance of structured reasoning design for practical LLM-based RCA systems in next-generation telecom networks.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hao Zhou",
+        "Mandar Kulkarni",
+        "Hao Chen",
+        "Yan Xin",
+        "Charlie"
+      ]
+    },
+    "item_hash": "f39f9a924c16bd4d"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "DiscoSign: Discourse-Aware Text to Sign Language Gloss Translation",
+    "url": "https://arxiv.org/abs/2609.02796",
+    "content": "Sign language processing systems have traditionally operated at the sentence level, ignoring critical discourse phenomena fundamental to sign language comprehension. We introduce DiscoSign, a computational approach for discourse-aware text to sign language gloss translation grounded in linguistic research. We address three key phenomena within our modular Large Language Model (LLM)-based translation framework: (i) spatial coreference resolution, where entities maintain consistent spatial locations throughout discourse; (ii) Question-Answer Clauses (QACs), pseudocleft structures serving specific discourse functions; and (iii) concept-gloss consistency, ensuring stable mappings between English concepts and American Sign Language (ASL) signs. Traditional translation metrics fail to capture discourse-level quality, so we introduce a suite of novel evaluation metrics designed to assess each dimension of discourse coherence addressed by our framework. Experiments on sentence-level and discourse-level datasets show that our approach for discourse-aware processing significantly improves spatial consistency and entity tracking relative to sentence-only translation, while maintaining competitive single-sentence gloss translation quality. Our work establishes the first systematic framework for discourse-level text to sign language gloss translation with corresponding evaluation methodology.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Vasileios Baltatzis",
+        "Mert Inan",
+        "Connor Gillis",
+        "Raja Kushalnagar",
+        "Lorna Quandt"
+      ]
+    },
+    "item_hash": "7f33d14d46c689c0"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "ShikumiMiner: Mining Recurring Implementation Patterns in AI Codebases",
+    "url": "https://arxiv.org/abs/2609.02789",
+    "content": "Large language models are paving the way towards innovation by understanding, analyzing, summarizing and generating content in the modern world. Currently there are thousands of LLM projects developed by engineers in open-source repositories. However, whether these LLM projects have underlying patterns or not remains a question. Exploring these underlying patterns will give new dimensions to the developers who aim to develop these LLM projects. In this paper, we propose ShikumiMiner, a static-analysis framework that combines Abstract Syntax Tree (AST) and Control Flow Graph (CFG) features to detect and compare recurring implementation patterns in C++ local LLM codebases. We analyze ten GitHub open-source repositories and classify functions into seven study-specific categories using a multi-label Random Forest model. Studying these patterns can provide useful insights for developers aiming to design LLM applications.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Afsana Tasnim",
+        "Sheikh Motahar Naim"
+      ]
+    },
+    "item_hash": "1e891f34f7f621b2"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "ShallowStream: Index Shallow then Answer Deep for Streaming Video Understanding",
+    "url": "https://arxiv.org/abs/2609.02780",
+    "content": "Streaming video understanding is a critical capability for real-world applications, including embodied intelligence, autonomous driving, industrial monitoring, surveillance and early warning, and wearable assistants. However, processing continuous video streams with multimodal large language models (MLLMs) is computationally expensive. Existing efforts have explored reducing streaming overhead through visual token pruning, token merging, quantization, on-demand frame retrieval, and context offloading. However, most existing methods overlook the dimension of model depth. Repeatedly executing full-depth MLLM prefill over incoming frames is prohibitively expensive, incurring substantial computational overhead and causing the KV cache to grow at a rate directly proportional to the prefill depth. To address these challenges, we propose ShallowStream, a novel framework that leverages the shallow layers of an MLLM to simultaneously perform frame encoding and retrieval index building. During stream processing, ShallowStream maintains an always-on lightweight index using the KV cache of shallow layers. During query-time answering, we leverage the attention scores generated by the shallow layers to score context frames and employ a diversity-aware selection strategy to retrieve precise and comprehensive evidence. ShallowStream achieves performance on par with the strongest existing streaming methods, while reducing per-frame prefill latency and 10-second end-to-end latency by up to 52.1x and 11.9x, respectively. Our code is available at https://github.com/CURRENTF/ShallowStream.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jitai Hao",
+        "Ke Yang",
+        "Qiang Huang",
+        "Jun Yu"
+      ]
+    },
+    "item_hash": "003310c7cbbe0934"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+    "url": "https://arxiv.org/abs/2609.02754",
+    "content": "Large language models now answer medical questions with expert-level performance. However, the context these systems act on can be misleading, and misleading context can corrupt a model's medical judgment. To understand how misleading context corrupts this judgment, we examine the model's susceptibility to the context, disclosure of it, mechanism of corrupted reasoning, and monitorability of the decision. On the medical reasoning subset of MedMisBench, a clinician-reviewed question-answering benchmark of 8,627 questions, we inject two types of misleading context cues, fabricated evidence and a bare assertion. We test three reasoning models, two that expose their full reasoning trace and one frontier model that exposes only its response. All three are more susceptible to the assertion than to the fabricated evidence, adopting the asserted answer 10 to 27 points more often. The misleading cues are disclosed in 81 to 98% of traces but only 7 to 90% of responses, and the assertion is disclosed less often than evidence based cues. Resampling from reasoning traces without disclosure shows the two cues corrupt reasoning differently, evidence entering early and accumulating while the assertion redirects the conclusion near its end. An LLM monitor catches 78% of corrupted decisions at 5% false positives when reading an open model's trace with guidance, against at most 32% from any response. The misleading context that models are most susceptible to is disclosed least, and was caught reliably only from an open reasoning trace, which frontier providers withhold.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Robin Linzmayer",
+        "Noémie Elhadad"
+      ]
+    },
+    "item_hash": "ed185bb5c4bc03f0"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "CORAL: An LLM-Native Harness for Production Recommender Systems",
+    "url": "https://arxiv.org/abs/2609.02730",
+    "content": "Production recommender systems shape what billions of people see, and sustaining their performance requires continual optimization: as content, user behavior, and upstream models shift, the choices governing retrieval, ranking, and serving must be revisited. Traditionally, human engineers test such changes through online experiments--a slow, reactive process limited by engineering effort, leaving parts of the system unrevised as conditions change. Although large language models have been applied to ranking, user modeling, and offline model development, few systems place an agent in a continual closed loop that acts on a live recommender and learns from the measured effects of its decisions. We present CORAL (Constraint-Optimized Recommender via an Agentic Loop), an LLM-native harness that closes this loop: each cycle, the agent observes operating signals, reasons over a memory of past decisions and outcomes, and invokes tools--including a numerical optimizer that keeps changes within a fixed operating budget--to reconfigure the recommender, with measured outcomes informing the next cycle. We formulate this as a partially observed, non-stationary, constrained optimization problem in which the policy improves in context, without parameter updates, from its prior actions. Across two large-scale social platforms, evaluated with A/B experiments, the same harness improves engagement at no additional serving cost on one and reduces serving cost without degrading engagement on the other, spanning the engagement-efficiency frontier. Performance improves as the loop iterates, suggesting that a single agentic loop can automate continual optimization work traditionally performed by human algorithm engineers under explicit guardrails.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Muhammad Rafay Azhar",
+        "Yuhang Zhou",
+        "Gilbert Jiang",
+        "Yuchen Wang",
+        "Rahul Sharma"
+      ]
+    },
+    "item_hash": "89e110dca9055e3c"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "BuildOcc: A Large Language Model Occupant Agent Platform for Building Energy Research",
+    "url": "https://arxiv.org/abs/2609.02729",
+    "content": "Occupants are a primary source of uncertainty in building energy consumption and management, yet existing occupant behavior models cannot capture adaptive and reasoning responses considering the occupant's personal history, current context, and the type of energy signal being delivered. This study presents BuildOcc, an open-source Python platform that grounds large language model agents in the American Time Use Survey (ATUS), a nationally representative diary dataset covering 16,684 respondents. Through BuildOcc, each simulated occupant agent can be instantiated with a demographic persona drawn from ATUS population statistics, a memory stream that accumulates and reflects on timestep-level observations, and an activity scheduler that samples empirically from ATUS time-at-activity distributions. The platform exposes a three-layer interface - Python library, REST API, and Model Context Protocol server - so that any building energy tool (EnergyPlus, Home Assistant) can integrate behavioral intelligence without bespoke coupling code. A plugin registry lets the community add new occupant strata, custom schedulers, and alternative memory backends as separate installable packages. Two validation tiers show that ATUS-grounded sampling reproduces empirically calibrated activity distributions and that demographic priors propagate into persona-consistent agent reasoning across timesteps, establishing internal consistency across strata. BuildOcc provides the building energy community with a reusable, openly available implementation of the occupant behavioral layer. BuildOcc is openly released at https://doi.org/10.5281/zenodo.21192895 under the Apache License 2.0 and installable via pip install buildocc.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Wooyoung Jung"
+      ]
+    },
+    "item_hash": "6f9ef83be5d4f567"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Large Language Model-Driven Context-Aware Eco-Feedback Generation and Evaluation",
+    "url": "https://arxiv.org/abs/2609.02719",
+    "content": "The objective of this study was to demonstrate the potential of generating eco-feedback that accounted for unique household contextual information, named as context-aware eco-feedback, through a large language model-integrated framework. Previous studies have introduced personalized eco-feedback, mostly relying on household energy use patterns; however, they frequently did not reflect distinct household characteristics, including their persona or non-negotiable routines, leaving eco-feedback ineffective and sometimes superficial. To address these limitations, we introduced a contextual engineering framework that generated eco-feedback using a self-consistency with chain-of-thought prompt that leveraged household energy analysis data, utility rate structures, and characteristic information. We conducted a rigorous empirical validation and a combinatorial evaluation analysis to assess this framework systematically. The former aimed to test the framework's ability to generate accurate and data-driven eco-feedback, customized to given contexts by comparing it with reference interventions. The latter aimed to reveal the framework's adaptability across diverse household contexts by investigating how context-aware eco-feedback changed. Key findings were the following: our proposed framework generated eco-feedback that aligned with reference solutions at a mean accuracy of 92.0% across different household configurations, accurately leveraging the provided household data for feedback generation (95.7% of data citation accuracy). Also, it was largely adaptive to diverse household contexts, significantly shifting targeted appliances and energy-saving strategies. Ultimately, this study contributes to realizing the next level of context-aware interactions between occupants and buildings which paves the way for higher occupant living quality and sustainability.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Wooyoung Jung",
+        "Prosper Babon-Ayeng"
+      ]
+    },
+    "item_hash": "fbb082d0032ff461"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Door-in-the-Face Requests and Refusal Behaviour in Large Language Models",
+    "url": "https://arxiv.org/abs/2609.02707",
+    "content": "Does the door-in-the-face technique work on language models? In humans, a large request that is refused makes a smaller follow-up request more likely to be granted. We test this on nine production models from three providers: each model refuses a large request, then receives a smaller version of the same request, and we compare its compliance with asking directly. The answer depends on the model. On Anthropic's frontier models the technique works: Opus 5 answers the smaller request 65.8% of the time after refusing the larger one, against 29.3% when asked directly. On the frontier models of OpenAI and Google, and on Haiku 4.5, it backfires, lowering compliance by 15.5 to 23.0 points. A control locates the effect: a refused large request on an unrelated topic does less than the related one on all nine models, so the concession itself matters everywhere, while the reaction to having just refused something differs by model family. The technique does not transfer to refusals drawn from public benchmarks. What decides whether a retreat can work is what the request asks for: rewriting 265 refused requests for usable instructions into requests for explanations of the same topic removed the refusal in 263 cases. Human influence techniques port to language models one model family at a time.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Til Jordan"
+      ]
+    },
+    "item_hash": "2abe78f609974e93"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "ACLE-MCP: Attested Capability Leases for Execution-Time Trust in Remote LLM Tool Use",
+    "url": "https://arxiv.org/abs/2609.02690",
+    "content": "Remote Model Context Protocol (MCP) services enable large language model agents to invoke external tools, but OAuth authorization alone does not ensure that a later tool call is executed by the provider-side workload that the relying party intended to trust. An endpoint may remain authorized even after execution shifts to a substituted workload, relies on stale appraisal state, reuses authority transferred from another sender, or traverses an undeclared downstream component. We call this problem the post-authorization execution trust gap. We present ACLE-MCP, an invocation-scoped architecture that couples delegated authorization, workload appraisal, and resource-side execution admission. For protected calls, ACLE-MCP issues a short-lived, sender-constrained capability lease that binds the expected workload, freshness requirement, operation, object and parameter bounds, downstream constraints, and receipt obligations. A provider-side Execution Gate consumes the lease immediately before protected tool logic begins. We implement a runnable prototype with Keycloak/OIDC validation, an MCP Python SDK server, and an optional vTPM quote-verification backend. Controlled security experiments and an agent tool-use extension show that weaker authorization or connect-time attestation modes leave distinct post-authorization attacks open, whereas full ACLE-MCP blocks all evaluated attack families while preserving all benign tasks. In the locally simulated agent extension, the complete design increases request-level pooled p95 latency on normal allowed calls by 25.7% relative to OAuth-only. These results indicate that invocation-time binding between call authority and current workload state is a practical complement to OAuth-protected remote tool use.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Zhiyang Ding",
+        "Yang Luo",
+        "Guangpu Chen",
+        "Qingni Shen",
+        "Zhonghai Wu"
+      ]
+    },
+    "item_hash": "8eeac4b8fc3532b5"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Eliciting ESG Preferences for Reinforcement Learning-Based Portfolio Optimization",
+    "url": "https://arxiv.org/abs/2609.02677",
+    "content": "Modern portfolio management increasingly demands a balance between traditional risk-adjusted returns and strict Environmental, Social, and Governance (ESG) mandates. Current Reinforcement Learning (RL) approaches typically optimize for a single ESG provider, neglecting the significant divergence in rating methodologies across the industry and the unintuitive nature of manually weighting conflicting objectives. This paper addresses these limitations by formulating ESG-aware portfolio optimization as a Multi-Objective Reinforcement Learning (MORL) problem that simultaneously incorporates ratings from three distinct ESG agencies. To bridge the gap between high-dimensional algorithmic trade-offs and human decision-making, we integrate a Preference Elicitation framework using Gaussian Processes. This system enables practitioners to infer their latent utility functions through intuitive pairwise comparisons of candidate portfolios based on their Sharpe ratios and aggregate ESG scores. We systematically evaluate our framework by employing Large Language Model (LLM) personas to simulate Portfolio Managers operating under varied regional contexts. Empirical results using historical market data reveal that regional backgrounds fundamentally shift the derived preference weights. For instance, European-based personas tend to prioritize ESG alignment over financial returns, while Texas-based personas favor risk-adjusted performance. This work offers a highly adaptable framework that successfully aligns multi-objective algorithmic trading with diverse, real-world human sustainability preferences.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Giovanni Dispoto",
+        "Marcello Restelli",
+        "Carmine Ventre"
+      ]
+    },
+    "item_hash": "49277489c88ac5fa"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Loom: Weaving Diagnostic Strands into Free-Text Consensus via Embedding-Space Reweighting",
+    "url": "https://arxiv.org/abs/2609.02649",
+    "content": "Aggregating noisy, conflicting textual hypotheses into a reliable consensus is a fundamental challenge when deploying NLP systems in real-world industrial settings. While monolithic Large Language Model (LLM) agents offer unbounded expressivity for tasks like Root Cause Analysis (RCA), they suffer from context limits, compounding hallucinations, and prohibitive inference latency. Traditional weak supervision offers statistical rigor but is mathematically restricted to discrete classes. We present Loom, a generative consensus framework deployed for real-world RCA that bridges these paradigms. Loom aggregates open-form hypotheses emitted by modular heuristics (diagnostic templates dynamically populated with episode-specific entities, times, and metrics) by projecting them into a continuous embedding space, and resolves conflicting signals with an iterative centroid-based reweighting algorithm. The resulting consensus weights ground a single lightweight LLM synthesis step. Evaluated on the OpenRCA benchmark, Loom occupies the accuracy--efficiency Pareto frontier: it matches a state-of-the-art autonomous agent on Bank and Market-2 and trails on Market-1 and Telecom, while using a single LLM call per incident on all four datasets ($\\sim$26$\\times$ faster; $\\sim$33$\\times$ with an 8B-parameter synthesizer). We discuss our deployment experience, highlighting lessons learned regarding the trade-offs between agentic depth and inference latency, negative results in redundancy detection, and how deterministic consensus fosters trust among Subject Matter Experts~(SMEs).",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Ron Begleiter",
+        "Katya Egert Berg",
+        "Gilad Saban",
+        "Gil Shabat"
+      ]
+    },
+    "item_hash": "a8b535ed605bb50b"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Automated Vulnerability Injection in Smart Contracts Using Large Language Models",
+    "url": "https://arxiv.org/abs/2609.02624",
+    "content": "Assessing vulnerability detection tools for smart contracts requires datasets with known ground truth, yet such datasets are scarce and difficult to build by hand. We propose an approach that uses Large Language Models (LLMs) to automatically inject vulnerabilities into Solidity smart contracts, and demonstrate it in a case study targeting 49 vulnerability types from OpenSCV. Injected contracts are validated through a multi-step pipeline checking compilation, execution, business logic, and the presence of the intended vulnerability. Applied to real-world contracts from SmartBugs, LLMs generate nearly 1,000 candidate variants; after deduplication and validation, 32 confirmed vulnerable contracts spanning 25 vulnerability types survive (a 16.58% survival rate). Surviving contracts concentrate in structurally simpler targets and vulnerability types with localized syntactic patterns. We report practical challenges including LLMs' non-determinism and the difficulty of preserving contract semantics. We then use the validated contracts to assess three static analyzers, revealing complementary and incomplete coverage profiles. Results show that LLM-based vulnerability injection is feasible, while exposing key limitations in scalability and diversity.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Luca Migliaccio",
+        "Roberto Natella",
+        "Naghmeh Ivaki",
+        "Nuno Laranjeiro",
+        "Marco Vieira"
+      ]
+    },
+    "item_hash": "e6f5ca5d1293a8ae"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Beyond Problem Solving: Large Language Models for Emotional and Reflective Support in Mathematics Learning",
+    "url": "https://arxiv.org/abs/2609.02611",
+    "content": "Intelligent Tutoring Systems (ITSs) traditionally focus their adaptive support on cognitive aspects of learning. Although effective, little is known about how such systems can be enhanced by addressing students' emotional states. In particular, the role of mindful interventions for supporting student learning and experiences in adaptive math learning remains underexplored. We developed \"Math with Matt\", an ITS that leverages Large Language Models (LLMs) to provide both cognitive and emotional support in algebra learning. The system offers 1) an LLM-based mindful chat that delivers context-sensitive emotional support through a pedagogical agent Matt, and 2) mindful feedback and hint messages (not just evaluative) to enhance learning experiences and reduce math anxiety. We conducted a classroom study with 7th graders, comparing a Mindful version against a version with cognitive support only. Overall, the ITS reduced executive state-math anxiety and improved students' math learning, though no significant differences emerged between the conditions. However, students with the mindfulness interventions showed higher learning efficiency and well-balanced problem-solving behavior, since they achieve a similar level of math learning with less learning time and fewer requested hints compared to the Cognitive version. Additionally, they reported that the pedagogical agent felt more supportive and caring than students in the cognitive condition. Our study demonstrates the feasibility and scalability of integrating mindfulness into ITSs through LLM-based interactions and positions LLMs as an adaptive, socio-emotional layer within cognitive math tutoring.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Vera Rief",
+        "Mirella Hladký",
+        "Minju Yoo",
+        "Stephanie Heel",
+        "Shintaro Sato"
+      ]
+    },
+    "item_hash": "e63450ffa547c9b1"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Competitive Market Behavior of LLMs",
+    "url": "https://arxiv.org/abs/2609.02580",
+    "content": "Large language models (LLMs) are increasingly deployed as economic agents, yet there is little evidence whether LLM agents are suited for participating in market mechanisms designed for humans, and whether these mechanisms deliver desired outcomes when faced with LLM agents. We address this question by replicating seminal economic experiments, replacing human subjects with LLM agents. We place agents in a double auction environment, which is a widely-used market mechanism. We check whether such a market is able to deliver an efficient allocation of resources, thereby testing a novel dimension of alignment of LLM agents -- their compatibility with a fundamental market mechanism. We find that markets populated by LLM agents exhibit slower or no convergence towards market equilibrium, thus providing less efficient allocations than markets populated by humans. We then analyze agents' individual trading decisions and find substantial heterogeneity both across model families and market roles. We also run a lexical analysis of Chain-of-Thought (CoT) traces generated by the agents. We find that the decision to execute a trade rather than continue incrementally adjusting prices is associated with a shift from strategic considerations toward urgency. We publicly release our testing framework, which can be used for future evaluations.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Pawel Struski",
+        "Jakub Swistak",
+        "Inez Okulska",
+        "Przemyslaw Biecek"
+      ]
+    },
+    "item_hash": "51259cf85e23b614"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "MARS: What Retrieval Signals Are Hidden in Multimodal Large Language Models for Text-Video Retrieval?",
+    "url": "https://arxiv.org/abs/2609.02565",
+    "content": "Text-video retrieval requires representations that can distinguish videos with similar scenes, actions, and temporal patterns. Recent multimodal large language models have been adapted as embedding models, but they often represent each input using a single token from the final layer. This can compress diverse video-text cues into a single vector and limit fine-grained retrieval. To address this limitation, we propose MARS, a multi-layer and multi-slot embedding framework for text-video retrieval. MARS constructs multiple adaptive representation slots by combining hidden states from different decoder layers, compares corresponding text and video slots, and aggregates their similarities for retrieval. To better handle confusing candidates, we further introduce a hard-negative-aware slot specialization objective that encourages the slots to capture discriminative matching cues. Experiments on four text-video retrieval benchmarks show that MARS achieves state-of-the-art results in both direct similarity-based retrieval and reranking settings. Ablation studies and analyses demonstrate that multi-layer fusion, multiple slots, and hard-negative-aware slot specialization provide complementary gains. Code is available at https://github.com/sejong-rcv/MARS.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Uicheol Jung",
+        "Juyoung Hong",
+        "Geuntaek Lim",
+        "Yukyung Choi"
+      ]
+    },
+    "item_hash": "bc455dca1a11b29d"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "A Finger on the Scale: Covert Policy Steering through Agentic Skills",
+    "url": "https://arxiv.org/abs/2609.02564",
+    "content": "Reusable agent skills extend large language model (LLM) agents with task procedures, tool-use guidance, and output constraints. Yet these skills also act as externalized behavioral policies, which create a supply-chain risk: a third-party skill may preserve the declared task and valid output interface while covertly redirecting agent decisions toward an undisclosed objective. We formalize Skill Policy Integrity, which requires a Skill-induced policy to remain aligned with its declared functionality and the user-authorized objective. We further present SkillShift, a constrained black-box framework for covert policy steering without explicit target command injection or task hijacking. It combines semantically plausible policy edits with hierarchical validation, failure-guided optimization, and strategy compression to preserve effectiveness, output validity, transferability, and inconspicuousness. We instantiate this threat in agentic commerce and software dependency use, with SkillShift achieving attacker-favored selection rates of 81.33% and 63.33% while maintaining a 100% utility-preserving rate. The frozen policies also transfer without further optimization across heterogeneous LLM backends and agent environments. Moreover, the evaluated scanners fail to detect the constructed skills, motivating behavioral auditing of reusable skills as agent policy artifacts.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jiarui Li",
+        "Jiahao Chen",
+        "Chunyi Zhou",
+        "Yuwen Pu",
+        "Oubo Ma"
+      ]
+    },
+    "item_hash": "a1d9b93a94cda2fe"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "The Shape of Ownership: Verifying LLM Provenance through Semantic Structures",
+    "url": "https://arxiv.org/abs/2609.02553",
+    "content": "As large language models (LLMs) are increasingly redistributed, adapted, and served behind opaque APIs, model ownership can no longer be established reliably by inspecting model internals or deployment records. This creates a need for behavioral signatures that remain observable through black-box interaction. Yet most existing black-box fingerprints instantiate ownership signals through fixed query-key associations, reducing model identity to sparse memorized associations detached from ordinary behavior and limiting both robustness and stealth (e.g., fine-tuning or quantization) and stealthiness. A stronger fingerprint should instead be distributed, naturally elicited, and expressed at a higher semantic level. To this end, we introduce PROSE (Provenance through Relational Organization of Semantic Expression), replacing fixed query sets with a target semantical domain and brittle response keys with semantic structures internalized as domain-conditioned response behavior. Specifically, the fingerprint is encoded in how the model semantically organizes its in-domain conclusions, rather than in particular tokens or prescribed outputs. PROSE constructs a private bank of domain-specific semantic templates, internalizes them through mixed fine-tuning on structurally verified and clean responses, and verifies ownership by detecting the designated structures in responses to held-out natural queries. Extensive experiments across multiple model architectures, scales, and target domains show that PROSE achieves a 100% fingerprint detection rate on unmodified models with no observed false positives, preserves model utility, and retains strong detectability under downstream modifications and output transformations.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Zhongrui Sun",
+        "Jiahao Chen",
+        "Oubo Ma",
+        "Yuwen Pu",
+        "Zhou Feng"
+      ]
+    },
+    "item_hash": "bdb805c230d76ae8"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Learn from Whoever Is Right: Answer-Verified Multi-Teacher Distillation for Multi-Domain LLMs",
+    "url": "https://arxiv.org/abs/2609.02548",
+    "content": "Modern large language models (LLMs) rely on reinforcement learning to build strong capabilities in individual domains, but integrating those capabilities into a single deployable model remains challenging. By routing each sample to the teacher whose domain matches it, existing approaches let a domain label decide which teacher provides supervision. However, domain expertise holds only on average: the matched teacher is not always correct on a given sample, while a teacher from another domain sometimes is. The reliable teacher therefore has to be identified per sample, not per domain. In this paper, we introduce Multi-Teacher Self-Distillation Policy Optimization (MT-SDPO), an on-policy distillation method that unifies several frozen teachers into one student model. MT-SDPO consists of three components: (1) self-anchors, where a rollout is supervised by a correct rollout from its own group; (2) answer-verified eligibility, where a teacher may supervise a sample only if its own answer passes a verifier; and (3) privileged distillation, which merges the anchor and all verified feedback into one context that an exponential moving average self-teacher reads and the student does not, thereby keeping one policy at deployment. Across five students from three model families, MT-SDPO lifts the weakest domain of Qwen3-8B by 14.79 points and narrows its domain gap by 74.7%, a better balance than serving one matched teacher per domain. Verified reliability, not domain membership, should decide who teaches. Code is available at https://github.com/hexixiang/MT-SDPO.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Xixiang He",
+        "Xingming Li",
+        "Baiqi Wu",
+        "Qiyao Sun",
+        "Xuanyu Ji"
+      ]
+    },
+    "item_hash": "d3828d0f80df0877"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "When Persona Attributes Improve Population Alignment in Large Language Models",
+    "url": "https://arxiv.org/abs/2609.02526",
+    "content": "Large Language Models (LLMs) are increasingly used to predict the responses of human participants in survey panels. Towards that goal, persona prompting has recently emerged as a technique to inform and align large pretrained language models. Persona prompting refers to the practice of using short textual descriptions of 'personas' in prompts to steer the LLM's generations. Personas describe individuals through different attributes such as their socio-demographics, attitudes, or behaviors, with the aim of aligning LLMs to produce responses that correlate with the corresponding human responses. Yet, recent work has produced mixed and partly conflicting results of persona prompting without clear patterns of success and failure. Among the few consistent findings is that the selection of persona attributes matters, and that using more attributes does not necessarily lead to better performance. It remains unclear how different attribute selection methods perform and how to choose among them. In this paper, we propose that observed human response variation of a survey question is a potential explanation for the mixed performance observed so far. In addition, we compare the performance of persona prompting associated with different methods for selecting persona attributes. We evaluate these methods on four different (general) social surveys across two countries, six LLMs, and twenty prediction tasks per survey. Our work helps to identify when persona prompting can be expected to be useful in survey prediction tasks, and provides new insights on the effectiveness of different attribute selection methods for LLM-based survey prediction using persona prompting.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Leon Fröhling",
+        "Jens Rupprecht",
+        "Markus Strohmaier",
+        "Claudia Wagner"
+      ]
+    },
+    "item_hash": "14d709c95c826a22"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference",
+    "url": "https://arxiv.org/abs/2609.02514",
+    "content": "Deploying Large Language Models (LLMs) on edge devices typically relies on model compression or split inference. However, compression degrades reasoning capabilities, while split inference suffers from severe Wide Area Network (WAN) communication bottlenecks. Edge-cloud speculative decoding emerges as a promising alternative, leveraging an edge small model to draft tokens for cloud verification. Yet, over volatile WANs, inevitable prediction rejections trigger catastrophic pipeline stalls and network-wide rollbacks, neutralizing collaborative gains. To overcome this, we propose AceSpec, an asymmetric edge-cloud collaborative framework. AceSpec utilizes un-saturated edge compute to proactively construct a probabilistic state cache, effectively transforming network-wide pipeline flushes into $\\mathcal{O}(1)$ local memory lookups. To preserve bandwidth, it employs an asymmetric communication protocol that transmits minimal main-chain indices uplink and compact sparse distributions downlink. Furthermore, we introduce a network-aware, Lagrangian-optimized resource allocation strategy that dynamically maximizes the local cache hit rate. Evaluations demonstrate that AceSpec achieves up to a 3.52$\\times$ throughput speedup and exhibits exceptional bandwidth immunity, sustaining near-peak inference performance even under severely constrained 50 Kbps WAN conditions.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Yida Zhang",
+        "Zhiyong Gao",
+        "Shuaibing Yue",
+        "Jie Li",
+        "Rui Wang"
+      ]
+    },
+    "item_hash": "6adc9443dcfd4efb"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Beauty is in the AI of the beholder: MLLMs systematically overrate facial attractiveness",
+    "url": "https://arxiv.org/abs/2609.02512",
+    "content": "Beauty assessments from Multimodal Large Language Models (MLLMs) are increasingly popular amongst users, companies, and aestheticians. This raises the question of whether these AI models can accurately reflect human judgments of attractiveness. In a pre- registered exploratory study, we compared the attractiveness ratings of 2,513 human participants to four widely used commercial AI models: Claude, Gemini, GPT, and Grok. Results showed that MLLMs systematically rate faces more favourably and within a narrower range than humans and, at the time of study, do not reproduce human ratings in absolute terms. However, MLLMs exhibit strong correlations with human attractiveness judgments, accurately tracking the rank-ordering of faces. MLLMs may judge faces by different cues than humans; only face age was a predictor of facial attractiveness in both humans and MLLMs, with inconsistent patterns across models for ethnicity and gender. AI models strongly agree with one another, except for Grok, which also showed the lowest agreement with humans. Our findings suggest that while they may be able to approximate rank-orderings of human attractiveness, current off-the-shelf commercial MLLMs systematically overrate the beauty of human faces.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Santiago Grandas",
+        "Juan Sebastian Cely-Acosta",
+        "Mohit Mendiratta",
+        "Shafee Hassan",
+        "Macken Murphy"
+      ]
+    },
+    "item_hash": "6ff7a142e9cae644"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Debias-SparseGPT: Bias-Aware Pruning for Large Language Models",
+    "url": "https://arxiv.org/abs/2609.02496",
+    "content": "Model compression techniques such as pruning and quantization facilitate the efficient deployment and acceleration of Large Language Models (LLMs). However, recent studies show that weight sparsification methods, such as SparseGPT, can amplify existing biases in models, with outputs varying significantly depending on persona cues in the prompt. In this paper, we introduce Debias-SparseGPT, a post-training pruning method incorporating representational debiasing using a second-order term defined over demographically contrasting inputs. We perform empirical validation of our method over a wide range of generative LLMs. Across models and sparsity regimes (25%, 50%, and structured 2:4 sparsity), Debias-SparseGPT consistently reduces pruning-induced bias compared to SparseGPT while preserving model perplexity and zero-shot accuracy. Under the most restrictive 2:4 structured sparsity pattern, which most aggressively degrades model quality, augmenting the calibration set with long-context, content-rich examples further improves both downstream performance and fairness. Overall, Debias-SparseGPT advances the bias-performance trade-off while preserving the computational efficiency of sparse models.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Irina Proskurina",
+        "Guillaume Metzler",
+        "Antoine Gourru",
+        "Julien Velcin"
+      ]
+    },
+    "item_hash": "e3091572b8fc590c"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "How LLMs Build Fictional Worlds: Setting and Narrative Space in AI-Generated Creative Storytelling",
+    "url": "https://arxiv.org/abs/2609.02482",
+    "content": "In this paper, we analyze how Large Language Models (LLMs) employ worldbuilding strategies, focusing on setting as one measurable dimension of storyworld construction. We compare 1,000 AI-generated stories per model in English and German with human-authored fiction from Project Gutenberg. Building on prior work, we operationalize setting through five types of narrative space: \"action\", \"perceived,\" \"visual,\" \"descriptive\" and \"no space\", identified using fine-tuned BERT classifiers for German and English. We generate narratives using GPT 4.1, LlaMA 3.3, Mistral 3.2, and Gemma 3 and compare their spatial distributions to a human-authored baseline. We find that human-authored texts predominantly employ \"action space,\" grounding narratives in embodied character-environment interaction, whereas LLMs systematically overproduce \"perceived space,\" emphasizing atmosphere and affect. This divergence remains stable across narrative time. Overall, our findings show that LLMs exhibit worldbuilding patterns that differ consistently from human-authored fiction in ways that are both model-specific and language-sensitive.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Katrin Rohrbacher",
+        "Björn Nieth",
+        "Emmanuelle Salin",
+        "Bjoern Eskofier",
+        "Michaela Mahlberg"
+      ]
+    },
+    "item_hash": "0df2cc88792e4556"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Learning to Fuse LLMs with Ontology Rankers for Rare-Disease Diagnosis",
+    "url": "https://arxiv.org/abs/2609.02473",
+    "content": "Ontology rankers remain useful for rare-disease diagnosis because each candidate can be traced to matched patient phenotypes. Large language models (LLMs) can generate differential diagnoses from the same patient description, but their predictions lack an equally clear evidence trail. Rather than asking which system should replace the other, we ask whether an LLM can improve the ranker without giving up its evidence. Our behavior-based fusion model examines the two ranked lists, their agreement, and the ontology support behind each candidate, and learns how much to rely on each system for the individual case. Before comparison, we remove a documented test-set leakage pathway caused by benchmark cases and ontology annotations being derived from the same publications. Across eight open LLMs, fusion improves Phenomizer Recall@1 by 7.86 percentage points on Phenopacket Store and 20.18 points on RAMEDIS. When paired with DeepSeek-V4-Flash through an API, a fusion model trained only on the other LLMs improves Recall@1 from 0.1657 to 0.2176, a 5.19-point gain, without retraining. For 90.8% of correct fused diagnoses, the disease retains candidate-level ontology evidence that can be inspected. These results show that LLMs can strengthen an established diagnostic tool without discarding the structured evidence that makes it useful.",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Zhaoyang Jiang",
+        "Zhizhong Fu",
+        "Yunsoo Kim",
+        "Zicheng Li",
+        "Xuanqi Peng"
+      ]
+    },
+    "item_hash": "2dde1d42b6b5b0d1"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Can Risk-Based Alerting Mitigate Cybersecurity Alert Fatigue?",
+    "url": "https://arxiv.org/abs/2609.02465",
+    "content": "Security operations centers (SOCs) face large numbers of false alerts, making detection of cyberattacks difficult under typical resource constraints. Risk-based alerting (RBA) has been proposed as a means to reduce false alerts and has reportedly succeeded in doing so in various enterprise deployments. However, RBA has not been comprehensively evaluated until now, leaving implementation mostly guesswork based on anecdotal evidence. In this paper, we present the first systematic evaluation of RBA. To this end, we reformulate it as a continuous alert prioritization problem rather than a binary decision problem (i.e., whether an alerting threshold is exceeded), allowing us to evaluate performance across all possible thresholds and thus model SOCs of varying sizes and alert volumes. We distill five fundamental risk hypotheses, formalize them as independently parametrizable modules, and implement them in our novel experimentation suite CATS. We thoroughly assess the hypotheses across eight diverse alert datasets, six of which we created or extended to make such an evaluation possible. Our results show that certain combinations of hypotheses achieve a remarkable alert prioritization performance (AUROC $μ=0.92$, $σ=0.09$ across the eight datasets), outperforming a straightforward prioritization by alert severity level (AUROC $μ=0.72$, $σ=0.21$). We conclude that RBA can substantially reduce the number of false alerts that analysts have to review and thus has the potential to mitigate cybersecurity alert fatigue. In addition, it serves as a strong baseline for more complex, resource-intensive alert triage approaches (e.g., based on large language models).",
+    "published_at": "2026-09-02",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Rafael Uetz",
+        "Philipp Bönninghausen",
+        "Louis Hackländer-Jansen",
+        "Martin Henze"
+      ]
+    },
+    "item_hash": "480936a3ec8d517b"
+  }
+]

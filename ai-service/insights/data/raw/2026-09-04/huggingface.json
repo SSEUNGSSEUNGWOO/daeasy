@@ -1,0 +1,44 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "sentence-transformers/all-MiniLM-L6-v2",
+    "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "content": "",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 5456
+    },
+    "item_hash": "32e2db27eca9a8cc"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "openai-community/gpt2",
+    "url": "https://huggingface.co/openai-community/gpt2",
+    "content": "",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 3599
+    },
+    "item_hash": "a48091c0c202e580"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "XHToken/Spark-X2.5-4B",
+    "url": "https://huggingface.co/XHToken/Spark-X2.5-4B",
+    "content": "",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 162
+    },
+    "item_hash": "3e587c7e7418aff9"
+  }
+]

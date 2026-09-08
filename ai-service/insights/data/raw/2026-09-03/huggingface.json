@@ -1,0 +1,44 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+    "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+    "content": "",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 173
+    },
+    "item_hash": "fcfbb6fadfe01384"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+    "url": "https://huggingface.co/orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
+    "content": "",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 192
+    },
+    "item_hash": "21979705399eb11b"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "orcarouter/GLM-5.3-Flash-Uncensored-FP8",
+    "url": "https://huggingface.co/orcarouter/GLM-5.3-Flash-Uncensored-FP8",
+    "content": "",
+    "published_at": "2026-09-03",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 152
+    },
+    "item_hash": "88201c11eb18b2e1"
+  }
+]

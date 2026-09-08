@@ -1,7 +1,7 @@
 // 팀 프로젝트 공고 — 주제 예시 10선. 공고 HTML(team-project-notice-v2) 의 카드 내용을 그대로 옮김.
 // 조 개수·검증·드롭다운은 TEAM_COUNT 하나를 본다.
 
-export const TEAM_COUNT = 10;
+export const TEAM_COUNT = 8;
 export const NEW_TOPIC_CODE = "NEW";
 
 export type Topic = {

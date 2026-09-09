@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { fetchCourses } from "@/lib/courses";
+import { DATABUS_URL } from "@/lib/site";
 
 import { CoursesTabs } from "./courses-tabs";
 
@@ -30,6 +31,23 @@ export default async function CoursesPage() {
           <p className="mt-8 max-w-2xl text-[18px] leading-[1.75] text-zinc-700">
             생성형 AI 활용부터 데이터 분석·AI 서비스 개발까지, 조직의 직무와 목표에 맞춰 교육 과정을 설계합니다.
           </p>
+
+          {/* 공무원 개인은 여기서 신청하지 않는다 — 데이터버스로 보낸다. 이 페이지는 기관·기업 단위 안내 */}
+          <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-zinc-50 px-6 py-5 ring-1 ring-zinc-200 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-[15px] leading-[1.7] text-zinc-700">
+              <span className="font-bold text-ink">공무원·공공기관 직원 개인 수강</span>은 행정안전부
+              데이터버스에서 신청합니다. 아래 과정은 기관·기업 단위 맞춤 교육 안내입니다.
+            </p>
+            <a
+              href={DATABUS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center gap-2 rounded-md border border-zinc-300 bg-white px-5 py-2.5 text-[14px] font-bold text-ink transition hover:border-zinc-400 hover:bg-zinc-50"
+            >
+              데이터버스에서 신청하기
+              <span aria-hidden>↗</span>
+            </a>
+          </div>
         </div>
       </section>
 

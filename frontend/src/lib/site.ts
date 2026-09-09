@@ -17,3 +17,10 @@ export const OFFICE_HOURS = "평일 10:00 ~ 18:00";
 export const OFFICE_ADDRESS = "서울시 동작구 보라매로5길 51 롯데타워 301~309호";
 /** 공개교육장 · 대관 강의실 */
 export const VENUE_ADDRESS = "서울시 마포구 성암로 189 중소기업DMC타워 701호";
+
+/**
+ * 행정안전부·NIA 데이터버스 — 공무원·공공기관 직원의 개인 수강 신청은 여기서 한다.
+ * daeasy 의 교육과정 페이지는 기관·기업 단위 맞춤 교육 안내이지 판매 카탈로그가 아니다.
+ * 깊은 경로는 그쪽 개편에 깨지므로 루트만 건다.
+ */
+export const DATABUS_URL = "https://databus.kr";

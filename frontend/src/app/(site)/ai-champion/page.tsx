@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JourneySection } from "@/components/ai-champion/journey-section";
 import { ScorePanel } from "@/components/ai-champion/score-panel";
 import { TrackPanels } from "@/components/ai-champion/track-panels";
+import { DATABUS_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   // "AI 챔피언" 검색 노출을 노리는 페이지 — 제목에 프로그램 주체(행정안전부)와
@@ -189,10 +190,22 @@ export default function AiChampionPage() {
                 기관의 직무와 목표에 맞는 AI·데이터 교육과 역량진단 운영을 상담해 보세요.
               </p>
             </div>
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-7 py-4 text-[15px] font-bold text-white transition hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
-              교육·운영 문의하기
-              <span aria-hidden>→</span>
-            </Link>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-7 py-4 text-[15px] font-bold text-white transition hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+                교육·운영 문의하기
+                <span aria-hidden>→</span>
+              </Link>
+              {/* 공무원 개인 수강은 데이터버스 — 기관 문의와 나란히 둬 두 관문을 한눈에 */}
+              <a
+                href={DATABUS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-white/30 px-7 py-4 text-[15px] font-bold text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              >
+                공무원 수강 신청 (데이터버스)
+                <span aria-hidden>↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

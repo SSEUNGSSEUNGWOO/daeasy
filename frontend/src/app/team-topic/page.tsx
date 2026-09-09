@@ -13,24 +13,24 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  ["주제·범위 선정", "한 조 = 한 주제. 대상 부처·지자체·이슈를 좁힙니다"],
-  ["외부 데이터 확보", "공공데이터 API · 크롤링 · PDF 파싱 · 직접 수집"],
-  ["AI 에이전트 분석", "MCP로 도구 호출, 비교·요약·이상탐지·교차검증"],
-  ["시각화·인사이트", "지도·타임라인·네트워크·대시보드, 한 화면에서"],
-  ["시연·문서화", "웹 프로토타입 + 데이터 소스 문서 + 5분 시연"],
+  ["주제·범위 선정", "한 조 = 한 주제. 대상 부처·지자체·이슈를 하루에 다룰 만큼 좁힙니다"],
+  ["외부 데이터 확보", "공공데이터 API · 크롤링 · PDF 파싱. 데이터가 안 구해지면 주제를 바꾸세요 — 여기서 시간을 다 쓰면 안 됩니다"],
+  ["AI 에이전트 분석", "MCP로 도구 호출. 비교·요약·이상탐지·교차검증 중 하나만 제대로"],
+  ["시각화·인사이트", "지도·타임라인·네트워크·대시보드 중 하나. 한 화면에서 이해되게"],
+  ["시연·문서화", "웹 프로토타입 + 데이터 출처 문서 + 5분 시연. 시연 시나리오를 먼저 쓰고 만드세요"],
 ] as const;
 
 const RULES = [
-  ["조 구성", "4명 1조 · 기획·데이터·개발·시연 역할 분담 자율"],
-  ["데이터", "외부 데이터 중심 — 공공 API · 크롤링 · PDF"],
+  ["시간", "하루 — 기획부터 시연까지 한 번에. 되는 것 하나를 끝까지"],
+  ["데이터", "외부 데이터 한 가지에 집중 — 공공 API · 크롤링 · PDF"],
   ["도구", "바이브코딩 · 에이전트 · MCP · 컨텍스트"],
-  ["산출물", "웹 프로토타입 + 데이터 소스 문서 + 5분 시연"],
+  ["산출물", "웹 프로토타입 + 데이터 출처 문서 + 5분 시연"],
 ] as const;
 
 const STATS = [
-  [String(TOPICS.length), "주제 예시"],
+  ["1", "일 해커톤"],
   [String(TEAM_COUNT), "개 조"],
-  ["5", "단계"],
+  ["4", "명 1조"],
   ["5", "분 시연"],
 ] as const;
 
@@ -66,7 +66,7 @@ export default function TeamTopicPage() {
               style={NUM_FONT}
               className="anim-hero-fade text-[11px] font-bold uppercase tracking-[0.28em] text-accent-warm"
             >
-              바이브코딩 팀 프로젝트
+              바이브코딩 팀 프로젝트 · 하루 해커톤
             </p>
             <h1 className="anim-page-fade-up mt-5 text-[clamp(2.5rem,6.5vw,4.6rem)] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#1f3a93]">
               범정부 AI 서비스,
@@ -77,7 +77,7 @@ export default function TeamTopicPage() {
             </h1>
             <p className="anim-page-fade-up mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               외부 데이터를 수집·정제·분석해 국민·공무원·연구자에게 도움이 되는 범정부 AI
-              서비스를 조별로 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다.
+              서비스를 조별로 하루 안에 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다. 단, 하루에 끝낼 수 있는 크기여야 합니다.
             </p>
             <dl className="anim-hero-fade mt-10 grid grid-cols-4 gap-4">
               {STATS.map(([n, label]) => (
@@ -127,7 +127,7 @@ export default function TeamTopicPage() {
       <div className="mx-auto max-w-5xl px-5 pb-40 sm:px-8">
         {/* ── 01 예시 ── */}
         <section className="pt-20 sm:pt-28">
-          <SectionHead no="01" title="주제 예시 10선" sub="예시를 그대로 골라도, 대상과 문제를 바꿔 새 주제를 정해도 됩니다" />
+          <SectionHead no="01" title="주제 예시 10선" sub="예시를 그대로 골라도, 대상과 문제를 바꿔 새 주제를 정해도 됩니다. 어느 쪽이든 하루 분량으로 좁혀 주세요" />
           <RevealList className="mt-10 grid gap-x-10 sm:grid-cols-2">
             {TOPICS.map((t) => (
               <li key={t.code} className="group relative border-t border-slate-200 py-6 pr-16">
@@ -153,7 +153,7 @@ export default function TeamTopicPage() {
 
         {/* ── 02 방법론 + 규칙 ── */}
         <section className="pt-20 sm:pt-28">
-          <SectionHead no="02" title="어떤 주제든 이 5단계" sub="데이터를 확보할 수 있는 주제인지 먼저 확인해 주세요" />
+          <SectionHead no="02" title="어떤 주제든 이 5단계" sub="하루짜리 해커톤입니다. 데이터를 확보할 수 있는 주제인지 먼저 확인해 주세요" />
           <RevealList className="mt-10 grid gap-6 sm:grid-cols-5">
             {STEPS.map(([t, d], i) => (
               <li key={t} className="relative sm:pr-4">

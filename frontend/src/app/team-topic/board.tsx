@@ -31,6 +31,8 @@ export function TeamTopicBoard() {
   const [oneLiner, setOneLiner] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  // 제출 전 확인 단계 — 몇 조에 어떤 내용을 넣는지(덮어쓰기면 기존 내용도) 보여준 뒤 진행
+  const [confirming, setConfirming] = useState(false);
 
   // 하단 고정 바 — 폼이 화면에 들어오면 숨긴다
   const formRef = useRef<HTMLElement>(null);
@@ -70,6 +72,7 @@ export function TeamTopicBoard() {
   function pickTeam(n: number) {
     setTeamNo(n);
     setMsg(null);
+    setConfirming(false);
     const mine = rows.find((r) => r.team_no === n);
     if (mine) {
       setTitle(mine.title);
@@ -83,6 +86,11 @@ export function TeamTopicBoard() {
       setMsg({ ok: false, text: "조를 먼저 골라주세요." });
       return;
     }
+    if (!confirming) {
+      setConfirming(true);
+      return;
+    }
+    setConfirming(false);
     setBusy(true);
     setMsg(null);
     try {
@@ -111,6 +119,7 @@ export function TeamTopicBoard() {
   }
 
   const submittedCount = rows.length;
+  const existing = teamNo === null ? undefined : rows.find((r) => r.team_no === teamNo);
 
   return (
     <>
@@ -253,7 +262,10 @@ export function TeamTopicBoard() {
             <input
               className={`${FIELD} mt-3 text-lg font-semibold`}
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => {
+                setTitle(e.target.value);
+                setConfirming(false);
+              }}
               maxLength={100}
               placeholder="예: 우리 구 청년정책 비교기"
               required
@@ -267,7 +279,10 @@ export function TeamTopicBoard() {
             <textarea
               className={`${FIELD} mt-3 min-h-28 resize-y`}
               value={oneLiner}
-              onChange={(e) => setOneLiner(e.target.value)}
+              onChange={(e) => {
+                setOneLiner(e.target.value);
+                setConfirming(false);
+              }}
               maxLength={300}
               placeholder="예: 서울시 청년 주거 담당자가 옆 자치구 정책과 예산을 5분 안에 비교하게 한다"
               required
@@ -283,13 +298,56 @@ export function TeamTopicBoard() {
             </p>
           )}
 
-          <button
-            type="submit"
-            disabled={busy}
-            className="w-full rounded-2xl bg-accent-warm py-4 text-base font-bold text-white shadow-[0_12px_30px_-12px_rgba(249,115,22,0.8)] transition-[transform,filter] duration-150 hover:brightness-95 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100"
-          >
-            {busy ? "저장 중…" : "제출"}
-          </button>
+          {confirming && teamNo !== null ? (
+            <div role="alertdialog" aria-labelledby="confirm-h" className="rounded-2xl border-2 border-[#1f3a93] bg-[#f7f8fd] p-5 sm:p-6">
+              <p id="confirm-h" className="text-lg font-bold tracking-[-0.02em] text-[#1f3a93]">
+                {existing ? `${pad(teamNo)}조에 이미 제출된 내용을 덮어씁니다` : `${pad(teamNo)}조로 제출합니다`}
+              </p>
+              <p className="mt-1 text-sm text-slate-500">조 번호와 내용이 맞는지 확인해주세요.</p>
+              <div className={`mt-4 grid gap-3 ${existing ? "sm:grid-cols-2" : ""}`}>
+                {existing && (
+                  <div className="rounded-xl border border-dashed border-slate-300 bg-white/60 p-4">
+                    <p style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-400">
+                      기존 · {fmtTime(existing.updated_at)}
+                    </p>
+                    <p className="mt-2 font-bold text-slate-400 line-through decoration-slate-300">{existing.title}</p>
+                    <p className="mt-1 text-sm text-slate-400">{existing.one_liner}</p>
+                  </div>
+                )}
+                <div className="rounded-xl border border-[#dde2f3] bg-white p-4">
+                  <p style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-accent-warm">
+                    {existing ? "새 내용" : "제출 내용"}
+                  </p>
+                  <p className="mt-2 font-bold text-[#1f3a93]">{title}</p>
+                  <p className="mt-1 text-sm text-slate-600">{oneLiner}</p>
+                </div>
+              </div>
+              <div className="mt-5 grid gap-2 sm:grid-cols-[1fr_2fr]">
+                <button
+                  type="button"
+                  onClick={() => setConfirming(false)}
+                  className="rounded-2xl border border-[#dde2f3] bg-white py-3.5 text-base font-bold text-slate-600 transition-transform duration-150 active:scale-[0.98]"
+                >
+                  취소
+                </button>
+                <button
+                  type="submit"
+                  disabled={busy}
+                  className="rounded-2xl bg-accent-warm py-3.5 text-base font-bold text-white shadow-[0_12px_30px_-12px_rgba(249,115,22,0.8)] transition-[transform,filter] duration-150 hover:brightness-95 active:scale-[0.98] disabled:opacity-50"
+                >
+                  {busy ? "저장 중…" : existing ? `네, ${pad(teamNo)}조 덮어쓰기` : `네, ${pad(teamNo)}조로 제출`}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              type="submit"
+              disabled={busy}
+              className="w-full rounded-2xl bg-accent-warm py-4 text-base font-bold text-white shadow-[0_12px_30px_-12px_rgba(249,115,22,0.8)] transition-[transform,filter] duration-150 hover:brightness-95 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100"
+            >
+              제출
+            </button>
+          )}
         </form>
       </section>
 

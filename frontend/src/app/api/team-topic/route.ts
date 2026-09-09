@@ -11,7 +11,6 @@ type Payload = {
   team_no?: number;
   title?: string;
   one_liner?: string;
-  submitted_by?: string;
 };
 
 export async function GET() {
@@ -53,10 +52,6 @@ export async function POST(req: Request) {
       { status: 400 },
     );
   }
-  const submittedBy = (payload.submitted_by ?? "").trim().slice(0, 50);
-  if (!submittedBy) {
-    return NextResponse.json({ detail: "제출자 이름을 적어주세요." }, { status: 400 });
-  }
 
   const { data, error } = await getSupabaseAdmin()
     .from("team_topics")
@@ -65,7 +60,6 @@ export async function POST(req: Request) {
         team_no: teamNo,
         title,
         one_liner: oneLiner,
-        submitted_by: submittedBy,
         updated_at: new Date().toISOString(),
       },
       { onConflict: "team_no" },

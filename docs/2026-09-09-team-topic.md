@@ -6,8 +6,9 @@
 
 | 파일 | 내용 |
 |---|---|
-| `supabase/migrations/20260909120000_team_topics.sql` | `team_topics` (team_no PK 1~30, title, one_liner, submitted_by, updated_at). RLS 켜고 정책 0개 = service_role 전용 |
+| `supabase/migrations/20260909120000_team_topics.sql` | `team_topics` (team_no PK 1~30, title, one_liner, updated_at). RLS 켜고 정책 0개 = service_role 전용 |
 | `supabase/migrations/20260909130000_team_topics_free_text.sql` | v2: `topic_code` 컬럼 제거 (자유 입력 전환) |
+| `supabase/migrations/20260909140000_team_topics_drop_submitted_by.sql` | 제출자 입력 제거 (`submitted_by` 컬럼 드롭) |
 | `frontend/src/app/api/team-topic/route.ts` | GET 전체 현황 / POST 조 번호 기준 upsert. `rateLimit("team-topic", ip, 10, "1 m")`, 길이·범위 검증 |
 | `frontend/src/app/team-topic/content.ts` | 주제 예시 10선(참고용 텍스트) + `TEAM_COUNT = 8` + `TeamTopic` 타입 + `NUM_FONT`(Jakarta 숫자 서체) |
 | `frontend/src/app/team-topic/page.tsx` | 서버 페이지. 크림 히어로(왼쪽 제목·스탯, 오른쪽 `illust/quiz-vibe.webp` next/image) + 네이비 핵심 질문 띠 → 01 예시(알파벳 모노그램, 헤어라인 리스트) → 02 5단계 + 규칙 다크 밴드. `Reveal`/`RevealList` 로 등장. `robots: noindex`, `(site)` 밖이라 헤더·푸터 없음 |

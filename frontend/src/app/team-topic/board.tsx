@@ -29,7 +29,6 @@ export function TeamTopicBoard() {
   const [teamNo, setTeamNo] = useState<number | null>(null);
   const [title, setTitle] = useState("");
   const [oneLiner, setOneLiner] = useState("");
-  const [submittedBy, setSubmittedBy] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
 
@@ -75,7 +74,6 @@ export function TeamTopicBoard() {
     if (mine) {
       setTitle(mine.title);
       setOneLiner(mine.one_liner);
-      setSubmittedBy(mine.submitted_by);
     }
   }
 
@@ -91,7 +89,7 @@ export function TeamTopicBoard() {
       const res = await fetch("/api/team-topic", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ team_no: teamNo, title, one_liner: oneLiner, submitted_by: submittedBy }),
+        body: JSON.stringify({ team_no: teamNo, title, one_liner: oneLiner }),
       });
       const body = (await res.json()) as { detail?: string };
       if (!res.ok) {
@@ -176,7 +174,7 @@ export function TeamTopicBoard() {
                     style={NUM_FONT}
                     className="mt-1 text-[11px] font-semibold tracking-[0.08em] text-slate-400"
                   >
-                    {r.submitted_by} · {fmtTime(r.updated_at)}
+                    {fmtTime(r.updated_at)}
                   </span>
                 </div>
                 <p className="mt-3 text-xl font-bold leading-snug tracking-[-0.02em]">{r.title}</p>
@@ -277,20 +275,6 @@ export function TeamTopicBoard() {
             <span style={NUM_FONT} className="mt-1.5 block text-right text-[11px] tabular-nums text-slate-400">
               {oneLiner.length} / 300
             </span>
-          </label>
-
-          <label className="block">
-            <span style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-500">
-              제출자
-            </span>
-            <input
-              className={`${FIELD} mt-3`}
-              value={submittedBy}
-              onChange={(e) => setSubmittedBy(e.target.value)}
-              maxLength={50}
-              placeholder="이름"
-              required
-            />
           </label>
 
           {msg && (

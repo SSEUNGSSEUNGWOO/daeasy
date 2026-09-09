@@ -12,7 +12,7 @@
 | 항목 | 결정 | 이유 |
 |---|---|---|
 | 위치 | daeasy `/team-topic` (사이트 헤더·푸터 없음, noindex) | 별도 Vercel 프로젝트·Supabase 프로젝트를 파는 것보다 기존 배포 라인에 얹는 게 가장 짧다 |
-| 저장 | `public.team_topics` 1개, `team_no` PK, 주제는 자유 입력(`title`·`one_liner`·`submitted_by`). RLS 켜고 정책 0개 | 2026-09-08 에 anon INSERT 를 전부 걷어냈다. 그 결정과 맞추려면 쓰기는 Route Handler(service_role) 경유 |
+| 저장 | `public.team_topics` 1개, `team_no` PK, 주제는 자유 입력(`title`·`one_liner`, 제출자 없음). RLS 켜고 정책 0개 | 2026-09-08 에 anon INSERT 를 전부 걷어냈다. 그 결정과 맞추려면 쓰기는 Route Handler(service_role) 경유 |
 | API | `/api/team-topic` GET(전체) / POST(조 번호 기준 upsert) + `rateLimit()` | 조당 1행, 재제출 = 덮어쓰기. 잠금·비밀번호 없음 (임시용) |
 | 화면 | 한 페이지: 헤더(핵심 질문) → 예시 10선(컴팩트) → 5단계·규칙 → 조별 현황 카드 → 제출 폼 + 반투명 하단 고정 버튼 | 예시는 참고일 뿐이라 선택 항목 없이 자유 입력. 현황이 폼 바로 위에 있어 다른 조를 보고 적는다. 15초 폴링 |
 | 중복 | 자동 판정 없음. 현황 카드가 곧 중복 방지 장치 | 자유 입력이라 코드로 겹침을 잡을 수 없다. "되도록" 피하기 — 강제 아님 |

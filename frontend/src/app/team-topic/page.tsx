@@ -66,7 +66,7 @@ export default function TeamTopicPage() {
               style={NUM_FONT}
               className="anim-hero-fade text-[11px] font-bold uppercase tracking-[0.28em] text-accent-warm"
             >
-              CDSA · Vibe Coding Team Project
+              Vibe Coding Team Project
             </p>
             <h1 className="anim-page-fade-up mt-5 text-[clamp(2.5rem,6.5vw,4.6rem)] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#1f3a93]">
               범정부 AI 서비스,
@@ -197,7 +197,7 @@ export default function TeamTopicPage() {
           style={NUM_FONT}
           className="mt-24 text-[11px] font-bold uppercase tracking-[0.28em] text-slate-400"
         >
-          CDSA · Vibe Coding Project Team · Public × Data × AI
+          Vibe Coding Project Team · Public × Data × AI
         </p>
       </div>
     </main>

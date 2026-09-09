@@ -49,7 +49,7 @@ export async function POST(req: Request) {
   const oneLiner = (payload.one_liner ?? "").trim().slice(0, 300);
   if (!oneLiner) {
     return NextResponse.json(
-      { detail: "누구의 어떤 문제를 푸는지 한 문장으로 입력해 주세요." },
+      { detail: "누구의 어떤 문제를 해결하는지 한 문장으로 입력해 주세요." },
       { status: 400 },
     );
   }

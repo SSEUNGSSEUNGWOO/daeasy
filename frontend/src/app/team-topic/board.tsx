@@ -274,7 +274,7 @@ export function TeamTopicBoard() {
 
           <label className="block">
             <span style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-500">
-              누구의 어떤 문제를 푸는가 (한 문장)
+              누구의 어떤 문제를 해결하나요? (한 문장)
             </span>
             <textarea
               className={`${FIELD} mt-3 min-h-28 resize-y`}
@@ -284,7 +284,7 @@ export function TeamTopicBoard() {
                 setConfirming(false);
               }}
               maxLength={300}
-              placeholder="예: 서울시 청년 주거 담당자가 옆 자치구 정책과 예산을 5분 안에 비교하게 한다"
+              placeholder="예: 서울시 자치구의 청년 주거 담당자가 다른 자치구의 정책과 예산을 5분 안에 비교할 수 있게 한다"
               required
             />
             <span style={NUM_FONT} className="mt-1.5 block text-right text-[11px] tabular-nums text-slate-400">

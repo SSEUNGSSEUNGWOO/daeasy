@@ -66,14 +66,14 @@ export default function TeamTopicPage() {
               style={NUM_FONT}
               className="anim-hero-fade text-[11px] font-bold uppercase tracking-[0.28em] text-accent-warm"
             >
-              Vibe Coding Team Project
+              바이브코딩 팀 프로젝트
             </p>
             <h1 className="anim-page-fade-up mt-5 text-[clamp(2.5rem,6.5vw,4.6rem)] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#1f3a93]">
               범정부 AI 서비스,
               <br />
               우리 조는
               <br />
-              무엇을 만들까<span className="text-accent-warm">.</span>
+              무엇을 만들까요<span className="text-accent-warm">?</span>
             </h1>
             <p className="anim-page-fade-up mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               외부 데이터를 수집·정제·분석해 국민·공무원·연구자에게 도움이 되는 범정부 AI
@@ -117,7 +117,7 @@ export default function TeamTopicPage() {
               핵심 질문
             </p>
             <p className="text-xl font-bold leading-snug tracking-[-0.02em] sm:text-2xl">
-              “이 서비스는 누구의 어떤 문제를 푸는가?”
+              “이 서비스는 누구의 어떤 문제를 해결하나요?”
             </p>
             <p className="text-sm text-white/70 sm:ml-auto">한 문장으로 답할 수 있어야 합니다. 그 문장을 주제와 함께 아래에서 제출합니다.</p>
           </div>
@@ -127,7 +127,7 @@ export default function TeamTopicPage() {
       <div className="mx-auto max-w-5xl px-5 pb-40 sm:px-8">
         {/* ── 01 예시 ── */}
         <section className="pt-20 sm:pt-28">
-          <SectionHead no="01" title="주제 예시 10선" sub="그대로 골라도, 같은 프레임으로 새 주제를 잡아도 됩니다" />
+          <SectionHead no="01" title="주제 예시 10선" sub="예시를 그대로 골라도, 대상과 문제를 바꿔 새 주제를 정해도 됩니다" />
           <RevealList className="mt-10 grid gap-x-10 sm:grid-cols-2">
             {TOPICS.map((t) => (
               <li key={t.code} className="group relative border-t border-slate-200 py-6 pr-16">
@@ -153,7 +153,7 @@ export default function TeamTopicPage() {
 
         {/* ── 02 방법론 + 규칙 ── */}
         <section className="pt-20 sm:pt-28">
-          <SectionHead no="02" title="어떤 주제든 이 5단계" sub="데이터 확보가 프로젝트의 절반입니다" />
+          <SectionHead no="02" title="어떤 주제든 이 5단계" sub="데이터를 확보할 수 있는 주제인지 먼저 확인해 주세요" />
           <RevealList className="mt-10 grid gap-6 sm:grid-cols-5">
             {STEPS.map(([t, d], i) => (
               <li key={t} className="relative sm:pr-4">
@@ -197,7 +197,7 @@ export default function TeamTopicPage() {
           style={NUM_FONT}
           className="mt-24 text-[11px] font-bold uppercase tracking-[0.28em] text-slate-400"
         >
-          Vibe Coding Project Team · Public × Data × AI
+          바이브코딩 프로젝트 팀 · 공공 × 데이터 × AI
         </p>
       </div>
     </main>

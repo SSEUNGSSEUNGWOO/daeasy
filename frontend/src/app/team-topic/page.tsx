@@ -34,19 +34,14 @@ const STATS = [
   ["5", "분 시연"],
 ] as const;
 
-function SectionHead({ no, title, sub }: { no: string; title: string; sub?: string }) {
+function SectionHead({ kicker, title, sub }: { kicker: string; title: string; sub?: string }) {
   return (
-    <Reveal className="flex items-end gap-5">
-      <span
-        style={NUM_FONT}
-        className="text-5xl font-extrabold leading-none tracking-[-0.04em] text-accent-warm sm:text-6xl"
-      >
-        {no}
-      </span>
-      <div className="pb-1">
-        <h2 className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">{title}</h2>
-        {sub && <p className="mt-1 text-sm text-slate-500">{sub}</p>}
-      </div>
+    <Reveal>
+      <p style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.28em] text-accent-warm">
+        {kicker}
+      </p>
+      <h2 className="mt-2 text-2xl font-bold tracking-[-0.02em] sm:text-3xl">{title}</h2>
+      {sub && <p className="mt-1 text-sm text-slate-500">{sub}</p>}
     </Reveal>
   );
 }
@@ -60,7 +55,7 @@ export default function TeamTopicPage() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_420px_at_100%_0%,rgba(249,115,22,0.12),transparent_60%)]"
         />
-        <div className="relative mx-auto grid max-w-5xl items-center gap-8 px-5 pb-8 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-[6fr_5fr] lg:gap-6">
+        <div className="relative mx-auto grid max-w-5xl items-center gap-8 px-5 pb-8 pt-14 sm:px-8 sm:pt-16 lg:grid-cols-[6fr_5fr] lg:gap-6">
           <div>
             <p
               style={NUM_FONT}
@@ -68,7 +63,7 @@ export default function TeamTopicPage() {
             >
               바이브코딩 팀 프로젝트 · 하루 해커톤
             </p>
-            <h1 className="anim-page-fade-up mt-5 text-[clamp(2.5rem,6.5vw,4.6rem)] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#1f3a93]">
+            <h1 className="anim-page-fade-up mt-5 text-[clamp(2.4rem,6vw,4.2rem)] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#1f3a93]">
               범정부 AI 서비스,
               <br />
               우리 조는
@@ -77,9 +72,24 @@ export default function TeamTopicPage() {
             </h1>
             <p className="anim-page-fade-up mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               외부 데이터를 수집·정제·분석해 국민·공무원·연구자에게 도움이 되는 범정부 AI
-              서비스를 조별로 하루 안에 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다. 단, 하루에 끝낼 수 있는 크기여야 합니다.
+              서비스를 조별로 하루 안에 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다. 단,
+              하루에 끝낼 수 있는 크기여야 합니다.
             </p>
-            <dl className="anim-hero-fade mt-10 grid grid-cols-4 gap-4">
+            <div className="anim-page-fade-up mt-7 flex flex-wrap gap-3">
+              <a
+                href="#submit"
+                className="rounded-full bg-[#1f3a93] px-5 py-2.5 text-sm font-bold text-white transition-transform duration-150 active:scale-[0.97]"
+              >
+                우리 조 주제 입력하기
+              </a>
+              <a
+                href="#examples"
+                className="rounded-full border border-[#1f3a93]/25 bg-white px-5 py-2.5 text-sm font-bold text-[#1f3a93] transition-transform duration-150 hover:bg-[#eef1fb] active:scale-[0.97]"
+              >
+                주제 예시 10선 보러가기 ↓
+              </a>
+            </div>
+            <dl className="anim-hero-fade mt-9 grid grid-cols-4 gap-4">
               {STATS.map(([n, label]) => (
                 <div key={label}>
                   <dt className="sr-only">{label}</dt>
@@ -96,7 +106,7 @@ export default function TeamTopicPage() {
               ))}
             </dl>
           </div>
-          <div className="anim-cover-scale-fade relative mx-auto w-full max-w-[420px] lg:max-w-none">
+          <div className="anim-cover-scale-fade relative mx-auto w-full max-w-[380px] lg:max-w-none">
             <Image
               src="/illust/quiz-vibe.webp"
               alt="노트북 화면의 플로차트와 날아가는 로켓 일러스트"
@@ -125,9 +135,16 @@ export default function TeamTopicPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-5 pb-40 sm:px-8">
-        {/* ── 01 예시 ── */}
-        <section className="pt-20 sm:pt-28">
-          <SectionHead no="01" title="주제 예시 10선" sub="예시를 그대로 골라도, 대상과 문제를 바꿔 새 주제를 정해도 됩니다. 어느 쪽이든 하루 분량으로 좁혀 주세요" />
+        {/* ── 제출 + 조별 현황 (나란히) ── */}
+        <TeamTopicBoard />
+
+        {/* ── 주제 예시 ── */}
+        <section id="examples" className="scroll-mt-8 pt-24 sm:pt-32">
+          <SectionHead
+            kicker="참고"
+            title="주제 예시 10선"
+            sub="예시를 그대로 골라도, 대상과 문제를 바꿔 새 주제를 정해도 됩니다. 어느 쪽이든 하루 분량으로 좁혀 주세요"
+          />
           <RevealList className="mt-10 grid gap-x-10 sm:grid-cols-2">
             {TOPICS.map((t) => (
               <li key={t.code} className="group relative border-t border-slate-200 py-6 pr-16">
@@ -151,9 +168,13 @@ export default function TeamTopicPage() {
           </RevealList>
         </section>
 
-        {/* ── 02 방법론 + 규칙 ── */}
-        <section className="pt-20 sm:pt-28">
-          <SectionHead no="02" title="어떤 주제든 이 5단계" sub="하루짜리 해커톤입니다. 데이터를 확보할 수 있는 주제인지 먼저 확인해 주세요" />
+        {/* ── 방법론 + 규칙 ── */}
+        <section className="pt-24 sm:pt-32">
+          <SectionHead
+            kicker="진행 방법"
+            title="어떤 주제든 이 5단계"
+            sub="하루짜리 해커톤입니다. 데이터를 확보할 수 있는 주제인지 먼저 확인해 주세요"
+          />
           <RevealList className="mt-10 grid gap-6 sm:grid-cols-5">
             {STEPS.map(([t, d], i) => (
               <li key={t} className="relative sm:pr-4">
@@ -190,8 +211,6 @@ export default function TeamTopicPage() {
             </dl>
           </Reveal>
         </section>
-
-        <TeamTopicBoard />
 
         <p
           style={NUM_FONT}

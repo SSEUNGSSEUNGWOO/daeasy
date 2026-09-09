@@ -70,3 +70,6 @@ export type TeamTopic = {
   submitted_by: string;
   updated_at: string;
 };
+
+/** 숫자·모노그램용 디스플레이 서체 (root layout 의 Plus Jakarta Sans 변수) */
+export const NUM_FONT = { fontFamily: "var(--font-jakarta), var(--font-pretendard), sans-serif" } as const;

@@ -2,13 +2,14 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
-import { TEAM_COUNT, type TeamTopic } from "./content";
+import { NUM_FONT, TEAM_COUNT, type TeamTopic } from "./content";
 
 const POLL_MS = 15_000;
 const TEAM_NOS = Array.from({ length: TEAM_COUNT }, (_, i) => i + 1);
+const pad = (n: number) => String(n).padStart(2, "0");
 
 const FIELD =
-  "w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-base text-ink outline-none transition-[box-shadow,border-color] duration-150 placeholder:text-neutral-400 focus:border-accent focus:ring-4 focus:ring-accent/15";
+  "w-full rounded-2xl border border-ink-warm/12 bg-paper/60 px-4 py-3.5 text-base text-ink-warm outline-none transition-[box-shadow,border-color,background-color] duration-150 placeholder:text-ink-warm/35 focus:border-accent-warm focus:bg-white focus:ring-4 focus:ring-accent-warm/20";
 
 async function fetchRows(): Promise<TeamTopic[]> {
   const res = await fetch("/api/team-topic", { cache: "no-store" });
@@ -18,7 +19,7 @@ async function fetchRows(): Promise<TeamTopic[]> {
 
 function fmtTime(iso: string): string {
   const d = new Date(iso);
-  return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+  return `${d.getMonth() + 1}/${d.getDate()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
 export function TeamTopicBoard() {
@@ -106,80 +107,117 @@ export function TeamTopicBoard() {
     }
   }
 
+  function scrollToForm() {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    formRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }
+
   const submittedCount = rows.length;
 
   return (
     <>
-      {/* 조별 현황 */}
-      <section className="mt-20" aria-labelledby="status-h">
-        <div className="flex items-baseline justify-between gap-4">
-          <h2 id="status-h" className="text-2xl font-bold tracking-[-0.02em]">
-            조별 주제 현황
-          </h2>
-          <p className="text-sm tabular-nums text-neutral-500">
-            {submittedCount} / {TEAM_COUNT}조 제출
+      {/* ── 03 조별 현황 ── */}
+      <section className="pt-20 sm:pt-28" aria-labelledby="status-h">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="flex items-end gap-5">
+            <span
+              style={NUM_FONT}
+              className="text-5xl font-extrabold leading-none tracking-[-0.04em] text-accent-warm sm:text-6xl"
+            >
+              03
+            </span>
+            <div className="pb-1">
+              <h2 id="status-h" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+                조별 주제 현황
+              </h2>
+              <p className="mt-1 text-sm text-ink-warm/55">
+                다른 조와 되도록 겹치지 않게 — 여기서 확인하고 적어주세요. 15초마다 갱신
+              </p>
+            </div>
+          </div>
+          <p style={NUM_FONT} className="pb-1 text-sm font-bold tabular-nums text-ink-warm/60">
+            <span className="text-3xl text-ink-warm">{submittedCount}</span> / {TEAM_COUNT}
           </p>
         </div>
-        <p className="mt-1 text-sm text-neutral-500">
-          다른 조와 되도록 겹치지 않게 — 여기서 확인하고 적어주세요. 15초마다 갱신됩니다.
-        </p>
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2">
           {TEAM_NOS.map((n) => {
             const r = rows.find((x) => x.team_no === n);
+            if (!r) {
+              return (
+                <li
+                  key={n}
+                  className="flex min-h-36 items-start justify-between rounded-3xl border border-dashed border-ink-warm/20 p-6"
+                >
+                  <span
+                    style={NUM_FONT}
+                    className="text-4xl font-extrabold tracking-[-0.04em] text-ink-warm/20"
+                  >
+                    {pad(n)}
+                  </span>
+                  <span className="text-xs text-ink-warm/40">아직 제출 전</span>
+                </li>
+              );
+            }
             return (
               <li
-                key={n}
-                className={`rounded-2xl border p-5 ${
-                  r
-                    ? "border-neutral-200/80 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
-                    : "border-dashed border-neutral-300 bg-transparent"
-                }`}
+                key={`${n}-${r.updated_at}`}
+                className="anim-page-fade-up relative min-h-36 overflow-hidden rounded-3xl bg-white p-6 shadow-[0_18px_40px_-24px_rgba(23,21,15,0.35)] transition-transform duration-300 ease-out hover:-translate-y-0.5 motion-reduce:transition-none"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-[0.14em] text-neutral-500">
-                    {n}조
+                <span aria-hidden className="absolute inset-y-0 left-0 w-1.5 bg-accent-warm" />
+                <div className="flex items-start justify-between gap-4">
+                  <span
+                    style={NUM_FONT}
+                    className="text-4xl font-extrabold tracking-[-0.04em] text-ink-warm"
+                  >
+                    {pad(n)}
                   </span>
-                  {r && (
-                    <span className="text-xs tabular-nums text-neutral-400">
-                      {r.submitted_by} · {fmtTime(r.updated_at)}
-                    </span>
-                  )}
+                  <span
+                    style={NUM_FONT}
+                    className="mt-1 text-[11px] font-semibold tracking-[0.08em] text-ink-warm/40"
+                  >
+                    {r.submitted_by} · {fmtTime(r.updated_at)}
+                  </span>
                 </div>
-                {r ? (
-                  <>
-                    <p className="mt-2 text-lg font-bold leading-snug tracking-[-0.01em]">{r.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-neutral-600">{r.one_liner}</p>
-                  </>
-                ) : (
-                  <p className="mt-2 text-sm text-neutral-400">아직 제출 전</p>
-                )}
+                <p className="mt-3 text-xl font-bold leading-snug tracking-[-0.02em]">{r.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink-warm/65">{r.one_liner}</p>
               </li>
             );
           })}
         </ul>
         {loadError && (
-          <p className="mt-3 text-sm text-red-600">
+          <p className="mt-4 text-sm text-red-600">
             현황을 불러오지 못했습니다 ({loadError}). 잠시 후 자동으로 다시 시도합니다.
           </p>
         )}
       </section>
 
-      {/* 제출 */}
-      <section ref={formRef} id="submit" className="mt-20 scroll-mt-10" aria-labelledby="submit-h">
-        <h2 id="submit-h" className="text-2xl font-bold tracking-[-0.02em]">
-          우리 조 주제 제출
-        </h2>
-        <p className="mt-1 text-sm text-neutral-500">
-          조당 1건. 같은 조로 다시 제출하면 덮어씁니다.
-        </p>
+      {/* ── 04 제출 ── */}
+      <section ref={formRef} id="submit" className="scroll-mt-8 pt-20 sm:pt-28" aria-labelledby="submit-h">
+        <div className="flex items-end gap-5">
+          <span
+            style={NUM_FONT}
+            className="text-5xl font-extrabold leading-none tracking-[-0.04em] text-accent-warm sm:text-6xl"
+          >
+            04
+          </span>
+          <div className="pb-1">
+            <h2 id="submit-h" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
+              우리 조 주제 제출
+            </h2>
+            <p className="mt-1 text-sm text-ink-warm/55">조당 1건. 같은 조로 다시 제출하면 덮어씁니다</p>
+          </div>
+        </div>
 
         <form
           onSubmit={onSubmit}
-          className="mt-6 space-y-6 rounded-3xl border border-neutral-200/80 bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] sm:p-8"
+          className="mt-10 space-y-7 rounded-[28px] bg-white p-6 shadow-[0_32px_80px_-32px_rgba(23,21,15,0.35)] sm:p-10"
         >
           <fieldset>
-            <legend className="text-sm font-semibold">조</legend>
-            <div role="radiogroup" aria-label="조 선택" className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-8">
+            <legend style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-ink-warm/50">
+              조
+            </legend>
+            <div role="radiogroup" aria-label="조 선택" className="mt-4 grid grid-cols-4 gap-2.5 sm:grid-cols-8">
               {TEAM_NOS.map((n) => {
                 const selected = teamNo === n;
                 const done = rows.some((r) => r.team_no === n);
@@ -190,17 +228,18 @@ export function TeamTopicBoard() {
                     role="radio"
                     aria-checked={selected}
                     onClick={() => pickTeam(n)}
-                    className={`relative rounded-xl py-3 text-base font-semibold tabular-nums transition-[transform,background-color,color] duration-150 active:scale-[0.96] ${
+                    style={NUM_FONT}
+                    className={`relative aspect-square rounded-2xl text-xl font-extrabold tabular-nums transition-[transform,background-color,color,box-shadow] duration-150 active:scale-[0.94] ${
                       selected
-                        ? "bg-ink text-white"
-                        : "bg-neutral-100 text-ink hover:bg-neutral-200"
+                        ? "bg-ink-warm text-paper shadow-[0_0_0_3px_#f97316]"
+                        : "bg-paper text-ink-warm hover:bg-ink-warm/10"
                     }`}
                   >
-                    {n}
+                    {pad(n)}
                     {done && (
                       <span
                         aria-label="제출됨"
-                        className={`absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full ${selected ? "bg-white" : "bg-accent"}`}
+                        className={`absolute right-2 top-2 h-1.5 w-1.5 rounded-full ${selected ? "bg-accent-warm" : "bg-accent-warm"}`}
                       />
                     )}
                   </button>
@@ -210,9 +249,11 @@ export function TeamTopicBoard() {
           </fieldset>
 
           <label className="block">
-            <span className="text-sm font-semibold">주제</span>
+            <span style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-ink-warm/50">
+              주제
+            </span>
             <input
-              className={`${FIELD} mt-2`}
+              className={`${FIELD} mt-3 text-lg font-semibold`}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               maxLength={100}
@@ -222,24 +263,28 @@ export function TeamTopicBoard() {
           </label>
 
           <label className="block">
-            <span className="text-sm font-semibold">누구의 어떤 문제를 푸는가</span>
+            <span style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-ink-warm/50">
+              누구의 어떤 문제를 푸는가
+            </span>
             <textarea
-              className={`${FIELD} mt-2 min-h-24 resize-y`}
+              className={`${FIELD} mt-3 min-h-28 resize-y`}
               value={oneLiner}
               onChange={(e) => setOneLiner(e.target.value)}
               maxLength={300}
               placeholder="예: 서울시 청년 주거 담당자가 옆 자치구 정책과 예산을 5분 안에 비교하게 한다"
               required
             />
-            <span className="mt-1 block text-right text-xs tabular-nums text-neutral-400">
+            <span style={NUM_FONT} className="mt-1.5 block text-right text-[11px] tabular-nums text-ink-warm/35">
               {oneLiner.length} / 300
             </span>
           </label>
 
           <label className="block">
-            <span className="text-sm font-semibold">제출자</span>
+            <span style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-ink-warm/50">
+              제출자
+            </span>
             <input
-              className={`${FIELD} mt-2`}
+              className={`${FIELD} mt-3`}
               value={submittedBy}
               onChange={(e) => setSubmittedBy(e.target.value)}
               maxLength={50}
@@ -249,7 +294,7 @@ export function TeamTopicBoard() {
           </label>
 
           {msg && (
-            <p role="status" className={`text-sm font-medium ${msg.ok ? "text-accent" : "text-red-600"}`}>
+            <p role="status" className={`text-sm font-semibold ${msg.ok ? "text-accent-warm" : "text-red-600"}`}>
               {msg.text}
             </p>
           )}
@@ -257,32 +302,31 @@ export function TeamTopicBoard() {
           <button
             type="submit"
             disabled={busy}
-            className="w-full rounded-xl bg-ink py-3.5 text-base font-semibold text-white transition-[transform,opacity] duration-150 hover:opacity-90 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100"
+            className="w-full rounded-2xl bg-accent-warm py-4 text-base font-bold text-white shadow-[0_12px_30px_-12px_rgba(249,115,22,0.8)] transition-[transform,filter] duration-150 hover:brightness-95 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100"
           >
             {busy ? "저장 중…" : "제출"}
           </button>
         </form>
       </section>
 
-      {/* 하단 고정 바 — 반투명 재질, 폼이 보이면 숨김 */}
+      {/* ── 하단 고정 바: 다크 반투명 재질, 폼이 보이면 숨김 ── */}
       <div
         aria-hidden={formVisible}
-        className={`fixed inset-x-0 bottom-0 z-10 border-t border-white/40 bg-white/70 backdrop-blur-xl backdrop-saturate-150 transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none ${
+        className={`fixed inset-x-0 bottom-0 z-10 border-t border-paper/10 bg-ink-warm/80 text-paper backdrop-blur-xl backdrop-saturate-150 transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none ${
           formVisible ? "pointer-events-none translate-y-full opacity-0" : "translate-y-0 opacity-100"
         }`}
       >
-        <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
-          <p className="text-sm text-neutral-600">
-            <span className="font-semibold tabular-nums text-ink">{submittedCount}</span> / {TEAM_COUNT}조 제출
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
+          <p style={NUM_FONT} className="text-sm tabular-nums text-paper/60">
+            <span className="text-xl font-extrabold text-paper">{submittedCount}</span> / {TEAM_COUNT} 제출
           </p>
           <a
             href="#submit"
             onClick={(e) => {
               e.preventDefault();
-              const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-              formRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+              scrollToForm();
             }}
-            className="rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-150 active:scale-[0.97]"
+            className="rounded-full bg-accent-warm px-5 py-2.5 text-sm font-bold text-white transition-transform duration-150 active:scale-[0.97]"
           >
             우리 조 주제 제출하기
           </a>

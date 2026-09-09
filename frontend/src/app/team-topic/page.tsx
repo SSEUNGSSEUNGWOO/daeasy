@@ -44,7 +44,7 @@ function SectionHead({ no, title, sub }: { no: string; title: string; sub?: stri
       </span>
       <div className="pb-1">
         <h2 className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">{title}</h2>
-        {sub && <p className="mt-1 text-sm text-ink/55">{sub}</p>}
+        {sub && <p className="mt-1 text-sm text-slate-500">{sub}</p>}
       </div>
     </Reveal>
   );
@@ -52,16 +52,16 @@ function SectionHead({ no, title, sub }: { no: string; title: string; sub?: stri
 
 export default function TeamTopicPage() {
   return (
-    <main className="min-h-screen bg-paper text-ink-warm">
+    <main className="min-h-screen bg-white text-slate-900">
       {/* ── 히어로: 다크 + 광원 + 괘선 ── */}
-      <section className="relative overflow-hidden bg-ink-warm text-paper">
+      <section className="relative overflow-hidden bg-[#0b2a5b] text-white">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_85%_110%,rgba(249,115,22,0.42),transparent_60%),radial-gradient(700px_420px_at_-5%_-10%,rgba(96,165,250,0.22),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_115%,rgba(249,115,22,0.55),transparent_60%),radial-gradient(800px_480px_at_-5%_-10%,rgba(59,130,246,0.55),transparent_60%),linear-gradient(180deg,#061a3d,#0b2a5b)]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(245,241,232,0.05)_1px,transparent_1px)] bg-[size:100%_56px]"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[size:100%_56px]"
         />
         <div className="relative mx-auto max-w-5xl px-5 pb-16 pt-20 sm:px-8 sm:pb-24 sm:pt-28">
           <p
@@ -79,12 +79,12 @@ export default function TeamTopicPage() {
                 <br />
                 무엇을 만들까<span className="text-accent-warm">.</span>
               </h1>
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
                 외부 데이터를 수집·정제·분석해 국민·공무원·연구자에게 도움이 되는 범정부 AI
                 서비스를 팀 단위로 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다.
               </p>
             </div>
-            <figure className="anim-cover-scale-fade relative rounded-3xl border border-paper/15 bg-paper/[0.06] p-7 backdrop-blur-xl sm:p-8">
+            <figure className="anim-cover-scale-fade relative rounded-3xl border border-white/20 bg-white/[0.08] p-7 backdrop-blur-xl sm:p-8">
               <span
                 aria-hidden
                 style={NUM_FONT}
@@ -94,7 +94,7 @@ export default function TeamTopicPage() {
               </span>
               <figcaption
                 style={NUM_FONT}
-                className="text-[11px] font-bold uppercase tracking-[0.28em] text-paper/50"
+                className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/60"
               >
                 핵심 질문
               </figcaption>
@@ -103,23 +103,23 @@ export default function TeamTopicPage() {
                 <br />
                 어떤 문제를 푸는가?
               </blockquote>
-              <p className="mt-4 text-sm leading-relaxed text-paper/60">
+              <p className="mt-4 text-sm leading-relaxed text-white/65">
                 한 문장으로 답할 수 있어야 합니다. 그 문장이 곧 제출 내용입니다.
               </p>
             </figure>
           </div>
-          <dl className="anim-hero-fade mt-14 grid grid-cols-2 gap-6 border-t border-paper/15 pt-8 sm:grid-cols-4">
+          <dl className="anim-hero-fade mt-14 grid grid-cols-2 gap-6 border-t border-white/15 pt-8 sm:grid-cols-4">
             {STATS.map(([n, label]) => (
               <div key={label}>
                 <dt className="sr-only">{label}</dt>
                 <dd className="flex items-baseline gap-2">
                   <span
                     style={NUM_FONT}
-                    className="text-4xl font-extrabold tracking-[-0.04em] text-paper sm:text-5xl"
+                    className="text-4xl font-extrabold tracking-[-0.04em] text-white sm:text-5xl"
                   >
                     {n}
                   </span>
-                  <span className="text-sm text-paper/55">{label}</span>
+                  <span className="text-sm text-white/60">{label}</span>
                 </dd>
               </div>
             ))}
@@ -133,19 +133,19 @@ export default function TeamTopicPage() {
           <SectionHead no="01" title="주제 예시 10선" sub="그대로 골라도, 같은 프레임으로 새 주제를 잡아도 됩니다" />
           <RevealList className="mt-10 grid gap-x-10 sm:grid-cols-2">
             {TOPICS.map((t) => (
-              <li key={t.code} className="group relative border-t border-ink-warm/12 py-6 pr-16">
+              <li key={t.code} className="group relative border-t border-slate-200 py-6 pr-16">
                 <span
                   aria-hidden
                   style={NUM_FONT}
-                  className="absolute right-0 top-4 text-6xl font-extrabold leading-none tracking-[-0.06em] text-ink-warm/[0.08] transition-colors duration-300 group-hover:text-accent-warm/70"
+                  className="absolute right-0 top-4 text-6xl font-extrabold leading-none tracking-[-0.06em] text-[#dbe4f0] transition-colors duration-300 group-hover:text-accent-warm"
                 >
                   {t.code}
                 </span>
                 <h3 className="text-lg font-bold tracking-[-0.01em]">{t.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-warm/65">{t.q}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{t.q}</p>
                 <p
                   style={NUM_FONT}
-                  className="mt-3 text-[11px] font-semibold tracking-[0.08em] text-ink-warm/40"
+                  className="mt-3 text-[11px] font-semibold tracking-[0.08em] text-slate-400"
                 >
                   {t.data.join("  ·  ")}
                 </p>
@@ -169,15 +169,15 @@ export default function TeamTopicPage() {
                   </span>
                   <span
                     aria-hidden
-                    className="hidden h-px flex-1 bg-ink-warm/15 sm:mt-3 sm:block"
+                    className="hidden h-px flex-1 bg-slate-200 sm:mt-3 sm:block"
                   />
                 </div>
                 <p className="mt-3 font-bold tracking-[-0.01em]">{t}</p>
-                <p className="mt-1 text-sm leading-relaxed text-ink-warm/60">{d}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-600">{d}</p>
               </li>
             ))}
           </RevealList>
-          <Reveal className="mt-12 rounded-3xl bg-ink-warm px-6 py-6 text-paper sm:px-8">
+          <Reveal className="mt-12 rounded-3xl bg-[#0b2a5b] px-6 py-6 text-white sm:px-8">
             <dl className="grid gap-5 sm:grid-cols-4">
               {RULES.map(([k, v]) => (
                 <div key={k}>
@@ -187,7 +187,7 @@ export default function TeamTopicPage() {
                   >
                     {k}
                   </dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-paper/80">{v}</dd>
+                  <dd className="mt-2 text-sm leading-relaxed text-white/85">{v}</dd>
                 </div>
               ))}
             </dl>
@@ -198,7 +198,7 @@ export default function TeamTopicPage() {
 
         <p
           style={NUM_FONT}
-          className="mt-24 text-[11px] font-bold uppercase tracking-[0.28em] text-ink-warm/35"
+          className="mt-24 text-[11px] font-bold uppercase tracking-[0.28em] text-slate-400"
         >
           CDSA · Vibe Coding Project Team · Public × Data × AI
         </p>

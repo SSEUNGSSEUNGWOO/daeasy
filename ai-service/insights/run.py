@@ -30,6 +30,7 @@ from writer.writer import run as writer_run
 from image_agent.image_agent import run as image_agent_run
 from proofreader.proofreader import TAGS_META_PATTERN, run_safe as proofreader_run, strip_tags_meta
 from evaluator.evaluator import run as evaluator_run
+from naver_teaser import draft as naver_draft
 from newsletter import send as newsletter_send
 from shared.storage import load_draft_meta, load_raw_items, save_draft, save_insight
 from shared.models import Insight
@@ -218,6 +219,12 @@ def save_to_insights(result: dict):
         newsletter_send(insight)
     except Exception as e:
         print(f"[run] 뉴스레터 발송 실패: {e}")
+
+    # 네이버 블로그 티저 초안 — 같은 이유로 부가 기능. 발행 버튼은 사람이 누른다
+    try:
+        naver_draft(insight)
+    except Exception as e:
+        print(f"[run] 네이버 초안 실패: {e}")
 
     return insight
 

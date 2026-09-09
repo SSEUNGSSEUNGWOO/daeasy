@@ -80,6 +80,7 @@ docs/
 - 평가 루프: `evaluator/rubric.yaml` 7개 기준 (factual_accuracy / relevance / insight_quality / source_linkage / seo_quality / human_voice / image_relevance). **가중평균과 합격은 코드가 계산한다** — LLM 은 항목별 점수 JSON 만 낸다. 4.0/5.0 미만이면 Writer 최대 3회 재실행 (재작성 글도 교정을 거친다). **image_relevance 만 부족하고 텍스트 평균이 통과면 image_agent 만 재실행** (다른 출처 og:image + 평가 피드백을 반영한 새 Unsplash 검색어)
 - DB 연결: `shared/db.py` 의 `psycopg2` direct connection. `DATABASE_URL` 은 **Supabase Session pooler URL** (`postgresql://postgres.<ref>:<pw>@aws-1-<region>.pooler.supabase.com:5432/postgres`). RLS 우회로 INSERT/SELECT/DELETE 가능 (frontend 의 supabase-js 는 RLS 적용 — 두 경로의 권한 모델이 다름을 항상 의식)
 - 이미지: 커버는 Unsplash (검색어를 claude CLI 가 헤드라인에서 추출). 본문 항목별은 출처 페이지의 `og:image` → `twitter:image` → 본문 첫 의미있는 `<img>` fallback. arxiv 등은 `EXCLUDE_DOMAINS` 로 스킵
+- 발행 뒤 **네이버 블로그 티저 초안** (`insights/naver_teaser.py`) — pr-publish 의 `prpub naver <slug>` 를 빌려 에디터에 채우고 발행 직전 정지. `--publish` 금지, 발행은 사람이. pr-publish 가 없는 PC 에선 `[naver] … 생략` 한 줄로 건너뛴다 (`docs/2026-09-09-insight-naver-teaser.md`)
 - 원자료 `content` 는 **RSS 요약(중앙값 74~300자)** 이다. Writer 는 주요 클러스터 항목(ai_news / ai_blogs / kr_ai_policy)의 기사 본문을 작성 시점에 따로 가져온다 (`writer.fetch_fulltexts` → `utils.fetch_article_text`, 순차 1초 간격, 실패 시 요약 유지). **테스트 목적 대량 fetch 금지** — AI타임스가 IP 를 403 으로 막는다 (2026-09-08 실측, `docs/2026-09-08-writer-fulltext.md`). 로그 `[writer] 원문 본문 N/M건 확보` 가 갑자기 낮으면 차단부터 의심
 
 ### 슬래시 명령어 (`.claude/commands/`)

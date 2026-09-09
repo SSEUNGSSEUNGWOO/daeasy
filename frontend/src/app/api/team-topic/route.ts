@@ -19,7 +19,8 @@ export async function GET() {
     .select("*")
     .order("team_no");
   if (error) {
-    return NextResponse.json({ detail: error.message }, { status: 500 });
+    console.error("[team-topic] 조회 실패:", error);
+    return NextResponse.json({ detail: "현황을 불러오지 못했습니다." }, { status: 500 });
   }
   return NextResponse.json(data);
 }
@@ -27,28 +28,28 @@ export async function GET() {
 export async function POST(req: Request) {
   const rl = await rateLimit("team-topic", getClientIp(req), 10, "1 m");
   if (!rl.success) {
-    return NextResponse.json({ detail: "잠시 후 다시 시도해주세요." }, { status: 429 });
+    return NextResponse.json({ detail: "요청이 많아 잠시 제출을 제한하고 있습니다. 잠시 후 다시 시도해 주세요." }, { status: 429 });
   }
 
   let payload: Payload;
   try {
     payload = (await req.json()) as Payload;
   } catch {
-    return NextResponse.json({ detail: "invalid json" }, { status: 400 });
+    return NextResponse.json({ detail: "제출 내용을 처리하지 못했습니다. 다시 제출해 주세요." }, { status: 400 });
   }
 
   const teamNo = Number(payload.team_no);
   if (!Number.isInteger(teamNo) || teamNo < 1 || teamNo > TEAM_COUNT) {
-    return NextResponse.json({ detail: "조를 선택해주세요." }, { status: 400 });
+    return NextResponse.json({ detail: `1조부터 ${TEAM_COUNT}조 중에서 선택해 주세요.` }, { status: 400 });
   }
   const title = (payload.title ?? "").trim().slice(0, 100);
   if (!title) {
-    return NextResponse.json({ detail: "주제를 적어주세요." }, { status: 400 });
+    return NextResponse.json({ detail: "주제를 입력해 주세요." }, { status: 400 });
   }
   const oneLiner = (payload.one_liner ?? "").trim().slice(0, 300);
   if (!oneLiner) {
     return NextResponse.json(
-      { detail: "누구의 어떤 문제를 푸는지 한 문장 적어주세요." },
+      { detail: "누구의 어떤 문제를 푸는지 한 문장으로 입력해 주세요." },
       { status: 400 },
     );
   }
@@ -69,8 +70,9 @@ export async function POST(req: Request) {
     .maybeSingle();
 
   if (error || !data) {
+    console.error("[team-topic] 저장 실패:", error);
     return NextResponse.json(
-      { detail: error?.message ?? "저장에 실패했습니다." },
+      { detail: "주제를 제출하지 못했습니다. 잠시 후 다시 시도해 주세요." },
       { status: 500 },
     );
   }

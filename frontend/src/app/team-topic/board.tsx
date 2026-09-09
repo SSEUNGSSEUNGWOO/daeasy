@@ -83,7 +83,7 @@ export function TeamTopicBoard() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (teamNo === null) {
-      setMsg({ ok: false, text: "조를 먼저 골라주세요." });
+      setMsg({ ok: false, text: "조를 먼저 선택해 주세요." });
       return;
     }
     if (!confirming) {
@@ -101,13 +101,13 @@ export function TeamTopicBoard() {
       });
       const body = (await res.json()) as { detail?: string };
       if (!res.ok) {
-        setMsg({ ok: false, text: body.detail ?? "저장에 실패했습니다." });
+        setMsg({ ok: false, text: body.detail ?? "주제를 제출하지 못했습니다. 잠시 후 다시 시도해 주세요." });
         return;
       }
-      setMsg({ ok: true, text: `${teamNo}조 제출 완료. 같은 조로 다시 제출하면 덮어씁니다.` });
+      setMsg({ ok: true, text: `${teamNo}조 주제를 제출했습니다. 같은 조로 다시 제출하면 기존 내용이 새 내용으로 바뀝니다.` });
       setRows(await fetchRows());
     } catch {
-      setMsg({ ok: false, text: "네트워크 오류. 다시 시도해주세요." });
+      setMsg({ ok: false, text: "네트워크 연결을 확인한 뒤 다시 제출해 주세요." });
     } finally {
       setBusy(false);
     }
@@ -138,12 +138,12 @@ export function TeamTopicBoard() {
                 조별 주제 현황
               </h2>
               <p className="mt-1 text-sm text-slate-500">
-                다른 조와 되도록 겹치지 않게 — 여기서 확인하고 적어주세요. 15초마다 갱신
+                다른 조의 주제를 보고 되도록 겹치지 않게 정해 주세요. 현황은 15초마다 자동 갱신됩니다.
               </p>
             </div>
           </div>
           <p style={NUM_FONT} className="pb-1 text-sm font-bold tabular-nums text-slate-600">
-            <span className="text-3xl text-[#1f3a93]">{submittedCount}</span> / {TEAM_COUNT}
+            <span className="text-3xl text-[#1f3a93]">{submittedCount}</span> / {TEAM_COUNT}조 제출
           </p>
         </div>
 
@@ -162,7 +162,7 @@ export function TeamTopicBoard() {
                   >
                     {pad(n)}
                   </span>
-                  <span className="text-xs text-slate-400">아직 제출 전</span>
+                  <span className="text-xs text-slate-400">미제출</span>
                 </li>
               );
             }
@@ -194,7 +194,7 @@ export function TeamTopicBoard() {
         </ul>
         {loadError && (
           <p className="mt-4 text-sm text-red-600">
-            현황을 불러오지 못했습니다 ({loadError}). 잠시 후 자동으로 다시 시도합니다.
+            조별 주제 현황을 불러오지 못했습니다. 잠시 후 자동으로 다시 불러옵니다.
           </p>
         )}
       </section>
@@ -212,7 +212,7 @@ export function TeamTopicBoard() {
             <h2 id="submit-h" className="text-2xl font-bold tracking-[-0.02em] sm:text-3xl">
               우리 조 주제 제출
             </h2>
-            <p className="mt-1 text-sm text-slate-500">조당 1건. 같은 조로 다시 제출하면 덮어씁니다</p>
+            <p className="mt-1 text-sm text-slate-500">조당 1건. 같은 조로 다시 제출하면 기존 내용이 새 내용으로 바뀝니다</p>
           </div>
         </div>
 
@@ -245,7 +245,7 @@ export function TeamTopicBoard() {
                     {pad(n)}
                     {done && (
                       <span
-                        aria-label="제출됨"
+                        aria-label="주제 제출 완료"
                         className={`absolute right-2 top-2 h-1.5 w-1.5 rounded-full ${selected ? "bg-accent-warm" : "bg-accent-warm"}`}
                       />
                     )}
@@ -274,7 +274,7 @@ export function TeamTopicBoard() {
 
           <label className="block">
             <span style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-500">
-              누구의 어떤 문제를 푸는가
+              누구의 어떤 문제를 푸는가 (한 문장)
             </span>
             <textarea
               className={`${FIELD} mt-3 min-h-28 resize-y`}
@@ -288,7 +288,7 @@ export function TeamTopicBoard() {
               required
             />
             <span style={NUM_FONT} className="mt-1.5 block text-right text-[11px] tabular-nums text-slate-400">
-              {oneLiner.length} / 300
+              {oneLiner.length} / 최대 300자
             </span>
           </label>
 
@@ -301,14 +301,14 @@ export function TeamTopicBoard() {
           {confirming && teamNo !== null ? (
             <div role="alertdialog" aria-labelledby="confirm-h" className="rounded-2xl border-2 border-[#1f3a93] bg-[#f7f8fd] p-5 sm:p-6">
               <p id="confirm-h" className="text-lg font-bold tracking-[-0.02em] text-[#1f3a93]">
-                {existing ? `${pad(teamNo)}조에 이미 제출된 내용을 덮어씁니다` : `${pad(teamNo)}조로 제출합니다`}
+                {existing ? `${teamNo}조의 기존 주제를 새 내용으로 바꿉니다` : `${teamNo}조 주제를 제출합니다`}
               </p>
-              <p className="mt-1 text-sm text-slate-500">조 번호와 내용이 맞는지 확인해주세요.</p>
+              <p className="mt-1 text-sm text-slate-500">조 번호와 내용이 맞는지 확인해 주세요.</p>
               <div className={`mt-4 grid gap-3 ${existing ? "sm:grid-cols-2" : ""}`}>
                 {existing && (
                   <div className="rounded-xl border border-dashed border-slate-300 bg-white/60 p-4">
                     <p style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-400">
-                      기존 · {fmtTime(existing.updated_at)}
+                      기존 제출 내용 · 마지막 수정 {fmtTime(existing.updated_at)}
                     </p>
                     <p className="mt-2 font-bold text-slate-400 line-through decoration-slate-300">{existing.title}</p>
                     <p className="mt-1 text-sm text-slate-400">{existing.one_liner}</p>
@@ -335,7 +335,7 @@ export function TeamTopicBoard() {
                   disabled={busy}
                   className="rounded-2xl bg-accent-warm py-3.5 text-base font-bold text-white shadow-[0_12px_30px_-12px_rgba(249,115,22,0.8)] transition-[transform,filter] duration-150 hover:brightness-95 active:scale-[0.98] disabled:opacity-50"
                 >
-                  {busy ? "저장 중…" : existing ? `네, ${pad(teamNo)}조 덮어쓰기` : `네, ${pad(teamNo)}조로 제출`}
+                  {busy ? "제출 중…" : existing ? `${teamNo}조 내용 바꾸고 제출` : `${teamNo}조 주제 제출`}
                 </button>
               </div>
             </div>
@@ -345,7 +345,7 @@ export function TeamTopicBoard() {
               disabled={busy}
               className="w-full rounded-2xl bg-accent-warm py-4 text-base font-bold text-white shadow-[0_12px_30px_-12px_rgba(249,115,22,0.8)] transition-[transform,filter] duration-150 hover:brightness-95 active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100"
             >
-              제출
+              제출 내용 확인
             </button>
           )}
         </form>
@@ -360,7 +360,7 @@ export function TeamTopicBoard() {
       >
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
           <p style={NUM_FONT} className="text-sm tabular-nums text-white/65">
-            <span className="text-xl font-extrabold text-white">{submittedCount}</span> / {TEAM_COUNT} 제출
+            <span className="text-xl font-extrabold text-white">{submittedCount}</span> / {TEAM_COUNT}조 제출
           </p>
           <a
             href="#submit"
@@ -370,7 +370,7 @@ export function TeamTopicBoard() {
             }}
             className="rounded-full bg-accent-warm px-5 py-2.5 text-sm font-bold text-white transition-transform duration-150 active:scale-[0.97]"
           >
-            우리 조 주제 제출하기
+            우리 조 주제 입력하기
           </a>
         </div>
       </div>

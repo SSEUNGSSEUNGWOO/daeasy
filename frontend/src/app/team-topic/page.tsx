@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  ["주제·범위 선정", "한 팀 = 한 주제. 대상 부처·지자체·이슈를 좁힌다"],
+  ["주제·범위 선정", "한 조 = 한 주제. 대상 부처·지자체·이슈를 좁힙니다"],
   ["외부 데이터 확보", "공공데이터 API · 크롤링 · PDF 파싱 · 직접 수집"],
   ["AI 에이전트 분석", "MCP로 도구 호출, 비교·요약·이상탐지·교차검증"],
   ["시각화·인사이트", "지도·타임라인·네트워크·대시보드, 한 화면에서"],
@@ -21,7 +21,7 @@ const STEPS = [
 ] as const;
 
 const RULES = [
-  ["팀", "4명 1팀 · 기획·데이터·개발·시연 분담 자율"],
+  ["조 구성", "4명 1조 · 기획·데이터·개발·시연 역할 분담 자율"],
   ["데이터", "외부 데이터 중심 — 공공 API · 크롤링 · PDF"],
   ["도구", "바이브코딩 · 에이전트 · MCP · 컨텍스트"],
   ["산출물", "웹 프로토타입 + 데이터 소스 문서 + 5분 시연"],
@@ -77,7 +77,7 @@ export default function TeamTopicPage() {
             </h1>
             <p className="anim-page-fade-up mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               외부 데이터를 수집·정제·분석해 국민·공무원·연구자에게 도움이 되는 범정부 AI
-              서비스를 팀 단위로 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다.
+              서비스를 조별로 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다.
             </p>
             <dl className="anim-hero-fade mt-10 grid grid-cols-4 gap-4">
               {STATS.map(([n, label]) => (
@@ -119,7 +119,7 @@ export default function TeamTopicPage() {
             <p className="text-xl font-bold leading-snug tracking-[-0.02em] sm:text-2xl">
               “이 서비스는 누구의 어떤 문제를 푸는가?”
             </p>
-            <p className="text-sm text-white/70 sm:ml-auto">한 문장으로 답할 수 있어야 합니다. 그 문장이 곧 제출 내용입니다.</p>
+            <p className="text-sm text-white/70 sm:ml-auto">한 문장으로 답할 수 있어야 합니다. 그 문장을 주제와 함께 아래에서 제출합니다.</p>
           </div>
         </div>
       </section>

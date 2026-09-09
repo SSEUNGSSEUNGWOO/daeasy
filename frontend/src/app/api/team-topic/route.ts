@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 
-import {
-  NEW_TOPIC_CODE,
-  TEAM_COUNT,
-  TOPICS,
-} from "@/app/team-topic/content";
+import { TEAM_COUNT } from "@/app/team-topic/content";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase";
 
@@ -13,7 +9,6 @@ export const dynamic = "force-dynamic";
 
 type Payload = {
   team_no?: number;
-  topic_code?: string;
   title?: string;
   one_liner?: string;
   submitted_by?: string;
@@ -45,16 +40,11 @@ export async function POST(req: Request) {
 
   const teamNo = Number(payload.team_no);
   if (!Number.isInteger(teamNo) || teamNo < 1 || teamNo > TEAM_COUNT) {
-    return NextResponse.json({ detail: "조 번호가 올바르지 않습니다." }, { status: 400 });
+    return NextResponse.json({ detail: "조를 선택해주세요." }, { status: 400 });
   }
-  const topicCode = (payload.topic_code ?? "").trim();
-  const preset = TOPICS.find((t) => t.code === topicCode);
-  if (!preset && topicCode !== NEW_TOPIC_CODE) {
-    return NextResponse.json({ detail: "주제를 선택해주세요." }, { status: 400 });
-  }
-  const title = (payload.title ?? "").trim().slice(0, 100) || preset?.title || "";
+  const title = (payload.title ?? "").trim().slice(0, 100);
   if (!title) {
-    return NextResponse.json({ detail: "새 주제는 제목을 적어주세요." }, { status: 400 });
+    return NextResponse.json({ detail: "주제를 적어주세요." }, { status: 400 });
   }
   const oneLiner = (payload.one_liner ?? "").trim().slice(0, 300);
   if (!oneLiner) {
@@ -73,7 +63,6 @@ export async function POST(req: Request) {
     .upsert(
       {
         team_no: teamNo,
-        topic_code: topicCode,
         title,
         one_liner: oneLiner,
         submitted_by: submittedBy,
@@ -93,4 +82,3 @@ export async function POST(req: Request) {
   }
   return NextResponse.json(data);
 }
-

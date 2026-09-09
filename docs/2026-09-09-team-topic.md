@@ -6,12 +6,12 @@
 
 | 파일 | 내용 |
 |---|---|
-| `supabase/migrations/20260909120000_team_topics.sql` | `team_topics` (team_no PK 1~30, topic_code, title, one_liner, submitted_by, updated_at). RLS 켜고 정책 0개 = service_role 전용 |
-| `frontend/src/app/api/team-topic/route.ts` | GET 전체 현황 / POST 조 번호 기준 upsert. `rateLimit("team-topic", ip, 10, "1 m")`, 길이·범위 검증. A~J 는 제목 자동, NEW 는 제목 필수 |
-| `frontend/src/app/team-topic/content.tsx` | 공고의 주제 10선 카드 데이터 + `TEAM_COUNT = 8` + `TeamTopic` 타입 |
-| `frontend/src/app/team-topic/page.tsx` | 서버 페이지. 공고 5개 섹션(hero·주제·제출·방법론·미션). `robots: noindex`. `(site)` 밖이라 사이트 헤더·푸터 없음 |
-| `frontend/src/app/team-topic/board.tsx` | 클라이언트. 15초 폴링, 주제 카드 "N조" 배지, 제출 폼(조 선택 시 기존 제출 자동 채움), 중복 주제 경고, 조별 현황 표("N조와 겹침") |
-| `frontend/src/app/team-topic/team-topic.css` | 공고 CSS 를 `.tp` 로 스코프 + 1000px/560px 반응형 |
+| `supabase/migrations/20260909120000_team_topics.sql` | `team_topics` (team_no PK 1~30, title, one_liner, submitted_by, updated_at). RLS 켜고 정책 0개 = service_role 전용 |
+| `supabase/migrations/20260909130000_team_topics_free_text.sql` | v2: `topic_code` 컬럼 제거 (자유 입력 전환) |
+| `frontend/src/app/api/team-topic/route.ts` | GET 전체 현황 / POST 조 번호 기준 upsert. `rateLimit("team-topic", ip, 10, "1 m")`, 길이·범위 검증 |
+| `frontend/src/app/team-topic/content.ts` | 주제 예시 10선(참고용 텍스트) + `TEAM_COUNT = 8` + `TeamTopic` 타입 |
+| `frontend/src/app/team-topic/page.tsx` | 서버 페이지. 헤더(핵심 질문 카드) → 예시 10선 → 5단계·공통 규칙. Tailwind, `robots: noindex`, `(site)` 밖이라 헤더·푸터 없음 |
+| `frontend/src/app/team-topic/board.tsx` | 클라이언트. 15초 폴링, 조별 현황 카드(제출 전은 점선), 제출 폼(조는 세그먼트 버튼, 고르면 기존 제출 자동 채움), 반투명 하단 고정 바(폼이 보이면 IntersectionObserver 로 숨김, reduced-motion 시 즉시 스크롤) |
 
 ## 운영
 
@@ -23,4 +23,5 @@
 
 - `npm run lint`, `npm run build` 통과
 - Playwright 데스크톱 1280 / 모바일 390 풀페이지 렌더 확인 — 공고 섹션·폼·현황 표 정상, 콘솔 에러는 테이블 미생성 시점의 `/api/team-topic` 500 뿐
-- 운영 URL E2E (마이그레이션 적용 후): 1조 A 제출 → 카드 배지 "1조"·현황 표 반영, 2조가 A 선택 시 "이미 1조가 이 주제를 골랐습니다" 경고, curl 로 같은 조 재제출 덮어쓰기·9조 거부·NEW 제목 누락 거부 확인. 테스트 행은 삭제해 표는 비어 있음
+- v1 운영 E2E: 제출·덮어쓰기·9조 거부 확인 후 테스트 행 삭제
+- v2 (자유 입력·새 디자인): lint·build 통과, Playwright 데스크톱·모바일 렌더, 하단 바 클릭 → 폼으로 스크롤 후 바 숨김 확인. 제출 E2E 는 `topic_code` 컬럼 제거 마이그레이션 적용 후 운영 URL 로

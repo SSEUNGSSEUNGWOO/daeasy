@@ -1,0 +1,30 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "facebook/mms-300m",
+    "url": "https://huggingface.co/facebook/mms-300m",
+    "content": "",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 301
+    },
+    "item_hash": "5c014d7fc8bacf4f"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "google-bert/bert-base-uncased",
+    "url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "content": "",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 3039
+    },
+    "item_hash": "b40e89a13a38e5cc"
+  }
+]

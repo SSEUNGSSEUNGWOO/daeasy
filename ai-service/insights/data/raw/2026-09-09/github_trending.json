@@ -1,0 +1,198 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ayghri/i-have-adhd",
+    "url": "https://github.com/ayghri/i-have-adhd",
+    "content": "A skill to stop your coding agent from burying the answer. ADHD-friendly output.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 30484,
+      "language": "Python"
+    },
+    "item_hash": "46f3c1d6124190bd"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "cathrynlavery/diagram-design",
+    "url": "https://github.com/cathrynlavery/diagram-design",
+    "content": "38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 34827,
+      "language": "HTML"
+    },
+    "item_hash": "9c939c7199afd9a6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "multica-ai/andrej-karpathy-skills",
+    "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+    "content": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 211458,
+      "language": ""
+    },
+    "item_hash": "ca6e9330cc1b2a53"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "viarotel-org/escrcpy",
+    "url": "https://github.com/viarotel-org/escrcpy",
+    "content": "📱 Display and control your Android device graphically with scrcpy.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 11402,
+      "language": "JavaScript"
+    },
+    "item_hash": "36d7b842d8aa6767"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "openai/plugins",
+    "url": "https://github.com/openai/plugins",
+    "content": "OpenAI Plugins",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 5799,
+      "language": "JavaScript"
+    },
+    "item_hash": "f36df30631aaa417"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "TauricResearch/TradingAgents",
+    "url": "https://github.com/TauricResearch/TradingAgents",
+    "content": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 103424,
+      "language": "Python"
+    },
+    "item_hash": "626a5e4fcb233d8d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "0x4m4/hexstrike-ai",
+    "url": "https://github.com/0x4m4/hexstrike-ai",
+    "content": "HexStrike AI MCP Agents is an advanced MCP server that lets AI agents (Claude, GPT, Copilot, etc.) autonomously run 150+ cybersecurity tools for automated pentesting, vulnerability discovery, bug bounty automation, and security research. Seamlessly bridge LLMs with real-world offensive security capabilities.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 11707,
+      "language": "Python"
+    },
+    "item_hash": "0159e9e3e498433b"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "HKUDS/Vibe-Trading",
+    "url": "https://github.com/HKUDS/Vibe-Trading",
+    "content": "\"Vibe-Trading: Your Personal Trading Agent\"",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 33062,
+      "language": "Python"
+    },
+    "item_hash": "1b56cc9447a6475c"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "PostHog/posthog",
+    "url": "https://github.com/PostHog/posthog",
+    "content": "🦔 PostHog is the leading platform for building self-driving products. Our developer tools – AI observability, analytics, session replay, flags, experiments, error tracking, logs, and more – capture all the context agents need to diagnose problems, uncover opportunities, and ship fixes. Steer it all from Slack, web, desktop, or the MCP.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 39678,
+      "language": "Python"
+    },
+    "item_hash": "fbfdec28cfffc04c"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "hpcaitech/Open-Sora",
+    "url": "https://github.com/hpcaitech/Open-Sora",
+    "content": "Open-Sora: Democratizing Efficient Video Production for All",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 29703,
+      "language": "Python"
+    },
+    "item_hash": "bde1adbe087b0baa"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "rohitg00/ai-engineering-from-scratch",
+    "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "content": "Learn it. Build it. Ship it for others.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 53193,
+      "language": "Python"
+    },
+    "item_hash": "7b553354eb544407"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "neka-nat/freecad-mcp",
+    "url": "https://github.com/neka-nat/freecad-mcp",
+    "content": "FreeCAD MCP(Model Context Protocol) server",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 2111,
+      "language": "Python"
+    },
+    "item_hash": "5fa077ce2d8223a1"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "shareAI-lab/learn-claude-code",
+    "url": "https://github.com/shareAI-lab/learn-claude-code",
+    "content": "Bash is all you need - A nano claude code–like 「agent harness」, built from 0 to 1",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 76349,
+      "language": "Python"
+    },
+    "item_hash": "9b8fb32d5892ba24"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "experientiallabs/experiential",
+    "url": "https://github.com/experientiallabs/experiential",
+    "content": "Experiential is the open source, zero markup gateway for BYOK, self-hosted and 1000+ marketplace models. It learns from your traffic to cut costs, recommend better models, and train a specialized model you own.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 3113,
+      "language": "Python"
+    },
+    "item_hash": "23693f7b66c2e7cc"
+  }
+]

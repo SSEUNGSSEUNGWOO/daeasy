@@ -1,0 +1,80 @@
+[
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+    "url": "https://openai.com/index/codex-quantum-computing-experiments",
+    "content": "See how an MIT researcher uses GPT-5.6 Sol with Codex to autonomously run quantum computing experiments, analyze results, and calibrate qubits.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "503e9c2326e78f3e"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "The Work Now Within Reach",
+    "url": "https://openai.com/index/the-work-now-within-reach",
+    "content": "Explore how more capable, affordable AI can expand the work people and businesses can accomplish—and make growth more economical.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "a00fc889a2dd293b"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Introducing ChatGPT Images 2.5",
+    "url": "https://openai.com/index/introducing-chatgpt-images-2-5",
+    "content": "ChatGPT Images 2.5 helps turn your ideas, sketches, and reference photos into more personalized, polished images that better reflect your ideas.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "1dcea8b0f8acab14"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "On the Navier–Stokes Millennium Prize Problem",
+    "url": "https://openai.com/index/navier-stokes-solution",
+    "content": "We’re sharing an AI-generated solution to the Navier–Stokes Millennium Prize Problem, including a writeup and a formal proof in Lean.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "2c827cba158d2f26"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Funding grants for new research into AI and teen development",
+    "url": "https://openai.com/index/teen-development-research-grants",
+    "content": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "7948c39493cbd65e"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "Google DeepMind Blog",
+    "title": "AlphaGenome Atlas: A predictive map of every possible DNA letter change in the human genome",
+    "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+    "content": "AlphaGenome Atlas maps the molecular effects of 9 billion single-letter DNA variants across the human genome.",
+    "published_at": "2026-09-08",
+    "image_url": null,
+    "extra": {
+      "company": "Google DeepMind"
+    },
+    "item_hash": "f0e27f432f48fb86"
+  }
+]

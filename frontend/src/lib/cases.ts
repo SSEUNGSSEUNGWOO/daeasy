@@ -11,6 +11,8 @@ export type CaseSummary = {
   thumbnail_url: string | null;
   view_count: number;
   like_count: number;
+  /** sitemap lastmod 용. 카드·목록 날짜는 conducted_at(게시일)이다 */
+  updated_at: string | null;
 };
 
 // 상세는 좋아요 수를 fetchCaseLikeCount 로 따로 조회한다
@@ -19,7 +21,7 @@ export type CaseDetail = Omit<CaseSummary, "like_count"> & {
 };
 
 const LIST_COLUMNS =
-  "slug,title,summary,client_name,conducted_at,thumbnail_url,view_count";
+  "slug,title,summary,client_name,conducted_at,thumbnail_url,view_count,updated_at";
 const DETAIL_COLUMNS = `${LIST_COLUMNS},description`;
 
 export async function fetchCases(): Promise<CaseSummary[]> {
@@ -47,6 +49,7 @@ export async function fetchCases(): Promise<CaseSummary[]> {
     thumbnail_url: (row.thumbnail_url as string | null) ?? null,
     view_count: (row.view_count as number) ?? 0,
     like_count: counts.get(row.slug as string) ?? 0,
+    updated_at: (row.updated_at as string | null) ?? null,
   }));
 }
 
@@ -74,7 +77,26 @@ export async function fetchCase(slug: string): Promise<CaseDetail | null> {
     thumbnail_url: (data.thumbnail_url as string | null) ?? null,
     description: (data.description as string) ?? "",
     view_count: (data.view_count as number) ?? 0,
+    updated_at: (data.updated_at as string | null) ?? null,
   };
+}
+
+/** 과정 상세의 "이 과정 교육후기" 카드. cases.course_id 로 연결된 공개 후기, 최신순. */
+export async function fetchCasesByCourse(courseId: string, limit = 3): Promise<CaseCard[]> {
+  const { data, error } = await supabase
+    .from("cases")
+    .select("slug,title,summary,thumbnail_url")
+    .eq("course_id", courseId)
+    .eq("status", "published")
+    .order("conducted_at", { ascending: false })
+    .limit(limit);
+  if (error) throw new Error(`Failed to fetch course cases: ${error.message}`);
+  return (data ?? []).map((row) => ({
+    slug: row.slug as string,
+    title: (row.title as string) ?? "",
+    summary: (row.summary as string) ?? "",
+    thumbnail_url: (row.thumbnail_url as string | null) ?? null,
+  }));
 }
 
 export type CaseCard = Pick<CaseSummary, "slug" | "title" | "summary" | "thumbnail_url">;

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/json-ld";
 import { LoginGate } from "@/components/login-gate";
+import { fetchCasesByCourse } from "@/lib/cases";
 import { fetchCourse, fetchCourses } from "@/lib/courses";
 import { isAuthenticated } from "@/lib/customer-auth";
 import { sanitizeHtml } from "@/lib/sanitize";
@@ -173,9 +174,60 @@ export default async function CourseDetailPage(
         </div>
       </section>
 
+      {/* 이 과정으로 진행한 교육후기 — cases.course_id 로 연결된 것만. 없으면 섹션 자체가 빠진다 */}
+      <CourseCases courseId={course.id} />
+
       {/* 다른 과정 보기 */}
       <RelatedCourses currentSlug={course.slug} level={course.level} />
     </>
+  );
+}
+
+async function CourseCases({ courseId }: { courseId: string }) {
+  const cases = await fetchCasesByCourse(courseId);
+  if (cases.length === 0) return null;
+
+  return (
+    <section className="border-t border-zinc-100 bg-white">
+      <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10 lg:py-20 reveal">
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+              교육후기
+            </p>
+            <h2 className="mt-3 text-[24px] font-extrabold tracking-[-0.01em] text-ink sm:text-[28px]">
+              이 과정으로 진행한 교육.
+            </h2>
+          </div>
+          <Link href="/cases" className="text-[14px] font-bold text-zinc-600 hover:text-ink">
+            전체 보기 →
+          </Link>
+        </div>
+        <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 reveal-stagger">
+          {cases.map((c) => (
+            <li key={c.slug}>
+              <Link
+                href={`/cases/${c.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl bg-zinc-50/70 ring-1 ring-zinc-100 transition hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-12px_rgba(15,15,15,0.18)] hover:ring-zinc-200"
+              >
+                {c.thumbnail_url ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img src={c.thumbnail_url} alt="" className="aspect-[16/9] w-full object-cover" />
+                ) : null}
+                <div className="p-7">
+                  <h3 className="text-[17px] font-bold leading-[1.35] tracking-[-0.01em] text-ink">
+                    {c.title}
+                  </h3>
+                  <p className="mt-3 line-clamp-3 text-[14px] leading-[1.65] text-zinc-600">
+                    {c.summary}
+                  </p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 

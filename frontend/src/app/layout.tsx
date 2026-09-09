@@ -39,6 +39,16 @@ const ORGANIZATION_LD = {
   ],
 };
 
+// 사이트 자체(WebSite) — Organization 과 별개 엔티티. 검색엔진이 사이트 이름을 이걸로 잡는다
+const WEBSITE_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "DAEASY(데이지)",
+  url: SITE_URL,
+  inLanguage: "ko",
+  publisher: { "@type": "Organization", name: "DAEASY(데이지)", url: SITE_URL },
+};
+
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
@@ -105,6 +115,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white text-ink-warm">
         <Script id="organization-ld" type="application/ld+json">
           {JSON.stringify(ORGANIZATION_LD)}
+        </Script>
+        <Script id="website-ld" type="application/ld+json">
+          {JSON.stringify(WEBSITE_LD)}
         </Script>
         {/* JS 미실행 환경에선 reveal 계열의 opacity:0 게이트를 해제해 본문이 보이게 한다 */}
         <noscript>

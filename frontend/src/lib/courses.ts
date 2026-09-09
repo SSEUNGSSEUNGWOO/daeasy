@@ -13,15 +13,19 @@ export type CourseSummary = {
   price: number | null;
   thumbnail_url: string | null;
   sort_order: number;
+  /** sitemap lastmod 용 */
+  updated_at: string | null;
 };
 
 export type CourseDetail = CourseSummary & {
+  /** cases.course_id 조인용 */
+  id: string;
   description: string;
 };
 
 const LIST_COLUMNS =
-  "slug,title,summary,level,duration_hours,price,thumbnail_url,sort_order";
-const DETAIL_COLUMNS = `${LIST_COLUMNS},description`;
+  "slug,title,summary,level,duration_hours,price,thumbnail_url,sort_order,updated_at";
+const DETAIL_COLUMNS = `${LIST_COLUMNS},id,description`;
 
 export async function fetchCourses(): Promise<CourseSummary[]> {
   const { data, error } = await supabase
@@ -40,6 +44,7 @@ export async function fetchCourses(): Promise<CourseSummary[]> {
     price: (row.price as number | null) ?? null,
     thumbnail_url: (row.thumbnail_url as string | null) ?? null,
     sort_order: (row.sort_order as number) ?? 0,
+    updated_at: (row.updated_at as string | null) ?? null,
   }));
 }
 
@@ -59,6 +64,7 @@ export async function fetchCourse(slug: string): Promise<CourseDetail | null> {
   if (!data) return null;
 
   return {
+    id: data.id as string,
     slug: data.slug as string,
     title: (data.title as string) ?? "",
     summary: (data.summary as string) ?? "",
@@ -67,6 +73,7 @@ export async function fetchCourse(slug: string): Promise<CourseDetail | null> {
     price: (data.price as number | null) ?? null,
     thumbnail_url: (data.thumbnail_url as string | null) ?? null,
     sort_order: (data.sort_order as number) ?? 0,
+    updated_at: (data.updated_at as string | null) ?? null,
     description: (data.description as string) ?? "",
   };
 }

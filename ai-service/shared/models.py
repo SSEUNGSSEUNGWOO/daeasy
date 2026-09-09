@@ -38,5 +38,8 @@ class Insight:
         if not self.slug:
             import re
             base = re.sub(r"[^\w\s-]", "", self.title.lower())
-            base = re.sub(r"[\s]+", "-", base)[:40]
+            base = re.sub(r"[\s]+", "-", base)
+            if len(base) > 40:
+                # 글자 수로 자르면 "…세워야-할-거버" 처럼 단어가 끊긴다 — 마지막 하이픈 경계에서 자른다
+                base = base[:40].rsplit("-", 1)[0].rstrip("-")
             self.slug = f"{date.today().isoformat()}-{base}"

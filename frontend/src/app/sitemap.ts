@@ -22,6 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/quiz",
     "/quiz/report",
     "/quiz/vibe",
+    "/quiz/redteam",
     "/privacy",
   ].map((path) => ({ url: `${SITE_URL}${path}` }));
 
@@ -39,8 +40,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...staticPages,
-    ...courses.map((c) => entry("/courses", c.slug)),
-    ...cases.map((c) => entry("/cases", c.slug)),
+    ...courses.map((c) => entry("/courses", c.slug, c.updated_at)),
+    ...cases.map((c) => entry("/cases", c.slug, c.updated_at)),
     ...insights.map((i) => entry("/insights", i.slug, i.published_at)),
   ];
 }

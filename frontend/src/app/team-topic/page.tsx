@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Reveal, RevealList } from "@/components/reveal";
 
@@ -53,77 +54,73 @@ function SectionHead({ no, title, sub }: { no: string; title: string; sub?: stri
 export default function TeamTopicPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      {/* ── 히어로: 다크 + 광원 + 괘선 ── */}
-      <section className="relative overflow-hidden bg-[#0b2a5b] text-white">
+      {/* ── 히어로: 크림 바탕 + 일러스트 ── */}
+      <section className="relative overflow-hidden bg-[#fefaf2]">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_115%,rgba(249,115,22,0.55),transparent_60%),radial-gradient(800px_480px_at_-5%_-10%,rgba(59,130,246,0.55),transparent_60%),linear-gradient(180deg,#061a3d,#0b2a5b)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_420px_at_100%_0%,rgba(249,115,22,0.12),transparent_60%)]"
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[size:100%_56px]"
-        />
-        <div className="relative mx-auto max-w-5xl px-5 pb-16 pt-20 sm:px-8 sm:pb-24 sm:pt-28">
-          <p
-            style={NUM_FONT}
-            className="anim-hero-fade text-[11px] font-bold uppercase tracking-[0.28em] text-accent-warm"
-          >
-            CDSA · Vibe Coding Team Project
-          </p>
-          <div className="mt-6 grid gap-10 lg:grid-cols-[7fr_5fr] lg:items-end">
-            <div className="anim-page-fade-up">
-              <h1 className="text-[clamp(2.6rem,7vw,5rem)] font-extrabold leading-[0.98] tracking-[-0.04em]">
-                범정부 AI 서비스,
-                <br />
-                우리 조는
-                <br />
-                무엇을 만들까<span className="text-accent-warm">.</span>
-              </h1>
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-                외부 데이터를 수집·정제·분석해 국민·공무원·연구자에게 도움이 되는 범정부 AI
-                서비스를 팀 단위로 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다.
-              </p>
-            </div>
-            <figure className="anim-cover-scale-fade relative rounded-3xl border border-white/20 bg-white/[0.08] p-7 backdrop-blur-xl sm:p-8">
-              <span
-                aria-hidden
-                style={NUM_FONT}
-                className="absolute -top-3 left-6 text-7xl font-extrabold leading-none text-accent-warm"
-              >
-                “
-              </span>
-              <figcaption
-                style={NUM_FONT}
-                className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/60"
-              >
-                핵심 질문
-              </figcaption>
-              <blockquote className="mt-4 text-2xl font-bold leading-snug tracking-[-0.02em] sm:text-[1.7rem]">
-                이 서비스는 누구의
-                <br />
-                어떤 문제를 푸는가?
-              </blockquote>
-              <p className="mt-4 text-sm leading-relaxed text-white/65">
-                한 문장으로 답할 수 있어야 합니다. 그 문장이 곧 제출 내용입니다.
-              </p>
-            </figure>
+        <div className="relative mx-auto grid max-w-5xl items-center gap-8 px-5 pb-8 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-[6fr_5fr] lg:gap-6">
+          <div>
+            <p
+              style={NUM_FONT}
+              className="anim-hero-fade text-[11px] font-bold uppercase tracking-[0.28em] text-accent-warm"
+            >
+              CDSA · Vibe Coding Team Project
+            </p>
+            <h1 className="anim-page-fade-up mt-5 text-[clamp(2.5rem,6.5vw,4.6rem)] font-extrabold leading-[1.0] tracking-[-0.04em] text-[#1f3a93]">
+              범정부 AI 서비스,
+              <br />
+              우리 조는
+              <br />
+              무엇을 만들까<span className="text-accent-warm">.</span>
+            </h1>
+            <p className="anim-page-fade-up mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+              외부 데이터를 수집·정제·분석해 국민·공무원·연구자에게 도움이 되는 범정부 AI
+              서비스를 팀 단위로 기획·구현·시연합니다. 예시는 참고일 뿐, 주제는 자유입니다.
+            </p>
+            <dl className="anim-hero-fade mt-10 grid grid-cols-4 gap-4">
+              {STATS.map(([n, label]) => (
+                <div key={label}>
+                  <dt className="sr-only">{label}</dt>
+                  <dd className="flex items-baseline gap-1.5">
+                    <span
+                      style={NUM_FONT}
+                      className="text-3xl font-extrabold tracking-[-0.04em] text-[#1f3a93] sm:text-4xl"
+                    >
+                      {n}
+                    </span>
+                    <span className="text-xs text-slate-500 sm:text-sm">{label}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <dl className="anim-hero-fade mt-14 grid grid-cols-2 gap-6 border-t border-white/15 pt-8 sm:grid-cols-4">
-            {STATS.map(([n, label]) => (
-              <div key={label}>
-                <dt className="sr-only">{label}</dt>
-                <dd className="flex items-baseline gap-2">
-                  <span
-                    style={NUM_FONT}
-                    className="text-4xl font-extrabold tracking-[-0.04em] text-white sm:text-5xl"
-                  >
-                    {n}
-                  </span>
-                  <span className="text-sm text-white/60">{label}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <div className="anim-cover-scale-fade relative mx-auto w-full max-w-[420px] lg:max-w-none">
+            <Image
+              src="/illust/quiz-vibe.webp"
+              alt="노트북 화면의 플로차트와 날아가는 로켓 일러스트"
+              width={640}
+              height={640}
+              priority
+              className="h-auto w-full mix-blend-multiply"
+            />
+          </div>
+        </div>
+        {/* 핵심 질문 띠 */}
+        <div className="bg-[#1f3a93] text-white">
+          <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-8 gap-y-3 px-5 py-6 sm:px-8">
+            <p
+              style={NUM_FONT}
+              className="text-[11px] font-bold uppercase tracking-[0.28em] text-accent-warm"
+            >
+              핵심 질문
+            </p>
+            <p className="text-xl font-bold leading-snug tracking-[-0.02em] sm:text-2xl">
+              “이 서비스는 누구의 어떤 문제를 푸는가?”
+            </p>
+            <p className="text-sm text-white/70 sm:ml-auto">한 문장으로 답할 수 있어야 합니다. 그 문장이 곧 제출 내용입니다.</p>
+          </div>
         </div>
       </section>
 
@@ -137,7 +134,7 @@ export default function TeamTopicPage() {
                 <span
                   aria-hidden
                   style={NUM_FONT}
-                  className="absolute right-0 top-4 text-6xl font-extrabold leading-none tracking-[-0.06em] text-[#dbe4f0] transition-colors duration-300 group-hover:text-accent-warm"
+                  className="absolute right-0 top-4 text-6xl font-extrabold leading-none tracking-[-0.06em] text-[#dde2f3] transition-colors duration-300 group-hover:text-accent-warm"
                 >
                   {t.code}
                 </span>
@@ -177,7 +174,7 @@ export default function TeamTopicPage() {
               </li>
             ))}
           </RevealList>
-          <Reveal className="mt-12 rounded-3xl bg-[#0b2a5b] px-6 py-6 text-white sm:px-8">
+          <Reveal className="mt-12 rounded-3xl bg-[#1f3a93] px-6 py-6 text-white sm:px-8">
             <dl className="grid gap-5 sm:grid-cols-4">
               {RULES.map(([k, v]) => (
                 <div key={k}>

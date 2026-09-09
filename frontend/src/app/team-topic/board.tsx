@@ -9,7 +9,7 @@ const TEAM_NOS = Array.from({ length: TEAM_COUNT }, (_, i) => i + 1);
 const pad = (n: number) => String(n).padStart(2, "0");
 
 const FIELD =
-  "w-full rounded-2xl border border-slate-200 bg-[#f5f9ff] px-4 py-3.5 text-base text-slate-900 outline-none transition-[box-shadow,border-color,background-color] duration-150 placeholder:text-slate-400 focus:border-[#0b2a5b] focus:bg-white focus:ring-4 focus:ring-[#0b2a5b]/15";
+  "w-full rounded-2xl border border-slate-200 bg-[#f7f8fd] px-4 py-3.5 text-base text-slate-900 outline-none transition-[box-shadow,border-color,background-color] duration-150 placeholder:text-slate-400 focus:border-[#1f3a93] focus:bg-white focus:ring-4 focus:ring-[#1f3a93]/15";
 
 async function fetchRows(): Promise<TeamTopic[]> {
   const res = await fetch("/api/team-topic", { cache: "no-store" });
@@ -136,7 +136,7 @@ export function TeamTopicBoard() {
             </div>
           </div>
           <p style={NUM_FONT} className="pb-1 text-sm font-bold tabular-nums text-slate-600">
-            <span className="text-3xl text-[#0b2a5b]">{submittedCount}</span> / {TEAM_COUNT}
+            <span className="text-3xl text-[#1f3a93]">{submittedCount}</span> / {TEAM_COUNT}
           </p>
         </div>
 
@@ -147,7 +147,7 @@ export function TeamTopicBoard() {
               return (
                 <li
                   key={n}
-                  className="flex min-h-36 items-start justify-between rounded-3xl border border-dashed border-[#c8d6ec] bg-[#f5f9ff] p-6"
+                  className="flex min-h-36 items-start justify-between rounded-3xl border border-dashed border-[#c9d1ec] bg-[#f7f8fd] p-6"
                 >
                   <span
                     style={NUM_FONT}
@@ -162,13 +162,13 @@ export function TeamTopicBoard() {
             return (
               <li
                 key={`${n}-${r.updated_at}`}
-                className="anim-page-fade-up relative min-h-36 overflow-hidden rounded-3xl border border-[#dbe4f0] bg-white p-6 shadow-[0_18px_40px_-24px_rgba(11,42,91,0.28)] transition-transform duration-300 ease-out hover:-translate-y-0.5 motion-reduce:transition-none"
+                className="anim-page-fade-up relative min-h-36 overflow-hidden rounded-3xl border border-[#dde2f3] bg-white p-6 shadow-[0_18px_40px_-24px_rgba(31,58,147,0.28)] transition-transform duration-300 ease-out hover:-translate-y-0.5 motion-reduce:transition-none"
               >
                 <span aria-hidden className="absolute inset-y-0 left-0 w-1.5 bg-accent-warm" />
                 <div className="flex items-start justify-between gap-4">
                   <span
                     style={NUM_FONT}
-                    className="text-4xl font-extrabold tracking-[-0.04em] text-[#0b2a5b]"
+                    className="text-4xl font-extrabold tracking-[-0.04em] text-[#1f3a93]"
                   >
                     {pad(n)}
                   </span>
@@ -211,7 +211,7 @@ export function TeamTopicBoard() {
 
         <form
           onSubmit={onSubmit}
-          className="mt-10 space-y-7 rounded-[28px] border border-[#dbe4f0] bg-white p-6 shadow-[0_32px_80px_-32px_rgba(11,42,91,0.28)] sm:p-10"
+          className="mt-10 space-y-7 rounded-[28px] border border-[#dde2f3] bg-white p-6 shadow-[0_32px_80px_-32px_rgba(31,58,147,0.28)] sm:p-10"
         >
           <fieldset>
             <legend style={NUM_FONT} className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-500">
@@ -231,8 +231,8 @@ export function TeamTopicBoard() {
                     style={NUM_FONT}
                     className={`relative aspect-square rounded-2xl text-xl font-extrabold tabular-nums transition-[transform,background-color,color,box-shadow] duration-150 active:scale-[0.94] ${
                       selected
-                        ? "bg-[#0b2a5b] text-white shadow-[0_0_0_3px_#f97316]"
-                        : "bg-[#eaf3ff] text-[#0b2a5b] hover:bg-[#d9e8ff]"
+                        ? "bg-[#1f3a93] text-white shadow-[0_0_0_3px_#f97316]"
+                        : "bg-[#eef1fb] text-[#1f3a93] hover:bg-[#dfe4f7]"
                     }`}
                   >
                     {pad(n)}
@@ -312,7 +312,7 @@ export function TeamTopicBoard() {
       {/* ── 하단 고정 바: 다크 반투명 재질, 폼이 보이면 숨김 ── */}
       <div
         aria-hidden={formVisible}
-        className={`fixed inset-x-0 bottom-0 z-10 border-t border-white/10 bg-[#0b2a5b]/85 text-white backdrop-blur-xl backdrop-saturate-150 transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none ${
+        className={`fixed inset-x-0 bottom-0 z-10 border-t border-white/10 bg-[#1f3a93]/85 text-white backdrop-blur-xl backdrop-saturate-150 transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none ${
           formVisible ? "pointer-events-none translate-y-full opacity-0" : "translate-y-0 opacity-100"
         }`}
       >

@@ -1,0 +1,156 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Tencent/teamai-cli",
+    "url": "https://github.com/Tencent/teamai-cli",
+    "content": "Make Every Team AI Native",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 2938,
+      "language": "TypeScript"
+    },
+    "item_hash": "732eeea46bd20b62"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "earthtojake/text-to-cad",
+    "url": "https://github.com/earthtojake/text-to-cad",
+    "content": "A library of agent skills for CAD, CAE and CAM",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 15015,
+      "language": "Python"
+    },
+    "item_hash": "05a74004d0aa7653"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "liquidslr/system-design-notes",
+    "url": "https://github.com/liquidslr/system-design-notes",
+    "content": "Notes of the book System Desgin Interview - An Insider's Guide",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 17963,
+      "language": ""
+    },
+    "item_hash": "36508c7443d7475f"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "freestylefly/awesome-gpt-image-2",
+    "url": "https://github.com/freestylefly/awesome-gpt-image-2",
+    "content": "Prompt as Code | GPT-Image2 工业级提示词引擎与模板库，530+ 个案例逆向工程，20+ 套工业级模板，并提炼出Skills，持续更新中",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 29999,
+      "language": "JavaScript"
+    },
+    "item_hash": "0ad7ab3d65b2ec95"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "vastsa/PI-Desktop",
+    "url": "https://github.com/vastsa/PI-Desktop",
+    "content": "Local-first AI coding agent desktop: Electron + Rust host core + pi Agent Harness + user-installable plugins",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 1638,
+      "language": "TypeScript"
+    },
+    "item_hash": "3b4c98dc73baa41c"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "public-apis/public-apis",
+    "url": "https://github.com/public-apis/public-apis",
+    "content": "A collective list of free APIs",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 478114,
+      "language": "Python"
+    },
+    "item_hash": "415cb25759660433"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Alishahryar1/free-claude-code",
+    "url": "https://github.com/Alishahryar1/free-claude-code",
+    "content": "Use Claude Code, Codex, Pi, and OpenCode and more for free (1.3B+ free tokens) from your terminal, app, IDE, or phone like OpenClaw (voice supported + ToS friendly)",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 54198,
+      "language": "Python"
+    },
+    "item_hash": "9d67ce648f6a8919"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "smicallef/spiderfoot",
+    "url": "https://github.com/smicallef/spiderfoot",
+    "content": "SpiderFoot automates OSINT for threat intelligence and mapping your attack surface.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 21986,
+      "language": "Python"
+    },
+    "item_hash": "5a20fe74b08287c3"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "OpenDCAI/GameFactory-3A",
+    "url": "https://github.com/OpenDCAI/GameFactory-3A",
+    "content": "A comprehensive open-source 3A game-generation skill and asset framework.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 595,
+      "language": "Python"
+    },
+    "item_hash": "0b11d6b29c2431d8"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "anbeime/skill",
+    "url": "https://github.com/anbeime/skill",
+    "content": "收录最全、更新最快的技能Skills商店：精选原创技能包（涵盖文档处理、内容创作、编程开发、机器学习、自动化工作流），全部打包好可直接安装使用！同时自动抓取GitHub上万个Skills项目，按分类、更新时间、Star数量整理。The most comprehensive and frequently updated AI Agent skill library, featuring curated skill packs across document processing, content creation, programming, machine learning, automated workflows, and many more domains.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 6455,
+      "language": "Python"
+    },
+    "item_hash": "0ce53ce2e0e88fd3"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Sumanth077/Hands-On-AI-Engineering",
+    "url": "https://github.com/Sumanth077/Hands-On-AI-Engineering",
+    "content": "A curated collection of practical AI projects implementing OCR systems, RAG, AI agents, and other AI use cases.",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "stars": 3362,
+      "language": "Python"
+    },
+    "item_hash": "4c647f9905c6a147"
+  }
+]

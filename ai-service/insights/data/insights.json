@@ -1107,5 +1107,144 @@
       "오픈소스",
       "산업 적용"
     ]
+  },
+  {
+    "title": "GPT-6 아스트라 출시 주간, AI 도입 성과는 모델 성능보다 워크플로우와 검증 체계가 가른다",
+    "body": "## 핵심 인사이트\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/fe05bf7727b84a0b.png)\n\n1. ### 벤치마크가 '장기 업무'로 바뀌었다\n\n   아티피셜 애널리시스는 6일 지능 지수(AAII)를 v4.2로 개편하며 평가 축을 장기 에이전트 작업 중심으로 옮겼다. 수주에 걸친 프로젝트형 업무를 비공개 테스트셋으로 측정하는 'AA-브리프케이스'와 500페이지 문서·100개 이상 PDF를 분석하는 'GDP.pdf'가 새로 들어갔고, 상위 모델 간 변별력이 사라진 객관식 'GPQA 다이아몬드'는 빠졌다. 그 결과 기존 지수에서 61점으로 5위였던 GPT-6 아스트라가 새 체계에서는 53점으로 클로드 페이블 5.1과 공동 1위가 됐고, 이어진 v4.3에서는 터미널-벤치가 4.0으로 올라가고 재피어 기반 업무 자동화 벤치마크(지메일·슬랙·세일즈포스·지라 가상 앱에서 657개 워크플로 수행)인 '오토메이션벤치-AA'가 추가됐다. 같은 주에 아스트라는 닐 아가르왈이 만든 48단계 캡차 게임 '나는 로봇이 아닙니다'를 모두 통과했고, OS월드 2.0 점수도 전작 GPT-5.6 Sol의 65.7%에서 72.6%로 올랐다. 반면 시장에서는 앤트로픽 페이블 5.1, 메타 뮤즈 스파크 1.3, 구글 제미나이 3.8 플래시, GPT-6 아스트라가 한 주에 몰려 나오자 CNBC가 '모델 피로감'이라 부른 반응이 나왔다. 클록워크 시스템즈의 수레시 바수데반 CEO는 한 작업에 10개 모델을 평가해야 할 때 실제로는 5개 정도만 시험하게 된다고 말했다.\n\n   **에디터 코멘트:** *평가 기관이 단답형 시험을 버리고 \"며칠짜리 프로젝트를 끝까지 해내는가\"를 재기 시작했다는 것은, 기업이 모델을 고를 때 봐야 할 지표도 같은 방향으로 바뀌어야 한다는 뜻이다. 다만 공동 1위라는 결과보다 중요한 건 기사에 나온 대로 \"토큰 단가가 내려도 호출 횟수와 추론 토큰이 늘면 총비용은 오히려 커질 수 있다\"는 점이다. 실무에서는 공개 벤치마크 순위를 참고 자료로만 두고, 자사 업무 데이터로 만든 소규모 회귀 테스트(정답이 있는 20~50건 수준이면 시작 가능)를 모델 교체의 유일한 기준으로 삼는 편이 안전하다. 새 모델이 나올 때마다 갈아타는 대신, 검증된 한 가지 설정을 표준으로 두고 분기 단위로만 재평가하는 운영 규칙이 피로감을 줄인다.*\n\n   [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=214973) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=214925) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215003)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/e4ce54c5dfc9ee4a.jpg)\n\n2. ### 모델보다 '구축 인력'에 돈이 몰린다\n\n   구글 클라우드와 액센츄어는 8일 고객사 현장에 엔지니어를 직접 보내는 전담 조직 '액센츄어 제미나이 엔터프라이즈 비즈니스 그룹'을 출범시켰고, 구글은 액센츄어의 현장 파견 엔지니어(FDE) 최대 1,000명을 교육하기로 했다. 결제 데이터 기업 램프의 8월 집계에서 미국 고객사 기업용 AI 지출 비중은 앤트로픽 43.5%, 오픈AI 39.7%, 구글 약 6%였다. 같은 램프 데이터에서 8월에 AI 제품에 돈을 낸 고객사 비율은 56%로 전월 대비 0.4% 오르는 데 그쳤고, 상위 1% 기업의 직원당 AI 지출은 약 10% 줄어 7,205달러였다. 삼성SDS 이준희 대표는 8일 '리얼 서밋 2026'에서 맥킨지 데이터를 인용해 기업의 88%가 최소 한 업무에 AI를 도입했지만 이익에 유의미하게 기여한다고 답한 곳은 6%에 그친다고 말했으며, 연내 AX 전문 FDE를 200여 명으로 늘리겠다고 밝혔다. 코난테크놀로지 양승현 COO는 9일 서밋에서 ROI 부진의 원인으로 'AI 오류 관측성' 부재를 꼽고, KPI가 처리 건수·소요 시간에서 AI 자동완결률·에스컬레이션율·검증 통과율·롤백 빈도로 바뀔 것이라고 말했다.\n\n   **에디터 코멘트:** *오픈AI·앤트로픽·MS·AWS에 이어 구글까지 FDE 조직을 세운 것은, 벤더들 스스로 \"모델을 팔아도 고객이 성과를 못 내면 매출이 안 따라온다\"는 사실을 인정한 셈이다. 램프 데이터는 미국 기술 친화적 고객사에 치우쳐 있어 국내 상황에 그대로 옮길 수 없지만, 도입률 정체와 직원당 지출 감소가 동시에 나타났다는 신호는 무겁게 봐야 한다. 국내 조직이라면 외부 FDE를 부르기 전에 코난테크가 제시한 KPI 중 '자동완결률'과 '에스컬레이션율' 두 개만이라도 지금 돌리는 파일럿에 붙여보는 것이 첫걸음이다. 이 두 숫자가 없으면 6%에 들었는지 88%에 머물렀는지 자체를 알 수 없다.*\n\n   [TechCrunch](https://techcrunch.com/2026/09/08/google-cloud-races-to-catch-up-in-the-ai-deployment-wars-with-accenture-deal/) · [TechCrunch](https://techcrunch.com/2026/09/09/ai-spend-per-employee-slumped-at-top-firms-in-august-summer-doldrums-or-a-warning-sign/) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=214966) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215067)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/a5546afd5b804a8d.jpg)\n\n3. ### 에이전트 계정이 새 공격면이다\n\n   영국의 독립 AI 컨설턴트 그랜트 드 스워트는 8월 4일 월 200달러짜리 클로드 맥스 20x 계정에서 아무 작업도 하지 않았는데 토큰 사용량이 45%에서 55%로 오르는 현상을 겪었고, 앤트로픽은 조사 끝에 탈취된 세션 키로 승인되지 않은 클로드 코드 OAuth 토큰이 발급된 것으로 판단했다. 앤트로픽은 일부 피해자에게 브라우저 로그인 세션을 훔치는 '인포스틸러' 악성코드가 원인이라고 안내하고 세션과 인증 권한을 무효화했지만, 고객지원은 전체 사용량만 보여줄 뿐 어떤 작업에서 토큰이 쓰였는지 세부 내역은 제공하지 못했다. 같은 주 구글은 크롬 153부터 정식 업데이트 주기를 4주에서 2주로 줄였는데, AI 기반 자동 취약점 탐지로 패치량이 늘고 위협 속도도 빨라져 알려진 취약점이 사용자에게 패치되기까지의 'N-day 격차'를 줄여야 한다는 이유였다. 세쿼이아가 투자한 보안 스타트업 심포니는 미국의 한 상장사에서 AI 도구와 에이전트가 접근할 수 있게 된 파일 약 85,000개를 찾아냈고, 다른 사례에서는 외부 협력자가 승인 없이 설치한 클로드 인스턴스가 기존 권한으로 민감 파일 수천 개를 스캔한 것을 확인했다고 밝혔다. 미국 보안 회사 칼리프는 최신 AI 모델로 위챗의 원격 코드 실행 취약점을 찾고 사람 조작 없이 기기 간 전파되는 '제로 클릭' 웜을 만드는 데 총 9일이 걸렸다고 공개했고, 텐센트는 서버 측 완화 조치와 패치를 완료했다고 밝혔다.\n\n   **에디터 코멘트:** *이 사건들의 공통점은 공격 대상이 '모델'이 아니라 모델에 붙은 세션·토큰·권한이라는 점이다. 직원 PC의 브라우저 세션 하나가 털리면 회사가 결제하는 에이전트 사용량이 통째로 남의 손에 넘어가고, 사용 내역이 항목별로 남지 않으면 몇 달 동안 모를 수 있다. 실무 차원의 대응은 새롭지 않다. 에이전트 계정을 사람 계정과 같은 신원 관리 체계(퇴직·이동 시 즉시 회수)에 넣고, 에이전트가 읽을 수 있는 공유 드라이브 범위를 실제로 점검하며, 브라우저 세션 탈취 대비로 엔드포인트 보안을 AI 도구 도입 조건에 포함시키는 것이다. 벤더가 사용량 세부 내역을 안 주는 동안은 사내에서 API 게이트웨이나 프록시로 호출 로그를 직접 남기는 편이 낫다.*\n\n   [TechCrunch](https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215037) · [TechCrunch](https://techcrunch.com/2026/09/08/chrome-is-now-shipping-updates-every-2-weeks-as-ai-changes-the-security-landscape/) · [TechCrunch](https://techcrunch.com/2026/09/09/sequoia-doubles-down-on-cymphony-as-ai-agents-create-new-enterprise-security-risks/) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215039)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/f2fd3d76f6885596.png)\n\n4. ### 에이전트 실패는 '재현성' 문제다\n\n   이번 주 arXiv에는 장기 실행 에이전트의 신뢰성을 다룬 논문이 여럿 올라왔다. 'Closing the Consistency Gap'은 LLM 에이전트가 평균적으로는 정확해도 운영 환경에서는 불안정하다는 격차를 지적하며, GPT-4.1 기반 ReAct 에이전트에 AppWorld 벤치마크의 같은 과제를 다섯 번 주었을 때 다섯 번 모두 성공하는 비율이 53%에 그쳤다고 보고했다. 'Procedural Graphs'는 대부분의 에이전트가 누적된 대화 이력 위에서 제약 없는 생성으로 행동을 고르기 때문에 '무엇을, 어떤 순서로, 어떤 조건에서' 하는지의 절차 지식이 암묵적으로 남는다는 문제를 제기하고 자기 진화하는 실행 구조를 제안했다. 'MeClear'는 장기 에이전트의 외부 메모리가 의미 유사도 기준으로 검색되다 보니 오래되거나 오해를 부르는 정보를 끌어오는 문제를, 'Experience Funnel'은 과제별 상호작용 경험을 재사용 가능한 형태로 바꾸는 문제를 각각 다뤘다. 깃허브 트렌딩에서도 같은 관심이 보인다. 안드레이 카파시의 LLM 코딩 함정 관찰을 CLAUDE.md 한 파일로 정리한 multica-ai/andrej-karpathy-skills, 'Bash만 있으면 된다'는 기조로 클로드 코드 같은 에이전트 하네스를 0에서 만들어보는 shareAI-lab/learn-claude-code, 코딩 에이전트가 답을 장황한 출력 속에 묻지 않게 하는 스킬 ayghri/i-have-adhd가 함께 올라왔다.\n\n   **에디터 코멘트:** *\"5번 중 5번 성공이 53%\"라는 숫자는 특정 모델·특정 벤치마크의 결과지만, 데모에서 잘 되던 에이전트가 운영에 들어가면 간헐적으로 실패하는 현상을 설명하는 근거로 충분하다. 이는 1번 항목의 장기 업무 벤치마크 개편, 2번 항목의 '관측성 부재' 진단과 같은 문제를 학계·평가 기관·구축 업체가 각자의 언어로 말하는 것이다. 실무에서 당장 옮길 수 있는 교훈은 절차 지식을 프롬프트 안의 암묵적 맥락으로 두지 말고 명시적 실행 구조(체크리스트, 단계별 검증, 롤백 지점)로 꺼내라는 것이다. 카파시 스킬 저장소처럼 팀의 규칙을 문서 한 장으로 고정하는 방식은 비용이 거의 들지 않으니, 파일럿 단계에서 먼저 도입해볼 만하다.*\n\n   [arXiv](https://arxiv.org/abs/2609.08832) · [arXiv](https://arxiv.org/abs/2609.09153) · [arXiv](https://arxiv.org/abs/2609.09115) · [arXiv](https://arxiv.org/abs/2609.08919) · [GitHub](https://github.com/multica-ai/andrej-karpathy-skills) · [GitHub](https://github.com/shareAI-lab/learn-claude-code) · [GitHub](https://github.com/ayghri/i-have-adhd)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/5c04e27910730ef7.jpg)\n\n5. ### 소버린 AI, 보유에서 결합으로\n\n   프랑스 미스트랄 AI는 7일 삼성전자가 주도하고 EQT의 스케일업 유럽 펀드와 PSG 에쿼티가 공동 참여한 30억 유로 규모 시리즈 D를 유치해 기업 가치 210억 유로를 넘겼으며, 미스트랄은 이를 유럽 기술 기업 역사상 최대 단일 투자라고 밝혔다. 미스트랄은 2030년까지 유럽에 1GW 컴퓨팅을 구축할 계획이고, 8월에는 고객이 질의 처리 지역을 고르는 도구를 내놓았으며 현재 20개국에서 에어버스·ASML·HSBC 등 125개 이상 기업·기관에 맞춤형 AI 인프라를 제공하고 있다. 마크롱 대통령은 이번 라운드가 프랑스와 한국이 \"AI의 제3의 길\"을 만든다는 목표를 반영한다고 썼다. 삼성전자는 9일 한·프랑스 정상회담에 맞춰 DS부문이 미스트랄의 대형언어모델 '미스트랄 라지'로 반도체 특화 AI를 만들어 데이터 분석·결함 예측·공정 최적화에 단계적으로 적용하고, 모델은 내부 인프라에서 돌리는 온프레미스 방식으로 운영한다고 발표했다. 같은 방문 기간 과기정통부는 8일 파리에서 4월 협력의향서를 구체화한 AI·반도체·양자 MOU를 체결해 정례 회의와 공동연구, 상호 투자 유치를 추진하기로 했다. 한편 포티투마루 김동환 대표는 9일 글로벌 디지털 포럼에서 AI 모델 수나 GPU 확보량 같은 공급 지표 대신 기업 AI 활용률, 산업별 AX 전환율, 노동생산성 증가, AI 활용 기업의 수출 증가를 KPI로 관리하는 '포스트 소버린 AI' 3단계 전략을 제안했다.\n\n   **에디터 코멘트:** *삼성-미스트랄 계약의 핵심은 투자 금액보다 구조에 있다. 국가 핵심 기술 데이터를 외부로 내보내지 않기 위해 외부 모델을 사내 인프라로 들여와 자사 데이터로 특화하는 방식은, 규모는 다르지만 데이터 반출이 어려운 공공기관과 제조업체가 따라갈 수 있는 형태다. 포티투마루의 제언은 이 흐름을 국가 KPI 관점에서 뒤집어 본 것으로, \"GPU를 몇 장 샀나\"가 아니라 \"그걸로 어느 부서의 생산성이 얼마나 올랐나\"를 묻는다. 실무자라면 자사의 AI 도입 보고서에 인프라·라이선스 항목만 있고 활용률·전환율 항목이 없는지 먼저 확인해볼 만하다.*\n\n   [TechCrunch](https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215009) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215015) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215061) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215048)\n\n## 실무 적용 가이드\n\n**단기 (1~3개월)**\n- 모델 교체 기준을 공개 벤치마크에서 자사 회귀 테스트로 옮긴다. 정답이 있는 실제 업무 사례 20~50건을 골라 현재 모델의 점수를 먼저 기록해두고, 새 모델은 이 세트를 통과할 때만 검토 대상에 올린다.\n- 조직에서 쓰는 AI 도구·에이전트 계정을 목록화하고 각 계정이 접근 가능한 공유 폴더·SaaS 범위를 점검한다. 심포니 사례처럼 \"AI가 읽을 수 있게 된 파일\"이 얼마나 되는지 세어보는 것이 출발점이며, 퇴직·이동 시 회수 절차에 에이전트 계정을 포함시킨다.\n- 파일럿 중인 에이전트에 자동완결률과 에스컬레이션율 두 지표를 붙인다. 처리 건수만 세는 대시보드는 6%와 88%를 구분하지 못한다.\n\n**중기 (3~12개월)**\n- 절차 지식을 프롬프트 안의 암묵적 맥락에서 명시적 실행 구조로 꺼낸다. 체크포인트·재검증·롤백 지점을 워크플로우 설계 단계에서 정의하고, 같은 과제를 여러 번 돌렸을 때의 결과 일관성을 성공률과 별도로 측정한다.\n- 벤더가 사용량 세부 내역을 제공하지 않는 동안 사내 게이트웨이나 프록시로 호출 로그를 직접 남기는 체계를 마련한다. 이 로그는 비용 이상 징후 탐지와 관측성 확보에 동시에 쓰인다.\n- 외부 FDE를 부를지 자체 인력을 키울지 결정하기 전에, 벤더 파트너 프로그램(삼성SDS·액센츄어 등)이 제공하는 범위와 자사 데이터 반출 제약을 먼저 대조한다. 데이터가 나갈 수 없는 조직이라면 삼성-미스트랄식 온프레미스 특화가 현실적인 선택지다.\n\n**구조적 변화**\n- 경쟁축이 \"누가 가장 좋은 모델을 갖고 있나\"에서 \"누가 고객 업무에 성과를 내주나\"로 옮겨가고 있다. 벤더의 FDE 조직 신설, 평가 기관의 장기 업무 벤치마크 전환, 학계의 재현성 연구가 같은 방향을 가리키므로, 조직 내부의 AI 역량 투자도 모델 접근권보다 워크플로우 재설계와 검증 인력에 비중을 두는 편이 흐름에 맞다.\n- 에이전트가 사람과 같은 시스템 권한을 갖고 기계 속도로 움직이는 만큼, 보안 모델도 사람 중심 신원 관리에서 사람·에이전트 통합 관리로 바뀌어야 한다. 인포스틸러 피해와 무단 에이전트 스캔 사례는 이 전환이 늦어질 때 어떤 형태로 비용이 청구되는지 미리 보여준 사례다.",
+    "sources": [
+      {
+        "title": "아티피셜 애널리시스 평가 체제 개편...'아스트라' 공동 1위로 상승",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=214973",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "[9월7일] “일주일에 4개나 출시”...커지는 ‘모델 피로감’",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=214925",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "48단계 캡차 최초 완파…GPT-6 아스트라, '컴퓨터 유즈' 성능 입증",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215003",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "Google Cloud races to catch up in the AI deployment wars with Accenture deal",
+        "url": "https://techcrunch.com/2026/09/08/google-cloud-races-to-catch-up-in-the-ai-deployment-wars-with-accenture-deal/",
+        "source_id": "ai_news"
+      },
+      {
+        "title": "AI spend per employee slumped at top firms in August — summer doldrums or a warning sign?",
+        "url": "https://techcrunch.com/2026/09/09/ai-spend-per-employee-slumped-at-top-firms-in-august-summer-doldrums-or-a-warning-sign/",
+        "source_id": "ai_news"
+      },
+      {
+        "title": "삼성SDS, '다차원 AI 풀스택' 공개…AI 보안·피지컬 AI로 영역 확장",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=214966",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "코난테크 \"AI ROI 체감 못하는 이유는...워크플로우·KPI 뜯어 고쳐야\"",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215067",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "Hackers are stealing Claude tokens from subscribers",
+        "url": "https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/",
+        "source_id": "ai_news"
+      },
+      {
+        "title": "클로드 유료 계정 토큰 탈취 잇달아…'인포스틸러' 주의보",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215037",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "Chrome is now shipping updates every 2 weeks as AI changes the security landscape",
+        "url": "https://techcrunch.com/2026/09/08/chrome-is-now-shipping-updates-every-2-weeks-as-ai-changes-the-security-landscape/",
+        "source_id": "ai_news"
+      },
+      {
+        "title": "Sequoia doubles down on Cymphony as AI agents create new enterprise security risks",
+        "url": "https://techcrunch.com/2026/09/09/sequoia-doubles-down-on-cymphony-as-ai-agents-create-new-enterprise-security-risks/",
+        "source_id": "ai_news"
+      },
+      {
+        "title": "\"전화 안 받아도 감염\"...AI가 개발한 '클릭 제로' 모바일 해킹 도구 등장",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215039",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "Closing the Consistency Gap: Self-Evolving Agents That Learn to Stay on Course",
+        "url": "https://arxiv.org/abs/2609.08832",
+        "source_id": "arxiv"
+      },
+      {
+        "title": "Procedural Graphs: Self-Evolving Execution Structures for LLM Agents",
+        "url": "https://arxiv.org/abs/2609.09153",
+        "source_id": "arxiv"
+      },
+      {
+        "title": "MeClear: Cooperative Game-Theoretic Attribution and Risk-Aware Memory Clearance for Long-Horizon LLM Agents",
+        "url": "https://arxiv.org/abs/2609.09115",
+        "source_id": "arxiv"
+      },
+      {
+        "title": "Experience Funnel: A State-Policy Alternating Loop for Self-Evolving Agents",
+        "url": "https://arxiv.org/abs/2609.08919",
+        "source_id": "arxiv"
+      },
+      {
+        "title": "multica-ai/andrej-karpathy-skills",
+        "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+        "source_id": "github_trending"
+      },
+      {
+        "title": "shareAI-lab/learn-claude-code",
+        "url": "https://github.com/shareAI-lab/learn-claude-code",
+        "source_id": "github_trending"
+      },
+      {
+        "title": "ayghri/i-have-adhd",
+        "url": "https://github.com/ayghri/i-have-adhd",
+        "source_id": "github_trending"
+      },
+      {
+        "title": "Mistral raises €3B as sovereign AI becomes big business",
+        "url": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/",
+        "source_id": "ai_news"
+      },
+      {
+        "title": "미스트랄, 삼성 주도로 4.4조 투자 유치…\"소버린 AI 구축 가속\"",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215009",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "삼성전자, 미스트랄 AI와 맞손...‘반도체 특화 AI’ 개발 나선다",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215015",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "과기부, 프랑스와 AI·양자기술 협력 강화",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215061",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "'포스트 소버린 AI' 제언...\"GPU·모델 많다고 AI 강국 아니다\"",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215048",
+        "source_id": "kr_ai_policy"
+      }
+    ],
+    "published_at": "2026-09-10",
+    "category": "daily_report",
+    "image_url": "https://images.unsplash.com/photo-1787839227786-17f3149942a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzE4MjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODg5OTU5NjN8&ixlib=rb-4.1.0&q=80&w=1080",
+    "evaluation_score": 4.561,
+    "crawled_count": 195,
+    "slug": "2026-09-10-gpt-6-아스트라-출시-주간-ai-도입-성과는-모델-성능보다",
+    "tags": [
+      "모델",
+      "비즈니스",
+      "보안",
+      "기술",
+      "정책"
+    ]
   }
 ]

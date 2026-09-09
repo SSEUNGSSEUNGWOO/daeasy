@@ -1,0 +1,44 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "openai/clip-vit-base-patch32",
+    "url": "https://huggingface.co/openai/clip-vit-base-patch32",
+    "content": "",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1343
+    },
+    "item_hash": "411b182ec6a5605b"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "distilbert/distilbert-base-uncased",
+    "url": "https://huggingface.co/distilbert/distilbert-base-uncased",
+    "content": "",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1283
+    },
+    "item_hash": "293ede87feebe4b7"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "WarmBloodAban/Minimax-h3_Singularity",
+    "url": "https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity",
+    "content": "",
+    "published_at": "2026-09-09",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 222
+    },
+    "item_hash": "8a4aa676e0f80f35"
+  }
+]

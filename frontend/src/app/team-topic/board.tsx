@@ -30,6 +30,8 @@ export function TeamTopicBoard() {
   const [teamNo, setTeamNo] = useState<number | null>(null);
   const [title, setTitle] = useState("");
   const [oneLiner, setOneLiner] = useState("");
+  const [leader, setLeader] = useState("");
+  const [members, setMembers] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   // 제출 전 확인 단계 — 몇 조에 어떤 내용을 넣는지(덮어쓰기면 기존 내용도) 보여준 뒤 진행
@@ -78,6 +80,8 @@ export function TeamTopicBoard() {
     if (mine) {
       setTitle(mine.title);
       setOneLiner(mine.one_liner);
+      setLeader(mine.leader);
+      setMembers(mine.members);
     }
   }
 
@@ -98,7 +102,7 @@ export function TeamTopicBoard() {
       const res = await fetch("/api/team-topic", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ team_no: teamNo, title, one_liner: oneLiner }),
+        body: JSON.stringify({ team_no: teamNo, title, one_liner: oneLiner, leader, members }),
       });
       const body = (await res.json()) as { detail?: string };
       if (!res.ok) {
@@ -177,6 +181,41 @@ export function TeamTopicBoard() {
                 </div>
               </fieldset>
 
+              <div className="grid gap-5 sm:grid-cols-[1fr_2fr]">
+                <label className="block">
+                  <span style={NUM_FONT} className={LABEL}>
+                    조장
+                  </span>
+                  <input
+                    className={`${FIELD} mt-3`}
+                    value={leader}
+                    onChange={(e) => {
+                      setLeader(e.target.value);
+                      setConfirming(false);
+                    }}
+                    maxLength={30}
+                    placeholder="이름"
+                    required
+                  />
+                </label>
+                <label className="block">
+                  <span style={NUM_FONT} className={LABEL}>
+                    조원
+                  </span>
+                  <input
+                    className={`${FIELD} mt-3`}
+                    value={members}
+                    onChange={(e) => {
+                      setMembers(e.target.value);
+                      setConfirming(false);
+                    }}
+                    maxLength={120}
+                    placeholder="이름을 쉼표로 구분 (조장 제외)"
+                    required
+                  />
+                </label>
+              </div>
+
               <label className="block">
                 <span style={NUM_FONT} className={LABEL}>
                   주제
@@ -234,6 +273,7 @@ export function TeamTopicBoard() {
                         </p>
                         <p className="mt-2 font-bold text-slate-400 line-through decoration-slate-300">{existing.title}</p>
                         <p className="mt-1 text-sm text-slate-400">{existing.one_liner}</p>
+                        <p className="mt-2 text-xs text-slate-400">조장 {existing.leader} · 조원 {existing.members}</p>
                       </div>
                     )}
                     <div className="rounded-xl border border-[#dde2f3] bg-white p-4">
@@ -242,6 +282,7 @@ export function TeamTopicBoard() {
                       </p>
                       <p className="mt-2 font-bold text-[#1f3a93]">{title}</p>
                       <p className="mt-1 text-sm text-slate-600">{oneLiner}</p>
+                      <p className="mt-2 text-xs text-slate-500">조장 {leader} · 조원 {members}</p>
                     </div>
                   </div>
                   <div className="mt-5 grid gap-2 sm:grid-cols-[1fr_2fr]">
@@ -324,6 +365,9 @@ export function TeamTopicBoard() {
                     </div>
                     <p className="mt-1.5 font-bold leading-snug tracking-[-0.01em]">{r.title}</p>
                     <p className="mt-1 text-sm leading-relaxed text-slate-600">{r.one_liner}</p>
+                    <p className="mt-2 text-xs text-slate-400">
+                      <span className="font-semibold text-slate-500">조장</span> {r.leader} · <span className="font-semibold text-slate-500">조원</span> {r.members}
+                    </p>
                   </li>
                 );
               })}

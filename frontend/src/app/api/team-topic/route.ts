@@ -11,6 +11,8 @@ type Payload = {
   team_no?: number;
   title?: string;
   one_liner?: string;
+  leader?: string;
+  members?: string;
 };
 
 export async function GET() {
@@ -54,6 +56,15 @@ export async function POST(req: Request) {
     );
   }
 
+  const leader = (payload.leader ?? "").trim().slice(0, 30);
+  if (!leader) {
+    return NextResponse.json({ detail: "조장 이름을 입력해 주세요." }, { status: 400 });
+  }
+  const members = (payload.members ?? "").trim().slice(0, 120);
+  if (!members) {
+    return NextResponse.json({ detail: "조원 이름을 입력해 주세요." }, { status: 400 });
+  }
+
   const { data, error } = await getSupabaseAdmin()
     .from("team_topics")
     .upsert(
@@ -61,6 +72,8 @@ export async function POST(req: Request) {
         team_no: teamNo,
         title,
         one_liner: oneLiner,
+        leader,
+        members,
         updated_at: new Date().toISOString(),
       },
       { onConflict: "team_no" },

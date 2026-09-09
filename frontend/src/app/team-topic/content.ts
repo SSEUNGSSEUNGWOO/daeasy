@@ -67,6 +67,8 @@ export type TeamTopic = {
   team_no: number;
   title: string;
   one_liner: string;
+  leader: string;
+  members: string;
   updated_at: string;
 };
 

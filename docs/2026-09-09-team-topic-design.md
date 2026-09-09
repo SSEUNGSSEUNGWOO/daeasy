@@ -12,7 +12,7 @@
 | 항목 | 결정 | 이유 |
 |---|---|---|
 | 위치 | daeasy `/team-topic` (사이트 헤더·푸터 없음, noindex) | 별도 Vercel 프로젝트·Supabase 프로젝트를 파는 것보다 기존 배포 라인에 얹는 게 가장 짧다 |
-| 저장 | `public.team_topics` 1개, `team_no` PK, 주제는 자유 입력(`title`·`one_liner`, 제출자 없음). RLS 켜고 정책 0개 | 2026-09-08 에 anon INSERT 를 전부 걷어냈다. 그 결정과 맞추려면 쓰기는 Route Handler(service_role) 경유 |
+| 저장 | `public.team_topics` 1개, `team_no` PK, 주제는 자유 입력(`title`·`one_liner`) + 조장 `leader` · 조원 `members`(쉼표 구분, 개인별 컬럼 없음). RLS 켜고 정책 0개 | 2026-09-08 에 anon INSERT 를 전부 걷어냈다. 그 결정과 맞추려면 쓰기는 Route Handler(service_role) 경유 |
 | API | `/api/team-topic` GET(전체) / POST(조 번호 기준 upsert) + `rateLimit()` | 조당 1행, 재제출 = 덮어쓰기. 잠금·비밀번호 없음 (임시용) |
 | 화면 | 한 페이지: 히어로(핵심 질문 띠, "주제 입력"·"예시 보러가기" 버튼) → **제출 폼(왼쪽) + 조별 현황(오른쪽, sticky)** → 예시 10선 → 5단계·규칙. 하단 고정 바는 제출 영역이 안 보일 때만 | 페이지의 본론은 제출이므로 맨 위에(승우님 2026-09-09). 현황을 옆에 두면 적으면서 다른 조를 본다. 예시는 참고라 아래로. 섹션 번호는 순서 의미가 없어 제거. 5초 폴링 |
 | 중복 | 자동 판정 없음. 현황 카드가 곧 중복 방지 장치 | 자유 입력이라 코드로 겹침을 잡을 수 없다. "되도록" 피하기 — 강제 아님 |

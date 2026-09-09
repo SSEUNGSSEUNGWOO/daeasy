@@ -12,7 +12,7 @@
 | `frontend/src/app/api/team-topic/route.ts` | GET 전체 현황 / POST 조 번호 기준 upsert. `rateLimit("team-topic", ip, 10, "1 m")`, 길이·범위 검증 |
 | `frontend/src/app/team-topic/content.ts` | 주제 예시 10선(참고용 텍스트) + `TEAM_COUNT = 8` + `TeamTopic` 타입 + `NUM_FONT`(Jakarta 숫자 서체) |
 | `frontend/src/app/team-topic/page.tsx` | 서버 페이지. 크림 히어로(제목·소개·"주제 입력하기"/"예시 보러가기" 버튼·스탯, 오른쪽 `illust/quiz-vibe.webp`) + 네이비 핵심 질문 띠 → `<TeamTopicBoard/>` → 예시 10선(`#examples`, 알파벳 모노그램) → 5단계 + 규칙 밴드. `Reveal`/`RevealList` 로 등장. `robots: noindex`, `(site)` 밖이라 헤더·푸터 없음 |
-| `frontend/src/app/team-topic/board.tsx` | 클라이언트. 히어로 바로 아래 `#submit` 섹션 하나에 **왼쪽 제출 시트 + 오른쪽 조별 현황(lg 에서 sticky)**. 15초 폴링. 제출: 조 번호 타일 → 고르면 기존 제출 자동 채움 → "제출 내용 확인" → 확인 패널(기존/새 내용 비교) → 확정. 현황: 제출 카드는 주황 룰·번호, `updated_at` key 로 새 제출 fade-up, 미제출은 점선 한 줄. 하단 바는 제출 섹션이 안 보일 때만(IntersectionObserver) |
+| `frontend/src/app/team-topic/board.tsx` | 클라이언트. 히어로 바로 아래 `#submit` 섹션 하나에 **왼쪽 제출 시트 + 오른쪽 조별 현황(lg 에서 sticky)**. 5초 폴링. 제출: 조 번호 타일 → 고르면 기존 제출 자동 채움 → "제출 내용 확인" → 확인 패널(기존/새 내용 비교) → 확정. 현황: 제출 카드는 주황 룰·번호, `updated_at` key 로 새 제출 fade-up, 미제출은 점선 한 줄. 하단 바는 제출 섹션이 안 보일 때만(IntersectionObserver) |
 
 ## 운영
 

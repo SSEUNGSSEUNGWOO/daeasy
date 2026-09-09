@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import { NUM_FONT, TEAM_COUNT, type TeamTopic } from "./content";
 
-const POLL_MS = 15_000;
+const POLL_MS = 5_000;
 const TEAM_NOS = Array.from({ length: TEAM_COUNT }, (_, i) => i + 1);
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -289,7 +289,7 @@ export function TeamTopicBoard() {
               </p>
             </div>
             <p className="mt-1 text-sm text-slate-500">
-              다른 조의 주제를 보고 되도록 겹치지 않게 정해 주세요. 15초마다 자동 갱신됩니다.
+              다른 조의 주제를 보고 되도록 겹치지 않게 정해 주세요. 5초마다 자동 갱신됩니다.
             </p>
 
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">

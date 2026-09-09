@@ -68,8 +68,9 @@ export const metadata: Metadata = {
     default: "기업·공공기관 AI·데이터 교육 | DAEASY(데이지)",
     template: "%s | DAEASY(데이지)",
   },
+  // 네이버 서치어드바이저 기준 80자 이내 (OG description 도 이 값을 그대로 쓴다)
   description:
-    "케이브레인컴퍼니가 만든 AI·데이터 교육 전문 브랜드 데이지입니다. 기업·공공기관 대상 실무 교육을 제공하며, 행정안전부 AI 챔피언 프로그램을 공식 운영합니다.",
+    "케이브레인컴퍼니의 AI·데이터 교육 브랜드 데이지. 기업·공공기관 실무 교육, 행정안전부 AI 챔피언 프로그램 공식 운영.",
   openGraph: {
     siteName: "DAEASY(데이지)",
     locale: "ko_KR",

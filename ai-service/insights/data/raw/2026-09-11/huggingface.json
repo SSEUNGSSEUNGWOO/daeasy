@@ -1,0 +1,58 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+    "content": "",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1308
+    },
+    "item_hash": "5c348986a15182f2"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "nex-agi/Nex-N2.5-mini",
+    "url": "https://huggingface.co/nex-agi/Nex-N2.5-mini",
+    "content": "",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 651
+    },
+    "item_hash": "6d999a50c5c7edff"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "nvidia/Qwen3.8-Flash-Next-NVFP4",
+    "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+    "content": "",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 191
+    },
+    "item_hash": "8388259050af2b90"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Jackrong/Qwopus3.8-27B-Flash-GGUF",
+    "url": "https://huggingface.co/Jackrong/Qwopus3.8-27B-Flash-GGUF",
+    "content": "",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 188
+    },
+    "item_hash": "550572f8274a785c"
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "bilawalsidhu/gods-eye-view",
+    "url": "https://github.com/bilawalsidhu/gods-eye-view",
+    "content": "A spy satellite simulator in your browser, except the data is real. Live open source spatial intelligence on a photorealistic 3D globe.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 24073,
+      "language": "JavaScript"
+    },
+    "item_hash": "f3d0d1f85de671d5"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "alsk1992/CloddsBot",
+    "url": "https://github.com/alsk1992/CloddsBot",
+    "content": "Open Source AI trading agent that operates autonomously across 1000+ markets - Polymarket, Kalshi, Binance, Hyperliquid, Solana DEXs, 5 EVM chains. Scans for edge, executes instantly, manages risk while you sleep. Agent commerce protocol for machine-to-machine payments. Self-hosted. Built on Claude.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 1600,
+      "language": "TypeScript"
+    },
+    "item_hash": "a272248a11a4196a"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "AlexsJones/llmfit",
+    "url": "https://github.com/AlexsJones/llmfit",
+    "content": "Hundreds of models & providers. One command to find what runs on your hardware.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 35708,
+      "language": "Rust"
+    },
+    "item_hash": "234088bc43763aa2"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "armory3d/armorpaint",
+    "url": "https://github.com/armory3d/armorpaint",
+    "content": "Graphics Creation Tools",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 4392,
+      "language": "C"
+    },
+    "item_hash": "60b37195ef44058c"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "diegosouzapw/OmniRoute",
+    "url": "https://github.com/diegosouzapw/OmniRoute",
+    "content": "Never stop coding. Free MIT AI gateway: one endpoint, 352 providers (150+ free), 1200+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 550+ contributors",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 64187,
+      "language": "TypeScript"
+    },
+    "item_hash": "0446821518e71993"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "JustVugg/colibri",
+    "url": "https://github.com/JustVugg/colibri",
+    "content": "Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. 🐦",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 27428,
+      "language": "C"
+    },
+    "item_hash": "8a70d410b1973fe6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "nashsu/llm_wiki",
+    "url": "https://github.com/nashsu/llm_wiki",
+    "content": "LLM Wiki is a cross-platform desktop application that turns your documents into an organized, interlinked knowledge base — automatically. Instead of traditional RAG (retrieve-and-answer from scratch every time), the LLM incrementally builds and maintains a persistent wiki from your sources。",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 18058,
+      "language": "TypeScript"
+    },
+    "item_hash": "3efb68f281006439"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "vercel-labs/skills",
+    "url": "https://github.com/vercel-labs/skills",
+    "content": "The open agent skills tool - npx skills",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 31104,
+      "language": "TypeScript"
+    },
+    "item_hash": "3888c0e3209644c8"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "jiji262/douyin-downloader",
+    "url": "https://github.com/jiji262/douyin-downloader",
+    "content": "A practical Douyin downloader for both single-item and profile batch downloads, with progress display, retries, SQLite deduplication, and browser fallback support. 抖音批量下载工具，去水印，支持视频、图集、合集、音乐(原声)。",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 9906,
+      "language": "Python"
+    },
+    "item_hash": "8c0706f75b85bf25"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "NVIDIA/Megatron-LM",
+    "url": "https://github.com/NVIDIA/Megatron-LM",
+    "content": "Ongoing research training transformer models at scale",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 17843,
+      "language": "Python"
+    },
+    "item_hash": "97b126ef802080f2"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "gpustack/gpustack",
+    "url": "https://github.com/gpustack/gpustack",
+    "content": "A GPU cluster manager for high-performance AI model serving (vLLM, SGLang) and on-demand SSH-accessible GPU instances.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 5660,
+      "language": "Python"
+    },
+    "item_hash": "265610dca0c538c6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "huggingface/speech-to-speech",
+    "url": "https://github.com/huggingface/speech-to-speech",
+    "content": "Build voice agents with open-source models",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 13147,
+      "language": "Python"
+    },
+    "item_hash": "9207e699adc3a415"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "google-deepmind/alphagenome",
+    "url": "https://github.com/google-deepmind/alphagenome",
+    "content": "This API provides programmatic access to the AlphaGenome model developed by Google DeepMind.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "stars": 2082,
+      "language": "Python"
+    },
+    "item_hash": "01cdafccc794deed"
+  }
+]

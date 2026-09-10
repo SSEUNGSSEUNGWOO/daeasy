@@ -1,0 +1,67 @@
+[
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules",
+    "url": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
+    "content": "César de la Fuente’s lab uses Codex and ChatGPT to search living and extinct genomes for antimicrobial candidates to fight drug-resistant infections.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "39842fa0b34b37cb"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Now everyone can put data to work",
+    "url": "https://openai.com/index/put-data-to-work",
+    "content": "Meet the Data agent in ChatGPT Work. Connect company data, uncover insights, and build interactive dashboards with AI using natural language.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "6a886414536a09e3"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Introducing ChatGPT for Financial Services",
+    "url": "https://openai.com/index/introducing-chatgpt-financial-services",
+    "content": "Introducing ChatGPT for Financial Services, combining built-in financial data and GPT-6 Astra for research, modeling, and client-ready materials.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "0bb946f0c4215389"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments",
+    "url": "https://openai.com/index/expanding-ai-access-us-government",
+    "content": "OpenAI and GSA will offer eligible federal, state, local, and tribal governments $0 license fees, 50% off usage, and expanded cyber defense support.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "3802aa15c4b6ae22"
+  },
+  {
+    "source_id": "ai_blogs",
+    "source_name": "OpenAI Blog",
+    "title": "Introducing the Agents API",
+    "url": "https://openai.com/index/introducing-the-agents-api",
+    "content": "Build and launch cloud agents with the Agents API, a managed service powered by the Codex harness for orchestration, long-running sessions, and tool use.",
+    "published_at": "2026-09-10",
+    "image_url": null,
+    "extra": {
+      "company": "OpenAI"
+    },
+    "item_hash": "b32e9b8471353987"
+  }
+]

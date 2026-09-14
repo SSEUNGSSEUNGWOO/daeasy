@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { JsonLd } from "@/components/json-ld";
 import { DATABUS_URL } from "@/lib/site";
 
@@ -79,7 +81,14 @@ export function FaqSection() {
             </details>
           ))}
         </div>
-        <p className="mt-8 text-[14px] leading-[1.7] text-zinc-500">
+        <p className="mt-8 text-[15px] leading-[1.7] text-zinc-700">
+          수행평가가 어떤 식인지 궁금하다면{" "}
+          <Link href="/quiz/champion" className="font-bold text-accent underline underline-offset-4">
+            연습 문제 3개를 직접 풀어보세요
+          </Link>
+          . AI 도구를 써도 되는 실제 평가 방식 그대로입니다.
+        </p>
+        <p className="mt-3 text-[14px] leading-[1.7] text-zinc-500">
           모집 일정과 신청은{" "}
           <a href={DATABUS_URL} target="_blank" rel="noopener noreferrer" className="font-bold text-ink underline underline-offset-4">
             행안부·NIA 학습지원시스템(databus.kr)

@@ -31,6 +31,14 @@ const STATIONS = [
     meta: "약 3분 · 5라운드",
     href: "/quiz/redteam",
   },
+  {
+    key: "champion",
+    badge: "STATION 04",
+    title: "AI 챔피언 수행평가 체험",
+    desc: "행안부 AI 챔피언 인증 수행평가와 같은 형식의 연습 문제 3개. AI 도구를 켜놓고 풀어보고 75점 통과선과 비교해 보세요.",
+    meta: "약 10분 · 3문항",
+    href: "/quiz/champion",
+  },
 ] as const;
 
 // 일러스트가 있는 스테이션만. red-team 은 /illust/quiz-redteam.webp 가 생기면 여기 한 줄

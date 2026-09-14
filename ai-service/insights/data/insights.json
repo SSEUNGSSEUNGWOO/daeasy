@@ -1449,5 +1449,119 @@
       "산업 적용",
       "비즈니스"
     ]
+  },
+  {
+    "title": "앤트로픽·오픈AI 속도 조절 선언과 기업 AI 도입 영향",
+    "body": "## 핵심 인사이트\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/e45ef4d26ae6d38b.jpg)\n\n1. ### 프론티어 5사 '속도 조절' 연합\n\n   다리오 아모데이 앤트로픽 CEO는 9월 12일 개인 블로그에 '프론티어의 속도를 조절해야 한다(We Must Pace the Frontier)'는 에세이를 올리고, 지난여름 이후 AI가 다음 세대 AI를 만드는 재귀적 자기 개선(RSI) 단계에 들어서며 발전 속도가 가속하고 있다고 경고했다. 그가 제시한 3단계는 ① METR 같은 외부 기관 평가자가 내부 직원 수준의 접근 권한으로 상주하는 '상주 평가단(Embedded Evaluators)', ② 민주주의 국가 프론티어 기업 간 공동 안전 표준과 발전 속도 상한선 설정, ③ 권위주의 국가까지 포함한 글로벌 통제 체계다. 앤트로픽은 1단계를 즉시 단독 시행한다고 밝혔고, 샘 알트먼 오픈AI CEO는 X에서 \"다리오의 의견에 동의한다\"며 독립 평가단에 직원급 접근을 주는 방안을 동일하게 추진하겠다고 했으며, 일론 머스크도 \"Dario is right\"라고 썼다. 13일에는 데미스 허사비스 구글 딥마인드 회장이 \"올바른 방향\"이라 평가하고 사티아 나델라 MS CEO가 \"의도적인 속도 조절을 환영한다\"고 밝혀 공개 호응 기업이 앤트로픽·오픈AI·xAI·구글·MS 5곳으로 늘었다. 디 인포메이션은 같은 날 앤트로픽·오픈AI·구글 실무진이 이미 7월부터 AI 테스트·감사 기준과 공동 표준기구 설립을 논의해 왔다고 보도했는데, 알트먼은 사내 타운홀에서 정부 지원 없이 업계가 직접 만들 가능성이 높다고 설명했고 코히어의 에이든 고메스 CEO는 대형사 '카르텔'이 될 수 있다고 비판했다. 반면 도널드 트럼프 대통령은 13일 아일랜드에서 \"우리는 중국을 AI에서 앞서고 있고 그 상태를 유지하고 싶다\"며 가드레일 가능성은 열어두되 우려 세력을 \"매우 부정적\"이라고 일축했다.\n\n   **에디터 코멘트:** *실무자가 볼 지점은 종말론 논쟁 자체가 아니라 '외부 평가자 상주'와 '업계 공동 감사 기준'이라는 두 장치가 제품 공급 조건으로 굴러 들어올 가능성이다. 이 기준이 실제 문서로 나오면 기업 고객 입장에서는 벤더 선정 체크리스트(안전 인시던트 보고 여부, 제3자 평가 이력)에 항목이 하나 추가되는 셈이니, RFP 양식을 손볼 준비를 미리 해두는 편이 낫다. 다만 5개사 발언은 아직 선언과 X 게시글 수준이고 표준기구의 출범 시기·운영 방식은 합의됐다는 보도가 없으므로, 내부 보고서에는 \"논의 중\"으로만 적어야 한다. 미 행정부가 반대 기조를 유지하는 만큼 규제로 강제되기보다 벤더 자율 기준으로 먼저 나올 확률이 높다는 점도 함께 적어두자.*\n\n   [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215195) · [TechCrunch AI](https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215215) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215212) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215222)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/2b559f5c589659fa.jpg)\n\n2. ### 반도체 급락 vs 수요 실증\n\n   속도 조절 발언은 곧바로 시장에 반영됐다. 9월 14일 아시아 증시에서 오픈AI 핵심 투자사인 소프트뱅크가 장중 13.2% 폭락한 뒤 11.3% 하락으로 마감했고, 도쿄일렉트론은 3.7%, SK하이닉스는 장중 6.2%까지 밀린 뒤 5.3% 하락 마감, 삼성전자는 3.7% 하락, TSMC는 1.2% 하락으로 끝났다. 블룸버그가 13일 전한 바로는 나스닥100 지수가 6월 사상 최고치 대비 4% 이상, 미국 반도체주 지수는 14%, 아시아 기술주는 약 8% 떨어진 상태였다. 그러나 전략가들의 시각은 다르다. 올스프링 글로벌 인베스트먼트의 게리 탄은 \"단기 압력은 있지만 장기 AI 투자 흐름을 궤도에서 이탈시킬 가능성은 낮다\"고 했고, 글로벌X의 빌리 렁은 개발 일정이 길어지면 이미 지은 데이터센터로 매출을 만드는 '수익화' 단계로 넘어갈 시간이 생긴다고 분석했으며, 삭소마켓츠의 차루 차나나는 안전장치 강화가 사이버보안·AI 모니터링 투자를 촉진할 수 있다고 봤다. 수요 쪽 실증 지표도 같은 날 나왔다. 과기정통부가 발표한 8월 ICT 수출은 559.8억달러로 전년 동월 대비 162.6% 늘며 역대 최대였고, 반도체가 466.7억달러로 3개월 연속 400억달러를 넘겼으며 그중 중국 수출이 244.1억달러였다. 공급 측에서는 MS가 애저 데이터센터 용량을 현재 12GW에서 2032년 38GW 이상으로 늘리겠다고 밝히면서도, 에이미 후드 CFO가 \"앞으로 12개월 동안 용량을 크게 늘리기는 어렵다\"고 못 박았다.\n\n   **에디터 코멘트:** *주가는 '모델 성능 향상 속도'에 대한 기대를 반영하지만, 기업의 AI 도입 예산은 '이미 나온 모델을 업무에 붙이는 비용'에 좌우된다는 점에서 두 곡선은 다르게 움직인다. 렁의 지적처럼 프론티어 개발이 늦춰진다면 도입 기업에는 오히려 현재 세대 모델 위에서 업무 프로세스를 안정화할 시간이 생기는 셈이다. 다만 MS CFO의 발언대로 클라우드 GPU 용량은 최소 1년은 빡빡할 것으로 보이니, 클라우드 추론 단가나 할당량이 단기간에 떨어질 것이라는 전제로 사업 계획을 세우면 안 된다. 인프라 예산을 잡을 때는 '용량 부족 지속'을 기본 시나리오로 두고, 온프레미스 또는 소형 모델 대안을 병행 검토하는 것이 안전하다.*\n\n   [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215248) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215211) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215249) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215143)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/f5fcad5aacd5b4a5.jpg)\n\n3. ### 프롬프트는 줄이고 검증은 자동화\n\n   오픈AI는 9월 11일 GPT-6 아스트라를 위한 '스킬 및 프롬프트 재고찰(Rethinking Skills and Prompts)' 지침을 공개했다. 코덱스 개발자 경험 연구원 에릭 프로벤처는 스킬 설명이 길거나 개수가 많으면 모델이 적절한 스킬을 고르기 어렵고, 조건을 과하게 강조하면 불필요한 작업 호출이 생긴다고 지적하면서, 첫 문서를 최소한의 라우터로 두고 세부 지침을 필요할 때만 열어보게 하는 '점진적 공개(progressive disclosure)' 구조를 권했다. 저장소 전체에 적용되는 AGENTS.md도 과거 모델의 과잉 행동을 막기 위해 넣었던 강한 제약이 이제는 장애물이 될 수 있어 정리 대상이고, 아스트라가 스스로 테스트를 실행하는 경향이 강해졌으므로 반복적인 테스트 요구도 걷어내라고 했다. 대신 무엇을 금지할지보다 '어디까지 진행해도 되는지' 권한 범위와, 실행·결과 확인·오류 수정까지 포함한 '완료 기준'을 명확히 하라는 것이 핵심 조언이며, 기존 프롬프트 감사를 아스트라 자체에 맡기는 방법도 제시했다. 코그니션도 자율 소프트웨어 엔지니어 데빈에서 GPT-6 아스트라가 자기 작업을 테스트하고 결과를 보여주는 능력을 코드 리뷰 효율화에 쓰고 있다고 밝혔다. 검증 자동화 축에서는 앤트로픽이 10일 클로드 코드 v2.1.269부터 '플러그인 평가(Plugin Evals)'를 추가했는데, `claude plugin eval` 명령이 플러그인을 적용한 WITH 실행과 적용하지 않은 W/OUT 실행을 모두 수행해 그 차이 Δ로 플러그인 기여도를 측정하고, regex·tool_used·tool_order·file_exists 4종은 추가 비용 없이, llm·baseline 2종은 평가 모델 호출 비용이 들며, CI 파이프라인에서는 `--threshold`(최소 점수)와 `--max-cost-usd`(비용 한도) 옵션으로 빌드 게이트를 걸 수 있다.\n\n   **에디터 코멘트:** *모델이 좋아질수록 프롬프트를 덧붙이는 대신 걷어내야 한다는 오픈AI의 지침은 코딩 에이전트뿐 아니라 사내 업무 자동화 프롬프트 전반에 그대로 적용된다. 지난 1~2년 동안 \"반드시 ~하라\", \"절대 ~하지 마라\"를 쌓아온 사내 프롬프트 라이브러리가 있다면, 이번 분기에 한 번 감사해서 권한 범위와 완료 기준만 남기는 정리 작업을 해볼 가치가 있다. 다만 이 조언은 아스트라 같은 최신 프론티어 모델 기준이므로, 사내에서 구형 모델이나 소형 모델을 쓰고 있다면 기존 제약을 그대로 두는 편이 안전하다. 앤트로픽의 플러그인 평가처럼 '넣었을 때 vs 뺐을 때' 차이를 재는 습관은 프롬프트 개선 효과를 감으로 주장하지 않고 수치로 보고하는 가장 싼 방법이다.*\n\n   [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215202) · [OpenAI Blog](https://openai.com/index/cognition-devin-testing-with-astra) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215184)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/403cc663d4ed424a.jpg)\n\n4. ### 하네스가 성능을 좌우한다\n\n   같은 모델이라도 실행 환경(하네스)에 따라 성능이 크게 달라진다는 점이 이번 주 연구와 제품 양쪽에서 확인됐다. 바이트댄스 연구진이 공개한 평가 프레임워크 '하네스데브(HarnessDev)'는 동일한 GPT-5가 터미널-벤치 2.1에서 터미너스 2 하네스로는 35.2%, 코덱스 CLI로는 49.6%를 해결했다는 수치를 들며, 모델이 직접 하네스를 구축·개선하는 능력을 측정했다. 클로드 오퍼스 4.8, GPT-5.5, 제미나이 3.1 프로, 딥시크-V4 프로, 큐원 3.7 맥스, 시드 2.0 프로 6개 모델이 2207개 과제에 참여했고, 자체 모델로 실행하는 셀프-이밸에서 오퍼스 4.8이 평균 67.8점으로 가장 높았지만 인간이 설계한 성숙한 하네스 기준점 86.2점에는 못 미쳤으며, 글쓰기(84.6점 대 83.7점) 영역에서만 기준점을 넘었다. 자기 개선 단계에서는 상승 폭이 1.43~4.44점(평균 3.11점)에 그쳤고 피드백 점수와 숨겨진 평가 점수가 같은 방향으로 움직인 경우가 53.1%에 불과했으며, 코드 1006줄만 추가한 제미나이 3.1 프로가 터미널-벤치 68.8점으로 가장 높아 코드 양과 성능이 비례하지 않았다. 제품 쪽에서는 오픈AI가 10일 코덱스를 구동하는 하네스와 인프라를 단일 API 호출로 쓰는 '에이전트 API'를 공개 베타로 내놨는데, 컨텍스트 한도에 가까워지면 자동 압축하고, 도구 검색으로 필요한 도구 정의만 불러오며, 하위 에이전트 분할을 지원하고, 오픈AI 관리 샌드박스 외에 클라우드플레어·버셀 등 파트너 샌드박스도 고를 수 있으며, 별도 API 이용료 없이 토큰·도구 비용만 낸다. 다만 데이터 처리는 미국 내에서만 이뤄지고 처리 즉시 삭제하는 제로 데이터 리텐션은 지원되지 않는다. 세일즈포스는 같은 날 기업이 평균 3.1개 AI 플랫폼을 쓴다는 자체 조사를 근거로 '에이전트 난립'을 통제하는 '트러스트 엔터프라이즈 AI 하네스'를 공개했고, 컨텍스트·에이전시·액션·거버넌스·보안·모델 6개 기능과 이를 묶는 AI 컨트롤 플레인을 2028 회계연도 초부터 순차 출시한다고 밝혔다.\n\n   **에디터 코멘트:** *하네스데브 결과는 \"모델만 바꾸면 성능이 오른다\"는 기대에 제동을 건다. 같은 모델로도 실행 루프·검증·복구 설계에 따라 14%포인트 이상 차이가 났으니, 사내 에이전트 성과가 기대에 못 미칠 때 모델 교체보다 하네스 점검이 먼저다. 오픈AI 에이전트 API는 그 하네스를 빌려 쓰는 선택지지만 데이터가 미국에서 처리되고 ZDR이 없다는 조건은 개인정보·망분리 규제를 받는 국내 금융·공공 조직에는 그대로 채택하기 어려운 제약이다. 세일즈포스의 통합 하네스도 2028 회계연도 출시 예정이라 지금 도입 계획에 넣을 물건은 아니고, 대신 '우리 조직에 에이전트가 몇 개 돌고 있는지' 목록부터 만드는 것이 현실적인 첫 단계다.*\n\n   [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215182) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215181) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215190)\n\n---\n\n![source-image](https://dmkjsjuwrvakeryxfboc.supabase.co/storage/v1/object/public/insight-images/04c586986cfd2a3a.jpg)\n\n5. ### 국내 AX 실행 단계와 데이터 주권\n\n   KT가 9월 14일 발간한 'AX 인사이트 리포트'는 지난 7월 국내 은행·증권·보험·카드사 임직원 200명과 중앙부처·지자체·공공기관 임직원 200명, 총 400명을 설문한 결과다. 금융기관 응답자의 59.5%, 공공기관 응답자의 30%가 개념검증(PoC)·일부 업무 적용·전사 확산 등 AX 실행 단계에 들어섰다고 답했고, 리포트는 망분리 규제 완화와 AI 가이드라인 개정에 따른 대응 전략을 함께 다뤘다. 안전 검증 쪽에서는 9월 3~4일 서울에서 열린 '첨단AI 디지털의료제품 레드팀 챌린지'에서 업스테이지 솔라, 오픈AI GPT, 구글 제미나이, 앤트로픽 클로드, 의료 특화 메드젬마 등 국내외 LLM 12종이 공격 검증을 받았으며, 807개 시드질문을 탑재한 플랫폼에서 사람 심사위원 3명과 LLM 심사자 2명 중 3명 이상이 승인하면 공격 성공으로 판정했고 삼성SDS 팀이 대상을 받았다. 한편 데이터 주권 경고 사례도 나왔다. 앤트로픽이 10일 공개한 위협 인텔리전스 보고서를 분석한 외신들에 따르면, 중국 문샷 AI의 '키미' 서비스가 어려운 질의를 자사 모델 대신 클로드 오퍼스로 실시간 대체 전송했고, 그 과정에서 중국 인민해방군 연계 추정 사용자가 분석을 요청한 청두 지역 CCTV 영상 데이터와 국유기업 엔지니어가 입력한 IT 기업 내부 자격 증명이 앤트로픽 서버 로그에 기록된 정황이 드러났다. TechCrunch는 앤트로픽이 키미에서 클로드 오퍼스로 약 30만 건의 요청이 직접 라우팅됐고 학습용으로 2300만 건 이상의 응답이 수집됐다고 주장했다고 전했으며, 중국 데이터보안법(DSL)·개인정보보호법(PIPL) 위반 조사 가능성이 거론되고 있다.\n\n   **에디터 코멘트:** *KT 수치는 400명 표본의 응답자 기준 조사라 산업 전체 비율로 확대해 인용하면 안 되지만, 금융권에서 \"AI 도입은 검토 중\"이라는 답이 이제 소수라는 신호로는 충분하다. 키미 사건은 국내 실무자에게 '내가 쓰는 AI 서비스의 뒤에서 어느 회사 모델이 실제로 응답하는지'를 계약서에 명시하게 만들 근거가 된다. 특히 저가 또는 무료 AI 서비스를 업무에 쓸 때는 모델 출처 고지와 재전송 금지 조항을 확인하고, 확인이 안 되면 고객 정보·자격 증명은 입력하지 않는 것을 규칙으로 세워야 한다. 의료 레드팀 챌린지처럼 도입 전 자체 공격 검증을 거치는 절차는 규제 산업이 아니어도 벤더 평가 항목으로 옮겨올 만하다.*\n\n   [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215240) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215217) · [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=215229) · [TechCrunch AI](https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/)\n\n## 실무 적용 가이드\n\n**단기 (1~3개월)**\n- 사내에서 쓰는 모든 AI 서비스와 에이전트의 목록을 만들고, 각 항목에 '실제 응답 모델·처리 국가·데이터 보존 정책'을 적는다. 키미 사건과 오픈AI 에이전트 API의 미국 내 처리·ZDR 미지원 조건이 보여주듯, 이 세 칸이 비어 있으면 도입 여부를 판단할 수 없다.\n- 지난 1~2년간 쌓인 사내 프롬프트·스킬 문서를 감사해 금지 조항을 걷어내고 권한 범위와 완료 기준으로 다시 쓴다. 단, 이 정리는 최신 프론티어 모델을 쓰는 업무에만 적용하고, 구형·소형 모델을 쓰는 곳은 기존 제약을 유지한다.\n- 프롬프트나 플러그인을 바꿀 때는 '적용 전 vs 적용 후' 결과를 같은 입력으로 나눠 비교하는 최소한의 평가 세트를 만든다. 앤트로픽 플러그인 평가의 Δ 개념처럼 차이를 수치로 남기면 개선 효과를 보고할 때 감이 아니라 근거를 댈 수 있다.\n\n**중기 (3~12개월)**\n- 클라우드 GPU 용량 부족이 최소 1년은 이어진다는 MS CFO의 발언을 기본 시나리오로 두고, 온프레미스 또는 소형 모델 대안을 최소 한 업무에서 병행 검증한다. 추론 단가가 곧 떨어질 것이라는 전제로 짠 예산은 다시 점검한다.\n- 에이전트 성과가 기대에 못 미치면 모델 교체보다 하네스(실행 루프·검증·복구·컨텍스트 관리) 점검을 먼저 한다. 하네스데브 결과처럼 같은 모델에서 14%포인트 이상 차이가 나는 변수가 실행 환경에 있다.\n- 벤더 선정 RFP에 '제3자 안전 평가 이력', '안전 인시던트 보고 정책', '모델 출처 고지·재전송 금지' 항목을 추가한다. 프론티어 5사가 논의 중인 공동 감사 기준이 문서로 나오면 그 항목을 그대로 참조할 수 있도록 양식을 준비해둔다.\n\n**구조적 변화**\n- AI 안전이 업계 내부 논쟁에서 공급 조건과 정치 의제로 옮겨가고 있다. 규제로 강제되기 전에 벤더 자율 기준으로 먼저 나올 가능성이 높으므로, 규제 대응 부서가 아닌 구매·IT 부서가 이 변화를 먼저 감지하게 된다.\n- 금융권 응답자 다수가 실행 단계라는 KT 조사와 의료 LLM 12종 레드팀 검증은 국내 AI 도입의 질문이 '할 것인가'에서 '어떻게 검증하고 통제할 것인가'로 바뀌었음을 보여준다. 도입 후 감사·평가 체계를 갖춘 조직과 그렇지 않은 조직의 격차가 앞으로 벌어질 지점이다.",
+    "sources": [
+      {
+        "title": "아모데이 \"첨단 모델 개발 속도 줄이자\"...알트먼·머스크도 \"동의\"",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215195",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "Anthropic CEO outlines plan to slow AI development",
+        "url": "https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/",
+        "source_id": "ai_news"
+      },
+      {
+        "title": "구글·MS도 \"AI 속도 조절 동감\"...'안전 연합전선' 5곳으로 확대",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215215",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "앤트로픽·오픈AI·구글, 7월부터 'AI 안전 표준기구' 설립 물밑 논의",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215212",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "트럼프 \"AI 우려 세력 부정적...중국 이기는 것이 최우선\"",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215222",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "아시아 반도체 공급망 일제히 흔들…'AI 속도조절론'에 주가 급락",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215248",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "'AI 속도 조절'에 블랙 먼데이 오나...전문가들 \"반도체 장기 수요는 탄탄\"",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215211",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "8월 ICT 수출액 ‘600억달러’ 육박…반도체가 400억달러 이끌어",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215249",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "MS, AI 공급난에 ‘장기전’ 선언…2032년까지 데이터센터 3배로 확대",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215143",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "\"지침 줄이고 완료 기준 명확히\"...오픈AI가 밝힌 '아스트라' 활용법",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215202",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
+        "url": "https://openai.com/index/cognition-devin-testing-with-astra",
+        "source_id": "ai_blogs"
+      },
+      {
+        "title": "앤트로픽, 클로드 코드 '플러그인 평가' 공개…플러그인 성능·기여도 검증",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215184",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "AI가 하네스를 만들 수 있을까...바이트댄스, 평가 프레임워크 '하네스데브' 공개",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215182",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "오픈AI, '에이전트 API' 공개 베타 출시...\"에이전트 구축 쉬워진다\"",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215181",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "세일즈포스, '에이전트 난립' 잡는다...통합 관리 '트러스트 엔터프라이즈 AI 하네스' 공개",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215190",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "KT, ‘AX 인사이트 리포트’ 발간…“금융기관 60%가 AX 실행 단계 진입”",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215240",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "의료 AI 안전성 점검한 '레드팀 챌린지'…국내외 LLM 12종 공격 검증",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215217",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "중국 '키미', 클로드 무단 우회 연결 파문…안보·기업 기밀 유출 논란",
+        "url": "https://www.aitimes.com/news/articleView.html?idxno=215229",
+        "source_id": "kr_ai_policy"
+      },
+      {
+        "title": "Kimi-maker Moonshot AI targets $2B in annual revenue",
+        "url": "https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/",
+        "source_id": "ai_news"
+      }
+    ],
+    "published_at": "2026-09-15",
+    "category": "daily_report",
+    "image_url": "https://images.unsplash.com/photo-1564551713171-b1a90c34daa5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzE4MjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODk0MjY5NjN8&ixlib=rb-4.1.0&q=80&w=1080",
+    "evaluation_score": 4.3215,
+    "crawled_count": 191,
+    "slug": "2026-09-15-앤트로픽오픈ai-속도-조절-선언과-기업-ai-도입-영향",
+    "tags": [
+      "정책",
+      "규제",
+      "비즈니스",
+      "기술",
+      "보안"
+    ]
   }
 ]

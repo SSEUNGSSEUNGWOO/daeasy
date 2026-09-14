@@ -1,0 +1,198 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "666ghj/MiroFish",
+    "url": "https://github.com/666ghj/MiroFish",
+    "content": "A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 73095,
+      "language": "Python"
+    },
+    "item_hash": "d1c18d7845472286"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "rlaope/oh-my-hermes",
+    "url": "https://github.com/rlaope/oh-my-hermes",
+    "content": "All in one plugin for Hermes Agent ⚚ the coding intelligence, a long-term memory system and model optimized workflow packages",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 2004,
+      "language": "Python"
+    },
+    "item_hash": "be80ae1bec07939f"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "localsend/localsend",
+    "url": "https://github.com/localsend/localsend",
+    "content": "An open-source cross-platform alternative to AirDrop",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 91276,
+      "language": "Dart"
+    },
+    "item_hash": "2654a48caa01902c"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "dani-garcia/vaultwarden",
+    "url": "https://github.com/dani-garcia/vaultwarden",
+    "content": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 67515,
+      "language": "Rust"
+    },
+    "item_hash": "4b5ff39c88f99c81"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ruvnet/RuView",
+    "url": "https://github.com/ruvnet/RuView",
+    "content": "π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 93808,
+      "language": "Rust"
+    },
+    "item_hash": "b303b1e4141446e6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "OpenBMB/VoxCPM",
+    "url": "https://github.com/OpenBMB/VoxCPM",
+    "content": "VoxCPM2: Tokenizer-Free TTS for Multilingual Speech Generation, Creative Voice Design, and True-to-Life Cloning",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 37337,
+      "language": "Python"
+    },
+    "item_hash": "8cf5140931d8ef20"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Crosstalk-Solutions/project-nomad",
+    "url": "https://github.com/Crosstalk-Solutions/project-nomad",
+    "content": "Project NOMAD is an offline-first knowledge and education server. Wikipedia, thousands of books, courses, maps, and optional local AI, all running on hardware you own with no internet required.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 36879,
+      "language": "TypeScript"
+    },
+    "item_hash": "3d7c7b2843ae8536"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "reconurge/flowsint",
+    "url": "https://github.com/reconurge/flowsint",
+    "content": "A modern platform for visual, flexible, and extensible graph-based investigations. For cybersecurity analysts and investigators.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 8318,
+      "language": "TypeScript"
+    },
+    "item_hash": "e1a6a40ad4d703a0"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "peetzweg/opendisplay",
+    "url": "https://github.com/peetzweg/opendisplay",
+    "content": "Free, open-source Sidecar/Duet alternative — use your iPhone or iPad as a true second monitor for your Mac over USB or WiFi. Low latency H.264, Retina HiDPI, touch input.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 3535,
+      "language": "Swift"
+    },
+    "item_hash": "a66a1b7cd5d47275"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "MadsLorentzen/ai-job-search",
+    "url": "https://github.com/MadsLorentzen/ai-job-search",
+    "content": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 42705,
+      "language": "Python"
+    },
+    "item_hash": "7af184c03e7ab7a7"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "LibreTranslate/LibreTranslate",
+    "url": "https://github.com/LibreTranslate/LibreTranslate",
+    "content": "Free and Open Source Machine Translation API. Self-hosted, offline capable and easy to setup.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 16546,
+      "language": "Python"
+    },
+    "item_hash": "b9c14782f458d2a7"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "petergyang/no-ai-slop",
+    "url": "https://github.com/petergyang/no-ai-slop",
+    "content": "Removes 20+ patterns of AI slop from any piece of writing.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 9522,
+      "language": "Python"
+    },
+    "item_hash": "41f6242d664ec3fc"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "searxng/searxng",
+    "url": "https://github.com/searxng/searxng",
+    "content": "SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 37070,
+      "language": "Python"
+    },
+    "item_hash": "86fa43605b5b9762"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "dgtlmoon/changedetection.io",
+    "url": "https://github.com/dgtlmoon/changedetection.io",
+    "content": "Best and simplest tool for website change detection, web page monitoring, and website change alerts. Perfect for tracking content changes, price drops, restock alerts, and website defacement monitoring—all for free or enjoy our SaaS plan!",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "stars": 34121,
+      "language": "Python"
+    },
+    "item_hash": "3bdb15a8c14404a4"
+  }
+]

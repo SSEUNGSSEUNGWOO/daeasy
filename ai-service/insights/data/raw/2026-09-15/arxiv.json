@@ -1,0 +1,549 @@
+[
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "ASTRIL-MPC: Autonomous Traversal Framework of Articulated Tracked Robots with Language-Guided Neural-Kinematic MPC",
+    "url": "https://arxiv.org/abs/2609.13083",
+    "content": "In urban search and rescue, articulated tracked robots (ATRs) must traverse structured but contact-rich environments such as stairwells and cluttered building interiors. Reliable autonomy remains challenging because robot-terrain interaction (RTI) is hybrid and discontinuous, and effective flipper-track coordination is difficult to model analytically. We present ASTRIL-MPC, a language-guided neural kinematics model predictive control (MPC) framework for autonomous traversal. A learned kinematics model predicts short-horizon task-state increments from a height sequence and recent trajectories; NMPC plans with multi-objective costs and strict feasibility constraints; and a large language model (LLM) proposes bounded updates to selected weights and bounds through a safety-checked interface with range clipping, rate limiting, and consistency checks. The compiled predictor enables a full control cycle within 100 ms. Across three traversal tasks and a multi-height generalization setting, ASTRIL-MPC improves an aggregate traversal-quality score by up to 71% over a non-adaptive NMPC and by 67% over a PPO baseline, while eliminating measurable collision impacts during descent. These results indicate that combining learned kinematics, optimization-based planning, and language-guided retuning yields data-efficient and robust autonomy for articulated tracked robots.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Zhenfeng Gan",
+        "Yanbo Chen",
+        "Lirong Che",
+        "Junbo Tan",
+        "Xueqian Wang"
+      ]
+    },
+    "item_hash": "487813051832e0ea"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Expert-Space Exploration in MoE Reinforcement Learning",
+    "url": "https://arxiv.org/abs/2609.13058",
+    "content": "Reinforcement learning (RL) has become central to post-training of large language models. Recent advances in RL for Mixture-of-Experts (MoE) models have primarily focused on improving optimization stability and training efficiency, while treating the expert selection as a fixed component. Since routing determines the sparse computation paths that induce output distributions, expert selection offers an additional source of rollout diversity. Through empirical analysis, we find that perturbing expert routing effectively alters model output and increases rollout diversity, which is similar to increasing the decoding temperature. However, direct perturbation can activate unsuitable experts and substantially degrade rollout quality. Motivated by these observations, we introduce Expert-Space Exploration Reinforcement Learning (ESRL), an architecture-aware framework that explicitly explores the expert-routing space of MoE models. ESRL preserves high-confidence experts as anchors, and restricts stochastic routing to a plausible candidate pool, thereby retaining reliable computation paths. The perturbation strength is further adapted according to router entropy to avoid over-perturbation. To mitigate the routing mismatch introduced by perturbation, ESRL records the expert paths used during rollout and replays them during policy optimization. Experiments demonstrate that ESRL achieves the best performance across MoE backbones with top-K, top-1, and shared-expert routing, as well as across mathematics, science, and code tasks without additional sampling or computational cost. Specifically, ESRL on Qwen3-30B-A3B achieves the best among all compared methods, improving average Pass@1 and Pass@8 over GRPO by 3.2 and 4.5 percentage points, respectively. Further analyses of expert utilization and training dynamics provide insights into how exploiting MoE-specific routing structure benefits RL training.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hongyi He",
+        "Zhenghao Lin",
+        "Xiao Liu",
+        "Peng Cheng",
+        "Yan Lu"
+      ]
+    },
+    "item_hash": "8c82bb4f4fb87cf3"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Attention Quantization for Tabular Foundation Models",
+    "url": "https://arxiv.org/abs/2609.13031",
+    "content": "With the recent rise and adoption of tabular foundation models, optimizing their inference performance becomes an emerging field for efficiency research. While the models are architecturally similar to transformer-based large language models (LLMs), the size and serving patterns differ significantly. We show that the focus should be on the attention calculation and less on weight or KV cache quantization, which are more popular in LLMs. We develop a quantization strategy for queries, keys, and values to FP8 and use explicit FP8 matrix multiplication instructions to speed up the attention calculation. We find that it is crucial to align the quantization error in the test rows with the quantization error in the training rows, as otherwise the accuracy drops drastically. Our Triton kernel achieves a speedup up to 1.7x over regular 16-bit kernels, and we show that on TabPFN-v3 and TabICLv2 there is no relevant accuracy loss across TabArena and BeyondArena.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jonas M. Kübler",
+        "Benjamin Jäger",
+        "Klemens Flöge",
+        "Noah Hollmann",
+        "Frank Hutter"
+      ]
+    },
+    "item_hash": "723201bfc848e90a"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Tasks over Application Manuals: Revealing Gaps in Long-Horizon Procedural Reasoning for Language Models",
+    "url": "https://arxiv.org/abs/2609.13005",
+    "content": "Large language models (LLMs) have achieved strong performance on a wide range of natural language tasks, and recent benchmarks suggest that they are increasingly adept at multi-hop reasoning. However, these benchmarks are typically short-horizon, requiring only a small number of retrieval or inference steps, and provide limited evidence of reliability on real-world tasks that involve following manuals spanning hundreds of pages with complex, interdependent guidelines. In this paper, we introduce Tasks over Application Manuals (TAM), a benchmark for evaluating long-horizon procedural reasoning. We construct TAM by curating real-world tasks from two domains: ICD-10-CM clinical coding (mapping medical conditions to diagnostic codes) and U.S. federal sentencing (computing crime sentencing guideline outcomes, specifically offense levels), with human-validated labels. Each task requires following an authoritative manual with tens of thousands of rules and executing a sequence of interdependent steps across different sections to produce an exact answer. We evaluate general-purpose prompting approaches, including retrieval-augmented generation, ReAct-style prompting, and an agent-harness baseline on GPT-5, and find that the best exact-match performance remains extremely low: 1% on ICD-10-CM coding and 15.5% on sentencing tasks. These results show that current benchmarks may overestimate LLM reasoning ability and miss a key challenge: reliably following long, rule-based procedures. The complete TAM data and code are publicly available.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Utkarsh Soni",
+        "Syed Shariyar Murtaza",
+        "Yifan Nie",
+        "Sachin Chandrasekhar",
+        "Eugene Wen"
+      ]
+    },
+    "item_hash": "d14f9e311158a3cb"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "EduFair-Bench: Evaluating Pedagogical Fairness of LLM Tutors Across Student Demographics",
+    "url": "https://arxiv.org/abs/2609.12949",
+    "content": "Large language models (LLMs) are increasingly deployed as tutors, but it is unclear whether they support all students equally well. We introduce \\textbf{EduFair-Bench}, a benchmark for auditing the pedagogical fairness of LLM tutors---whether tutoring quality varies systematically with student demographics. EduFair-Bench pairs a multi-domain question bank (mathematics, physics, chemistry) with a controlled simulation in which a fixed LLM student interacts with each tutor across nine demographic levels spanning four dimensions: gender, immigration background, first language, and socioeconomic status (SES). Tutoring quality is scored on five turn-level pedagogical metrics and four conversation-level dimensions, using an LLM judge validated against three-annotator consensus on 180 tutor turns. Bias is measured via paired Wilcoxon signed-rank tests and bootstrap effect-size confidence intervals. Two ablations (demographic cues conveyed through names; conflicting demographic information between tutor and student) disentangle tutor-driven from student-driven bias. Across five tutors, we find that model capability and demographic fairness are largely orthogonal: the smallest model is the most consistent while the four more capable tutors all exhibit wide demographic gaps with no clear capability-to-fairness ordering, pedagogy-specific RL training redistributes rather than removes bias, and language- and immigration-related cues produce larger gaps than gender- and SES-related cues.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jiaxu Zhao",
+        "Bahar Radmehr",
+        "Fares Fawzi",
+        "Tanya Nazaretsky",
+        "Tanja Käser"
+      ]
+    },
+    "item_hash": "6d00cace6033b60b"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "StepAudio 3 Gen Technical Report",
+    "url": "https://arxiv.org/abs/2609.12945",
+    "content": "We introduce StepAudio 3 Gen, a general-purpose audio generation model that supports zero-shot text-to-speech (TTS), voice design, vocal generation, sound effects, music, vibe speech, and mixtures of multiple audio types within a unified framework. At its core, StepAudio 3 Gen is a discrete autoregressive generator that models audio directly over residual vector quantization (RVQ) tokens, departing from the diffusion Transformer-based continuous generation paradigm prevalent in recent general audio models. Its StepAudio Tokenizer represents general audio at 12.5 Hz in a shared $16 \\times 2048$ residual code space, jointly quantizing semantic and waveform-level acoustic features so that each code layer preserves both types of information. For generation, the backbone predicts the first codebook along the time axis using autoregressive modeling, while a lightweight causal Transformer completes the remaining fifteen codebooks along the codebook axis. Our study further identifies three key design principles: (1) interference-aware progressive pretraining for acquiring audio capabilities while preserving the textual abilities of the large language model, (2) RVQ Adaptor for effectively incorporating multi-codebook acoustic representations, and (3) discrete autoregressive modeling over a shared representation across general audio domains. With progressive pretraining, multi-task instruction training, and supervised fine-tuning, StepAudio 3 Gen achieves state-of-the-art performance on both TTS and voice design, while retaining strong generation capabilities across speech, vocals, sound effects, and music. Audio samples are available at https://stepaudiollm.github.io/step-audio-3-gen/.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Bin Lin",
+        "Bo Zhao",
+        "Boyang Wang",
+        "Boyang Zhang",
+        "Boyong Wu"
+      ]
+    },
+    "item_hash": "2455b8a795bd3979"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Parallel Training Using a CNN-DNN Architecture for Accelerated Development of Diagnostic Models",
+    "url": "https://arxiv.org/abs/2609.12902",
+    "content": "Artificial intelligence has shown promise in assisting radiologists in imaging-based diagnosis across a wide range of diseases. Efficient training of large deep learning models is essential to cope with extremely large data sets or dynamically growing disease data, like in a pandemic like situation. In this retrospective study, we collected 300 CT scans from COVID-19 and non-COVID-19 pneumonia patients from three different centers in Germany. We investigated a hybrid CNN-DNN network model based on image decomposition and localization that naturally supports parallel and efficient training of deep learning models. In total, 156 models with three different architectures were trained to capture features at different levels resulting in 12 patient-level COVID-19 diagnosis models. Diagnostic performance as well as time saving were measured.\n  The highest accuracy was obtained from DenseNet121 and 3D CNN models with a parallel CNN-DNN approach, resulting in $88.78\\%$ training, $76.67\\%$ validation and $76.03\\%$ test accuracy for the DenseNet121 with $4\\times4\\times1$ subdomains and $87.72\\%$ training, $76.82\\%$ validation and $74.86\\%$ test accuracy, respectively, for the 3D CNN with $4\\times4\\times1$ subdomains. The strongest reduction in parallel training time by a factor of $31$ was observed for the 3D CNN model and $4\\times4\\times2$ subdomains.\n  Our parallel training approach improves efficiency as well as performance enabling rapid model development, among others crucial for pandemic preparedness.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Janine Weber-Hamacher",
+        "Astha Jaiswal",
+        "Philipp Fervers",
+        "Dorotya Móré",
+        "Athanasios Giannakis"
+      ]
+    },
+    "item_hash": "6ea739ce003b355f"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "GenOR-Twin: A Semantic Middleware for Integrating Operational Discourse with Mathematical Optimization",
+    "url": "https://arxiv.org/abs/2609.12863",
+    "content": "We introduce GenOR-Twin, a neuro-symbolic framework that bridges the translation gap between unstructured operational logs and rigorous mathematical optimization. Our architecture uniquely positions Large Language Models as semantic translators rather than direct solvers, ensuring that the system retains the feasibility guarantees of exact combinatorial methods. { \\color{red}We design a dynamic constraint injection mechanism (the runtime translation of qualitative disruption events into formal mathematical constraints) that allows the system to structurally modify the optimization problem's feasibility region in real-time based on qualitative human inputs. The resulting bidirectional coupling---where operational observations update the virtual model state and optimized decisions are reflected back into the Knowledge Graph---satisfies the synchronization requirement of a proper Digital Twin. The framework features an adaptive decision policy} that automatically selects between low-complexity schedule repair and full re-optimization by analyzing the available system slack. Finally, we demonstrate the generalization of this approach across six distinct optimization domains, {\\color{red}turning static models into resilient systems that adapt to the operational uncertainty and variability of real-world environments.}",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Rahimeh Neamatian Monemi",
+        "Shahin Gelareh",
+        "Lubin Cui",
+        "Nelson Maculan"
+      ]
+    },
+    "item_hash": "9a517f8a30692331"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Scaling Clinical Judgment to Evaluate Medical AI",
+    "url": "https://arxiv.org/abs/2609.12822",
+    "content": "Blinded physician evaluation has been considered by many to be the gold standard for assessing clinical reasoning in large language models (LLMs). This is difficult to scale; thus, prior studies typically rely on small physician panels, often from a single institution or specialty, which both limits the scientific questions investigated and makes it unclear whether findings would be reproduced with a different set of evaluators. To more rigorously and scalably study clinical reasoning in AI models, here we introduce PrecepTron, an LLM fine-tuned for physician-level evaluation of open-ended responses. PrecepTron was trained using low-rank adaptation (LoRA) of a 32-billion-parameter model on a small number of physician examples. We also release GRAND-ROUNDS, a new large-scale physician-annotated benchmark of 9,217 scores by 11 physicians across seven studies. We show that frontier LLMs in typical \"LLM-as-a-judge\" approaches often disagree with physicians and with each other, but fine-tuning PrecepTron on a small number of cases enables physician-level consistent scoring across tasks. We use PrecepTron to reproduce headline findings from five influential studies assessing LLMs for clinical care in JAMA, Science, and Nature Medicine without new human grading. Using PrecepTron, we then pose new questions about how LLMs reason in medicine that would have been infeasible with human grading alone, including measuring the diagnostic accuracy of frontier LLMs when clinical cases are provided piecemeal, even token by token. Together, PrecepTron and GRAND-ROUNDS provide a foundation for reproducible, large-scale study of how LLMs reason in medicine. All code, data, and labels are made freely available for researchers.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Thomas A. Buckley",
+        "Zahir Kanjee",
+        "Peter G. Brodeur",
+        "Byron Crowe",
+        "Anthony M. Pettinato"
+      ]
+    },
+    "item_hash": "f1d54e50c4137094"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Agent-authored deposition recipes for X-ray multilayer mirrors: schema-bound LLM control of a magnetron sputtering system with reflectivity-verified outcomes",
+    "url": "https://arxiv.org/abs/2609.12796",
+    "content": "Periodic multilayer mirrors for X-rays require a layer period held to about 0.02 nm, set by deposition rates held in the laboratory's own notebook. A large language model agent was given a target multilayer specification and read access to a laboratory archive. Deposition recipes were authored in the native recipe language of a magnetron sputtering system and submitted through a Model Context Protocol bridge of 17 tools in three tiers, with enforcement held in the control application. The target was a 30-bilayer Ru/C multilayer with a period of 6.85 nm, a pair chosen because each period is fitted as two layers. The agent could write only inside a working project of its own, so it could alter neither the calibration it read nor the measurements that scored it. Mirrors were scored against a human-authored reference by X-ray reflectivity, and the 3% acceptance threshold on relative period difference was fixed before deposition. Across four scored agent-authored depositions the relative period difference fell from 20% on the calibration as given to 2.26% after one measured-feedback iteration and 0.79% after a second. Sixteen failure modes of the agent-facing interface were identified. The result is bounded to the period, pair and chamber observed.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Oleksiy V. Penkov",
+        "Haoyu Fu",
+        "Yueying Zhan",
+        "Pengyuan Wu",
+        "Jiong Jin"
+      ]
+    },
+    "item_hash": "b4a92881176173d6"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Cognition on Graph: Navigating Massive Knowledge Space via Cognitive Cycles and Bidirectional Graph-Text Synergy",
+    "url": "https://arxiv.org/abs/2609.12791",
+    "content": "Retrieval-Augmented Generation (RAG) has empowered Large Language Models (LLMs) to tackle knowledge-intensive tasks. However, navigating global, heterogeneous knowledge bases (large-scale knowledge graphs and text corpora) for complex reasoning remains a challenge. Existing methods typically employ reactive, graph-driven exploration strategies, which blindly follow graph topology without adapting to the question context or evolving exploration progress, and lack deep bidirectional synergy between graph and text. To address these limitations, we propose CoG (Cognition on Graph), a cognitive-inspired, training-free framework for adaptive knowledge exploration. Drawing inspiration from human problem-solving, CoG performs a continuous plan-explore-reflect cycle, where it proactively formulates investigation plans, performs dual-source retrieval, and dynamically reflects on progress to adjust strategies. Crucially, it establishes deep bidirectional synergy between structured graph and unstructured text, where entities extracted from text dynamically guide graph exploration to bridge knowledge gaps. Extensive experiments on seven multi-hop QA benchmarks demonstrate that CoG significantly outperforms state-of-the-art methods while achieving superior exploration efficiency. Our code and datasets are available at https://github.com/zhougengxian/CoG.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Gengxian Zhou",
+        "Jian Xu",
+        "Zichen Tang",
+        "Shiming Xiang",
+        "Haihong E"
+      ]
+    },
+    "item_hash": "cea63e01d272b608"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Assisted Spatial Cognition Through Vision-Language Models",
+    "url": "https://arxiv.org/abs/2609.12747",
+    "content": "Multimodal AI, powered by Large Language Models (LLMs) and Vision-Language Models (VLMs), is transforming assistive technologies by enabling simultaneous processing of visual and textual data. This advancement holds significant promise for over 43 million visually impaired and neuro-divergent individuals worldwide who face persistent challenges in navigating indoor and outdoor environments due to limited spatial awareness and insufficient environmental cues. Existing navigation aids often lack comprehensive 3D scene understanding, relying on constrained route-based strategies that hinder user autonomy. In this paper, we introduce a novel end-to-end framework that integrates LLMs, VLMs and digital twin technologies to deliver a spatially cognitive navigation support for visually impaired and neuro-divergent users. Our system captures video input via standard mobile phone cameras, and employs SLAM3R to generate dense 3D point clouds from monocular RGB sequences in real-time. Our custom post-processing algorithm ensures accurate point cloud alignment across multiple viewpoints without requiring predefined reference points. This enhances the capabilities of SpatialLM to produce structured 3D representations, including architectural elements and oriented object bounding boxes. The enriched spatial data is then processed by a locally deployed LLM, which interprets 3D contexts to generate detailed scene descriptions and precise distance measurements between users and surrounding objects. We evaluated our approach across diverse video scenarios featuring various perspectives, looped walking views and captured in multiple environments. The evaluation results demonstrate consistent accuracy in 3D scene interpretation and object localisation, underscoring the potential of our system as a transformative assistive navigation solution that combines advanced visual perception with spatial reasoning",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "H. Riaz",
+        "J. B. Fernandez",
+        "I. Mills",
+        "D. Hickey",
+        "F. Cleary"
+      ]
+    },
+    "item_hash": "942fae983c7118cb"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Write on Paper and Get the Online Digital Trace:\\newline A New Era for Handwriting",
+    "url": "https://arxiv.org/abs/2609.12702",
+    "content": "Capturing the digital trace of handwriting usually requires a specific stylus and a compatible substrate, be it a capacitive touchscreen, an ElectroMagnetic Resonance (EMR) tablet as used in Wacom systems or special paper. While writing on regular paper offers rich haptics, no latency and is well known for improving information retention, no low-cost and widely accepted, effective solution exists to digitize such a pen trace. The challenge is to accurately track the pen's trajectory without an external reference system while allowing unrestricted freedom of pen movement across a surface. We propose an innovative solution that combines a digital pen, advanced artificial intelligence algorithms, and adaptive AI techniques to reconstruct the digital trace of handwriting. Our approach integrates hardware development, focusing on a sensor-equipped pen, with software innovations to optimize trajectory reconstruction and processing in real time using an embedded AI. This work aims to advance the state-of-the-art in automated trace reconstruction of handwriting, enabling a seamless connection between traditional handwriting on paper and capturing the trace digitally.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Florent Imbert",
+        "Yann Soullard",
+        "Eric Anquetil",
+        "Tanja Harbaum",
+        "Alexey Serdyuk"
+      ]
+    },
+    "item_hash": "787957bdffa47f11"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "I Am AdMan: A Pipeline for Automatic Generation of Personalized Advertising Imagery",
+    "url": "https://arxiv.org/abs/2609.12694",
+    "content": "Personalized marketing can increase customer engagement, satisfaction, and conversion. While existing personalization approaches have become effective at matching the right product to the right customer, the visual representation of advertisements remains generic and only weakly tailored to the individual. Prior research shows that generative artificial intelligence can improve the creation of personalized advertisements, particularly for text, and that image generation models can support scalable advertisement production. However, little research has examined how detailed customer information can be systematically translated into fully AI-generated, personalized advertising imagery at scale on a technical level. To address this gap, we propose AdMan, a multi-agent pipeline that transforms customer data into personas, generates personalized advertisement images conditioned on product reference images, and applies an LLM-based judge agent for automated quality control. We implement the pipeline with two different model configurations and evaluate it across four products, using six celebrity personas for qualitative inspection, and 100 real customer profiles, producing 1745 advertisements. The evaluation combines a qualitative expert focus group and a quantitative artifact-rate assessment. The results show that the pipeline can generate photorealistic and personalized advertisements. At the same time, performance varies substantially by product complexity and model configuration. Our findings extend the literature on AI-based personalized advertising by demonstrating the feasibility and current limitations of fully automated image generation for advertising.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Victor Kolominsky-Rabas",
+        "Leopold Müller",
+        "Claudius Budcke",
+        "Niklas Kühl"
+      ]
+    },
+    "item_hash": "33d33ba5027401ab"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Residual Vector-based Reconstruction as Long-Context Recall Regardless of Context Window Size",
+    "url": "https://arxiv.org/abs/2609.12686",
+    "content": "Large language models (LLMs) process long contexts, including long documents and lengthy conversations, but face token-level memory usage that increases proportionally to input length. Although model optimization and lossy prompt compression are widely used, these methods still fail to solve the long-context recall problem beyond pretrained and size-constrained context windows. This paper proposes a long-context recall method that maintains near-constant GPU memory usage as context length increases, without additional training. The main idea is to reconstruct facts using parameter activations in the LLM's feed-forward layers, which store residual vectors representing facts from the source document. Utilizing residual vectors allows the LLM to deterministically reconstruct query relevant facts without referencing the original document, preserving high fidelity and reducing memory usage without fine-tuning weights. Experimental results show that the proposed method enables answering single-fact questions in two-million-token story contexts where previous methods fail.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "MyungHoon Ryu",
+        "XinYu Piao",
+        "Jong-Kook Kim"
+      ]
+    },
+    "item_hash": "c2e1adc4486cdf77"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Generative AI Use Cases In Real Estate Marketing: Adoption and Constraints in Germany",
+    "url": "https://arxiv.org/abs/2609.12684",
+    "content": "Generative artificial intelligence (GenAI) is changing how work is organized and performed. Real estate marketing is a prime example of this, yet evidence of GenAI in real estate agents' day-to-day practice remains scarce. In this work, we report on our insights from a German-based empirical study with eleven semi-structured interviews. GenAI is already utilized across different activities, with marketing communication being the most prominent. Concrete use cases are emergent and unevenly adopted, with writing exposé texts being the only widely established one. Interaction is predominantly human-in-the-loop: GenAI drafts, structures, and retrieves, while real estate agents curate, verify, and decide. Constraints stem less from model capability than from integration with listings and documents, data availability, and compliance in sensitive tasks. The study contributes a grounded map of existing and potential use cases and identifies tentative practical implications for adoption.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Victor Kolominsky-Rabas",
+        "Leopold Müller",
+        "Felicia Perpina",
+        "Niklas Kühl"
+      ]
+    },
+    "item_hash": "6b4933dee5336b9a"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Bridging the First-Hour Gap: Evaluating AI Reliability and Benchmarking Deficiencies in Cyber Incident Response for Law Enforcement",
+    "url": "https://arxiv.org/abs/2609.12681",
+    "content": "The actions of frontline law enforcement officers in the initial hour of a cyber incident play a vital role in determining the ultimate success of an investigation. The minor mistakes they commit might result in irreversible critical impacts. The integrity of the investigation can be compromised, and the prosecution of cyber criminals can be hindered due to minor mistakes that happen in the initial hour. These are mainly because of the volatile nature of digital artifacts that might lead to procedural errors and evidence attrition. This paper provides a systematic survey of decision-support architectures designed to assist first responders of a cybercrime, categorizing them into playbooks, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) frameworks, and Agentic AI systems. The survey critically considers the constraints of limited technical proficiency and inconsistent forensic infrastructure in a practical scenario. Our analysis identifies RAG-based systems as a relatively viable intermediate solution due to their natural language adaptability. However, significant risk factors like prompt sensitivity and the potential for confident hallucinations in legal contexts pose a major challenge. Furthermore, we review current benchmarks in cybersecurity and demonstrate that they are not sufficient to capture the specific safety and legal requirements of law enforcement, focusing on the initial hour of the cybercrime. We conclude by arguing for the necessity of a new evaluation benchmark focused on naive query robustness and evidence preservation, so as to ensure that AI-driven guidance aligns with the mandatory demands of judicial proceedings.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Roshin Sleeba C",
+        "Hiran V Nath"
+      ]
+    },
+    "item_hash": "241d373f50a2f030"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Doc2FRC: Length-Consistent Document-Level Machine Translation via Fixed-Range Chunking",
+    "url": "https://arxiv.org/abs/2609.12674",
+    "content": "Advanced large language models (LLMs) with long context windows can substantially reduce input truncation in document-level machine translation (DocMT). However, direct Doc2Doc translation remains prone to n-gram repetition and progressive quality degradation. A common remedy is to segment the document into finer-grained chunks. Nonetheless, conventional rule-based chunking approaches fail to handle the length distribution mismatch between training and inference. To address this, we introduce Fixed-Range Chunking (FRC), utilizing dynamic programming to partition documents into chunks within a predefined length interval. By consistently applying FRC during training and inference, the input documents of any length are mapped to the same length distribution, substantially reducing train-test length mismatch. Centered on FRC, we propose a lightweight dual-boundary matching algorithm for chunk alignment, alongside four distinct training strategies. Experimental results show that FRC-based fine-tuning substantially improves 7B LLMs over direct Doc2Doc fine-tuning and outperforms existing DocMT methods on IWSLT2017. We further construct GlobVDoc, a 10-language test set independent of mainstream DocMT training sources, and show that FRC improves out-of-distribution document translation.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Xiaotian Wang",
+        "Youyuan Lin",
+        "Zhan Shen",
+        "Hitomi Yanaka"
+      ]
+    },
+    "item_hash": "450e768ff2005f1b"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "What Did the MLLM Hear? Token-Level Spectro-Temporal Grounding for Audio MLLM Explainability",
+    "url": "https://arxiv.org/abs/2609.12663",
+    "content": "Audio-based Multimodal Large Language Models (MLLMs) can generate detailed natural-language descriptions of complex acoustic scenes, yet it remains unclear which parts of the input audio support each generated token. This is particularly challenging because acoustic evidence is distributed across time and frequency, and concurrent sound events may overlap temporally while occupying different spectral regions. We introduce STAG, to our knowledge the first post-hoc framework for token-level spectro-temporal grounding of captions generated by audio-based MLLMs. STAG estimates the temporal support for each generated token using target-token-specific vocabulary projections of the encoded audio representations, measures frequency-band relevance through controlled spectral occlusion, and combines the two signals into a spectro-temporal relevance map. We evaluate STAG against ten post-hoc explanation methods across four grounding benchmarks, where it achieves the best event-localization performance on every dataset, and apply it to eight audio-language backbones without parameter updates. Counterfactual deletion further shows that removing the identified evidence selectively reduces confidence in the corresponding event and frequently removes it from the regenerated caption. These results provide behavioral support for the faithfulness and selectivity of the explanations.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Lucia Cascone",
+        "Valeria Fraenza",
+        "Michele Nappi",
+        "Fabio Narducci",
+        "Benedetto Simone"
+      ]
+    },
+    "item_hash": "6cf854fdba20b657"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Separating Engineering Reasoning from DEXPI Serialization in LLM-Based Greenfield Surface-Process Design: A Three-Case Study for Underground Gas Storage",
+    "url": "https://arxiv.org/abs/2609.12656",
+    "content": "Large language models can produce engineering descriptions and structured process representations, but standards-level serialization can substantially increase the generation burden. This diagnostic study examines whether separating engineering reasoning from Data Exchange in the Process Industry (DEXPI) serialization changes where representation and engineering failures occur in constrained greenfield surface-process design for underground gas storage. We compare Direct DEXPI generation with generation of a lightweight Engineering Intermediate Representation (IR) on three cases: single-pressure injection, withdrawal and export, and dual-pressure injection. All six conditions use one fixed model snapshot, qwen3.8-max-0902, with one completed hosted generation per condition. Direct outputs are XSD-valid in 2 of 3 cases, while all 3 Engineering IR outputs are structurally valid under a minimal validator. Direct prompt inputs contain approximately 121.8k-121.9k tokens, compared with 617-699 tokens for the Engineering IR prompts. Engineering feasibility does not uniformly favor the IR: one IR output is rejected for an explicit cooling-state contradiction. The cases also reveal two distinct Direct DEXPI failure modes: engineering inconsistency and standards-level serialization failure. The observed comparison shows that, in these evaluated method bundles, deferring DEXPI serialization substantially reduces representation burden and helps isolate serialization failure, but reducing representation burden alone does not eliminate engineering inconsistencies.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Qingchuan Zhu",
+        "Shuyue Tong",
+        "Pengju Ren"
+      ]
+    },
+    "item_hash": "86c67cd75c486950"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "LifeMem: Enabling Lifelong Experience Reuse for LLM Agents",
+    "url": "https://arxiv.org/abs/2609.12655",
+    "content": "Large language model agents are expected to continuously adapt to new tasks and environments over their lifetime by reusing past experience. However, existing memory-based agents struggle to transfer reusable experience across environments and suffer from catastrophic forgetting as experience accumulated. To address these challenges, we propose LifeMem, a lifelong learning framework that enables agents to transfer knowledge across multiple environments. During learning, LifeMem clusters accumulated interaction trajectories based on underlying workflows to extract reusable skills. When solving a new task at inference time, the agent recalls relevant skills and trajectories to guide actions. To validate our method, we conduct experiments across 10 environments and over 13k tasks with 2k newly annotated interaction trajectories. Results show that LifeMem enables effective experience reuse in lifelong learning, achieving both reduced forgetting on learned tasks and superior cross-task transfer. Further analysis reveals that task streaming impacts learning, while consolidating structurally similar trajectories within memory boosts performance.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Yuli Qiu",
+        "Yutong Li",
+        "Wei Su",
+        "Zeming Liu",
+        "Wanxiang Che"
+      ]
+    },
+    "item_hash": "a540e9649b295533"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Distortion of AI Alignment Revisited: RLHF is a Decent Utilitarian Aligner",
+    "url": "https://arxiv.org/abs/2609.12651",
+    "content": "While Reinforcement Learning from Human Feedback (RLHF) is the standard paradigm for aligning large language models with human preferences, its effectiveness in pluralistic settings has been called into question. Notably, recent work by Gölz et al. (2025) demonstrated that the \\textit{distortion} -- defined as the multiplicative gap between the average user utility of the RLHF policy and the optimal average utility -- can scale exponentially with the Bradley-Terry temperature parameter $β$ when users have heterogeneous preferences. In this work, we present a fine-grained analysis of the distortion of RLHF with reward clipping and demonstrate that such exponential degradation is not a fundamental property of the algorithm but rather a consequence of distribution mismatch between the distribution generating preference data ($μ$) and the KL reference policy ($π_{\\mathrm{ref}}$). To this end, we establish tight upper and lower bounds on the distortion of RLHF across multiple regimes of the KL regularization strength. We show that in a representative regime, under the Bradley-Terry model, the distortion is $\\tildeΘ(βB + β)$, where $B$ is an upper bound on the log density ratio between $μ$ and $π_{\\mathrm{ref}}$. In particular, when there is no distribution mismatch (i.e., $μ= π_{\\mathrm{ref}}$), RLHF achieves the optimal distortion of $O(β)$ up to a constant. Our results suggest that, to reasonably maximize average utility with RLHF, it is preferable to use on-policy sampled preference data or to fine-tune before RLHF on data from a source close to $μ$.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Kazusato Oko",
+        "Annie Ulichney",
+        "Nika Haghtalab",
+        "Han Bao"
+      ]
+    },
+    "item_hash": "c04cdf77d05f6e91"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Direct Preference Density Alignment for Conversational Audio Equalization",
+    "url": "https://arxiv.org/abs/2609.12607",
+    "content": "Large Language Model alignment typically relies on learned proxy reward models, which significantly increase the memory footprint during training and are notoriously prone to instability and reward hacking. While offline methods like Direct Preference Optimization (DPO) bypass the reward model, they lose the ability to perform online exploration. If no optimization constraints are applied, this can lead to format collapse in bounded, continuous spaces. To resolve this, we propose Direct Preference Density Alignment: An alternative framework that removes the need for a learned proxy reward model while strictly preserving the benefits of online reinforcement learning. We leverage large-scale user data (approximately 90,000 samples) to construct non-parametric preference density maps, establishing an empirical reward surface. In addition to removing the reward model, Direct Preference Density Alignment enables the combination of the online structural grounding of Group Relative Policy Optimization (GRPO) with the targeted offline refinement of DPO. We show that this GRPO+DPO combination achieves the highest performance, and in a blind audio equalization listening test, enables a 1.5B-parameter model to achieve perceptual parity with a carefully prompt-engineered GPT-4o mini baseline, using only a fraction of the inference compute.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Ioannis Stylianou",
+        "Sven Ewan Shepstone",
+        "Jon Francombe",
+        "Pablo Martinez Nuevo",
+        "Zheng-Hua Tan"
+      ]
+    },
+    "item_hash": "fdce5a3b400293f1"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Clustering-Based Balanced Sampling and Allocation with Data Parallelism for High-Performance Fine-Tuning",
+    "url": "https://arxiv.org/abs/2609.12584",
+    "content": "Instruction-tuning datasets for large language models (LLMs) are often large, redundant, and imbalanced, limiting efficient adaptation. Naive large-batch fine-tuning repeatedly includes overrepresented sample groups while weakly covering underrepresented but informative ones, especially under data parallelism (DP) across multiple GPUs. We propose CluSTER, a Cluster-aware balanced Sampling framework for Training Efficient data Reduction in DP instruction tuning. CluSTER curates a representative reduced dataset through gradient-space clustering and DP-aware balanced allocation, ensuring dual-level coverage across clusters and workers, while preserving the original data distribution by weighted update. As a result, CluSTER reduces redundant computation and improves training stability without compromising model quality. Across multiple instruction-tuning datasets, CluSTER reduces training time by up to 69.6% with almost no accuracy loss compared to prior sampling and data reduction methods. Code is available at https://github.com/kaist-dmlab/CluSTER.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hyunjin Kim",
+        "Youngeun Nam",
+        "Jaemin Han",
+        "Wonhyeok Choi",
+        "Jae-Gil Lee"
+      ]
+    },
+    "item_hash": "6820bcdfcc248f07"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "A Retrieval-Augmented Automated Stakeholder for Requirements Elicitation Education: A Comparative Study",
+    "url": "https://arxiv.org/abs/2609.12576",
+    "content": "Developing the skills required for requirements engineering students to conduct effective requirements elicitation interviews is critical yet challenging, as it requires the development of soft skills in addition to technical knowledge. Role-playing is widely adopted in requirements engineering education to support the development of these skills but is often constrained by time and resource limitations. Although recent advances in large language models (LLMs) enable automated and interactive stakeholder simulations for role-playing, their application in requirements engineering education remains limited by hallucinations and inconsistent responses. To address these limitations, this study investigates the use of retrieval-augmented generation (RAG), implemented using the LangChain framework, to support requirements elicitation activities in a requirements engineering course. We conducted controlled experiments with 69 students, comparing cohorts who interacted with non-technical faculty role-players and those who engaged with RAG-based simulated stakeholders. The results indicate that while students perceived invited stakeholders as more realistic and engaging, the RAG-based automated stakeholder produced higher-quality elicitation questions and more complete feature identification.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Manal Binkhonain",
+        "Ohoud Mosa Alharbi"
+      ]
+    },
+    "item_hash": "116f240e3a03ca40"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "PIA-Bench: Towards Automated Privacy Impact Assessment with Large Language Models",
+    "url": "https://arxiv.org/abs/2609.12571",
+    "content": "Privacy impact assessment (PIA) is a critical instrument for institutions to proactively identify privacy risks and develop mitigation strategies before system deployment. While mandated across regulatory and institutional contexts, executing PIA requires extensive privacy and technical expertise, posing a particular challenge for teams without access to such resources. Prior work shows the potential of leveraging large language models (LLMs) to assist practitioners' privacy decisions, but little is known about how accurately and reliably LLMs can automate PIA. To this end, we develop PIA-Bench, the first open benchmark for evaluating LLMs on real-world PIAs. We first audited 499 expert-authored PIAs published by US federal agencies and curated 73 structured PIAs, comprising a total of 451 privacy risk and 831 mitigation items, to evaluate LLMs' ability to assess privacy risks and propose mitigations of complex systems. Our results show that off-the-shelf LLMs produce meaningful assessments and identify avenues for future improvement. Finally, we call for improving domain-specific workflows for LLM agents, developing accountable LLM infrastructure, and designing new quality standards for PIAs.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jiamin Zheng",
+        "Hao-Ping Lee",
+        "Luo Mai",
+        "Jingjie Li"
+      ]
+    },
+    "item_hash": "6f04d83513fe7ac8"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Earth-Agent-Pro: Towards Real-World Full-Chain Earth Observation with Agents",
+    "url": "https://arxiv.org/abs/2609.12533",
+    "content": "Real-world Earth observation (EO) agents must translate high-level scientific questions into executable workflows to acquire observations, prepare data, perform domain computations, and derive conclusions from runtime evidence. Existing EO agents typically start from supplied observations, while benchmarks typically provide prepared inputs or candidate answers, leaving full-chain open-world EO execution largely untested. We present Earth-Agent-Pro, an execution-adaptive Plan-and-Execute framework using expert-authored skills to constrain planning and runtime tool use. Workflow-centered structured memory records planned steps, accepted evidence, and their dependencies, enabling repair of only the affected workflow suffix when runtime evidence invalidates a step. Separate large language model adapters use sequence-level supervised fine-tuning for planner workflow composition and node-level group relative policy optimization with locally verifiable rewards for executor tool-argument grounding. Earth-Bench-Pro instantiates 248 expert-curated task cores as 744 questions under three matched regimes. Its 248 Open-World Execution questions span RGB imagery, spectral observations, and remote sensing products, pairing high-level requests with runtime data requirements, executable trajectories, and open-ended answers grounded in execution evidence. With a shared GPT-5 backbone, Earth-Agent-Pro achieves 66.13% LLM-as-Judge accuracy, exceeding ReAct by 20.95 points in this metric and 24.44 points in Tools-In-Order. Joint adapter tuning raises Qwen3.5-9B LLM-as-Judge accuracy from 38.31% to 50.00%, an 11.69-point gain over the untuned configuration. Planning-only evaluation and execution with the reference workflow show that the adapters improve workflow composition and argument grounding, respectively. Code and datasets will be released soon.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Zhutao Lv",
+        "Chenhao Dang",
+        "Yi Feng",
+        "Yanpei Gong",
+        "Xiaolei Wang"
+      ]
+    },
+    "item_hash": "39576a7e60d839c4"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Extended Wigner's Friend Scenarios with Agent-like Observers on Quantum Computers",
+    "url": "https://arxiv.org/abs/2609.12527",
+    "content": "The Wigner's friend thought experiment raises the question of whether quantum theory can be applied consistently to systems that include observers. Extended Wigner's Friend Scenarios develop this question by considering several observers who may assign different descriptions to the same experiment. In the Local Friendliness (LF) framework, these scenarios lead to experimentally testable inequalities derived from assumptions such as Absoluteness of Observed Events and Local Agency. Motivated by the \"Thoughtful\" version of the Local Friendliness no-go theorem, which points towards future LF tests with human-level artificial agents implemented on quantum computers, this work implements the \"friend\" with explicit agent-like functionality within a reversible quantum circuit. Drawing from the literature on Artificial Intelligence, we construct rudimentary agent-like systems and embed them into a one-friend Extended Wigner's Friend Scenario. These agents store measurement outcomes, condition later operations on stored information, and, in the most structured case, use Born-rule probabilities to bet on the outcomes of their own future observations based on past observations. The circuits are simulated ideally and with an IBM-device noise model and executed on ibm_marrakesh. Ideal simulations reproduce the maximal quantum violation of a Local Friendliness inequality up to finite-shot fluctuations, while hardware runs show positive LF violations for all implemented agents. These results provide a first step towards more structured agent-like friend models in LF experiments on quantum computers.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Joshua Laux",
+        "Eric G. Cavalcanti"
+      ]
+    },
+    "item_hash": "8bc3aaea5f890a5f"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Computing at Sea: Floating and Offshore Data Centres as a Pathway to Sustainable AI Infrastructure",
+    "url": "https://arxiv.org/abs/2609.12511",
+    "content": "The rapid expansion of artificial intelligence is transforming data centres into one of the world's fastest-growing sources of electricity demand. As AI systems scale in size and capability, the physical infrastructure supporting computation is approaching critical limits in energy availability, cooling capacity, land use, freshwater consumption, and carbon management. Conventional land-based data centres are increasingly constrained by urban land competition, grid congestion, environmental pressures, and lengthy permitting processes, raising fundamental questions about where future computing infrastructure can sustainably exist. This article examines floating and offshore data centres as an emerging alternative model for digital infrastructure. By relocating computation to marine environments, offshore systems can exploit the ocean's natural cooling capacity, reduce freshwater dependence, and enable direct integration with offshore renewable energy resources such as wind, wave, and tidal power. Early deployments have demonstrated the potential for significantly improved energy efficiency and operational reliability compared with conventional facilities, while also opening new possibilities for distributed and resilient computing architectures. The article explores how offshore computing may reshape the future relationship between electrification, renewable energy, and large-scale AI infrastructure. It analyses the opportunities and trade-offs associated with marine deployment, including environmental impacts, engineering design challenges, economic feasibility, and regulatory governance. Rather than treating offshore data centres as experimental novelties, the article presents them as part of a broader systems-level transition in how society may power, cool, and sustain the next generation of computational growth.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Cheng Siong Chin",
+        "Jianhua Zhang",
+        "M. Venkateshkumar"
+      ]
+    },
+    "item_hash": "a713d95ffd155bf0"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Information Specialization and Constrained Synthesis in Multi-Agent LLM Forecasting: A Prospective Live-Study of the 2026 FIFA World Cup",
+    "url": "https://arxiv.org/abs/2609.12495",
+    "content": "Large language models are being organized into multi-agent systems with specialized roles, but whether such specialization produces distinct forecasts and whether subsequent synthesis improves utility remains unclear. In this study, we carried out a live, prospective evaluation over the final 56 matches of the information-dense 2026 FIFA World Cup, keeping a frontier foundation model constant while assigning two primary forecasting agents contrasting specialist roles: a quantitative specialist focusing on structured performance statistics and a news specialist focusing on current injuries, tactics and information from press conferences. Their forecasts were then reviewed by a separate critic before being combined by a meta-agent, resulting in a sequential four-agent model. Forecasts from the betting market served as an external benchmark. The news specialist obtained the highest mean probability-weighted Top-3 utility and matched the betting market in Top-3 exact-score hits. Nevertheless, the two specialist forecasters agreed on at least two of the three scorelines in 50 out of 56 matches, and the meta-agent never generated more than one scoreline outside the specialists' forecast set. These findings show that rapidly changing, unstructured information can provide a valuable forecasting signal alongside structured statistics, whereas adding critic and meta-agent stages does not necessarily create complementary information or improve on the strongest specialist.",
+    "published_at": "2026-09-11",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Julian Varghese",
+        "Lucas Bickmann",
+        "Sarah Sandmann"
+      ]
+    },
+    "item_hash": "43c721e08a8e1a6b"
+  }
+]

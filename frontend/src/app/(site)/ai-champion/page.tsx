@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { FaqSection } from "@/components/ai-champion/faq-section";
 import { JourneySection } from "@/components/ai-champion/journey-section";
 import { ScorePanel } from "@/components/ai-champion/score-panel";
 import { TrackPanels } from "@/components/ai-champion/track-panels";
@@ -177,6 +178,8 @@ export default function AiChampionPage() {
           {/* 수료·인증 실적 수치는 비공개 지침으로 싣지 않는다 (홈 scene-ai-champion 동일) */}
         </div>
       </section>
+
+      <FaqSection />
 
       <section className="bg-white px-6 pb-20 lg:px-10 lg:pb-28">
         <div className="mx-auto max-w-[1280px] rounded-3xl bg-ink-warm p-10 text-white sm:p-16 lg:p-20 reveal">

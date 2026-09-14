@@ -1,0 +1,268 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ever-co/ever-gauzy",
+    "url": "https://github.com/ever-co/ever-gauzy",
+    "content": "Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) -https://gauzy.co",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 5015,
+      "language": "TypeScript"
+    },
+    "item_hash": "1866388603d9b6bc"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "tech-leads-club/agent-skills",
+    "url": "https://github.com/tech-leads-club/agent-skills",
+    "content": "The secure, validated skill registry for professional AI coding agents. Extend Antigravity, Claude Code, Cursor, Copilot and more with absolute confidence.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 5620,
+      "language": "TypeScript"
+    },
+    "item_hash": "3f220f3536f87a11"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "melgarafael/DeskcommCRM",
+    "url": "https://github.com/melgarafael/DeskcommCRM",
+    "content": "Open-source AI sales OS — self-hosted CRM with native AI agents + WhatsApp (WAHA). Open alternative to Kommo, Octadesk & Intercom for any business that sells by chat. MCP-ready, multi-tenant, LGPD.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 2164,
+      "language": "TypeScript"
+    },
+    "item_hash": "809a5e9573333bc9"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "calesthio/OpenMontage",
+    "url": "https://github.com/calesthio/OpenMontage",
+    "content": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 58391,
+      "language": "Python"
+    },
+    "item_hash": "6d3bd03b49986330"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "asgeirtj/system_prompts_leaks",
+    "url": "https://github.com/asgeirtj/system_prompts_leaks",
+    "content": "Extracted system prompts from Anthropic - Claude Fable 5.1, Opus 5, Claude Design, Claude Code. OpenAI - ChatGPT GPT-6-Astra, Codex. Google - Gemini 3.8 Flash, 3.1 Pro, Antigravity. xAI - Grok, Grok Bot, Cursor, Kimi and more! Updated regularly.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 65994,
+      "language": "JavaScript"
+    },
+    "item_hash": "716cf9e2237ac9db"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "vxcontrol/pentagi",
+    "url": "https://github.com/vxcontrol/pentagi",
+    "content": "Fully autonomous AI Agents system capable of performing complex penetration testing tasks",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 23940,
+      "language": "Go"
+    },
+    "item_hash": "b0d327628dfb442e"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "multimodal-art-projection/YuE",
+    "url": "https://github.com/multimodal-art-projection/YuE",
+    "content": "YuE2: frontier music generation with symbolic planning, zero-shot covers, and agentic music editing.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 7713,
+      "language": "Python"
+    },
+    "item_hash": "38ae21f689972ffe"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "yuliskov/SmartTube",
+    "url": "https://github.com/yuliskov/SmartTube",
+    "content": "Browse media content with your own rules on Android TV",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 33433,
+      "language": "Java"
+    },
+    "item_hash": "50d9c5663d2944bd"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "alphaXiv/OpenResearch",
+    "url": "https://github.com/alphaXiv/OpenResearch",
+    "content": "Run parallel research agents with any model",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 2022,
+      "language": "Rust"
+    },
+    "item_hash": "7fdac29581e58161"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "SnailSploit/Claude-Red",
+    "url": "https://github.com/SnailSploit/Claude-Red",
+    "content": "claude-red is a curated library of offensive security skills designed for the Claude skills system. Each skill is a structured SKILL.md file that primes Claude with expert-level methodology for a specific attack surface — from SQLi to shellcode, EDR evasion to exploit development.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 4103,
+      "language": "Python"
+    },
+    "item_hash": "260a41dc64951ed4"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "alibaba/open-code-review",
+    "url": "https://github.com/alibaba/open-code-review",
+    "content": "Fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 23437,
+      "language": "Go"
+    },
+    "item_hash": "c489e6fb5febf2ab"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "jihe520/MathModelAgent",
+    "url": "https://github.com/jihe520/MathModelAgent",
+    "content": "🤖📐专为数学建模设计的 Agent & skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical Modeling ,Automatically complete mathmodel and generate a complete paper ready for submission.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 5333,
+      "language": "Python"
+    },
+    "item_hash": "d2c75eda6557ff17"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "tonhowtf/omniget",
+    "url": "https://github.com/tonhowtf/omniget",
+    "content": "Download Udemy and Hotmart courses, YouTube videos, music and books — 1,800+ sites, no terminal. Free open-source desktop app for Windows, macOS and Linux, with a built-in course player, PDF/EPUB reader and music library. Powered by yt-dlp. Your files stay on your computer.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 11591,
+      "language": "Rust"
+    },
+    "item_hash": "9c6f94aa14994f89"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Swordfish90/cool-retro-term",
+    "url": "https://github.com/Swordfish90/cool-retro-term",
+    "content": "A good looking terminal emulator which mimics the old cathode display...",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 26213,
+      "language": "QML"
+    },
+    "item_hash": "a1828c156bc2591d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "huggingface/transformers",
+    "url": "https://github.com/huggingface/transformers",
+    "content": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 165479,
+      "language": "Python"
+    },
+    "item_hash": "53d940334a2a5afd"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "davila7/claude-code-templates",
+    "url": "https://github.com/davila7/claude-code-templates",
+    "content": "CLI tool for configuring and monitoring Claude Code",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 30704,
+      "language": "Python"
+    },
+    "item_hash": "25bff0b4a0ece6bc"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Shubhamsaboo/awesome-llm-apps",
+    "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+    "content": "100+ AI Agents, Agent Skills and RAG Apps - Free and Open Source.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 137939,
+      "language": "Python"
+    },
+    "item_hash": "fae31da6c227cfde"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "jordan-gibbs/hyperresearch",
+    "url": "https://github.com/jordan-gibbs/hyperresearch",
+    "content": "Agent-driven research knowledge base. Agents collect, search, and synthesize web research into a persistent, searchable wiki.",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 3209,
+      "language": "Python"
+    },
+    "item_hash": "6943fdef38504300"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "simonlin1212/TradingAgents-astock",
+    "url": "https://github.com/simonlin1212/TradingAgents-astock",
+    "content": "A股多Agent投研框架 — 适配A股数据源(龙虎榜/游资/解禁等)，7位分析师基于A股规则的辩论决策，基于TradingAgents深度改造，适配大A。A-share multi-agent investment research framework — 7 AI analysts, bull/bear debate, risk assessment。",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "stars": 3302,
+      "language": "Python"
+    },
+    "item_hash": "d123bf593c01ee1a"
+  }
+]

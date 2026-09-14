@@ -1,0 +1,72 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "Edge0/Edge0-35B-A3B-preview",
+    "url": "https://huggingface.co/Edge0/Edge0-35B-A3B-preview",
+    "content": "",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 1014
+    },
+    "item_hash": "6f2a3553732373b6"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "nex-agi/Nex-N2.5-Pro",
+    "url": "https://huggingface.co/nex-agi/Nex-N2.5-Pro",
+    "content": "",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 623
+    },
+    "item_hash": "003d94a7ff4cba00"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "m-a-p/YuE2-3B",
+    "url": "https://huggingface.co/m-a-p/YuE2-3B",
+    "content": "",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 400
+    },
+    "item_hash": "2d1e190b309f2b26"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "openbmb/MiniCPM5-2B-GGUF",
+    "url": "https://huggingface.co/openbmb/MiniCPM5-2B-GGUF",
+    "content": "",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 216
+    },
+    "item_hash": "2f1af43171b7cfd2"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "tencent/AuK",
+    "url": "https://huggingface.co/tencent/AuK",
+    "content": "",
+    "published_at": "2026-09-13",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 189
+    },
+    "item_hash": "eb029af5e135cdca"
+  }
+]

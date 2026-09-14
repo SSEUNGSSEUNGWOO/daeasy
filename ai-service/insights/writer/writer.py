@@ -159,7 +159,8 @@ def write_report(items: list[dict], clusters: list[dict], feedback: str = "") ->
         date=date.today().isoformat(),
         feedback_section=feedback_section,
     )
-    draft = run_claude(prompt, timeout=300)
+    # 어제+오늘 raw 가 합쳐져 클러스터 29개·원문 80건이 들어오면 300초로는 잘린다 (2026-09-15) — 교정 단계와 같은 900초
+    draft = run_claude(prompt, timeout=900)
 
     allowed_urls = {item["url"].strip() for item in items if item.get("url")}
     cleaned, removed = sanitize_urls(draft, allowed_urls)

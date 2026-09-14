@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { LikeButton } from "@/components/insights/like-button";
 import { TableOfContents, type TocItem } from "@/components/insights/toc";
 import { ViewTracker } from "@/components/insights/view-tracker";
+import { NewsletterCta } from "@/components/newsletter-cta";
 import { fetchInsight, type InsightDetail } from "@/lib/insights";
 import { SITE_URL } from "@/lib/site";
 
@@ -204,6 +205,19 @@ export default async function InsightDetailPage(
           </div>
 
           <Sources sources={insight.sources} />
+
+          {/* 글을 끝까지 읽은 사람이 구독 전환율이 가장 높다 — 목록 상단 CTA 와 같은 컴포넌트 */}
+          <section className="mt-14 rounded-2xl bg-paper p-7 sm:p-9">
+            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-accent">
+              뉴스레터
+            </p>
+            <h2 className="mt-2 text-[22px] font-bold leading-[1.3] tracking-[-0.01em] text-ink">
+              매일 아침, 이런 인사이트를 메일로
+            </h2>
+            <div className="mt-5">
+              <NewsletterCta />
+            </div>
+          </section>
 
           <div className="mt-10 flex justify-center lg:hidden">
             <LikeButton slug={insight.slug} />

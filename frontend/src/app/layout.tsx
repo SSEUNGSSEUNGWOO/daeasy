@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 import {
@@ -124,6 +126,9 @@ export default function RootLayout({
           <style>{`.anim-page-fade-up,.anim-hero-fade,.anim-cover-scale-fade,.reveal,.reveal-stagger>*{opacity:1!important;transform:none!important;animation:none!important;transition:none!important;}`}</style>
         </noscript>
         {children}
+        {/* 유입 경로·페이지뷰·Web Vitals 측정. 쿠키 없이 동작해 동의 배너가 필요 없다 */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
+import { ShareButton } from "@/components/share-button";
 import type { CourseLevel } from "@/lib/courses";
 
 import { VIBE_PRESETS } from "../presets";
@@ -399,13 +400,21 @@ export function VibeFlow({ courses }: { courses: VibeCourse[] }) {
       )}
 
       {(phase === "done" || phase === "error") && (
-        <button
-          type="button"
-          onClick={restart}
-          className="mt-8 block text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
-        >
-          다시 만들기
-        </button>
+        <div className="mt-8 flex flex-wrap gap-6">
+          <button
+            type="button"
+            onClick={restart}
+            className="text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
+          >
+            다시 만들기
+          </button>
+          {phase === "done" && (
+            <ShareButton
+              text="말로 설명하면 AI가 업무 앱을 만들어주는 체험, 직접 해보세요"
+              className="text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
+            />
+          )}
+        </div>
       )}
     </div>
   );

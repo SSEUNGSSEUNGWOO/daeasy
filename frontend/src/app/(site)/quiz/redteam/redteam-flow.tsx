@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 
+import { ShareButton } from "@/components/share-button";
 import type { CourseLevel } from "@/lib/courses";
 
 import { RECO_COURSES, ROUNDS, type Option } from "./content";
@@ -221,13 +222,19 @@ export function RedteamFlow({ courses }: { courses: RedteamCourse[] }) {
           </div>
         )}
 
-        <button
-          type="button"
-          onClick={restart}
-          className="mt-8 text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
-        >
-          다시 해보기
-        </button>
+        <div className="mt-8 flex flex-wrap gap-6">
+          <button
+            type="button"
+            onClick={restart}
+            className="text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
+          >
+            다시 해보기
+          </button>
+          <ShareButton
+            text="AI 챗봇을 뚫어보는 레드팀 체험, 직접 해보세요"
+            className="text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
+          />
+        </div>
       </div>
     );
   }

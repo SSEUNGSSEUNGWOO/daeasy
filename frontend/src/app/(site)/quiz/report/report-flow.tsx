@@ -5,6 +5,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { ShareButton } from "@/components/share-button";
 import type { CourseLevel } from "@/lib/courses";
 
 import { REPORT_PRESETS } from "../presets";
@@ -333,13 +334,21 @@ export function ReportFlow({ courses }: { courses: ReportCourse[] }) {
       )}
 
       {(phase === "done" || phase === "error") && (
-        <button
-          type="button"
-          onClick={restart}
-          className="mt-8 text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
-        >
-          다시 해보기
-        </button>
+        <div className="mt-8 flex flex-wrap gap-6">
+          <button
+            type="button"
+            onClick={restart}
+            className="text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
+          >
+            다시 해보기
+          </button>
+          {phase === "done" && (
+            <ShareButton
+              text="AI가 내 업무 보고서를 1분 만에 써주는 체험, 직접 해보세요"
+              className="text-[14px] font-semibold text-zinc-500 underline-offset-4 hover:text-ink hover:underline"
+            />
+          )}
+        </div>
       )}
     </div>
   );

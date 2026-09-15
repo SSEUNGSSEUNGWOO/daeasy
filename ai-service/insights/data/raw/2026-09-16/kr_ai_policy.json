@@ -1,0 +1,587 @@
+[
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "앤트로픽 '페이블 5.1', 370년 미해결 난제 암호 44분 만에 풀었다",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215301",
+    "content": "370년 넘게 풀리지 않았던 17세기 역사적 암호문을 앤트로픽의 '페이블 5.1'이 44분 만에 해독했다. 미국 AI 연구기관 발스 AI(VALS AI)는 최근 페이블 5.1로 스코틀랜드 작가 토머스 어쿼트 경이 1653년 남긴 미해결 암호문 '암호 이중시(Cyphral Distich)'를 해독하는 데 성공했다고 밝혔다.암호 이중시는 어쿼트의 저서 '로고판덱테이시온(Logopandecteision)' 마지막 부분에 등장한다. 32개의 숫자로 구성된 두 줄, 총 64개의 숫자로 이뤄진 암호문으로, 1899년 영국 교양지 '노트 앤 쿼",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "998dedba949ec440"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "머스크 \"그록 4.8 사전 학습 이번 주 완료...2.5조 매개변수·C++ 적용\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215290",
+    "content": "스페이스XAI가 차세대 AI 모델 ‘그록 4.8’의 사전 학습을 이번 주 안에 마치고 강화학습(RL)에 돌입할 전망이다. 2조5000억개 매개변수 규모로, 스페이스XAI가 새롭게 개발한 C++ 기반 소프트웨어 스택을 적용한 것으로 알려졌다. 일론 머스크 CEO는 13일(현지시간) X를 통해 그록 4.8이 2조5000억개 매개변수를 갖춘 모델이며, 스페이스XAI의 새로운 C++ 소프트웨어 스택을 이용해 학습하고 있다고 밝혔다.\"사전 학습이 이번 주에 완료되고 곧바로 강화학습을 시작할 것\"이라고 설명했다. 다음 날에는 그록 4.8이 아",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "b4287a312ff149ce"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "오픈AI, '아이폰 카메라 기술' 개발한 스타트업 인수…AI 하드웨어 박차",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215285",
+    "content": "오픈AI가 스마트폰 카메라의 화질을 AI으로 개선하는 기술을 개발해 온 스타트업 글래스 이미징(Glass Imaging)을 조용히 인수한 것으로 알려졌다. 14일(현지시간) 월스트리트저널(WSJ)에 따르면, 글래스 이미징의 기업 가치는 이번 인수 과정에서 3억달러(약 4000억원) 이상으로 평가됐다.지난해 투자 유치 당시 1억달러로 평가받았던 것과 비교하면 1년 만에 가치가 3배 이상 상승한 셈이다. 구글의 벤처투자 부문 GV와 투자회사 인사이트 파트너스 등으로부터 3000만달러(약 400억원)의 자금을 조달한 바 있다.글래스 이미",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "10b752c74800a92e"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "중국 연구진, '스스로 진화하는 AI' 5단계 구분법 공개...\"현재는 2단계 수준\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215284",
+    "content": "중국의 주요 대학과 기술 기업 연구진이 AI가 인간의 개입 없이 스스로 더 나은 버전을 만들어내는 '재귀적 자기개선(RSI)' 기술의 발전 수준을 평가하는 5단계 로드맵을 공개했다. 현재 AI가 일부 개발 작업을 자동화하고 있지만, 자기개선 시스템 자체를 지속적으로 개선하는 수준에는 아직 도달하지 못했다는 분석이다.상하이교통대, 테세우스랩, 칭화대, 바이트댄스, 상하이 AI 연구소 등 연구진은 10일(현지시간) '인간이 만든 마지막 AI: 진정한 재귀적 자기개선을 향해(The Last AI Built by Humans: Toward",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "deedfd55f3efdc71"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "\"뇌처럼 학습한다\"…사카나 AI, 역전파 대체 기술 'PC-ALM' 발표",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215305",
+    "content": "사카나 AI가 딥러닝 학습의 핵심 방식인 '역전파(Backpropagation)'를 사용하지 않고도 매우 깊은 신경망을 학습할 수 있는 새로운 레이어별 학습 기법을 공개했다.사카나 AI는 최근 기존 예측 코딩(PC·Predictive Coding)의 한계를 보완한 ‘PC-ALM(Augmented Lagrangian Predictive Coding)’을 온라인 아카이브에 공개했다.이 방식은 각 레이어가 주변 정보와 자체 상태를 바탕으로 학습하도록 설계됐으며, 최대 1000개 레이어로 구성된 신경망에서도 역전파에 가까운 성능을 확인했다",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "2fd72c7346ecdfc5"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "\"독점 정보 유출 막아라\"...엔비디아·팔란티어, 첨단 AI 모델 도입 축소",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215294",
+    "content": "AI 기업들의 데이터 수집 및 보관 정책으로 인한 데이터 및 지식재산권(IP) 유출 우려가 커지면서, 주요 기업들이 고급 AI 모델 사용을 축소하거나 새로운 보안 보장을 요구하고 나섰다. 14일(현지시간) 디 인포메이션에 따르면, 팔란티어와 엔비디아, 부즈 앨런 해밀턴 등 민감한 기업·고객 정보를 다루는 업체들은 앤트로픽과 오픈AI의 최첨단 AI 모델 사용을 제한하거나 데이터가 외부로 나가지 않는 환경을 요구하고 있는 것으로 알려졌다.기업들은 AI 공급 업체가 자사 데이터를 어떻게 수집·보관하고 활용하는지에 대한 통제를 강화하고 있",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "4c867b2c91e8defa"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "알트먼 \"통제권 상실·권력 집중 경계\"...AI 속도 조절 배경 밝혔다",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215265",
+    "content": "샘 알트먼 오픈AI CEO가 AI 개발 속도를 조절해야 하는 근본적인 이유로 인류의 미래에 대한 통제권 상실과 AI 권력의 극단적인 집중을 제시했다. 또 ‘속도 조절’은 AI 개발을 중단하자는 의미가 아니라, AI의 능력이 안전성과 정렬 기술을 앞서가지 않도록 개발 속도를 일부 늦추자는 의미라고 강조했다.알트먼 CEO는 14일(현지시간) X 게시물을 통해 “미국의 경쟁 압력이 아무리 크더라도 무모함을 정당화하거나 AI 능력이 정렬과 모니터링보다 앞서가도록 해서는 안 된다”고 밝혔다.그는 최첨단 AI 모델에 일관된 안전 기준을 적용하",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "e3312d25ac2ff330"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "애플, 시리 AI 탑재 'iOS 27' 배포 시작...차세대 아이폰 출격 채비",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215300",
+    "content": "애플이 차세대 아이폰 출시를 앞두고 AI 기능을 강화한 최신 모바일 운영체제 ‘iOS 27’을 공개했다. 이번 업데이트의 핵심은 대형언어모델(LLM)을 기반으로 전면 재설계한 ‘시리(Siri)’다. 애플은 새로운 시리를 베타 버전으로 우선 제공하며, 차세대 아이폰을 AI 중심 기기로 내세운다는 전략이다.애플은 14일(현지시간) iOS 27을 배포하고 새로운 시리 AI 기능을 베타 형태로 선보였다.새로운 시리를 사용하려면 아이폰의 설정 앱에서 별도로 참여를 신청해야 하며, 초기 이용 수요에 따라 대기자 명단에 등록될 수도 있다. 현재",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "a487cdec9dbaa611"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "앤트로픽, 금융 시장 본격 공략…'클로드 포 파이낸셜 어드바이저스' 출시",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215289",
+    "content": "AI 업계의 금융권 공략이 빨라지고 있다. 오픈AI에 이어 앤트로픽도 금융 전문가를 위한 전용 AI 솔루션을 선보이며 금융 업무 자동화 시장에 본격적으로 뛰어들었다. 앤트로픽은 14일(현지시간) 금융 자문가의 업무 효율을 높이기 위한 맞춤형 AI 솔루션 ‘클로드 포 파이낸셜 어드바이저(Claude for Financial Advisors)’를 공개했다.고객 미팅 준비와 후속 문서 작성, 포트폴리오 분석, 규정 준수 점검 등 자문가들이 반복적으로 수행하는 행정 업무를 자동화해 고객 상담에 집중할 수 있도록 지원하는 것이 핵심이다.앤트",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "fd3bd0d2d3b1ae06"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "“AI 에이전트가 상호 거래·정산까지”...카카오페이 자율결제 실증 완료",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215311",
+    "content": "카카오페이(대표 신원근)가 ‘에이전틱 결제(Agentic Payment)’와 관련해 ‘구매’와 ‘판매’ 양방향에서 기술 실증(PoC)을 완료했다고 15일 밝혔다.에이전틱 결제는 사용자가 AI 에이전트에게 구매 권한, 결제 한도 등 정책을 설정한 지갑을 부여하면 AI 에이전트가 그 범위 안에서 물품·서비스·데이터 등 필요한 리소스를 자율적으로 판단해 결제를 실행하는 것을 의미한다.카카오페이가 이번에 실증한 에이전틱 결제 기술은 사용자의 AI 에이전트가 카카오페이의 지갑과 결제 인프라와 연동해 스테이블코인으로 결제할 수 있도록 연결하는",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "10235b979cac9e85"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "[게시판] 에어빌리티, 드론 R&D·생산거점 '기흥 캠퍼스'로 통합 등 단신",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215302",
+    "content": "■ 에어빌리티(대표 이진모·류태규)는 연구개발(R&amp;D)과 생산 거점을 통합한 '기흥 캠퍼스'를 출범했다고 밝혔다. 서울 양재 기업부설연구소와 성남 공장을 경기 용인의 기흥 캠퍼스로 통합했다. 설계부터 조립, 시험 비행까지 일관된 생산체계를 갖춰 연내 넷건형 요격기 'AB-U10' 초도 물량을 생산하고, 내년 상반기까지 직격드론 'AB-U2'와 고정익 런처형 'AB-U4L'을 출시할 계획이다.■ 구글 클라우드는 SK렌터카에 구글 워크스페이스 기반 클라우드 업무 환경을 구축했다고 밝혔다. 기존 폐쇄형 가상 데스크톱(VDI) 환경을 고보",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "828b6a8d84b949dc"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "MS, '인본주의적 AI 행동 강령' 공개...\"AI는 인간에게 종속돼야\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215268",
+    "content": "AI가 인간의 통제를 벗어나지 않도록 개발 단계부터 적용할 원칙을 담은 ‘인본주의적 AI 행동 강령(Humanist AI Code of Conduct)’ 초안을 마이크로소프트(MS)가 공개했다. 최근 최첨단 AI 개발 속도를 조절해야 한다는 업계의 목소리가 커지는 가운데, MS가 AI의 안전성과 인간 통제권을 확보하기 위한 구체적인 행동 기준을 제시한 것이다.무스타파 술레이만 MS AI CEO는 13일(현지시간) “AI는 반드시 인간에게 종속되어야 하며 항상 인간을 위해 봉사해야 한다”고 밝혔다. 사티아 나델라 MS CEO도 “MS",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "a384f22681fa2514"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "중국, 미국의 AI 속도 조절 요구에 반발...\"냉전 방식의 기술 억제\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215274",
+    "content": "중국이 미국 AI 업계에서 제기된 최첨단 AI 개발 속도 조절 요구에 대해 강하게 반발했다. 중국 정부와 관영 매체는 AI 안전을 명분으로 한 규제가 사실상 중국의 기술 발전을 억제하고 미국의 AI 패권을 유지하기 위한 수단이라고 주장했다. 월스트리트저널(WSJ) 등에 따르면, 중국 외교부 대변인 궈자쿤은 14일(현지시간) 정례 브리핑에서 미국 AI 업계의 개발 속도 조절 주장과 중국 AI에 대한 위협론을 겨냥해 \"위협 서사를 퍼뜨리고 대결과 악의적인 경쟁을 벌이는 것은 글로벌 AI 거버넌스를 방해할 뿐\"이라고 비판했다. 이어 모든",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "c684afcdd23423ee"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "[게시판] 뉴로퓨전,  금융 플랫폼 '밸리 AI'에 투자 리서치 에이전트 탑재 등 단신",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215314",
+    "content": "■ 뉴로퓨전(대표 최한철)은 ‘밸리 AI’에 투자 분석 및 금융 추론 특화 AI 에이전트 기능을 탑재했다고 밝혔다. 밸리 AI는 재무제표, 시세, 밸류에이션, 공시, 경제지표 등 정제된 금융 데이터를 기반으로 투자 분석을 지원하는 플랫폼이다. 이번에 선보인 ‘투자 리서치 AI 에이전트’는 챗, 워크플로우, 리서치 데스크 3개 기능으로 구성된다. 투자자에게 데이터 탐색·취합부터 시장 모니터링, 분석 결과 관리까지 제공한다.■ 솔트룩스(대표 이경일)는 천경해운 임직원을 대상으로 지난 8월31일부터 9월4일까지 기업 맞춤형 AI·AX 실",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "8610b77a19151dc5"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "젠슨 황 \"AI 파멸론, 과학적 근거 없다\"...트럼프 깜짝 통화로 \"사기\" 동조",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215276",
+    "content": "젠슨 황 엔비디아 CEO가 AI가 인류를 멸망시킬 수 있다는 'AI 파멸론'에 대해 \"과학적 근거가 없다\"며 정면으로 반박했다. 다만 AI 안전 자체는 매우 중요한 문제라며, 기술 발전과 안전 확보를 동시에 추진해야 한다고 강조했다. 특히 이날 대담 도중 도널드 트럼프 미국 대통령이 전화를 걸어 스피커폰으로 연결되면서 파멸론을 '사기'라고 규정해 그의 주장에 힘을 실었다.황 CEO는 14일(현지시간) 미국 로스앤젤레스에서 열린 '올인 서밋(All-In Summit)'에서 최근 앤트로픽을 떠난 전 연구원 제이콥 콕슨의 AI 안전 우려",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "0ab4cad2af014d33"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "찰스 3세, 빅테크 수장과 'AI 안전성' 비공개 회담...독일 \"개발 중단은 비현실적\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215277",
+    "content": "실리콘밸리 주요 AI 기업 수장들이 기술 위험성에 대한 경고와 함께 속도 조절론을 제기하고 나선 가운데, 영국 왕실과 유럽 연합(EU) 주요국도 국제적 거버넌스 수립을 위한 행동에 나섰다.14일(현지시간) 로이터 등에 따르면, 찰스 3세 영국 국왕이 이번 주 주요 AI 기업 수장들을 버킹엄 궁전으로 초청해 AI 안전성과 인류에 미치는 영향에 대해 비공개 회담을 연다.회담에는 젠슨 황 엔비디아 CEO, 데미스 허사비스 구글 딥마인드 회장, 앤트로픽과 오픈AI 관계자, 영국 AI 담당 장관 등이 참석할 것으로 알려졌다.바티칸의 AI 자",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "b22e757ffaa7836d"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "S2W, 창립 8주년 맞이 전면 리브랜딩…\"글로벌 데이터 인텔리전스\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215287",
+    "content": "에스투더블유(S2W, 대표 서상덕)가 창립 8주년을 맞이해 ‘글로벌 데이터 인텔리전스 기업’으로의 성장 비전을 담은 새로운 브랜드 아이덴티티(BI)를 공개했다고 15일 밝혔다.S2W의 고유한 브랜드 정체성을 분명히 하고, 고객과 시장에 존재감을 각인시켜 경쟁력을 높이기 위한 취지다.그동안 국가안보와 사이버보안 영역에서 고도화해 온 AI 및 온톨로지 기술력과 빅데이터 수집·정제·분석 노하우 등을 바탕으로 산업 특화 AX 시장에 진출해 왔다. 이에 맞춰 새 BI에는 안보와 산업의 양대 축을 중심으로 넓어진 기술적 외연과 사업 확장성을",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "a9af452933687489"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "베스핀글로벌, 업스테이지 '솔라' 활용해 울산 공교육 AI 서비스 구축",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215295",
+    "content": "베스핀글로벌(대표 김써니·허양호)은 업스테이지와 교육 AI 플랫폼 확대를 위한 전략적 제휴를 체결했다고 15일 밝혔다.첫 적용 대상은 울산광역시교육청의 AI 교수학습 서비스 '우리 아이(AI)'다. 서비스 검증을 거쳐 전국 시·도교육청 및 교육 관련 공공기관으로 확대 적용할 예정이다.이번 사업에는 베스핀글로벌의 '헬프나우 에이전틱 AI 플랫폼'과 업스테이지의 대형언어모델(LLM) '솔라'가 활용된다.솔라가 학생의 질문과 학습 맥락을 이해·추론하고, 헬프나우 플랫폼이 이를 교육 콘텐츠와 데이터, AI 에이전트와 연결해 실제 학습 서비",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "7465ede14c689808"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "인포시즈, SKT 부사장 출신 박준 CBO 영입 \"기업 AI 전환 속도\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215298",
+    "content": "인포시즈(대표 탁정수)는 박준 전 SK텔레콤 부사장을 최고 사업책임자(CBO)로 영입했다고 15일 밝혔다.인포시즈는 엔터프라이즈 AI 솔루션 '액시엄'과 '델타플로우', '고스' 등을 제공하는 기업으로 올해 4월 130억원 규모의 투자를 유치했다.비정형 데이터를 온톨로지와 그래프 데이터베이스(DB)로 구조화해 AI가 현장 맥락을 이해하고 근거에 기반해 분석·판단까지 수행하도록 지원하는 것이 특징이다.박준 CBO는 클라우드·AI·플랫폼 분야에서 약 20년간 경력을 쌓은 전문가다.SK텔레콤에서는 AI 인텔리전스 사업본부장과 AIX 테크",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "10aa535f70d4fa84"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "플레이태그, AI 행동분석으로 아이 맞춤형 교육 제공…‘스토리라인 원’ 공개",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215312",
+    "content": "AI 행동분석 전문 플레이태그가 신규 서비스 ‘스토리라인 원(Storyline One)’을 공개했다고 15일 밝혔다.플레이태그는 어린이집이나 유치원 교실의 영상을 AI로 분석해 아이들의 개별 행동분석 리포트를 제공하는 ‘스토리라인’ 서비스를 제공해 왔다. 현재까지 누적 1000개 이상의 교실, 2만명 이상의 아동이 이용해 왔으며, 국내를 넘어 미국, 일본, 영국 등 글로벌로 서비스를 확장하고 있다.이번에 새롭게 출시된 스토리라인 원은 교실 내 관찰 장면과 데이터를 영유아 교육 과정에 맞춰 자동으로 생성해 준다. 또, 주간 학급 리포",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "0c7da3d063458e9c"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "순천 남파랑길서 가을 걷기…9~11월 5차례 ‘씨워킹’",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215283",
+    "content": "AI 생성 영상순천시의 바다와 갯벌, 습지와 마을 풍경을 걸어서 둘러보는 가을 걷기 프로그램이 운영된다.순천은 오는 11월까지 남파랑길 61·62코스에서 ‘순천 남파랑 씨워킹’을 운영한다고 15일 밝혔다.프로그램은 남파랑길을 걸으며 해안과 갯벌, 습지, 마을 풍경을 감상하고 휴식을 즐기는 방식으로 진행된다.하반기 정규 프로그램은 모두 5차례 열린다.남파랑길 61코스는 9월19일과 10월10일, 11월14일 운영하며, 62코스는 10월24일과 11월28일 진행한다. 회차별 모집 인원은 30명이다.별도 특별 프로그램도 마련된다.11월1",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "285c0d04ddd0b757"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "여수, 행정 전반에 AI 접목…2029년까지 종합계획 수립",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215281",
+    "content": "AI 생성 영상여수시가 2027년부터 2029년까지 적용할 AI 행정 종합계획 수립에 나섰다. 행정업무 혁신과 여수 특화 AI 과제, 시민이 체감할 수 있는 공공서비스 등을 중장기 계획에 담을 예정이다.여수는 지난 11일 ‘여수시 인공지능 종합계획 수립 용역’ 중간보고회와 인공지능심의위원회를 열고 추진 상황과 주요 과제를 점검했다고 15일 밝혔다.이번 종합계획에는 AI 기반 행정혁신과 여수 특화 AI 추진과제, 분야별 시민 체감형 AI 공공서비스, 연차별 실행계획 등이 포함된다. 중간보고회에서는 AI·데이터 활용 여건과 국내외 정책",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "80ad4de2dc5ad855"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "목포시가족센터, 다문화 엄마학교 14기 졸업식 개최",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215280",
+    "content": "AI 생성 영상목포시가족센터가 결혼이주여성의 자녀교육 역량을 높이기 위해 운영한 ‘다문화 엄마학교’ 14기 과정을 마무리했다.목포시가족센터는 지난 13일 센터 강당에서 교육생과 가족, 한마음교육봉사단 교사, 센터 관계자 등이 참석한 가운데 14기 졸업식을 개최했다고 15일 밝혔다.다문화 엄마학교는 결혼이주여성이 한국의 초등 교과과정을 배우고 자녀의 학교생활과 학습을 지도할 수 있도록 지원하는 프로그램이다.14기 교육생들은 지난 3월부터 7월까지 5개월간 국어·수학·사회·과학 등 초등 교과 6개 과목을 온라인과 대면수업으로 학습했다.",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "5b5aa30311ea28d9"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "나주, 독립출판과 ‘구운몽’ 잇는다…첫 문학페스타 개최",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215279",
+    "content": "AI 생성 영상나주시에서 독립창작자와 출판사, 동네서점, 독자가 한자리에 모이는 첫 문학축제가 열린다. 1725년 나주에서 발간된 ‘구운몽’ 나주판을 조명하는 특별전시와 강연도 함께 마련된다.나주는 오는 19일부터 20일까지 이틀간 나주 동헌터 잔디광장 일원에서 ‘힙독인나주 문학 페스타’를 개최한다고 15일 밝혔다.이번 행사는 문화체육관광부와 국립한국문학관의 ‘지역문학관 활성화 및 협력지원사업’과 연계해 백호문학관과 타오르는강문학관이 주최한다.축제에는 전남광주 지역을 비롯해 전국의 독립창작자와 출판사, 동네서점 등 47개 단체가 참",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "d842acc2f790dfc0"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "전남광주, 미국 미시간대서 5·18 사진전 개최",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215263",
+    "content": "AI 생성 영상1980년 5월 광주의 모습을 담은 5·18민주화운동 기록사진이 미국 미시간대학교에서 전시된다. 사진전과 함께 심포지엄과 한국 민주주의 관련 도서전, 영화상영도 진행된다.전남광주통합특별시는 5·18민주화운동기록관과 미시간대학교 남한국학센터가 오는 18일부터 10월7일까지 미시간대 제임스 앤 두더스탯센터 갤러리에서 국제교류 사진전을 개최한다고 15일 밝혔다.전시 제목은 ‘민주주의 회복력의 등불: 5·18민주화운동의 시각적 진실과 유산’이다.미시간대학교는 이번 전시에서 유네스코 세계기록유산에 등재된 5·18 기록물 가운데",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "4ca309e850ac07e9"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "[9월15일] 순천 AI 영상 뉴스 - 순천 남파랑길서 가을 걷기 등",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215293",
+    "content": "주영효 기자 society@aitimes.comPowered by AItimes AI Solution",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "e96cfe0c324e5389"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "AI로 영양학 오랜 측정 난제 도전…아이들의 1년 치 식사가 연구 데이터로",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215296",
+    "content": "식품영양학에서 AI가 장기간의 현장 기록을 연구 데이터로 바꾸는 사례가 나왔다.함선옥 연세대학교 식품영양학과 교수팀과 누비랩 공동 연구진은 경남 창원시 어린이집 12곳의 영유아 170명을 대상으로 운영 과정에서 축적된 음식기록 13만6517건을 분석해 아이들의 1년간 식사 변화를 살폈다고 15일 밝혔다. 결과는 학술지(Culinary Science & Hospitality Research)에 실렸다.영양학에서 식이섭취를 조사할 때 대표적으로 활용돼 온 방법 중 하나가 ‘24시간 회상법’이다. 조사 대상자나 보호자에게 지난 24시간",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "e1d8e4e115e81c30"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "'카나나' 독립 앱 결국 종료…카카오, 기존 서비스 내 탑재로 전환",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215291",
+    "content": "카카오가 지난해 5월부터 독립 앱 및 PC 웹서비스 형태로 선보인 AI 메이트 '카나나' 서비스를 10월15일 자로 종료한다.카카오는 15일 공지 사항을 통해 '카나나' 서비스를 오는 10월15일 종료하고 관련 사용자 데이터도 안전하게 파기할 예정이라고 밝혔다.독립 앱 형태의 AI 메이트 카나나는 지난해 5월 클로즈 베타 테스트(CBT) 형태로 서비스를 시작했다. ‘카나’와 ‘나나’라는 AI 메이트를 기반으로 이용자들에게 친근함과 편의성을 제공하는 대화 기반의 AI 서비스로 소개했다. 그러나 독립 앱 서비스는 성과가 저조했던 것으로",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "41b12b8b97fb9f8c"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "알티엠, ‘제조 AI 도입점검 프로그램’ 출시…적은 데이터로 AI 적용 여부 먼저 확인",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215292",
+    "content": "제조 AI 전문 알티엠(RTM)이 본격적인 시스템 구축에 앞서 제조 현장의 AI 적용 가능성을 데이터로 확인하는 ‘제조 AI 도입점검 프로그램’을 출시했다고 15일 밝혔다.최근 제조기업의 AI 도입 검토가 늘고 있지만, 실제 도입까지는 수개월의 사전 협의와 대규모 데이터 준비가 필요한 경우가 많다는 지적이다. 통상 수천만원에서 수억 원 규모의 구축 사업으로 시작되는 만큼, 기업 입장에서는 자사 데이터로 AI가 실제 성과를 낼 수 있는지 사전에 확인하기 어렵다는 부담이 있었다.알티엠의 제조 AI 도입점검 프로그램은 이러한 과정을 줄이",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "647a40c2ebda544b"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "알트먼, 트럼프와 비공개로 만났지만…AI 속도 조절 입장차 못 좁혀",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215288",
+    "content": "도널드 트럼프 미국 대통령이 공화당 중간선거 전당대회 도중 샘 알트먼 오픈AI CEO와 비공개 회담을 가졌다. 그러나 AI 산업의 미래와 규제를 둘러싼 양측의 시각차는 여전히 좁혀지지 않은 것으로 파악된다.14일(현지시간) MS 나우에 따르면, 이번 회담은 앤트로픽 전 연구원이 기술 기업들의 무책임한 개발 태도를 공개적으로 비판한 직후 알트먼 CEO의 요청으로 성사됐다. 구체적인 대화 내용은 알려지지 않았으나, AI 발전이 가져올 사회적·경제적 영향력에 대한 논의가 주를 이룬 것으로 알려졌다.하지만 이후 양측은 AI 개발 속도와 규",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "d9a1072b92395426"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "AI 의료 영상 전문 코로로직, 카카오벤처스·서울대기술지주서 시드 투자 유치",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215275",
+    "content": "의료 AI 전문 코로로직(대표 황경래)은 카카오벤처스와 서울대기술지주로부터 시드 투자를 유치했다고 15일 밝혔다. 투자 금액은 비공개다.코로로직은 관상동맥조영술에서 환자와 의료진의 방사선 피폭을 줄이는 AI 솔루션 '앤지오필름'을 개발 중이며, 분당서울대병원 순환기내과 강시혁 교수팀이 지난 5월 설립했다.앤지오필름은 AI 기반 비디오 프레임 보간(VFI) 기술로 낮은 프레임의 관상동맥조영술 영상을 고프레임 영상으로 복원한다. AI가 앞뒤 프레임을 비교해 혈관과 의료기기의 위치·움직임 변화를 분석하고, 중간 시점 영상을 추정해 생성하",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "e7ea525aefd0f553"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "보령 남포면, 남포읍성과 향교 이야기를 담은 문화경관 조성",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215318",
+    "content": "충남 보령시 남포면에 지역의 역사와 생활문화를 시각적으로 담아낸 새로운 경관 공간이 조성됐다. ‘남포면 기초생활거점 조성사업’의 일환으로 설치된 석재 아트월은 주민들이 일상에서 자연스럽게 지역의 이야기를 접하고, 남포만의 정체성을 느낄 수 있도록 구성됐다.아트월에는 남포면을 대표하는 역사·문화 자원인 남포읍성과 남포향교를 비롯해 지역의 전통적인 생활상을 보여주는 다양한 소재가 담겼다. 단순히 명소의 모습을 재현하는 데 그치지 않고 건축물의 특징과 전통 문양, 색채를 석재 위에 표현해 남포의 이야기를 하나의 경관 콘텐츠로 완성했다.특",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "81ebfe82e56f912a"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "'AI 위협' 조회수 1.7억 폭발…앤트로픽 떠난 콕슨 '커리어 전환점'",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215282",
+    "content": "앤트로픽을 사임하며 AI가 인류의 생존을 위협한다는 경고를 던진 27세 연구원 제이콥 콕슨의 행보가 그의 커리어에 결정적인 전환점이 될 것이라는 분석이다. 빅테크와의 관계는 단절됐으나, 양심과 전문성을 결합한 개인 브랜드를 구축하며 AI 안전 생태계에서 주목받는 인재로 급부상했다는 평이다.오픈AI와 앤트로픽에서 사전 학습 연구를 담당했던 콕슨은 지난 9일(현지시간) X를 통해 양사가 \"책임감 있게 행동하지 않았고, 우리의 목숨을 걸고 도박을 하고 있었다\"고 비판하며 사임을 발표했다. 게시물 조회수가 1억7000만회를 돌파하며 반향을",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "5cbd3942da9a4e59"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "'AI 개발 속도 조절' 발언에 글로벌 테크·반도체주 일제히 급락",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215273",
+    "content": "AI 업계 주요 경영진이 안전을 위해 최첨단 AI 모델 개발 속도를 늦춰야 한다고 잇따라 촉구하면서 글로벌 기술주와 반도체주가 일제히 급락했다. AI 모델 개발 둔화가 고성능 반도체와 데이터센터에 대한 막대한 투자와 수요를 위축시킬 수 있다는 우려가 커지며, 그동안 AI 투자 붐의 최대 수혜주로 꼽혀온 기업들이 집중적인 매도 압력을 받았다.월스트리트저널(WSJ) 등에 따르면, 14일(현지시간) 미국 증시에서는 반도체주가 가장 큰 낙폭을 기록했다.마벨 테크놀로지는 7% 이상 떨어졌고 인텔과 마이크론 테크놀로지, 샌디스크도 약 5~6%",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "963e347d7cc18041"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "트럼프 \"아모데이는 위선자...AI 안전 우려는 사기\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215264",
+    "content": "도널드 트럼프 미국 대통령이 AI 개발 속도를 늦추고 안전장치를 강화해야 한다는 업계의 요구를 정면으로 반박했다. 특히 AI 안전 규제를 촉구해 온 앤트로픽의 다리오 아모데이 CEO를 직접 언급하며, AI의 위험성을 둘러싼 우려를 ‘사기(hoax)’로 규정했다.트럼프 대통령은 14일(현지시간) 워싱턴에서 열린 ‘AI 경선 승리’ 정상회담 연설과 자신의 트루스소셜 게시글을 통해 AI에 대한 추가적인 연방 규제 필요성을 일축했다.그는 “AI에 필요한 유일한 통제나 가드레일은 강력하고 똑똑한 대통령”이라며 자신이 이를 충족한다고 주장했다",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "0e7c5e461f3ad4e1"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "\"AI 에이전트 결제 전, 문자로 물어본다\"...SKT, GSMA RCS 회의 개최",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215272",
+    "content": "SK텔레콤(대표 정재헌)은 15일부터 나흘간 서울 SKT타워에서 세계이동통신사업자연합회(GSMA) RCS 그룹과 표준화 회의를 개최한다고 15일 밝혔다.RCS는 사진·동영상 전송 등 다양한 기능을 지원하는 차세대 메시징 표준으로 AT&amp;T, T모바일 등 글로벌 통신사와 애플, 구글 등 16개사 실무진, GSMA 사무국 관계자 등 총 33명이 참석한다.이번 회의에는 정규 안건 외에 'AI와 메시징의 진화'를 주제로 특별 세션도 마련됐다. RCS와 AI 에이전트의 결합, AI에 대한 신뢰와 이용자 통제, AI 기반 브랜드 등록·스팸 대응",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "09f7644e6803b26a"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "\"최고 성능에 비용은 반값\"...'라이너 모델 API' 출시",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215271",
+    "content": "AI 에이전트 전문 라이너(대표 김진우)는 AI 오케스트레이션 솔루션인 ‘라이너 모델 API(Liner Model API)’를 출시했다고 15일 밝혔다. 현재 AI 시스템을 구축하는 대부분 기업은 답변 품질을 위해 고가의 프론티어급 모델 하나로 모든 사용자 질문을 일괄 처리하는 방법을 채택하고 있다. 하지만 질문 난이도가 제각각임에도 모두 상위 모델로 처리하다 보니 불필요한 인프라 비용이 급증하는 구조적 한계가 존재한다.이에, 라이너는 저비용 경량 모델의 품질 문제와 프론티어급 모델의 높은 도입 비용 사이에서 고민하는 기업들에 주목",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "b5e93031f13cc983"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "삼성전자, 네덜란드 AI칩 스타트업 유클리드 3200억 공동 투자 나서",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215270",
+    "content": "삼성전자가 네덜란드 AI 반도체 스타트업 '유클리드(Euclyd)'의 시리즈A 투자 라운드에 주요 공동 투자자로 참여했다. 이번 라운드는 총 2억유로(약 3200억원) 규모다.14일(현지시간) CNBC에 따르면, 이번 투자에는 삼성전자를 포함해 서머셋 캐피털 파트너스, EQT가 운용하는 스케일업 유럽펀드, 이노베이션 인더스트리스가 공동으로 참여했다.2024년 설립된 유클리드는 엔비디아 GPU와 다른 아키텍처의 추론용 AI 칩 시스템을 개발 중이다. 연산용 프로세서와 메모리 아키텍처를 모두 포함한다.아직 대규모 상용 환경에서 검증된",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "e72803f897ac6656"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "뉴엔AI, 산업 AI 데이터 분석 기술로 북미 진출…뉴저지주에 법인 설립",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215267",
+    "content": "산업 AI 전문 뉴엔AI(대표 배성환)가 뷰티 특화 온톨로지 AI 분석 플랫폼 ‘뷰센스(VUSSENS)’의 해외 비즈니스 확대를 위해 미국 뉴저지주에 100% 자회사인 북미 법인을 설립했다고 15일 밝혔다.북미 법인이 위치한 뉴저지는 뉴욕과 인접해 산업 인프라와 뛰어난 접근성을 갖췄다. 뉴엔AI는 뉴욕대학교 스턴(Stern) 연계 네트워크와 뉴욕의 글로벌 AI 프론티어랩 등 기존에 구축해 온 현지 파트너십을 바탕으로 현지화 전략을 강화할 방침이다.특히, 뉴엔AI는 K-뷰티 밸류체인 기업들은 물론, 글로벌 뷰티 대형 기업들을 대상으로",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "0013bf3b87dbeb0f"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "삼성SDS, 클로드로 ‘원스톱 AI 도입 체계’ 강화…앤트로픽 셀렉트 티어 파트너 등재",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215266",
+    "content": "삼성SDS가 국내 기업 최초로 글로벌 AI 기업 앤트로픽의 '클로드 파트너 네트워크' 셀렉트 티어 파트너 자격을 획득했다고 15일 밝혔다.삼성SDS는 지난 2026년 7월 샌프란시스코 AI 서밋에서 앤트로픽과 전략적 파트너십을 체결한 데 이어, 이번 셀렉트 티어 지위까지 확보하게 됐다. 클로드를 바탕으로 서비스 구축·운영·기술 지원 역량을 입증한 결과다.특히, 이번 클로드 파트너 네트워크의 셀렉트 티어는 공인된 기술 인력을 보유한 동시에 실제 운영 환경에서 공동 고객 대상 구축 및 적용 경험을 입증한 파트너를 의미한다. 앞서 아마존",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "aeeeb5e2fa0e77b7"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "바닷속 10미터에서 태양광 발전…페로브스카이트로 2시간 실증",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215262",
+    "content": "중국 윈난대를 중심으로 한 연구진이 바닷속 10미터 깊이에서 페로브스카이트 태양전지를 이용해 실제 전력을 생산하는 데 성공했다. 남중국해에서 진행한 현장실험에서 대면적 모듈은 2시간 동안 324밀리와트시(mWh)의 전기에너지를 생산했다. 연구진은 수중 센서와 카메라, 통신장비 등 해양 장비의 자체 전원으로 활용할 가능성을 제시했다.국제 학술지 줄(Joule)에 지난 11일(현지시간) 게재된 연구에 따르면 윈난대학교와 서남연합대학원 등을 중심으로 한 연구진은 수중 환경에 맞춘 와이드 밴드갭 페로브스카이트 태양전지를 개발하고 남중국해",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "91acf2c13ad81ae5"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "미국, 인도 등 3개국 태양광에 최대 170%대 상계관세 판정",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215260",
+    "content": "미국 정부가 인도와 인도네시아, 라오스에서 들어오는 태양광 부품에 고율의 관세를 매기기로 최종 결정했다. 다만 실제 관세 명령이 발령되려면 미국 국제무역위원회(USITC)의 산업피해 최종 판정을 거쳐야 한다.미 상무부 국제무역청(ITA)은 지난 11일(현지시간) 인도와 인도네시아, 라오스에서 수입되는 결정질 실리콘 태양광 셀과 이를 조립한 모듈에 대한 반덤핑·상계관세 조사에서 최종 긍정 판정을 내렸다고 밝혔다.인도산 제품에는 생산·수출업체에 관계없이 123.04%의 최종 덤핑 마진이 적용됐다. 정부 보조금에 따른 상계관세율은 126",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "023bb40cacedf008"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "[9월14일] 잘나가던 AI 기업들이 ‘속도 늦추자’고 합의한 이유…‘죄수의 딜레마’",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215218",
+    "content": "다리오 아모데이 앤트로픽 CEO가 AI 개발 속도를 늦추자고 하자, 샘 알트먼 오픈AI CEO와 일론 머스크 CEO까지 동의했습니다. 이어 데미스 허사비스 구글 딥마인드 회장과 사티아 나델라 마이크로소프트 CEO까지 여기에 합류했습니다.최근 AI 에이전트가 실제 시스템을 공격하거나 악용되는 사례가 잇따르면서, 모델의 능력이 안전장치보다 빠르게 발전하고 있다는 판단이 커진 것이 직접적인 이유로 보입니다. 아모데이는 개발을 중단하자는 것이 아니라 안전·정렬·모니터링이 따라올 시간을 벌자는 입장입니다.그런데 혼자 속도를 늦출 수 없다는",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "174395871ccd02fd"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "국내 AI 업계, '속도 조절론'에 \"취지 공감하나 규제 투명성 확보돼야\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215251",
+    "content": "글로벌 AI 빅테크 수장들이 잇따라 'AI 개발 속도 조절론'에 동참하는 가운데, 국내 AI 기업들도 관련 입장을 밝혔다.14일 업계에 따르면, 국내 AI 기업들의 입장은 크게 세 가지로 나뉘는 분위기였다. 글로벌 빅테크의 취지에 공감한다는 입장과 권력 불균형에 대한 우려와 동시에, 판단은 아직 이르다는 의견이 공존했다.■ AI 개발 속도 규제는 '자연스러운 흐름'...안전한 사회 적용 필요해먼저 한 AI 업계 관계자는 \"AI 기술과 산업이 성숙하는 과정에서 자연스럽고 타당한 흐름으로 보고 있다\"라고 긍정적인 입장을 내비쳤다. 특히",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "ff43b16231f7f9c5"
+  },
+  {
+    "source_id": "kr_ai_policy",
+    "source_name": "AI타임스",
+    "title": "\"탈모약 개발·암 진단·주식 투자도 AI로\"...LG, 전문가 AI로 승부수",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=215257",
+    "content": "LG AI연구원은 14일 서울 강서구 마곡 LG사이언스파크 컨버전스홀에서 'LG AI 토크 콘서트 2026'을 열고 제조·과학·비즈니스 분야 전문가 AI 시리즈를 공개했다.임우형 LG AI연구원 공동 연구원장은 \"산업 현장의 문제를 해결하기 위해서는 수많은 변수와 단 1%의 예외까지 해결하는 AI가 필요하다\"며 개발 배경을 밝혔다.■ 공정 바뀌어도 OK…제조 AI로 리드타임 85% 단축제조 분야에서는 공정과 품질을 예측하는 '엑사원 태뷸러'와 비전 검사 모델 '엑사원 옴니 인스펙트'가 소개됐다.엑사원 태뷸러는 1억 개 이상의 정형",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "region": "국내"
+    },
+    "item_hash": "ae56d03a8c361d24"
+  }
+]

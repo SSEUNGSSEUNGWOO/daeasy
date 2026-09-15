@@ -1,0 +1,156 @@
+[
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Homebrew/BrewUI",
+    "url": "https://github.com/Homebrew/BrewUI",
+    "content": "📺 Homebrew's official macOS GUI",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 1308,
+      "language": "Swift"
+    },
+    "item_hash": "2a023b1a88243c4e"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "NationalSecurityAgency/ghidra",
+    "url": "https://github.com/NationalSecurityAgency/ghidra",
+    "content": "Ghidra is a software reverse engineering (SRE) framework",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 76656,
+      "language": "Java"
+    },
+    "item_hash": "f30aa74b8135eb48"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "danny-avila/LibreChat",
+    "url": "https://github.com/danny-avila/LibreChat",
+    "content": "Enhanced ChatGPT Clone: Features Agents, MCP, Skills, DeepSeek, Anthropic, AWS, OpenAI, Responses API, Azure, Groq, o1, GPT-5, Mistral, OpenRouter, Vertex AI, Gemini, Artifacts, AI model switching, message search, Code Interpreter, langchain, DALL-E-3, OpenAPI Actions, Functions, Secure Multi-User Auth, Presets, open-source for self-hosting. Active",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 43789,
+      "language": "TypeScript"
+    },
+    "item_hash": "bc0fb2ea1445af2b"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "MG1937/ASC",
+    "url": "https://github.com/MG1937/ASC",
+    "content": "ASC is a super FAST Android decompiler front-end designed for Agents/Mobile Researchers.",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 1135,
+      "language": "Python"
+    },
+    "item_hash": "6d784a389d8351d9"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "earendil-works/pi",
+    "url": "https://github.com/earendil-works/pi",
+    "content": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 105663,
+      "language": "TypeScript"
+    },
+    "item_hash": "c133b93b912dffd6"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "ComposioHQ/awesome-claude-skills",
+    "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+    "content": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 75106,
+      "language": "Python"
+    },
+    "item_hash": "438a9b54b319a0a7"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "rommapp/romm",
+    "url": "https://github.com/rommapp/romm",
+    "content": "A beautiful, powerful, self-hosted ROM manager and player.",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 13048,
+      "language": "Python"
+    },
+    "item_hash": "284e48f1299b2b8d"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "anthropics/claude-plugins-official",
+    "url": "https://github.com/anthropics/claude-plugins-official",
+    "content": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 36341,
+      "language": "Python"
+    },
+    "item_hash": "02eab667df448997"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "bojieli/ai-agent-book",
+    "url": "https://github.com/bojieli/ai-agent-book",
+    "content": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 47589,
+      "language": "Python"
+    },
+    "item_hash": "2e2562d0bda4e097"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "roboflow/supervision",
+    "url": "https://github.com/roboflow/supervision",
+    "content": "We write your reusable computer vision tools. 💜",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 50266,
+      "language": "Python"
+    },
+    "item_hash": "04aa3744e1ae44ce"
+  },
+  {
+    "source_id": "github_trending",
+    "source_name": "GitHub Trending",
+    "title": "Jeffallan/claude-skills",
+    "url": "https://github.com/Jeffallan/claude-skills",
+    "content": "67 Specialized Skills for Full-Stack Developers. Transform Claude Code into your expert pair programmer.",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "stars": 11503,
+      "language": "Python"
+    },
+    "item_hash": "7e09ed3834f45acb"
+  }
+]

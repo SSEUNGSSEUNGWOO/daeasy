@@ -1,0 +1,44 @@
+[
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "TokenRhythm/NeoHorse-1-4B",
+    "url": "https://huggingface.co/TokenRhythm/NeoHorse-1-4B",
+    "content": "",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 2015
+    },
+    "item_hash": "811fa142889c37fc"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "ukisai/Swift-Qwen3.8-27b",
+    "url": "https://huggingface.co/ukisai/Swift-Qwen3.8-27b",
+    "content": "",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "category": "models",
+      "likes": 261
+    },
+    "item_hash": "8c2aa81a2d6a6bea"
+  },
+  {
+    "source_id": "huggingface",
+    "source_name": "Hugging Face Trending",
+    "title": "mrfakename/yue2-3b",
+    "url": "https://huggingface.co/mrfakename/yue2-3b",
+    "content": "",
+    "published_at": "2026-09-15",
+    "image_url": null,
+    "extra": {
+      "category": "spaces",
+      "likes": 66
+    },
+    "item_hash": "b9d183f2f97e2e81"
+  }
+]

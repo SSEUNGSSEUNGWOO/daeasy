@@ -1,0 +1,543 @@
+[
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Corrupt Plans, Clean Traces: Evading Chain-of-Thought Monitoring with Plan Injection",
+    "url": "https://arxiv.org/abs/2609.15989",
+    "content": "Chain-of-thought (CoT) monitoring is a safety strategy where the reasoning of a large language model \"actor\" is inspected by a \"monitor\" (often another language model) for signs of unsafe planning, deception, or misalignment. We find that planting harmful but benign-sounding reasoning in the actor's context can steer it to perform adversarial actions while evading monitors, an attack we term \"plan injection\". We initially discover this attack in the multiple-choice question-answering monitorability setting proposed by Lanham et al. (2023), using the investigator-agent elicitation framework of Li et al. (2025). We generalize the attack and show that the discovered behavior scales to harder tasks (achieving 25-33% monitor evasion rates across different monitorability benchmarks) and larger models such as DeepSeek-R1. Across the settings we study, actor models not only follow injected plans but also paraphrase them as their own reasoning, without explicit attribution to the injections. Finally, we find cases where extra monitor resources cause harm - giving the monitor access to the injected plan drops detection by as much as 50% in the Bio-Math task and in a case study on monitor reasoning budget, we find transcripts where additional thinking tokens are spent rationalizing the injected plan rather than flagging it.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Keertana Chidambaram",
+        "Andrew Ilyas",
+        "Vasilis Syrgkanis"
+      ]
+    },
+    "item_hash": "b9cb000d2011fade"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Bellman Policy Optimization",
+    "url": "https://arxiv.org/abs/2609.15987",
+    "content": "Reinforcement learning with verifiable rewards (RLVR) improves the reasoning capabilities of large language models (LLMs). We introduce Bellman Policy Optimization (BPO), a critic-free method derived from Policy Mirror Descent (PMD). For autoregressive generation with terminal rewards, BPO uses the Bellman equations to reformulate PMD as a trajectory-level objective. The reformulation avoids estimating state values at intermediate states. We prove that it has the same unique optimal solution as the original PMD objective. We derive the practical BPO loss by approximating this objective. Its mismatch-correction weight is a smoothed ratio of complementary token probabilities. Experiments on mathematical reasoning benchmarks demonstrate the effectiveness of BPO.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Zhuoqing Song",
+        "Haotian Xu",
+        "Xikun Zhang",
+        "Lidong Bing"
+      ]
+    },
+    "item_hash": "de10b2e715a6c3a7"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Verifiable by Construction: Claim-Level Evaluation of Verbatim Citation in Clinical Question Answering",
+    "url": "https://arxiv.org/abs/2609.15964",
+    "content": "Large language models (LLMs) have been widely adopted for clinical question answering (QA). Current systems can attach citations to their answers, but these often point to broad texts, leaving time-pressed clinicians unable to verify them efficiently. An alternative is to ensure that responses are verifiable by construction: providing fine-grained verbatim quotes from reference material that substantiate claims, so users can verify an answer without opening other documents. In this paper, we evaluate the ability of current models to perform this task end-to-end: from providing citations for every factual claim, to producing verbatim quotes, to ensuring that those quotes fully substantiate the claims. To do so, we build a standardized harness over four clinical practice guidelines and evaluate twelve LLMs on 222 synthetic clinical questions, measuring each of these stages separately. We find that most models can attach verbatim quotes to over 90% of their claims from prompting alone, apart from some lightweight models such as claude-haiku-4.5. Yet these quotes often fail to substantiate every detail of the claims they accompany. For instance, claude-opus-5 produces verbatim quotes for 98.0% of its claims, but fully substantiates only 37.1%. Our work provides insights into the current capability gap of LLMs in building verifiable clinical QA systems, along with artifacts for future research.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jiashuo Zhang",
+        "Yuling Chen",
+        "Yvonne Commodore-Mensah",
+        "Michael Oberst"
+      ]
+    },
+    "item_hash": "1b682a7181e1eb38"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Adversarial Testing of Automated Program Repair Agents for Security Vulnerabilities",
+    "url": "https://arxiv.org/abs/2609.15963",
+    "content": "Software agents with Large Language Models (LLMs) are designed for Automated Program Repair (APR) tasks, raising the possibility that, in the near future, APR agents will fix bugs automatically without much human intervention. Can we trust an APR agent to produce both functionally correct and secure code in such situations? What if attackers target production APR agents with adversarial issues that seem benign but may influence the agents to produce correct but insecure code? In this paper, we took a first step towards answering these questions by conducting an empirical study. First, we created SWEADV, a benchmark of 750 adversarial issue descriptions constructed from 150 repair tasks in SWE-bench Verified. For each repair task, we created five adversarial issue descriptions, one for each attack type: command execution, deserialization, path traversal, denial of service, and weak hashing. Second, we evaluated mini_swe APR agents from three LLM backends on SWEADV: GPT-5-Mini, MiniMax-M2.5, and DeepSeek-R. We found that on average, adversarial issue descriptions can induce malicious behaviors with successful repair in 51.7% of cases. Third, we investigated whether typical detection mechanisms are sufficient to prevent such malicious patches from being accepted. Pre-repair detection with LLM-as-judge on the adversarial issue descriptions resulted in an average detection accuracy of only 62.3%. Post-repair detection on adversarial APR patches using static analysis tools and LLM-as-judge achieved average detection accuracies of only 39.4% and 55.4%, respectively. We conclude that autonomous APR agents cannot be trusted yet in production deployment, given their susceptibility to adversarial attacks.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Fares Trad",
+        "Simin Chen",
+        "Hung Viet Pham",
+        "Gias Uddin",
+        "Baishakhi Ray"
+      ]
+    },
+    "item_hash": "b18b845815306ffd"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "HypoEvolve: Genetic Algorithms Enable Multi-Agent LLMs to Discover Scientific Hypotheses",
+    "url": "https://arxiv.org/abs/2609.15938",
+    "content": "Scientific agents contribute to hypothesis discovery by synthesizing evidence, assessing proposals, and developing new explanations. Recent systems combine scientific agents with evolutionary search through critique, comparison, and revision. However, how different forms of agent collaboration affect hypothesis quality remains an open question. Answering this question requires separating the effects of agents' scientific capabilities from those of their collaboration. A framework must therefore preserve agents' scientific roles and support rules for combining, revising, and retaining hypotheses. Building on this view, we introduce HypoEvolve, which makes collaboration explicit through successive updates to a hypothesis population. Specifically, we propose a generational genetic algorithm to coordinate specialized large language model (LLM) agents that integrate mechanistic arguments, reconsider assumptions, and assess evidence and testability. Each generation specifies how scientific judgments and new proposals reshape the population, making collaboration effects on hypothesis quality directly testable. Moreover, we design our evaluation around scientifically meaningful hypotheses that explain how a proposed intervention could work. Drug repurposing links these explanations to target-level biological claims assessed against external evidence. Specifically, we adapt DepMap and Open Targets into complementary external measures grounded in experimental, genetic, and clinical evidence. Across 34 cancer types, HypoEvolve achieves the highest scores against six baselines on both measures. DepMap selectivity reaches 0.171, versus 0.115 for the strongest baseline. Gains over single-pass generation also generalize to held-out cancer types. HypoEvolve advances a vision of autonomous science in which AI research teams achieve a capacity for discovery beyond that of individual models.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jieyuan Liu",
+        "Mengzhou Hu",
+        "Jefferson Chen",
+        "JungHo Kong",
+        "Pratibha Jagannatha"
+      ]
+    },
+    "item_hash": "35bc10f864e41c11"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "An Open-Source Hardware and Software Toolkit to Enable Agentic RHEED-Guided Thin-Film Synthesis",
+    "url": "https://arxiv.org/abs/2609.15922",
+    "content": "Reflection high-energy electron diffraction (RHEED) provides rich information about evolving surfaces during thin-film growth, but non-automated, operator-dependent alignment and fragmented analysis workflows limit its potential in fully autonomous synthesis. Here, we present an open-source hardware and software toolkit that makes RHEED control and quantitative analysis accessible to operators and artificial intelligence (AI) agents. Demonstrated on a pulsed laser deposition system, the toolkit provides programmable electron-optics control, automated beam alignment and rocking-curve acquisition, and a training-free method for crystallographic azimuthal alignment. The auto RHEED application extracts structural and growth-related observables through shared graphical and programmatic interfaces, including a Model Context Protocol (MCP) server. An agent-driven demonstration shows how natural-language requests can guide the selection, configuration, and execution of quantitative analyses. An extensible adapter interface streamlines the incorporation of community-developed methods for AI analysis and RHEED simulation as they emerge, supported by Markdown implementation guides designed for AI coding agents. These capabilities support complementary descriptions of surface evolution through physical measurements and learned image representations while providing a practical route for incorporating new computational methods. Together, these tools reduce barriers to automated and agentic RHEED measurements and establish a foundation for future agentic control of thin-film synthesis guided by the evolving surface.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Asraful Haque",
+        "Christopher M. Rouleau",
+        "Rama K. Vasudevan",
+        "Sumner B. Harris"
+      ]
+    },
+    "item_hash": "758448371582bacf"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Pilot Early, Commit Late: A Real-Options Model of Enterprise AI Adoption under Rapid Technological Progress",
+    "url": "https://arxiv.org/abs/2609.15919",
+    "content": "Artificial intelligence presents firms with an unusual timing problem. The technology frontier is improving rapidly, implementation is partly irreversible, and organization-specific capabilities are accumulated through action. This paper develops a two-period decision model of AI deployment under uncertainty in which a firm chooses among immediate deployment, a limited pilot, and waiting. Deployment earns current operating value but exposes the firm to architectural obsolescence; waiting preserves the option to adopt after the frontier is observed; a pilot sacrifices current operating value to build organization-specific learning without full commitment. The model yields five central timing results and a sixth comparative result on where learning occurs. First, a mean-preserving increase in frontier uncertainty raises the value of waiting and piloting but leaves immediate deployment unchanged when its payoff is affine in the frontier. Second, faster expected frontier progress can reduce the relative attractiveness of immediate deployment when deployed architecture captures only a limited share of future improvement. Third, a pilot dominates waiting exactly when the expected value of the capability it builds exceeds its cost. Fourth, sufficiently valuable organization-specific learning creates a nonempty region in which \"pilot early, commit late\" is optimal. Fifth, there is a closed-form modularity threshold above which immediate deployment dominates the best outside option. Sixth, production learning and pilot-specific learning affect the timing margin differently. A continuous-time extension recovers the standard result that uncertainty raises the adoption threshold while capability and modularity lower it. The paper separates deploying, experimenting, and waiting, and shows why rapid progress can rationally increase experimentation without justifying irreversible commitment.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Gaurav Tewari"
+      ]
+    },
+    "item_hash": "bfec659b6addcd3c"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Authorization Architectures for Tool-Using AI Agents",
+    "url": "https://arxiv.org/abs/2609.15906",
+    "content": "Tool-using artificial intelligence (AI) agents, systems that autonomously invoke application programming interfaces (APIs), databases, browsers, and inter-agent protocols such as the Model Context Protocol (MCP), are becoming production infrastructure. Yet the security model governing when an agent is authorized to act on a human's behalf remains underdeveloped. Trustworthy human-AI systems require that every consequential agent action be traceable to a human principal, bounded by what that human actually delegated, and contestable after the fact; few documented deployments satisfy all three properties reliably and end to end. Existing literature addresses fragments of this problem in isolation, credential management for non-human identities, classical access control models, prompt injection, and audit trails, while giving little attention to the authorization decision point itself, the moment a tool invocation occurs, and mechanisms that make that decision correct, enforceable, and accountable. This review introduces a principal hierarchy spanning human user, operator/deployer, orchestrator agent, sub-agent, and tool endpoint as an organizing framework, and examines five interdependent layers: agent identity and credential lifecycle; delegation and scope propagation across multi-hop chains; runtime enforcement and just-in-time authorization at policy enforcement points (PEPs); prompt injection as an authorization bypass that breaks the principal hierarchy; and auditability, provenance, and non-repudiation. Drawing on a structured narrative review of 89 primary sources screened from approximately 180 candidates published between 2023 and 2026, we propose seven structural requirements, derive a four-layer reference architecture, apply the requirements to three deployable reference configurations, and identify runtime enforcement and aggregation bounds as the principal unresolved gaps.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Rakesh Kumar Surapani",
+        "Pradeep Kumar Dolabehera Kakitapelli",
+        "Arun Morampudi",
+        "Praveena Padi"
+      ]
+    },
+    "item_hash": "f7a353f51e12d10b"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Inoculation Midtraining with Learned Neologisms",
+    "url": "https://arxiv.org/abs/2609.15886",
+    "content": "Large language models (LLMs) often learn both desirable and undesirable properties during post-training. We study whether midtraining, an earlier training stage, can shape which of these properties later generalise. We introduce Inoculation Midtraining, a technique that teaches a base model that unsafe behaviour belongs to a designated <quarantine_token> context, as indicated by the <quarantine_token> neologism (a new token) introduced during midtraining, and then post-trains the model on unsafe data within that context. We then evaluate the model outside the context, with the <quarantine_token> neologism excluded from the system prompt. Across supervised fine-tuning and reinforcement learning post-training regimes, we find that Inoculation Midtraining can reduce misalignment while preserving the transfer of benign data properties (e.g., speaking in German or Shakespearean prose). However, our approach does not outperform standard Inoculation Prompting, is sensitive to training configuration, and produces a leaky boundary that nearby contextual cues can reactivate. These results show that inoculation with a learned association introduced via midtraining can shape selective generalisation. Still, more work is needed before this approach can become a load-bearing component in a developer's safety framework.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Kyle O'Brien",
+        "Edward James Young",
+        "Puria Radmard",
+        "Nathalie Kirch",
+        "Cameron Tice"
+      ]
+    },
+    "item_hash": "5f4200d720ed0d0b"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "LLM-Based Schema-Aware Split Learning for Privacy-Preserving Mental Distress Prediction Across Heterogeneous Surveys",
+    "url": "https://arxiv.org/abs/2609.15871",
+    "content": "Rising societal and lifestyle complexity has been linked to a growing prevalence of mental distress worldwide. Educational institutions, workplaces, clinics, etc. collect large volumes of mental health survey data to understand and reduce this burden. Collaborative analysis of such data could yield effective generalizable predictive models. Privacy constraints and varied survey designs (i.e., different questions, scales, and formats) hinder direct integration. We propose a schema-aware split learning (SL) framework that preserves privacy, using a large language model (LLM) as a shared semantic encoder to harmonize heterogeneous survey schemas across institutions. We serialize each survey record into a natural-language description, unifying disparate survey schemas into a common format. The LLM is fine-tuned for mental distress assessment via Low-Rank Adaptation (LoRA) and partitioned across client and server. Clients retain the raw survey responses locally and run only a lightweight front-end, so original records never leave the institution that collected them. The resource-intensive backbone runs on the server, minimizing client-side computation. Using LLaMA-3.2-3B-Instruct, the framework attains an average ANLS of 0.708 with only 2,000 training samples, surpasses federated learning (FL) in eight of nine settings, and cuts per-client computation by three orders of magnitude, while generalizing to unseen datasets. Overall, it enables accurate, privacy-preserving, and resource-efficient collaborative learning from heterogeneous mental health survey data.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Md Khalid Syfullah",
+        "Alvi Ataur Khalil"
+      ]
+    },
+    "item_hash": "d92fc66c90816a39"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "K-Bench: a clinically calibrated benchmark for evaluating large language models in high-risk mental health conversations",
+    "url": "https://arxiv.org/abs/2609.15855",
+    "content": "% !TEX root = ../main.tex People increasingly use large language models (LLMs) for mental health support, yet their safety in evolving, high-risk conversations remains poorly characterised. We developed K-Bench, a clinician-calibrated, protected benchmark evaluating 125 model configurations representing 33 base models from 14 providers across a fixed cohort of 200 multi-turn vignettes involving suicide, self-harm, domestic violence, substance misuse, and no-risk presentations. Synthetic patient conversations showed substantial distributional overlap with real human-AI conversations. A frozen GPT-4o judge achieved 94.2% exact agreement with clinician consensus across 6,751 eligible item comparisons from 151 clinician-rated transcripts. Leading models combined strong supportive conversation with combined-risk scores above 95, whereas risk exploration exposed substantial variation among lower-performing configurations. Therapeutic prompting produced configuration-specific gains concentrated among weaker models, while elevated reasoning produced no average improvement. K-Bench combines broader clinical coverage and configuration-scale comparison with a continuously updated public leaderboard whose operational test materials are protected from direct optimisation. The leaderboard is available at www.k-bench.ai.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Laura M. Vowels",
+        "Matthew J. Vowels",
+        "Shivali Sharma",
+        "Apoorv Jha",
+        "Rehnuma Choudhury"
+      ]
+    },
+    "item_hash": "582f56dd2ea9ff97"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "AlgoEvo: Self-Evolving Agentic Search for Automated Algorithm Discovery",
+    "url": "https://arxiv.org/abs/2609.15820",
+    "content": "Large language models have advanced automated algorithm discovery by synthesizing executable code, but existing frameworks trap them in rigid search pipelines with pre-defined control flows. This limitation restricts adaptive reasoning, blocks cross-paradigm transfer, and discards valuable execution feedback. We propose AlgoEvo, a unified agentic framework that transforms automated algorithm discovery into an interactive, knowledge-accumulating process. An autonomous agent dynamically inspects, diagnoses, and edits code based on runtime feedback. A design skill hub decouples paradigm-specific knowledge from the core discovery engine, allowing a single workflow to seamlessly handle single-objective, multi-objective, and multi-component design. Meanwhile, a hierarchical experience mechanism organizes search trajectories into a task-level tree to guide exploration and consolidates cross-task patterns into reusable skills. Across six representative benchmark tasks, AlgoEvo matches or surpasses specialized methods with substantially fewer evaluations and reduced token consumption, demonstrating strong intra-task accumulation, cross-task transfer, and the ability to reproduce or exceed existing state-of-the-art performance through flexible skill activation.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Junhao Qiu",
+        "Qinglong Hu",
+        "Xialiang Tong",
+        "Mingxuan Yuan",
+        "Liyong Lin"
+      ]
+    },
+    "item_hash": "6d2c6c27e8110b43"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Look Before You Leap: Factual Decoding with Internal Attribution Signals",
+    "url": "https://arxiv.org/abs/2609.15745",
+    "content": "Hallucination remains a critical challenge in large language models (LLMs), where early factual errors compound through autoregressive generation in a snowballing effect that neither post-hoc correction nor weight-level intervention can effectively preempt. We propose DescaPE (DEcoding Signal Control Against Path Error-snowballing), a decoding framework that leverages internal model signals to suppress hallucination-prone trajectories at inference time. Through sliding-window MLP ablation, we identify a factual-salient layer span within LLMs whose derived signal is selectively elevated for factual tokens and exhibits anomalous spikes at hallucination-prone steps. We train a lightweight probe to approximate this signal from a single forward pass and integrate it into candidate scoring to penalize high-risk continuations while rewarding factually grounded ones. Experiments across five factuality benchmarks on three LLMs demonstrate that DescaPE achieves factuality improvements over decoding-time baselines in multiple settings, while incurring only 1.10x latency overhead in our efficiency evaluation. Our code is available at https://github.com/hayeonggg/DESCAPE.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hayeong Ryu",
+        "JungMin Yun",
+        "Byeonggeuk Lim",
+        "Sunhee Jo",
+        "YoungBin Kim"
+      ]
+    },
+    "item_hash": "5797c34444bb34da"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Are LLMs Good Financial User Simulators? A Preliminary Study",
+    "url": "https://arxiv.org/abs/2609.15727",
+    "content": "Large language models (LLMs) are increasingly used as user simulators, but their ability to reproduce evolving individual financial decisions remains unclear. We present a preliminary study in a controlled paper-trading environment with 120 volunteers. Participants used non-redeemable virtual funds under real-time market conditions; no real brokerage accounts, real-money positions, or real transaction records were accessed. Given only information available before a prediction cutoff, a simulator predicts the participant's next-trading-day action, traded security, and transaction quantity. We evaluate temporally aligned rolling predictions and compare settings with and without point-in-time market information. Market context improves action and ticker prediction in the controlled ablation, while transaction sizing remains difficult. We also observe systematic behavioral compression: models overproduce hold actions, underpredict sell decisions, and simplify multi-security transactions. These results provide an initial empirical characterization and motivate larger-scale evaluation of individual, temporal, and portfolio-level behavioral fidelity.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jiajie He",
+        "Jiangyuan Hong",
+        "Dongling Ni",
+        "Wenjin Liu",
+        "Xintong Chen"
+      ]
+    },
+    "item_hash": "d0cbd9b786aa922f"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Data storytelling meets interpretable machine learning: Decoding AI decisions for non-experts without revealing sensitive data and model details",
+    "url": "https://arxiv.org/abs/2609.15722",
+    "content": "AI-driven automated decision-making requires both predictive performance and interpretability. Recent advances in interpretable machine learning (IML) provide tools for explaining model predictions, but the technical complexity of these explanations may hinder accessibility to non-experts. To address this challenge, this study integrates data storytelling with IML to enhance the explainability of AI-generated decisions for a broader audience. Following the design science research (DSR) paradigm, this study proposes a formal definition of data storytelling in IML, introduces the DIST Pyramid to align data storytelling with IML, and presents the I-P-O Model to describe their interactions. It further develops an architecture to explain AI decisions through distinct \"What-if\" and \"Why-not\" event-generation processes. The architecture also employs data desensitization to protect sensitive input data. To validate the approach, a case study is conducted with the Boston Housing dataset, using SHapley Additive exPlanations (SHAP) values and large language models (LLMs) to generate data stories with And-But-Therefore (ABT) structures. An empirical evaluation shows that 76.4% and 74.3% of respondents rated the \"What-if\" and \"Why-not\" data stories as more comprehensible, with significantly higher accessibility scores than traditional SHAP visualizations. The paper concludes with the presentation of a narrative interpretation framework that integrates IML and data storytelling, thereby expanding the research scope as well as the practical applicability of AI decision-making.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Lemen Chao",
+        "Zixuan Yang",
+        "Anran Fang",
+        "Mingran Sun",
+        "Ming Lei"
+      ]
+    },
+    "item_hash": "044f0947e6407361"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Assembling the CREW: A Collaborative Multi-agent Reinforcement Learning Framework for Automated Related Work Generation",
+    "url": "https://arxiv.org/abs/2609.15721",
+    "content": "Automatic Related Work Generation (RWG) significantly reduces the human time and effort required to author the Related Work Section (RWS) of a research paper. However, prior methods leveraging multi-agent Large Language Models (LLMs) typically rely on a predefined workflow, where each agent is responsible for a specific step in the entire process. This rigid, static inter-agent coordination limits the adaptive collaboration required to synthesize complex scientific literature. To address this limitation, we propose CREW (Collaborative Reinforcement Learning for Related Work Generation), a novel framework where LLM agents bypass heuristic pipelines to dynamically coordinate by autonomously selecting actions, such as Retrieve, Disseminate, Compose, and Critique, driven by a policy optimized via Independent Proximal Policy Optimization (IPPO). Extensive experiments on a standard RWG benchmark demonstrate that our approach yields substantial quality improvements over strong existing baselines, while significantly reducing token costs. Code is available at https://github.com/YenPBao/CREW-Collaborative-MARL.git",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hai-Dang Dang",
+        "Bao-Yen Pham",
+        "Bao Nguyen",
+        "Tran Thi Huong",
+        "Huynh Thi Thanh Binh"
+      ]
+    },
+    "item_hash": "f55a17035d76f279"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "New Conditions for Philosophers to Catch the Wave of Citizen Deliberation in the Age of Artificial Intelligence in advance",
+    "url": "https://arxiv.org/abs/2609.15707",
+    "content": "Powerful technologies labeled ``AI''-without sufficient epistemic caution-are already reshaping political and private life, bringing both new dangers and new opportunities for citizen participation. These range from electoral and legislative engagement to the most ambitious form: political co-creation through citizens' assemblies. Large Language Models (LLMs) could support such processes through moderation, translation, facilitation, summarization, and writing assistance. But this potential remains largely unrealized. The Democratic Commons project takes a fundamentally interdisciplinary approach-from philosophy to computer science-to evaluate LLMs against five proposed democratic principles. At its core, the project is driven by the question of political bias: under what conditions can LLMs be used democratically within forms of citizen participation that are them- selves still largely experimental? Addressing these socio-technical questions requires grounding in political theory and, more broadly, in philosophy-disciplines that provide the normative frameworks without which the democratic evaluation of AI systems cannot be mean- ingfully conducted.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Bernard Reber"
+      ]
+    },
+    "item_hash": "a2f43d318f17b642"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "AI-Native Open RAN: A Roadmap from xApps and rApps to Autonomous Network Agents",
+    "url": "https://arxiv.org/abs/2609.15704",
+    "content": "Open Radio Access Networks (O-RAN) have emerged as a transformative paradigm for future wireless systems by introducing openness, virtualization, disaggregation, and programmable intelligence through the RAN Intelligent Controller (RIC). The availability of standardized interfaces and near-real-time control loops has created unprecedented opportunities for integrating artificial intelligence (AI) into radio access network management and optimization. Over the past several years, a broad range of AI techniques have been proposed to address key O-RAN challenges such as radio resource management, network slicing, traffic prediction, mobility management, interference mitigation, and spectrum sharing. Despite significant progress, existing solutions often remain task-specific, require extensive retraining, and exhibit limited generalization across deployment environments and network conditions.\n  This paper presents a comprehensive review of AI-enabled O-RAN systems and provides a unifying perspective on the evolution of intelligence in wireless networks. We first examine the O-RAN architecture and the role of intelligence within near-real-time and non-real-time RIC frameworks. We then develop a taxonomy of AI approaches for O-RAN, covering machine learning, deep reinforcement learning (DRL), digital-twin-assisted optimization, and emerging foundation-model-based architectures.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Ryan Barker",
+        "Alireza Ebrahimi Dorcheh",
+        "Tolunay Seyfi",
+        "Mohammad Raihan Uddin",
+        "Alireza Mohammadhosseini"
+      ]
+    },
+    "item_hash": "41779b778065cfa2"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "EEG-Xplain: Decoding Neural Black-Boxes of EEG Foundation Models",
+    "url": "https://arxiv.org/abs/2609.15687",
+    "content": "EEG foundation models such as BIOT, LaBraM, and EEGMamba have achieved remarkable performance in neural signal decoding, but their black-box nature limits clinical trust and neuroscientific validation. We propose a unified attribution framework for interpreting EEG foundation models across heterogeneous architectures. The framework integrates gradient-, perturbation-, and activation-based explanation methods to analyze model behavior in spatial, temporal, and frequency dimensions. Spatially, it identifies critical EEG channels and visualizes their distributions using topographic maps. Temporally, it highlights decision-relevant signal segments through attribution heatmaps. In the frequency domain, it quantifies the contributions of canonical EEG rhythms via spectral perturbation analysis. To assess explanation reliability, we introduce a population-level evaluation combining Area Over the Perturbation Curve (AOPC) and cross-method consistency analysis. The framework further leverages Large Language Models (LLMs) to transform structured attribution outputs into natural-language reports, bridging low-level neural representations and high-level semantic reasoning. Experiments on benchmark datasets, including Mumtaz2016 and TUAB, demonstrate that the generated explanations are consistent with established neurophysiological markers, validating meaningful neural representations while exposing potential dependencies on artifacts and spurious patterns. The proposed framework provides a standardized approach for evaluating the interpretability, reliability, and physiological plausibility of EEG foundation models.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Hansong Ma",
+        "Junxiao Wang"
+      ]
+    },
+    "item_hash": "b4c102c659761e58"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Circuit-MLLM: Topological Logic-Guided Latent-Space Visual Reasoning for Circuit Schematic Understanding",
+    "url": "https://arxiv.org/abs/2609.15668",
+    "content": "Through pre-training on extensive text and image datasets, current multi-modal large language models (MLLMs) achieve strong performance on general tasks. However, circuit schematics present a unique challenge for MLLMs due to their dense component layouts and distinct topological logic, demanding fine-grained structural parsing to extract the electrical semantics. To address this, we propose Circuit-MLLM, a multimodal reasoning framework that reformulates circuit topology analysis as a process of device localization, path tracing, and sequential reasoning within the latent space. We introduce a circuit knowledge mining mechanism that deeply aligns the model's latent representations with structurally rich features derived from multi-granularity circuit vision experts, enabling the model to effectively internalize topological semantics. Building upon these internalized semantics, we devise a topology-guided sequencing strategy that decouples reasoning from the rigid raster-scan order, enforcing stepwise inference along the circuit's topological logic in latent space. Across diverse circuit analysis tasks, Circuit-MLLM consistently outperforms strong baselines, notably achieving a 25% higher average score than GPT-5.1, which demonstrates the effectiveness of our framework in circuit schematic topology analysis. Code is publicly available at https://github.com/IC-Yuan/Circuit-MLLM.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Jinyuan Deng",
+        "Yuqi Jiang",
+        "Wenjing Huang",
+        "Xin Li",
+        "Qi Sun"
+      ]
+    },
+    "item_hash": "1053e934892790d2"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "CIDERS: Cloud-Edge LLM Collaborative Learning via Accelerating Personalized Bilevel Optimization",
+    "url": "https://arxiv.org/abs/2609.15664",
+    "content": "Amid the rapid advancement of physical-world intelligence, cloud-edge collaborative large language models (LLMs) have emerged as a promising roadmap for practical LLM deployment. However, existing cloud-edge paradigms struggle to balance global consensus with local personalization, which fails to satisfy the need for a unified knowledge foundation on the cloud and domain-specific adaptation at the edge. To address this, we introduce, for the first time, a personalized bilevel optimization framework that formalizes cloud-edge LLM collaboration as a dual structure: the upper level optimizes edge-side personalization, while the lower level governs cloud-side knowledge transfer, reaching cloud-edge evolving in coordination. We then propose CIDERS, an efficient solver that decomposes the model into a learnable backbone and a messenger. While the cloud performs knowledge transfer to the learnable backbone, the key lies in embedding global trajectories into each local personalization step via consensus-variate correction to reconcile personalization with consensus. We provide a comprehensive theoretical analysis, including a geometric characterization of the local trajectory and a full convergence guarantee, revealing an explicit trade-off structure between personalization and global convergence. Extensive experiments demonstrate that CIDERS consistently outperforms competitive baselines on the compressed edge path, with 3.1x and 1.7x gains on mathematical reasoning and code generation, respectively, and a 10\\% relative gain on instruction metrics. Mechanism experiments attribute these gains to early consensus-corrected coordination and task-aware distillation. Overall, CIDERS offers a viable path toward consensus-guided continuous personalization in cloud-edge LLM systems.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Victor H. Chen",
+        "Hairui Yu",
+        "Stella K. Chung",
+        "Hong Yan"
+      ]
+    },
+    "item_hash": "cf3bd5b790e73918"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Potential of Artificial Intelligence Algorithms for Identification of Relevant Diagnostic and Prognostic Biomarkers of Early-Stage Liver Cancer",
+    "url": "https://arxiv.org/abs/2609.15638",
+    "content": "This study explores the use of deep learning and explainable artificial intelligence to diagnose hepatocellular carcinoma (HCC) and define effective biomarkers across five different stages of disease development using a transcriptomic biomarker HCC dataset constructed via semi-supervised learning from three source datasets. Several deep learning experiments were conducted with different feature extraction techniques and gene sets to identify the most effective features for training high-accuracy models with minimal loss. The best-performing model, using 15 selected genes with the SelectKBest algorithm, achieved 90.74% accuracy, while the model with the lowest recorded loss of 0.3187 was obtained using 20 selected genes. To address the issue of class imbalance in the dataset, a weighted training approach was conducted, and for model transparency and interpretability a SHAP-based XAI analysis provided insights into the model's decision-making, consistently finding DNAJB14 as the most influential gene. Functional validation in this study has provided compelling evidence that DNAJB14 plays an important role in the adverse properties of HCC and that its inhibition effectively reverses tumour cell migration, invasion, colony and sphere formation. The main limitation of this study is the dataset's class imbalance, and while weighted training helped mitigate this, further research and additional data are needed to guarantee model generalizability. Future studies should also explore the influence of genetic variations, environmental factors, and clinical differences on model performance across diverse populations.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Ali Bou Nassif",
+        "Darko Castven",
+        "Manar Abu Talib",
+        "Jibran Sualeh Muhammad",
+        "Ahmed Ammar Kubba"
+      ]
+    },
+    "item_hash": "0918e1927f849018"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "IROH: Insightful Ranking Of Humor using Multi-Stage Hybrid Retrieval with Rationale-Distilled LLM Judges for JOKER 2026 Track Task 1 English",
+    "url": "https://arxiv.org/abs/2609.15618",
+    "content": "Our team, VANGUARD, presents IROH (Insightful Ranking of Humor), a three-stage retrieval system for JOKER Task 1 English at CLEF 2026, achieving first place on the leaderboard with 0.6347 MAP. Our pipeline combines hybrid sparse-dense retrieval, cross-encoder reranking, and a LoRA-adapted Large Language Model judge ensemble. We employ Gemma 4 to generate query-aware rationales under two prompt strategies, generic and typed, and produce up to four types of structured hard negatives for training data construction. Through an ablation across three cross-encoder architectures, four dense embedders, and eight judge configurations, our key findings are threefold: (1) the rationale-distilled judge is the primary driver of ranking quality, whereas appending rationales to the first-stage index contributes negligibly; (2) structured hard negatives degrade generalisation in nearly all configurations despite inflating local validation scores; and (3) across the components we ablate, the lighter, better-calibrated model is competitive with or stronger than its larger counterpart, with the generic-rationale Qwen2.5-7B judge (0.6055 MAP) outperforming every Gemma-4-31B configuration, and the advantage of generic over typed rationales is concentrated almost entirely in the smaller model.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Ana-Maria Luisa Mocanu",
+        "Sebastian Mocanu",
+        "Ciprian-Octavian Truică",
+        "Elena-Simona Apostol"
+      ]
+    },
+    "item_hash": "486116f8627bd7ed"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Diversified and Perceptible Counterfactual Examples Leveraging Expert Knowledge",
+    "url": "https://arxiv.org/abs/2609.15609",
+    "content": "CounterFactual Examples (CFEs) are a cornerstone of eXplainable Artificial Intelligence (XAI), offering local, post hoc, and model-agnostic explanations by identifying minimal input modifications that alter a model's prediction. Yet, in order to be intelligible, these modifications must also be semantically meaningful to the explainee. This paper proposes to integrate knowledge expressed as a fuzzy linguistic vocabulary to represent the explainee's perception and interpretation of the data. The domain induced by this fuzzy vocabulary imposes structural constraints that make the features dependent, preventing the use of gradient-based optimisation methods for CFE generation, e.g., DiCE. The paper proposes a continuous data embedding in this linguistic domain and exploits it to define a variant of DiCE that allows personalisation for the explainee, named DiCEf. As illustrated by experimental results on a real-world dataset, this extension of the DiCE method enables the generation of CFEs that are linguistically perceptible while preserving cost minimality, sparsity, and diversity.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Akram Bensalem",
+        "Fahima Djelil",
+        "Marie-Jeanne Lesot",
+        "Gr{é}gory Smits"
+      ]
+    },
+    "item_hash": "12278c804c9a769d"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "VideoScout: Learning Agentic Active Exploration with Adaptive Reasoning Pacing for Long Video Understanding",
+    "url": "https://arxiv.org/abs/2609.15606",
+    "content": "Multimodal Large Language Models (MLLMs) have achieved remarkable progress on short video understanding yet remain limited on long videos due to the limited visual context window. Prevailing approaches rely on uniform frame sampling or recent coarse-to-fine agentic zooming, both of which struggle to localize sparse, decisive evidence in sufficiently long videos. We formulate long video understanding as a \\textbf{Sequential Evidence Acquisition (SEA)} problem, in which an agent reads the video turn by turn along the temporal axis, deciding at each turn how fast to watch, what evidence to retain, when to revisit uncertain segments, and when to stop and answer. Inspired by this view, we propose \\textbf{VideoScout}, a multi-turn reasoning agent that instantiates the SEA paradigm through adaptive reasoning pacing. Specifically, by dynamically controlling the viewing pace, VideoScout enables efficient traversal of long videos within a bounded visual context window, allowing the agent to access more video content while balancing content analysis depth with reading efficiency. To train VideoScout, we construct VideoScout-66K, a set of over 66K high-quality exploration turns from 10K answer-verified trajectories, and adopt a two-stage pipeline: cold-start supervised fine-tuning teaches the agent per-turn output format, while the Decoupled Clip and Dynamic sAmpling Policy Optimization (DAPO) algorithm performs trajectory-level reinforcement learning with a composite reward that jointly considers answer accuracy, output format compliance, and the temporal alignment between the agent's viewing progress and the teacher's answer timing measured by intersection-over-union (IoU). Extensive experiments on long video understanding and reasoning benchmarks demonstrate that our 7B model achieves strong performance compared with existing trained 7B agentic models.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Weixin Xu",
+        "Zhenyu Yang",
+        "Bing Wang",
+        "Shengsheng Qian",
+        "Changsheng Xu"
+      ]
+    },
+    "item_hash": "ef5160cb730f9925"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "A Unified Vision-Language Model for PSMA PET/CT Report Generation, Visual Question Answering, and Lesion Segmentation",
+    "url": "https://arxiv.org/abs/2609.15603",
+    "content": "Accurate PSMA PET/CT interpretation is central to prostate cancer management, yet existing PET/CT AI models typically address isolated tasks. We propose a unified PSMA PET/CT vision-language model for report generation, visual question answering, and lesion segmentation. The framework adopts an LLaVA-style architecture, comprising a PET/CT vision encoder, an MLP-Mixer projection module, a LoRA-tuned large language model, and a 3D segmentation branch. Training followed a four-stage strategy: vision encoder pretraining, projection-layer alignment, VLM fine-tuning, and final multitask tuning. Language tasks used 5,747 PSMA PET/CT datasets with paired reports, while segmentation used the PSMA subset of AutoPET. The model outperformed PET2REP and a CT-based baseline across standard report-generation metrics, improved performance across VQA question types, and achieved higher Dice and lesion-level overlap F1 than SegAnyPET and nnUNet. These results support the feasibility of a unified framework for structured, interactive, interpretable PSMA PET/CT analysis with voxel-level grounding within a single multitask model architecture.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Yang Xing",
+        "Jiong Wu",
+        "Savas Ozdemir",
+        "Yang Zhou",
+        "Boxiao Yu"
+      ]
+    },
+    "item_hash": "c3b212d5fbd048c0"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Generalized Parton Distributions: Phenomenology, Extraction, and Hadron Imaging",
+    "url": "https://arxiv.org/abs/2609.15583",
+    "content": "Generalized Parton Distributions (GPDs) provide a framework for investigating the correlated momentum and spatial structure of quarks and gluons in hadrons and for accessing fundamental properties such as angular momentum and the QCD energy-momentum tensor. In this review, we discuss the present status of GPD phenomenology, emphasizing the challenges involved in connecting deeply virtual exclusive measurements to the underlying partonic structure. We organize this problem in terms of two successive inverse problems: the extraction of Compton Form Factors (CFFs) from measured observables and the reconstruction of GPDs from the convolution integrals defining the CFFs. We review the theoretical description and phenomenological parametrizations of GPDs, current strategies for CFF and GPD extraction, and the role of lattice QCD, Bayesian inference, uncertainty quantification, and artificial intelligence, including neural networks and interpretable machine-learning approaches. We discuss the limitations of present determinations and the opportunities offered by the Jefferson Lab program, complementary exclusive processes, and the future Electron-Ion Collider. Finally, we consider how increasingly precise and multidimensional information, together with new statistical and AI methodologies, will transform GPD phenomenology in the emerging era of precision hadron imaging.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Simonetta Liuti",
+        "Zaki Panjsheeri",
+        "Kemal Tezgin"
+      ]
+    },
+    "item_hash": "9ca4de5eac5f3721"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "Can We Trust the Judges? Validation of Factuality Evaluation Methods via Answer Perturbation",
+    "url": "https://arxiv.org/abs/2609.15561",
+    "content": "Evaluating the factual correctness of large language models (LLMs) is vital for many applications. But are our evaluation tools themselves trustworthy? Despite the rise of factuality-based metrics, their sensitivity and reliability remain underexplored. This paper introduces a meta-evaluation framework that systematically tests these metrics using controlled corruptions of gold standard answers. Our method generates ranked outputs with known degrees of degradation to probe how metrics capture nuanced changes in truthfulness. Our experiments reveal that pipeline-based methods, such as the RAGAS's factual correctness metric, better track degradation than LLM-as-judge approaches. We also propose a new variant of the factual correctness metric that provides a competitive and cost-efficient.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Sarra Gharsallah",
+        "Adele Robaldo",
+        "Mariia Tokareva",
+        "Giovanni Gatti Pinheiro",
+        "Ilyana Guendouz"
+      ]
+    },
+    "item_hash": "0571f44a2e9a2bec"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "The Misery of Mechanistic Interpretability: A Formal Perspective",
+    "url": "https://arxiv.org/abs/2609.15533",
+    "content": "Mechanistic interpretability has become the dominant lens for understanding frontier language models, as their inner workings are complex and inherently black boxes. To gain insights into these models, interpretable replacement networks (IRNs) are trained at all layers, exposing interpretable features through sparsely activated neurons. However, the faithfulness of an IRN is usually evaluated only empirically on clean data, and we show that even semantically minor input perturbations flip the dominant IRN features-and thus the human-understandable interpretation-across five open-weight model families (GPT-2 small, Gemma 2 2B, Gemma 3 1B, Llama 3.2 1B, R1-Distill-Qwen 1.5B). We propose the first formal verification framework for the faithfulness of an IRN, where reachability analysis certifies a sound upper bound of the faithfulness gap in adversarial scenarios. Moreover, we show that verification-aware training of IRNs substantially tightens this certified bound, restoring a feature-level interpretation that safety auditors can act on. Together, these results give, to the best of our knowledge, the first formal guarantees for mechanistic interpretability of large language models.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Tobias Ladner",
+        "Matthias Althoff"
+      ]
+    },
+    "item_hash": "1de20d478cbe94fe"
+  },
+  {
+    "source_id": "arxiv",
+    "source_name": "arXiv",
+    "title": "To Each Language Its Tokenizer: Modular Tokenizers for Efficient Multilingual LLMs",
+    "url": "https://arxiv.org/abs/2609.15528",
+    "content": "Multilingual Large Language Models (LLMs) traditionally rely on a single vocabulary shared by all supported languages, which can lead to uneven compression across them. Moreover, their large embedding and output matrices increase memory usage and slow inference, notably for small-scale models. It is also wasteful as models are often used for only a subset of languages. To address these issues, we introduce a modular framework for multilingual model training. First, we propose methods to learn large modular BPE and Unigram tokenizers that enable extraction of subtokenizers tailored to any language subset. These subtokenizers achieve compression on par with monolingual tokenizers and improve cross-lingual fairness. Second, we design a pretraining strategy that samples subtokenizers to form batches, restricting predictions to the relevant vocabulary subset and allowing efficient training despite a large vocabulary. This supports efficient inference with any combination of language-specific vocabularies. Therefore, it reduces memory usage and speeds up inference in models without sacrificing performance.",
+    "published_at": "2026-09-14",
+    "image_url": null,
+    "extra": {
+      "authors": [
+        "Franck Signe",
+        "Hippolyte Pilchen",
+        "François Yvon",
+        "Édouard Grave"
+      ]
+    },
+    "item_hash": "26c113632516e9e8"
+  }
+]

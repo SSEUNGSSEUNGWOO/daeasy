@@ -1,46 +1,69 @@
-# dataeasy
+# DAEASY (데이지)
 
-AI · 데이터 교육 회사 [dataeasy.kr](https://dataeasy.kr) 사이트와, 그 안의 인사이트 코너를 매일 채우는 AI 자동 발행 파이프라인.
+AI·데이터 교육 회사 [daeasy.co.kr](https://daeasy.co.kr) 사이트와, 그 안의 인사이트·교육 사례 코너를 채우는 AI 자동 발행 파이프라인.
 
-- **사이트**: 교육과정 소개·신청, 교육 사례, AI·데이터 인사이트, 장비 대여 문의, 어드민(콘텐츠·문의 관리)
-- **자동 발행**: 크롤러 → Writer → 이미지 → Proofreader → Evaluator → DB. 사람은 결과만 확인한다
-- **AI 체험관**: 방문자가 "내 업무 AI 리포트"·바이브 코딩·레드팀 게임을 해 보는 코너. 런타임 LLM 호출 없이 미리 생성한 콘텐츠를 재생한다
+![status](https://img.shields.io/badge/status-production-16a34a)
+![stack](https://img.shields.io/badge/Next.js%2016-Supabase%20·%20uv-000000)
+[![live](https://img.shields.io/badge/live-daeasy.co.kr-2563eb)](https://daeasy.co.kr)
 
-## 인사이트 자동 발행 파이프라인
+![daeasy.co.kr 메인](docs/screenshot.png)
 
+## 무엇이 들어 있나
+
+| 영역 | 내용 |
+|---|---|
+| 공개 사이트 | 교육과정 소개·신청, 교육 사례, AI·데이터 인사이트, AI 체험관, 장비 대여 문의, 고객 가입(Turnstile + 이메일 인증) |
+| 어드민 | 교육과정·사례·인사이트 CRUD, 문의 관리, 계정 role(`admin` / `editor`) |
+| ai-service/insights | 인사이트 자동 발행: 크롤 → 작성 → 이미지 → 교정 → 평가 → 게시 |
+| ai-service/promo | 홍보자료 접수 → 교육 사례 글 작성·평가 → 사이트 발행(네이버는 사람이 최종 발행) |
+| AI 체험관 | "내 업무 AI 리포트"·바이브 코딩·레드팀 게임. 런타임 LLM 호출 없이 미리 생성한 응답을 재생 |
+
+## 아키텍처
+
+```mermaid
+flowchart LR
+  V[방문자] --> NX[Next.js 16 · Vercel]
+  AD[어드민] --> NX
+  NX -->|anon · RLS published만| DB[(Supabase Postgres)]
+  NX -->|Route Handler · service_role| DB
+  subgraph L[ai-service · 로컬 실행]
+    C[crawlers] --> W[writer<br/>claude CLI] --> I[image_agent] --> P[proofreader<br/>claude CLI] --> E[evaluator<br/>codex CLI]
+  end
+  E -->|psycopg2 · session pooler| DB
 ```
-crawlers/     뉴스·자료 수집
-writer/       초안 작성      (claude CLI)
-image_agent/  이미지 키워드  (claude CLI)
-proofreader/  교정           (claude CLI)
-evaluator/    품질 평가      (codex CLI, 작성자와 다른 모델로 검토)
-→ Supabase 적재 → 사이트 인사이트 페이지 노출
-```
 
-작성과 평가를 서로 다른 모델이 맡게 해 한 모델의 취향이 그대로 통과되지 않도록 했다.
-발행 산출물과 원본 크롤 데이터는 매일 `data(insights):` 커밋으로 남긴다. 파이프라인은 배포하지 않고 로컬에서 실행한다.
+## 파이프라인에서 결정한 것
 
-## 구조
+- **작성과 평가를 다른 모델이 맡는다.** Writer·Proofreader는 claude, Evaluator는 codex. 한 모델의 취향이 그대로 통과되지 않게 하기 위해서다.
+- **합격 판정은 코드가 한다.** LLM은 rubric 7개 항목(사실성·관련성·통찰·출처 연결·SEO·사람 문체·이미지 적합)의 점수 JSON만 낸다. 가중평균 4.0/5.0 미만이면 Writer를 최대 3회 재실행한다. 이미지 항목만 부족하면 image_agent만 다시 돈다.
+- **평가 모델은 버전을 고정한다.** CLI 기본값을 따라가다 심사 기준이 말없이 바뀌어 발행이 멈춘 적이 있다.
+- **AI 체험관은 런타임 LLM 호출이 없다.** 방문자는 고정 선택지에서 고르고, 미리 생성해 손으로 다듬은 응답을 재생한다. Vercel에 AI 키가 없고 운영비가 0이다.
+- **파이프라인은 배포하지 않는다.** 로컬에서 실행해 결과만 Supabase에 적재한다. 발행 산출물과 원본 크롤 데이터는 `data(insights):` 커밋으로 남는다.
+
+## 스택
+
+Next.js 16 · React 19 · TypeScript · Tailwind v4 · Supabase (Postgres · Auth · RLS) · Vercel · Upstash Redis(rate limit) · Cloudflare Turnstile · Python 3.12 + uv · claude / codex CLI
+
+<details>
+<summary>구조와 셋업</summary>
+
+### 구조
 
 ```
 dataeasy/
 ├── frontend/      Next.js 16 + React 19 + Tailwind v4
 │                  └ 공개 사이트 + 어드민 UI + API Route Handler
-├── ai-service/    인사이트 자동 발행 파이프라인 (uv, claude·codex CLI 서브프로세스)
+├── ai-service/    인사이트 자동 발행(insights/) + 홍보발행(promo/) — uv, claude·codex CLI 서브프로세스
 ├── supabase/      DB 스키마 / 마이그레이션 / RLS
 ├── scripts/       일회성 유틸 (이미지 정규화 등)
 ├── .claude/
-│   └── commands/  슬래시 명령어 (/insight-publish)
+│   └── commands/  슬래시 명령어 (/insight-publish, /review-publish)
 ├── docs/
 └── CLAUDE.md      이 프로젝트 작업 가이드
 ```
 
 별도 백엔드 서버는 없다. 트랜잭셔널 API 는 모두 `frontend/src/app/api/*/route.ts` (Next.js Route Handler) 로 처리한다.
 옛 FastAPI 코드는 `archive/backend-fastapi` 브랜치에 보관.
-
-## 셋업
-
-환경변수는 `.env.example` 참고.
 
 ### 1. Supabase
 
@@ -60,8 +83,8 @@ npm run dev                     # http://localhost:3000
 
 - Cloudflare Turnstile에서 사이트를 만들고 `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` 설정
 - 운영 환경에 Upstash `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` 설정
-- `NEXT_PUBLIC_SITE_URL=https://dataeasy.kr` 설정
-- Supabase Auth → URL Configuration의 Site URL을 `https://dataeasy.kr`로 설정
+- `NEXT_PUBLIC_SITE_URL=https://daeasy.co.kr` 설정
+- Supabase Auth → URL Configuration의 Site URL을 `https://daeasy.co.kr`로 설정
 - Supabase Auth → Email Templates → Confirm signup 링크를 다음 형태로 설정
 
 ```html
@@ -88,13 +111,14 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 - `ANTHROPIC_API_KEY` 는 비워둔다 — Anthropic Max 구독을 사용한다
 - 배포하지 않는다. 로컬에서 실행해 결과만 Supabase 에 적재한다
 
-## 슬래시 명령어
+### 슬래시 명령어
 
 `.claude/commands/` 안의 명령어는 Claude Code 에서 실행:
 
 - `/insight-publish` — 크롤러 → Writer → Image → Proofreader → Evaluator → DB 업로드
+- `/review-publish` — 홍보자료 접수 건을 사이트 발행까지 처리 (`ai-service/promo/run.py`)
 
-## 배포
+### 배포
 
 | 대상 | 위치 |
 |---|---|
@@ -102,6 +126,8 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 | DB / RLS | Supabase Cloud |
 | Rate limiter (선택) | Upstash Redis |
 | ai-service | 배포 없음 (로컬 실행) |
+
+</details>
 
 ## 진행 상태
 
@@ -112,6 +138,8 @@ cp ../.env.example .env         # ai-service 섹션만 채우기
 - [x] 어드민 인증 + 문의 관리
 - [x] 어드민 교육과정 · 교육 사례 CRUD
 - [x] Vercel 배포
+- [x] AI 체험관 (`/quiz`) — 내 업무 AI 리포트 · 바이브 코딩 · 레드팀 게임
+- [x] 홍보발행 오케스트레이터 (`ai-service/promo`)
 - [ ] 뉴스레터 발송 (구독 접수만 구현됨, 발송 경로 · 메일 서비스 미정)
-- [x] `/quiz` → AI 체험관 허브 전환 — 스테이션 ① "내 업무 AI 리포트", ② 바이브 코딩. **런타임 LLM 호출 없음**: 방문자는 고정 선택지에서 고르고, 클라이언트가 미리 생성해둔 `public/experience/*-canned.json` 을 타자기 연출로 재생한다 (과정 추천 → `/contact?course=` 연결). 재생성은 `cd frontend && node scripts/gen-canned.mjs` (Gemini, `.env.local` 의 `GEMINI_API_KEY`). Vercel 에 AI 키 불필요
-- [x] `/quiz` 스테이션 03 레드팀 게임 — 규칙이 걸린 공공 챗봇 5라운드를 뚫어보는 시나리오 게임. 대사는 `quiz/redteam/content.ts` 에 손으로 쓴 TS 상수, 런타임 LLM 호출 없음 (`docs/2026-09-08-redteam-station.md`)
+
+더 깊은 문서: [`CLAUDE.md`](./CLAUDE.md), [`docs/architecture.md`](./docs/architecture.md), [`supabase/README.md`](./supabase/README.md)
